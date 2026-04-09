@@ -1,0 +1,80 @@
+---
+layout: base.njk
+title: Sports Rehabilitation
+description: "Sports Rehabilitation at Meridian Osteopathy, Christchurch. Tailored exercise programs for safe return to sport and optimal performance."
+---
+
+<section class="hero" style="background-image: url('/images/hero-sports.jpg');">
+  <div class="hero-content">
+    <h1>Sports Rehabilitation</h1>
+  </div>
+</section>
+
+<section class="section text-center">
+  <div class="container">
+    <div class="service-intro">
+      <h2>Sports Rehabilitation</h2>
+      <p>Our dedicated team is committed to restoring your strength, flexibility, and stability, ensuring a safe and effective return to your favourite activities. With tailored exercise programs and a holistic approach, we'll guide you every step of the way towards optimal performance.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <h2>Pricing</h2>
+    <div class="pricing-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Patient Type</th>
+            <th>Rate</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="acc-tag">ACC</span> ACC Patient</td>
+            <td>{{ site.pricing.acc.rate }}</td>
+            <td>{{ site.pricing.acc.notes }}</td>
+          </tr>
+          <tr>
+            <td>Private Patient</td>
+            <td>{{ site.pricing.private.rate }}</td>
+            <td>{{ site.pricing.private.notes }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="pricing-note">* Pricing may vary slightly depending on treatment time</p>
+    </div>
+  </div>
+</section>
+
+<section class="section text-center">
+  <div class="container">
+    <h2>Explore Our Other Services</h2>
+    <div class="other-services">
+      <a href="/services/osteopathy/" class="other-service-card">
+        <div class="icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke="var(--primary)" stroke-width="2" width="50" height="50">
+            <circle cx="32" cy="20" r="8"/><path d="M20 56V42a12 12 0 0124 0v14"/>
+          </svg>
+        </div>
+        <div>
+          <h3>Osteopathy</h3>
+          <span class="btn btn-outline" style="font-size:0.85rem; padding:6px 16px;">Learn more &rarr;</span>
+        </div>
+      </a>
+      <a href="/services/medical-acupuncture/" class="other-service-card">
+        <div class="icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke="var(--primary)" stroke-width="2" width="50" height="50">
+            <path d="M32 8v48M24 20l8-12 8 12M20 32h24M24 44l8 12 8-12"/>
+          </svg>
+        </div>
+        <div>
+          <h3>Medical Acupuncture</h3>
+          <span class="btn btn-outline" style="font-size:0.85rem; padding:6px 16px;">Learn more &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>

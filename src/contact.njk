@@ -1,0 +1,76 @@
+---
+layout: base.njk
+title: Contact
+description: "Get in touch with Meridian Osteopathy in Christchurch. Book an appointment, find our location, and see our opening hours."
+---
+
+<!-- Hero -->
+<section class="hero" style="background-image: url('/images/hero-contact.jpg');">
+  <div class="hero-content">
+    <h1>Get in touch with Meridian Osteopathy</h1>
+    <p>From Osteopathy to Acupuncture, we can help!</p>
+  </div>
+</section>
+
+<!-- Contact Info -->
+<section class="section">
+  <div class="container text-center">
+    <p>Call us, Email us or Book online to set up an appointment with one of our friendly team.<br>
+    We are ACC registered. You don't need a GP referral.</p>
+
+    <div class="contact-info-grid" style="margin-top: 40px;">
+      <div>
+        <h3>Opening Hours</h3>
+        <p>{{ site.hours.weekday }}</p>
+        <p>{{ site.hours.saturday }}</p>
+        <p>{{ site.hours.sunday }}</p>
+      </div>
+      <div>
+        <h3>Our Location</h3>
+        <p>{{ site.address }}</p>
+        <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+        <p><a href="tel:{{ site.phone }}">{{ site.phone }}</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Map -->
+<section class="section section-light">
+  <div class="container">
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2892.5!2d172.5892!3d-43.555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s21+Coppell+Place+Hillmorton+Christchurch+8025!5e0!3m2!1sen!2snz!4v1"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Meridian Osteopathy location">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Getting Here -->
+<section class="section text-center">
+  <div class="container">
+    <h2>Getting Here</h2>
+    <div class="getting-here-grid">
+      <div class="getting-here-card">
+        <div class="icon">&#x1F17F;&#xFE0F;</div>
+        <h4>Parking</h4>
+        <p>Free on-site parking available</p>
+      </div>
+      <div class="getting-here-card">
+        <div class="icon">&#128652;</div>
+        <h4>Public Transport</h4>
+        <p>Bus routes and stops nearby</p>
+      </div>
+      <div class="getting-here-card">
+        <div class="icon">&#9855;</div>
+        <h4>Accessibility</h4>
+        <p>Wheelchair accessible entrance</p>
+      </div>
+    </div>
+  </div>
+</section>
+

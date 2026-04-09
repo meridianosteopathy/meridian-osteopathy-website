@@ -1,0 +1,123 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/images"
+public_folder: "/images"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "home"
+        label: "Homepage"
+        file: "src/_data/home.json"
+        fields:
+          - { label: "Hero Title", name: "heroTitle", widget: "string", default: "Discover a New Path to Pain Relief!" }
+          - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+          - label: "Practitioners"
+            name: "practitioners"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Qualifications", name: "quals", widget: "string" }
+              - { label: "Photo", name: "photo", widget: "image", required: false }
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - { label: "Quote", name: "quote", widget: "string" }
+              - { label: "Author", name: "author", widget: "string" }
+          - label: "FAQ"
+            name: "faq"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+
+      - name: "contact"
+        label: "Contact Page"
+        file: "src/_data/site.json"
+        fields:
+          - { label: "Business Name", name: "name", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Address", name: "address", widget: "string" }
+          - label: "Opening Hours"
+            name: "hours"
+            widget: "object"
+            fields:
+              - { label: "Weekday", name: "weekday", widget: "string" }
+              - { label: "Saturday", name: "saturday", widget: "string" }
+              - { label: "Sunday", name: "sunday", widget: "string" }
+          - label: "Social Links"
+            name: "social"
+            widget: "object"
+            fields:
+              - { label: "Facebook URL", name: "facebook", widget: "string" }
+              - { label: "Instagram URL", name: "instagram", widget: "string" }
+              - { label: "LinkedIn URL", name: "linkedin", widget: "string" }
+              - { label: "YouTube URL", name: "youtube", widget: "string" }
+          - label: "Pricing"
+            name: "pricing"
+            widget: "object"
+            fields:
+              - label: "ACC"
+                name: "acc"
+                widget: "object"
+                fields:
+                  - { label: "Rate", name: "rate", widget: "string" }
+                  - { label: "Notes", name: "notes", widget: "string" }
+              - label: "Private"
+                name: "private"
+                widget: "object"
+                fields:
+                  - { label: "Rate", name: "rate", widget: "string" }
+                  - { label: "Notes", name: "notes", widget: "string" }
+
+  - name: "services"
+    label: "Services"
+    files:
+      - name: "osteopathy"
+        label: "Osteopathy"
+        file: "src/_data/osteopathy.json"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+          - label: "Techniques"
+            name: "techniques"
+            widget: "list"
+            field: { label: "Technique", name: "technique", widget: "string" }
+          - label: "Conditions"
+            name: "conditions"
+            widget: "list"
+            field: { label: "Condition", name: "condition", widget: "string" }
+
+      - name: "acupuncture"
+        label: "Medical Acupuncture"
+        file: "src/_data/acupuncture.json"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+
+      - name: "sports"
+        label: "Sports Rehabilitation"
+        file: "src/_data/sports.json"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+
+  - name: "careers"
+    label: "Careers"
+    files:
+      - name: "careers"
+        label: "Careers Page"
+        file: "src/_data/careers.json"
+        fields:
+          - { label: "Hiring Status", name: "hiringStatus", widget: "boolean", default: true }
+          - { label: "Job Title", name: "jobTitle", widget: "string" }
+          - { label: "Job Description", name: "jobDescription", widget: "markdown" }
