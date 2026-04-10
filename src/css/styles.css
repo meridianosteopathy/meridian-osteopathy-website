@@ -821,7 +821,7 @@ p { margin-bottom: 16px; }
   }
 
   /* Profile page mobile */
-  .profile-hero { padding: 110px 20px 40px; }
+  .profile-hero { padding: 28px 20px 32px; }
   .profile-hero h1 { font-size: 2rem; }
   .profile-hero .profile-subtitle { font-size: 1.05rem; }
   .profile-hero-content { flex-direction: column; text-align: center; }
@@ -844,7 +844,7 @@ p { margin-bottom: 16px; }
    ============================================ */
 .profile-hero {
   background: var(--primary);
-  padding: 140px 24px 60px;
+  padding: 40px 24px 50px;
   color: var(--white);
   margin-top: var(--header-height);
 }
@@ -871,6 +871,9 @@ p { margin-bottom: 16px; }
 .profile-body {
   background: var(--primary);
 }
+/* Kill any white bleed between the profile hero and body on pages that have a profile hero */
+body:has(.profile-hero) { background: var(--primary); }
+body:has(.profile-hero) main { background: var(--primary); }
 .profile-main {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -1043,4 +1046,36 @@ p { margin-bottom: 16px; }
 }
 .profile-lifestyle-nav:hover {
   background: rgba(255,255,255,0.5);
+}
+
+/* ============================================
+   BACK TO TOP
+   ============================================ */
+.back-to-top-section {
+  background: var(--light-bg);
+  padding: 40px 24px;
+  text-align: center;
+}
+.back-to-top-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--primary);
+  color: var(--white);
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  font-family: inherit;
+}
+.back-to-top-link:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+.back-to-top-link svg {
+  width: 16px;
+  height: 16px;
 }
