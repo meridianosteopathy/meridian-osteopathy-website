@@ -597,7 +597,8 @@ p { margin-bottom: 16px; }
   padding: 28px 20px;
   text-align: center;
 }
-.getting-here-card .icon { margin-bottom: 12px; font-size: 2.5rem; }
+.getting-here-card .icon { margin-bottom: 14px; display: flex; justify-content: center; align-items: center; }
+.getting-here-card .icon svg { width: 52px; height: 52px; color: var(--white); }
 .getting-here-card h4 { color: var(--white); margin-bottom: 6px; }
 .getting-here-card p { font-size: 0.85rem; opacity: 0.85; margin-bottom: 0; }
 
@@ -884,7 +885,13 @@ p { margin-bottom: 16px; }
   }
   .dropdown a { color: var(--white); padding: 10px 16px; }
   .dropdown a:hover { background: rgba(255,255,255,0.1); }
-  .btn-book { display: none; }
+  .btn-book {
+    margin-left: auto;
+    margin-right: 12px;
+    padding: 7px 14px;
+    font-size: 0.7rem;
+    letter-spacing: 0.3px;
+  }
 
   .steps-grid { grid-template-columns: 1fr; }
   .contact-info-grid { grid-template-columns: 1fr; gap: 24px; }
