@@ -642,6 +642,80 @@ p { margin-bottom: 16px; }
 }
 .file-uploads { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 
+/* Referral Form — wider container, two-column rows, section titles */
+#referral-form .form-container {
+  max-width: 760px;
+  padding: 48px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.form-row .form-group { margin-bottom: 24px; }
+.form-section-title {
+  font-family: var(--font-secondary);
+  font-weight: 400;
+  color: var(--primary);
+  font-size: 1.35rem;
+  margin: 32px 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.form-section-title:first-child { margin-top: 0; }
+.form-group.form-checkbox label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-weight: 400;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.form-group.form-checkbox input[type="checkbox"] {
+  width: auto;
+  margin-top: 4px;
+  flex-shrink: 0;
+  transform: scale(1.2);
+  accent-color: var(--primary);
+}
+.form-group.form-checkbox .required { color: #e74c3c; }
+
+/* Thank-you message */
+.referral-thank-you { max-width: 620px; margin: 0 auto; }
+.referral-thank-you .thank-you-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 56px 40px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  text-align: center;
+}
+.referral-thank-you .thank-you-icon {
+  width: 64px;
+  height: 64px;
+  color: var(--primary);
+  margin: 0 auto 16px;
+}
+.referral-thank-you h2 {
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+.referral-thank-you p {
+  color: var(--text);
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+.referral-thank-you a[href^="tel:"] { color: var(--primary); font-weight: 600; }
+
+@media (max-width: 768px) {
+  #referral-form .form-container { padding: 28px 20px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .form-section-title { font-size: 1.2rem; margin: 24px 0 12px; }
+  .referral-thank-you .thank-you-card { padding: 40px 24px; }
+}
+
 /* ============================================
    FOOTER
    ============================================ */

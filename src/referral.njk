@@ -1,0 +1,194 @@
+---
+layout: base.njk
+title: Make a Referral
+description: "Refer a patient to Meridian Osteopathy. Complete our secure online referral form for medical professionals, family, and friends."
+---
+
+<!-- Hero -->
+<section class="hero" style="background-image: url('/images/hero-contact.jpg');">
+  <div class="hero-content">
+    <h1>Make a Referral</h1>
+    <p>Refer a patient to our team &bull; Quick, secure online form</p>
+  </div>
+</section>
+
+<!-- Intro -->
+<section class="section">
+  <div class="container text-center">
+    <h2>Refer a Patient</h2>
+    <p class="subtitle" style="max-width: 720px; margin: 0 auto;">
+      Whether you're a medical professional, a family member, or a friend, you can use this form to refer someone to Meridian Osteopathy. Once submitted, our team will be in touch to arrange their appointment.
+    </p>
+  </div>
+</section>
+
+<!-- Referral Form -->
+<section class="section section-light" id="referral-form">
+  <div class="container">
+    <div id="referral-form-wrapper">
+      <form
+        name="patient-referral"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        class="form-container"
+        style="text-align: left; margin: 0 auto;"
+        onsubmit="return handleReferralSubmit(event)">
+
+        <input type="hidden" name="form-name" value="patient-referral">
+        <p class="hidden" style="display:none;">
+          <label>Don't fill this out if you're human: <input name="bot-field"></label>
+        </p>
+
+        <!-- Referrer Section -->
+        <h3 class="form-section-title">Your Details <span style="font-weight:400; font-size:0.85rem; color:var(--text-light);">(the person making the referral)</span></h3>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name <span class="required">*</span></label>
+            <input type="text" name="referrer-first-name" placeholder="Your first name" required>
+          </div>
+          <div class="form-group">
+            <label>Last Name <span class="required">*</span></label>
+            <input type="text" name="referrer-last-name" placeholder="Your last name" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Your Relation to the Patient <span class="required">*</span></label>
+          <select name="referrer-relation" required>
+            <option value="" disabled selected>Please select…</option>
+            <option value="medical-professional">Medical Professional</option>
+            <option value="family">Family</option>
+            <option value="friend">Friend</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Phone <span class="required">*</span></label>
+            <input type="tel" name="referrer-phone" placeholder="Your contact number" required>
+          </div>
+          <div class="form-group">
+            <label>Your Email <span class="required">*</span></label>
+            <input type="email" name="referrer-email" placeholder="Your email address" required>
+          </div>
+        </div>
+
+        <!-- Patient Section -->
+        <h3 class="form-section-title">Patient Details</h3>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Patient First Name <span class="required">*</span></label>
+            <input type="text" name="patient-first-name" placeholder="Patient's first name" required>
+          </div>
+          <div class="form-group">
+            <label>Patient Last Name <span class="required">*</span></label>
+            <input type="text" name="patient-last-name" placeholder="Patient's last name" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Patient Email <span class="required">*</span></label>
+            <input type="email" name="patient-email" placeholder="Patient's email" required>
+          </div>
+          <div class="form-group">
+            <label>Patient Phone <span class="required">*</span></label>
+            <input type="tel" name="patient-phone" placeholder="Patient's phone" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Patient Date of Birth <span class="required">*</span></label>
+          <input type="date" name="patient-dob" required>
+        </div>
+
+        <div class="form-group">
+          <label>Reason for Referral <span class="required">*</span></label>
+          <textarea name="reason-for-referral" placeholder="Please describe the reason for this referral — symptoms, history, and any relevant information…" rows="5" required></textarea>
+        </div>
+
+        <!-- Consent Section -->
+        <h3 class="form-section-title">Consent &amp; Signature</h3>
+
+        <div class="form-group form-checkbox">
+          <label>
+            <input type="checkbox" name="consent" value="yes" required>
+            <span>I confirm that the patient has given consent to be referred to Meridian Osteopathy, and understands their information will be used to arrange and deliver their care. <span class="required">*</span></span>
+          </label>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Signature (type your full name) <span class="required">*</span></label>
+            <input type="text" name="signature" placeholder="Type your full name" required>
+          </div>
+          <div class="form-group">
+            <label>Today's Date <span class="required">*</span></label>
+            <input type="date" name="submission-date" required>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 24px;">
+          <button type="submit" class="btn btn-gold">Submit Referral</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Thank-you message (hidden until submit) -->
+    <div id="referral-thank-you" class="referral-thank-you" style="display:none;">
+      <div class="thank-you-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="thank-you-icon"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+        <h2>Thank you for your referral</h2>
+        <p>We've received the referral and our team will be in touch shortly to arrange the appointment. If you have any urgent questions, please call us on <a href="tel:{{ site.phone }}">{{ site.phone }}</a>.</p>
+        <a href="/" class="btn btn-gold" style="margin-top: 16px;">Return to Home</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Pre-fill today's date
+  (function() {
+    var dateInput = document.querySelector('input[name="submission-date"]');
+    if (dateInput && !dateInput.value) {
+      var today = new Date();
+      var yyyy = today.getFullYear();
+      var mm = String(today.getMonth() + 1).padStart(2, '0');
+      var dd = String(today.getDate()).padStart(2, '0');
+      dateInput.value = yyyy + '-' + mm + '-' + dd;
+    }
+  })();
+
+  function handleReferralSubmit(event) {
+    // Let Netlify process the form via AJAX so we can show an inline thank-you
+    event.preventDefault();
+    var form = event.target;
+    var data = new FormData(form);
+    var encoded = new URLSearchParams();
+    data.forEach(function(value, key) { encoded.append(key, value); });
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encoded.toString()
+    }).then(function(response) {
+      if (response.ok) {
+        document.getElementById('referral-form-wrapper').style.display = 'none';
+        var ty = document.getElementById('referral-thank-you');
+        ty.style.display = 'block';
+        ty.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        alert('Sorry, something went wrong. Please try again or call us directly.');
+      }
+    }).catch(function() {
+      alert('Sorry, something went wrong. Please try again or call us directly.');
+    });
+    return false;
+  }
+</script>
+
+{% include "back-to-top.njk" %}
