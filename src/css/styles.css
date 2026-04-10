@@ -821,9 +821,19 @@ p { margin-bottom: 16px; }
   }
 
   /* Profile page mobile */
+  .profile-hero { padding: 110px 20px 40px; }
+  .profile-hero h1 { font-size: 2rem; }
+  .profile-hero .profile-subtitle { font-size: 1.05rem; }
   .profile-hero-content { flex-direction: column; text-align: center; }
-  .profile-main { flex-direction: column; padding: 24px 16px; }
-  .profile-sidebar { position: static; }
+  .profile-main { flex-direction: column; padding: 24px 16px; gap: 24px; }
+  .profile-sidebar {
+    position: static;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    order: -1;
+  }
+  .profile-content { order: 1; }
   .profile-photo-card { margin-top: 0; }
   .profile-lifestyle { min-height: 300px; }
   .profile-lifestyle-nav { display: none; }
@@ -834,24 +844,26 @@ p { margin-bottom: 16px; }
    ============================================ */
 .profile-hero {
   background: var(--primary);
-  padding: 120px 24px 40px;
+  padding: 140px 24px 60px;
   color: var(--white);
   margin-top: var(--header-height);
 }
 .profile-hero-content {
   max-width: var(--max-width);
   margin: 0 auto;
+  text-align: center;
 }
 .profile-hero h1 {
   font-size: 2.8rem;
   font-family: var(--font-secondary);
   font-weight: 400;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   color: var(--white);
+  line-height: 1.1;
 }
 .profile-hero .profile-subtitle {
-  font-size: 1rem;
-  opacity: 0.85;
+  font-size: 1.25rem;
+  opacity: 0.9;
   font-weight: 300;
 }
 
@@ -875,8 +887,6 @@ p { margin-bottom: 16px; }
 .profile-sidebar {
   width: 280px;
   flex-shrink: 0;
-  position: sticky;
-  top: calc(var(--header-height) + 24px);
   align-self: flex-start;
 }
 
@@ -944,18 +954,19 @@ p { margin-bottom: 16px; }
 }
 .profile-booking-info .btn-book-profile {
   display: inline-block;
-  background: var(--accent);
+  background: var(--gold);
   color: var(--white);
-  padding: 10px 32px;
+  padding: 12px 32px;
   border-radius: 6px;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 600;
   text-decoration: none;
   transition: background 0.2s;
   width: 100%;
+  box-sizing: border-box;
 }
 .profile-booking-info .btn-book-profile:hover {
-  background: #c9942e;
+  background: var(--gold-hover);
 }
 
 /* Consultation steps section */
