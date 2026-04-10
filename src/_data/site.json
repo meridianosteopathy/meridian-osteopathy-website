@@ -15,7 +15,7 @@
     "youtube": "https://youtube.com/@meridianosteopathy"
   },
   "pricing": {
-    "acc": { "rate": "$80 - $85", "notes": "No GP referral required" },
+    "acc": { "rate": "$80 - $85", "notes": "" },
     "private": { "rate": "$115 - $120", "notes": "Non-ACC consultation" }
   }
 }
