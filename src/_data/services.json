@@ -1,9 +1,6 @@
 {
   "osteopathy": {
-    "title": "Osteopathy",
     "heroImage": "/images/hero-osteopathy.jpg",
-    "intro": "Osteopathy is a regulated allied health profession that specialises in musculoskeletal issues. An osteopath needs four to five years of full-time training covering subjects including Anatomy, physiology, pathology, pharmacology, neuroscience, pain science, clinical reasoning and practice.",
-    "techniquesHeading": "Osteopathy Techniques",
     "techniques": [
       "General Osteopathy Techniques",
       "Muscle energy techniques",
@@ -12,8 +9,11 @@
       "Visceral techniques",
       "Lymphatic techniques"
     ],
-    "conditionsHeading": "What can osteopathy help with?",
     "conditionsImage": "/images/conditions.jpg",
+    "conditionsHeading": "What can osteopathy help with?",
+    "conditionsNote": "Any age from infants to seniors can benefit from osteopathy treatment.",
+    "intro": "Osteopathy is a regulated allied health profession that specialises in musculoskeletal issues. An osteopath needs four to five years of full-time training covering subjects including Anatomy, physiology, pathology, pharmacology, neuroscience, pain science, clinical reasoning and practice.",
+    "title": "Osteopathy",
     "conditions": [
       "Back and Neck pain",
       "Headache and Migraine",
@@ -23,10 +23,10 @@
       "Pregnancy pain",
       "Growth pain"
     ],
-    "conditionsNote": "Any age from infants to seniors can benefit from osteopathy treatment."
+    "techniquesHeading": "Osteopathy Techniques"
   },
   "acupuncture": {
-    "title": "Medical Acupuncture",
+    "title": "Western Medical Acupuncture",
     "heroImage": "/images/hero-acupuncture.jpg",
     "intro": "Medical Acupuncture is a modern evidence-based treatment that merges traditional acupuncture techniques with contemporary medical knowledge. By stimulating specific points on the body, it promotes the flow of energy, releases tension, and activates the body's natural pain and stress mechanisms."
   },
