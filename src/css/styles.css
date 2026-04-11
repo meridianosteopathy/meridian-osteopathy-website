@@ -295,7 +295,7 @@ p { margin-bottom: 16px; }
   height: 280px;
   background: var(--light-bg);
   background-size: cover;
-  background-position: center;
+  background-position: center top;
 }
 .team-card-info { padding: 20px; }
 .team-card-info h3 { font-size: 1.1rem; margin-bottom: 4px; }
@@ -459,6 +459,8 @@ p { margin-bottom: 16px; }
 .pricing-table th { padding: 14px 20px; text-align: left; font-weight: 600; font-size: 0.9rem; }
 .pricing-table td { padding: 14px 20px; font-size: 0.95rem; border-bottom: 1px solid var(--border); }
 .pricing-table tbody tr:last-child td { border-bottom: none; }
+.pricing-table .pricing-rate { white-space: nowrap; font-weight: 600; }
+.pricing-table .td-subnote { display: none; }
 .acc-tag {
   display: inline-block;
   background: var(--primary);
@@ -470,6 +472,27 @@ p { margin-bottom: 16px; }
   font-weight: 600;
 }
 .pricing-note { font-size: 0.85rem; color: var(--text-light); margin-top: 10px; font-style: italic; }
+
+/* Mobile: collapse 3-col table into 2 cols, move notes as subtitle */
+@media (max-width: 600px) {
+  .pricing-table th,
+  .pricing-table td { padding: 12px 14px; font-size: 0.9rem; }
+  .pricing-table th { font-size: 0.75rem; letter-spacing: 0.3px; }
+  .pricing-table th:nth-child(3),
+  .pricing-table td.pricing-notes-col { display: none; }
+  .pricing-table th:nth-child(2),
+  .pricing-table td.pricing-rate { text-align: right; }
+  .pricing-table .td-subnote {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-light);
+    font-weight: 400;
+    font-style: italic;
+    margin-top: 3px;
+    line-height: 1.35;
+  }
+  .acc-tag { font-size: 0.62rem; padding: 2px 6px; margin-right: 5px; }
+}
 
 .techniques-list { max-width: 700px; }
 .techniques-list ul { display: flex; flex-direction: column; gap: 12px; }
@@ -574,7 +597,8 @@ p { margin-bottom: 16px; }
   padding: 28px 20px;
   text-align: center;
 }
-.getting-here-card .icon { margin-bottom: 12px; font-size: 2.5rem; }
+.getting-here-card .icon { margin-bottom: 14px; display: flex; justify-content: center; align-items: center; }
+.getting-here-card .icon svg { width: 52px; height: 52px; color: var(--white); }
 .getting-here-card h4 { color: var(--white); margin-bottom: 6px; }
 .getting-here-card p { font-size: 0.85rem; opacity: 0.85; margin-bottom: 0; }
 
@@ -641,6 +665,80 @@ p { margin-bottom: 16px; }
   cursor: pointer;
 }
 .file-uploads { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+/* Referral Form — wider container, two-column rows, section titles */
+#referral-form .form-container {
+  max-width: 760px;
+  padding: 48px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.form-row .form-group { margin-bottom: 24px; }
+.form-section-title {
+  font-family: var(--font-secondary);
+  font-weight: 400;
+  color: var(--primary);
+  font-size: 1.35rem;
+  margin: 32px 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.form-section-title:first-child { margin-top: 0; }
+.form-group.form-checkbox label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-weight: 400;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.form-group.form-checkbox input[type="checkbox"] {
+  width: auto;
+  margin-top: 4px;
+  flex-shrink: 0;
+  transform: scale(1.2);
+  accent-color: var(--primary);
+}
+.form-group.form-checkbox .required { color: #e74c3c; }
+
+/* Thank-you message */
+.referral-thank-you { max-width: 620px; margin: 0 auto; }
+.referral-thank-you .thank-you-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 56px 40px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  text-align: center;
+}
+.referral-thank-you .thank-you-icon {
+  width: 64px;
+  height: 64px;
+  color: var(--primary);
+  margin: 0 auto 16px;
+}
+.referral-thank-you h2 {
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+.referral-thank-you p {
+  color: var(--text);
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+.referral-thank-you a[href^="tel:"] { color: var(--primary); font-weight: 600; }
+
+@media (max-width: 768px) {
+  #referral-form .form-container { padding: 28px 20px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .form-section-title { font-size: 1.2rem; margin: 24px 0 12px; }
+  .referral-thank-you .thank-you-card { padding: 40px 24px; }
+}
 
 /* ============================================
    FOOTER
@@ -756,6 +854,12 @@ p { margin-bottom: 16px; }
   }
   .hero-home .hero-content { padding: 20px 16px; }
 
+  .team-card-image {
+    height: auto;
+    aspect-ratio: 1 / 1;
+    background-position: center center;
+  }
+
   .mobile-menu-toggle { display: flex; }
   .main-nav {
     display: none;
@@ -781,7 +885,13 @@ p { margin-bottom: 16px; }
   }
   .dropdown a { color: var(--white); padding: 10px 16px; }
   .dropdown a:hover { background: rgba(255,255,255,0.1); }
-  .btn-book { display: none; }
+  .btn-book {
+    margin-left: auto;
+    margin-right: 12px;
+    padding: 7px 14px;
+    font-size: 0.7rem;
+    letter-spacing: 0.3px;
+  }
 
   .steps-grid { grid-template-columns: 1fr; }
   .contact-info-grid { grid-template-columns: 1fr; gap: 24px; }
@@ -794,21 +904,40 @@ p { margin-bottom: 16px; }
   /* Footer mobile */
   .footer-main .footer-container {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
     gap: 24px;
   }
-  .footer-nav { flex-wrap: wrap; gap: 16px; }
-  .footer-contact { align-items: flex-start; }
+  .footer-brand { align-items: center; }
+  .acc-badge { margin: 0 auto; }
+  .footer-nav {
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+  }
+  .footer-contact { align-items: center; }
+  .footer-contact a { justify-content: center; }
   .footer-bottom .footer-container {
     flex-direction: column;
     gap: 16px;
     align-items: center;
+    text-align: center;
   }
 
   /* Profile page mobile */
+  .profile-hero { padding: 28px 20px 32px; }
+  .profile-hero h1 { font-size: 2rem; }
+  .profile-hero .profile-subtitle { font-size: 1.05rem; }
   .profile-hero-content { flex-direction: column; text-align: center; }
-  .profile-main { flex-direction: column; padding: 24px 16px; }
-  .profile-sidebar { position: static; }
+  .profile-main { flex-direction: column; padding: 24px 16px; gap: 24px; }
+  .profile-sidebar {
+    position: static;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    order: -1;
+  }
+  .profile-content { order: 1; }
   .profile-photo-card { margin-top: 0; }
   .profile-lifestyle { min-height: 300px; }
   .profile-lifestyle-nav { display: none; }
@@ -819,24 +948,26 @@ p { margin-bottom: 16px; }
    ============================================ */
 .profile-hero {
   background: var(--primary);
-  padding: 120px 24px 40px;
+  padding: 40px 24px 50px;
   color: var(--white);
   margin-top: var(--header-height);
 }
 .profile-hero-content {
   max-width: var(--max-width);
   margin: 0 auto;
+  text-align: center;
 }
 .profile-hero h1 {
   font-size: 2.8rem;
   font-family: var(--font-secondary);
   font-weight: 400;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   color: var(--white);
+  line-height: 1.1;
 }
 .profile-hero .profile-subtitle {
-  font-size: 1rem;
-  opacity: 0.85;
+  font-size: 1.25rem;
+  opacity: 0.9;
   font-weight: 300;
 }
 
@@ -844,6 +975,9 @@ p { margin-bottom: 16px; }
 .profile-body {
   background: var(--primary);
 }
+/* Kill any white bleed between the profile hero and body on pages that have a profile hero */
+body:has(.profile-hero) { background: var(--primary); }
+body:has(.profile-hero) main { background: var(--primary); }
 .profile-main {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -860,8 +994,6 @@ p { margin-bottom: 16px; }
 .profile-sidebar {
   width: 280px;
   flex-shrink: 0;
-  position: sticky;
-  top: calc(var(--header-height) + 24px);
   align-self: flex-start;
 }
 
@@ -929,18 +1061,19 @@ p { margin-bottom: 16px; }
 }
 .profile-booking-info .btn-book-profile {
   display: inline-block;
-  background: var(--accent);
+  background: var(--gold);
   color: var(--white);
-  padding: 10px 32px;
+  padding: 12px 32px;
   border-radius: 6px;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 600;
   text-decoration: none;
   transition: background 0.2s;
   width: 100%;
+  box-sizing: border-box;
 }
 .profile-booking-info .btn-book-profile:hover {
-  background: #c9942e;
+  background: var(--gold-hover);
 }
 
 /* Consultation steps section */
@@ -1017,4 +1150,36 @@ p { margin-bottom: 16px; }
 }
 .profile-lifestyle-nav:hover {
   background: rgba(255,255,255,0.5);
+}
+
+/* ============================================
+   BACK TO TOP
+   ============================================ */
+.back-to-top-section {
+  background: var(--light-bg);
+  padding: 40px 24px;
+  text-align: center;
+}
+.back-to-top-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--primary);
+  color: var(--white);
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  font-family: inherit;
+}
+.back-to-top-link:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+.back-to-top-link svg {
+  width: 16px;
+  height: 16px;
 }

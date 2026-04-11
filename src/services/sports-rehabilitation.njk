@@ -33,18 +33,18 @@ description: "Sports Rehabilitation at Meridian Osteopathy, Christchurch. Tailor
         </thead>
         <tbody>
           <tr>
-            <td><span class="acc-tag">ACC</span> ACC Patient</td>
-            <td>{{ site.pricing.acc.rate }}</td>
-            <td>{{ site.pricing.acc.notes }}</td>
+            <td><span class="acc-tag">ACC</span> ACC Patient<span class="td-subnote">{{ site.pricing.acc.notes }}</span></td>
+            <td class="pricing-rate">{{ site.pricing.acc.rate }}</td>
+            <td class="pricing-notes-col">{{ site.pricing.acc.notes }}</td>
           </tr>
           <tr>
-            <td>Private Patient</td>
-            <td>{{ site.pricing.private.rate }}</td>
-            <td>{{ site.pricing.private.notes }}</td>
+            <td>Private Patient<span class="td-subnote">{{ site.pricing.private.notes }}</span></td>
+            <td class="pricing-rate">{{ site.pricing.private.rate }}</td>
+            <td class="pricing-notes-col">{{ site.pricing.private.notes }}</td>
           </tr>
         </tbody>
       </table>
-      <p class="pricing-note">* Pricing may vary slightly depending on treatment time</p>
+      <p class="pricing-note">* Pricing may vary slightly</p>
     </div>
   </div>
 </section>
