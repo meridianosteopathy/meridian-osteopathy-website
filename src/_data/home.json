@@ -1,17 +1,97 @@
 {
-  "heroTitle": "Discover a New Path to Pain Relief!",
   "heroImage": "/images/hero-team-group.jpg",
-  "practitionersIntro": "At Meridian Osteopathy, our team combines the principles of osteopathy with Traditional Chinese Medicine, acupuncture, and Chinese herbal medicine to provide a comprehensive and holistic approach to treatment.",
+  "firstVisitSteps": [
+    {
+      "number": "01",
+      "title": "Book Online",
+      "description": "Have an ACC claim? Bring your number. New injury? We can register it for you."
+    },
+    {
+      "number": "02",
+      "title": "Consultation",
+      "description": "Allow 40–60 mins. Comfortable clothing recommended."
+    },
+    {
+      "number": "03",
+      "title": "Treatment Plan",
+      "description": "Combine treatment with lifestyle and exercise advice tailored to you."
+    }
+  ],
+  "servicesIntro": [
+    {
+      "title": "Osteopathy",
+      "description": "Osteopathy treatment can be beneficial for people of all age groups, ranging from infants to seniors. This therapeutic approach uses gentle manipulations and cranial techniques to bring back equilibrium, improve mobility, and enhance overall well-being.",
+      "url": "/services/osteopathy/"
+    },
+    {
+      "title": "Acupuncture",
+      "description": "Acupuncture works by stimulating specific points on the body to restore the flow of energy, release tension, and activate your body's natural healing response. Whether approached through a Traditional Chinese Medicine or modern evidence-based lens, it's an effective treatment for pain, stress, sleep, and a wide range of health concerns.",
+      "url": "/services/medical-acupuncture/"
+    },
+    {
+      "title": "Herbal Medicine",
+      "description": "Drawing on thousands of years of Traditional Chinese Medicine, herbal medicine uses carefully balanced plant-based formulas to support your body's natural healing from the inside out. Our practitioners create personalised prescriptions to help with a wide range of concerns — from pain and fatigue to digestive health, stress, and hormonal balance.",
+      "url": "/services/herbal-medicine/"
+    }
+  ],
+  "testimonialsHeading": "What Our Patients Say",
+  "testimonialsRating": "4.9 on Google",
+  "ctaHeading": "Ready to start your journey to pain relief?",
+  "practitionersIntro": "Our team offers personalised, holistic care designed around you. By combining osteopathy, herbal medicine, and acupuncture, we support pain relief and promote better overall wellbeing.",
+  "testimonials": [
+    {
+      "quote": "Amazing treatment, felt so much better after just one session...",
+      "author": "Sarah K."
+    },
+    {
+      "quote": "Nina is incredibly knowledgeable and really listens...",
+      "author": "Mike T."
+    },
+    {
+      "quote": "Highly recommend for anyone with back issues...",
+      "author": "Emma L."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do I need a GP referral?",
+      "answer": "No GP referral is needed for osteopathy appointments. You can book directly online or by calling us. If you have an ACC claim, we can process it for you at your first visit."
+    },
+    {
+      "question": "How many sessions will I need?",
+      "answer": "This varies depending on your condition. Many patients notice improvement after 1-3 sessions. During your first consultation, we'll discuss a treatment plan tailored to your needs."
+    },
+    {
+      "question": "What should I wear to my appointment?",
+      "answer": "Wear comfortable, loose-fitting clothing that allows easy movement. We may need to examine and treat areas around your complaint, so clothing you can move easily in is ideal."
+    },
+    {
+      "question": "What's the difference between osteopath, physiotherapist and chiropractor?",
+      "answer": "While all three focus on musculoskeletal health, they differ in approach. Osteopathy takes a whole-body view, looking at how your muscles, joints, nerves, and organs interconnect — using hands-on techniques like joint mobilisation, soft tissue work, and cranial therapy. Physiotherapy tends to focus on rehabilitation through targeted exercises and movement retraining. Chiropractic care centres primarily on spinal alignment and joint adjustments. At Meridian Osteopathy, we blend osteopathic principles with acupuncture and herbal medicine for a truly holistic approach to your health."
+    },
+    {
+      "question": "Is acupuncture painful?",
+      "answer": "Most patients find acupuncture comfortable. The needles are very fine and any sensation is usually brief — many people feel deeply relaxed during treatment."
+    },
+    {
+      "question": "Do you treat children?",
+      "answer": "Yes, osteopathy is safe and effective for all ages, including infants and children. Techniques are adapted to be gentle and appropriate for younger patients."
+    },
+    {
+      "question": "What conditions do you treat?",
+      "answer": "We treat a wide range of conditions including back and neck pain, headaches, joint issues, sports injuries, stress, fatigue, digestive concerns, women's health and pregnancy related health. If you're unsure whether we can help, feel free to get in touch."
+    }
+  ],
   "practitioners": [
     {
-      "name": "Nina Hu",
+      "name": "Na (Nina) Hu",
       "role": "Osteopath & Medical Acupuncture",
       "photo": "/images/team-nina.jpg",
       "profileUrl": "/team/nina-hu/"
     },
     {
       "name": "Jonathan Grice",
-      "role": "Osteopath",
+      "role": "Osteopath & Low Level Laser Therapy",
       "photo": "/images/team-jonathan.jpg",
       "profileUrl": "/team/jonathan-grice/"
     },
@@ -28,53 +108,6 @@
       "profileUrl": "/team/min-jin/"
     }
   ],
-  "ctaHeading": "Ready to start your journey to pain relief?",
   "ctaSubtext": "Book your first consultation today",
-  "servicesIntro": [
-    {
-      "title": "Osteopathy",
-      "description": "Osteopathy treatment can be beneficial for people of all age groups, ranging from infants to seniors. This therapeutic approach uses gentle manipulations and cranial techniques to bring back equilibrium, improve mobility, and enhance overall well-being.",
-      "url": "/services/osteopathy/"
-    },
-    {
-      "title": "Medical Acupuncture",
-      "description": "Medical Acupuncture is a modern evidence-based treatment that merges traditional acupuncture techniques with contemporary medical knowledge. By stimulating specific points on the body, it promotes the flow of energy, releases tension, and activates the body's natural pain and stress mechanisms.",
-      "url": "/services/medical-acupuncture/"
-    },
-    {
-      "title": "Sports Rehabilitation",
-      "description": "Our dedicated team is committed to restoring your strength, flexibility, and stability, ensuring a safe and effective return to your favourite activities. With tailored exercise programs and a holistic approach, we'll guide you every step of the way towards optimal performance.",
-      "url": "/services/sports-rehabilitation/"
-    }
-  ],
-  "firstVisitSteps": [
-    { "number": "01", "title": "Book Online", "description": "No GP referral needed" },
-    { "number": "02", "title": "Consultation", "description": "45-60 min assessment" },
-    { "number": "03", "title": "Treatment Plan", "description": "Treatment Plan" }
-  ],
-  "testimonialsHeading": "What Our Patients Say",
-  "testimonialsRating": "4.9 on Google",
-  "testimonials": [
-    { "quote": "Amazing treatment, felt so much better after just one session...", "author": "Sarah K." },
-    { "quote": "Nina is incredibly knowledgeable and really listens...", "author": "Mike T." },
-    { "quote": "Highly recommend for anyone with back issues...", "author": "Emma L." }
-  ],
-  "faq": [
-    {
-      "question": "Do I need a GP referral? No — book directly",
-      "answer": "No GP referral is needed for osteopathy appointments. You can book directly online or by calling us. If you have an ACC claim, we can process it for you at your first visit."
-    },
-    {
-      "question": "How many sessions will I need",
-      "answer": "This varies depending on your condition. Many patients notice improvement after 1-3 sessions. During your first consultation, we'll discuss a treatment plan tailored to your needs."
-    },
-    {
-      "question": "What should I wear to my appointment",
-      "answer": "Wear comfortable, loose-fitting clothing that allows easy movement. We may need to examine and treat areas around your complaint, so clothing you can move easily in is ideal."
-    },
-    {
-      "question": "What's the difference between osteopathy and physiotherapy?",
-      "answer": "While both professions treat musculoskeletal conditions, osteopathy takes a whole-body approach, looking at how all systems interconnect. Osteopaths use a wider range of hands-on techniques including joint mobilisation, soft tissue work, and cranial techniques."
-    }
-  ]
+  "heroTitle": "Discover a New Path to Pain Relief!"
 }
