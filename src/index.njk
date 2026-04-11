@@ -13,7 +13,7 @@ description: "Meridian Osteopathy in Christchurch offers osteopathy, medical acu
 <!-- Practitioners -->
 <section class="section text-center">
   <div class="container">
-    <h2>{{ home.practitionersHeading }}</h2>
+    <h2>Our Practitioners at Meridian Osteopathy</h2>
     <p class="subtitle">{{ home.practitionersIntro }}</p>
     <div class="team-grid" style="margin-top: 32px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); max-width: 960px;">
       {% for p in home.practitioners %}
@@ -37,7 +37,7 @@ description: "Meridian Osteopathy in Christchurch offers osteopathy, medical acu
 <section class="cta-banner">
   <h2>{{ home.ctaHeading }}</h2>
   <p>{{ home.ctaSubtext }}</p>
-  <a href="/book/" class="btn btn-outline">Book Now</a>
+  <a href="/book/" class="btn btn-gold">Book Now</a>
 </section>
 
 <!-- Services -->
@@ -96,11 +96,20 @@ description: "Meridian Osteopathy in Christchurch offers osteopathy, medical acu
     </div>
     <div class="testimonials-grid">
       {% for t in home.testimonials %}
+      {% if t.link %}
+      <a href="{{ t.link }}" target="_blank" rel="noopener noreferrer" class="testimonial-card testimonial-card--linked">
+      {% else %}
       <div class="testimonial-card">
+      {% endif %}
         <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <blockquote>"{{ t.quote }}"</blockquote>
         <p class="author">&mdash; {{ t.author }}</p>
+        {% if t.link %}<p class="testimonial-google-link">Read on Google ↗</p>{% endif %}
+      {% if t.link %}
+      </a>
+      {% else %}
       </div>
+      {% endif %}
       {% endfor %}
     </div>
   </div>
