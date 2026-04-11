@@ -64,6 +64,7 @@ collections:
             fields:
               - { label: "Quote", name: "quote", widget: "text" }
               - { label: "Author", name: "author", widget: "string" }
+              - { label: "Google Review Link (optional)", name: "link", widget: "string", required: false, hint: "Paste the URL of the Google review. Leave blank if you don't want this review to be clickable." }
           - label: "FAQ"
             name: "faq"
             widget: "list"
