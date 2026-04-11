@@ -27,6 +27,7 @@ collections:
             fields:
               - { label: "Hero Title", name: "heroTitle", widget: "string", required: false }
               - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+          - { label: "Practitioners Section Heading", name: "practitionersHeading", widget: "string" }
           - { label: "Practitioners Intro Text", name: "practitionersIntro", widget: "text" }
           - label: "Practitioners"
             name: "practitioners"
