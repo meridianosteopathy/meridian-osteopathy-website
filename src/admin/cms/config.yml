@@ -1,0 +1,237 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/images"
+public_folder: "/images"
+
+site_url: https://meridian-osteopathy.netlify.app
+display_url: https://meridian-osteopathy.netlify.app
+logo_url: https://meridian-osteopathy.netlify.app/images/logo-primary-light.svg
+
+collections:
+  # ============================================
+  # HOMEPAGE
+  # ============================================
+  - name: "homepage"
+    label: "Homepage"
+    files:
+      - name: "home"
+        label: "Homepage Content"
+        file: "src/_data/home.json"
+        format: "json"
+        fields:
+          - label: "Hero"
+            name: "_hero"
+            widget: "object"
+            fields:
+              - { label: "Hero Title", name: "heroTitle", widget: "string", required: false }
+              - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+          - { label: "Practitioners Intro Text", name: "practitionersIntro", widget: "text" }
+          - label: "Practitioners"
+            name: "practitioners"
+            widget: "list"
+            summary: "{{ fields.name }} — {{ fields.role }}"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Photo", name: "photo", widget: "image" }
+              - { label: "Profile URL", name: "profileUrl", widget: "string" }
+          - { label: "CTA Banner Heading", name: "ctaHeading", widget: "string" }
+          - { label: "CTA Banner Subtext", name: "ctaSubtext", widget: "string" }
+          - label: "Services Summary (3 cards)"
+            name: "servicesIntro"
+            widget: "list"
+            summary: "{{ fields.title }}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Link URL", name: "url", widget: "string" }
+          - label: "First Visit Steps"
+            name: "firstVisitSteps"
+            widget: "list"
+            summary: "{{ fields.number }} — {{ fields.title }}"
+            fields:
+              - { label: "Number", name: "number", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "string" }
+          - { label: "Testimonials Heading", name: "testimonialsHeading", widget: "string" }
+          - { label: "Rating Text", name: "testimonialsRating", widget: "string" }
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            summary: "{{ fields.author }}"
+            fields:
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Author", name: "author", widget: "string" }
+          - label: "FAQ"
+            name: "faq"
+            widget: "list"
+            summary: "{{ fields.question }}"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+
+  # ============================================
+  # SITE-WIDE INFO
+  # ============================================
+  - name: "site"
+    label: "Site Info (Contact, Hours, Pricing)"
+    files:
+      - name: "site"
+        label: "Contact, Hours, Pricing, Social"
+        file: "src/_data/site.json"
+        format: "json"
+        fields:
+          - { label: "Business Name", name: "name", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Address", name: "address", widget: "string" }
+          - label: "Opening Hours"
+            name: "hours"
+            widget: "object"
+            fields:
+              - { label: "Weekdays", name: "weekday", widget: "string" }
+              - { label: "Saturday", name: "saturday", widget: "string" }
+              - { label: "Sunday", name: "sunday", widget: "string" }
+          - label: "Social Links"
+            name: "social"
+            widget: "object"
+            fields:
+              - { label: "Facebook URL", name: "facebook", widget: "string", required: false }
+              - { label: "Instagram URL", name: "instagram", widget: "string", required: false }
+              - { label: "LinkedIn URL", name: "linkedin", widget: "string", required: false }
+              - { label: "YouTube URL", name: "youtube", widget: "string", required: false }
+          - label: "Pricing"
+            name: "pricing"
+            widget: "object"
+            fields:
+              - label: "ACC Patient"
+                name: "acc"
+                widget: "object"
+                fields:
+                  - { label: "Rate", name: "rate", widget: "string" }
+                  - { label: "Notes", name: "notes", widget: "string", required: false }
+              - label: "Private Patient"
+                name: "private"
+                widget: "object"
+                fields:
+                  - { label: "Rate", name: "rate", widget: "string" }
+                  - { label: "Notes", name: "notes", widget: "string", required: false }
+
+  # ============================================
+  # SERVICES
+  # ============================================
+  - name: "services"
+    label: "Services"
+    files:
+      - name: "services"
+        label: "All Service Pages"
+        file: "src/_data/services.json"
+        format: "json"
+        fields:
+          - label: "Osteopathy"
+            name: "osteopathy"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+              - { label: "Intro Paragraph", name: "intro", widget: "text" }
+              - { label: "Techniques Heading", name: "techniquesHeading", widget: "string" }
+              - label: "Techniques List"
+                name: "techniques"
+                widget: "list"
+                field: { label: "Technique", name: "technique", widget: "string" }
+              - { label: "Conditions Heading", name: "conditionsHeading", widget: "string" }
+              - { label: "Conditions Image", name: "conditionsImage", widget: "image", required: false }
+              - label: "Conditions List"
+                name: "conditions"
+                widget: "list"
+                field: { label: "Condition", name: "condition", widget: "string" }
+              - { label: "Conditions Note", name: "conditionsNote", widget: "string" }
+          - label: "Medical Acupuncture"
+            name: "acupuncture"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+              - { label: "Intro Paragraph", name: "intro", widget: "text" }
+          - label: "Sports Rehabilitation"
+            name: "sports"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+              - { label: "Intro Paragraph", name: "intro", widget: "text" }
+
+  # ============================================
+  # TEAM
+  # ============================================
+  - name: "team"
+    label: "Team Profiles"
+    files:
+      - name: "team"
+        label: "All Team Members"
+        file: "src/_data/team.json"
+        format: "json"
+        fields:
+          - label: "Nina Hu"
+            name: "nina"
+            widget: "object"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "First Name (for Book button)", name: "firstName", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Photo", name: "photo", widget: "image" }
+              - { label: "Lifestyle Image", name: "lifestyleImage", widget: "image", required: false }
+              - { label: "Qualifications & Background", name: "qualifications", widget: "text" }
+              - { label: "Treatment Approach", name: "approach", widget: "text" }
+              - { label: "Special Interests", name: "specialInterests", widget: "text" }
+              - { label: "About Me", name: "aboutMe", widget: "text" }
+          - label: "Jonathan Grice"
+            name: "jonathan"
+            widget: "object"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "First Name", name: "firstName", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Photo", name: "photo", widget: "image" }
+              - { label: "Lifestyle Image", name: "lifestyleImage", widget: "image", required: false }
+              - { label: "Qualifications & Background", name: "qualifications", widget: "text" }
+              - { label: "Treatment Approach", name: "approach", widget: "text" }
+              - { label: "Special Interests", name: "specialInterests", widget: "text" }
+              - { label: "About Me", name: "aboutMe", widget: "text" }
+          - label: "Maddison Moffat"
+            name: "maddison"
+            widget: "object"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "First Name", name: "firstName", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Photo", name: "photo", widget: "image" }
+              - { label: "Lifestyle Image", name: "lifestyleImage", widget: "image", required: false }
+              - { label: "Qualifications & Background", name: "qualifications", widget: "text" }
+              - { label: "Treatment Approach", name: "approach", widget: "text" }
+              - { label: "Special Interests", name: "specialInterests", widget: "text" }
+              - { label: "About Me", name: "aboutMe", widget: "text" }
+          - label: "Min Jin"
+            name: "min"
+            widget: "object"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "First Name", name: "firstName", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Photo", name: "photo", widget: "image" }
+              - { label: "Lifestyle Image", name: "lifestyleImage", widget: "image", required: false }
+              - { label: "Qualifications & Background", name: "qualifications", widget: "text" }
+              - { label: "Treatment Approach", name: "approach", widget: "text" }
+              - { label: "Special Interests", name: "specialInterests", widget: "text" }
+              - { label: "About Me", name: "aboutMe", widget: "text" }
+          - label: "Consultation Steps (shown on all profiles)"
+            name: "consultationSteps"
+            widget: "list"
+            summary: "{{ fields.number }} — {{ fields.title }}"
+            fields:
+              - { label: "Step Number", name: "number", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }

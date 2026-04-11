@@ -4,10 +4,12 @@ title: Osteopathy
 description: "Osteopathy treatment at Meridian Osteopathy in Christchurch. ACC registered, no GP referral needed. Treating back pain, headaches, joint pain and more."
 ---
 
+{% set s = services.osteopathy %}
+
 <!-- Hero -->
-<section class="hero" style="background-image: url('/images/hero-osteopathy.jpg');">
+<section class="hero" style="background-image: url('{{ s.heroImage }}');">
   <div class="hero-content">
-    <h1>Osteopathy</h1>
+    <h1>{{ s.title }}</h1>
   </div>
 </section>
 
@@ -15,8 +17,8 @@ description: "Osteopathy treatment at Meridian Osteopathy in Christchurch. ACC r
 <section class="section text-center">
   <div class="container">
     <div class="service-intro">
-      <h2>Osteopathy</h2>
-      <p>Osteopathy is a regulated allied health profession that specialises in musculoskeletal issues. An osteopath needs four to five years of full-time training covering subjects including Anatomy, physiology, pathology, pharmacology, neuroscience, pain science, clinical reasoning and practice.</p>
+      <h2>{{ s.title }}</h2>
+      <p>{{ s.intro }}</p>
     </div>
   </div>
 </section>
@@ -56,14 +58,9 @@ description: "Osteopathy treatment at Meridian Osteopathy in Christchurch. ACC r
 <section class="section">
   <div class="container">
     <div class="techniques-list">
-      <h2>Osteopathy Techniques</h2>
+      <h2>{{ s.techniquesHeading }}</h2>
       <ul>
-        <li>General Osteopathy Techniques</li>
-        <li>Muscle energy techniques</li>
-        <li>Myofascial release</li>
-        <li>High-Velocity, Low-amplitude techniques</li>
-        <li>Visceral techniques</li>
-        <li>Lymphatic techniques</li>
+        {% for t in s.techniques %}<li>{{ t }}</li>{% endfor %}
       </ul>
     </div>
   </div>
@@ -71,19 +68,13 @@ description: "Osteopathy treatment at Meridian Osteopathy in Christchurch. ACC r
 
 <!-- Conditions Banner -->
 <section class="conditions-banner">
-  <div class="conditions-image" style="background-image: url('/images/conditions.jpg');"></div>
+  <div class="conditions-image" style="background-image: url('{{ s.conditionsImage }}');"></div>
   <div class="conditions-content">
-    <h2>What can osteopathy help with?</h2>
+    <h2>{{ s.conditionsHeading }}</h2>
     <ul>
-      <li>Back and Neck pain</li>
-      <li>Headache and Migraine</li>
-      <li>Joint pain and Arthritis</li>
-      <li>Posture unbalance</li>
-      <li>Muscle tightness</li>
-      <li>Pregnancy pain</li>
-      <li>Growth pain</li>
+      {% for c in s.conditions %}<li>{{ c }}</li>{% endfor %}
     </ul>
-    <p class="conditions-note">Any age from infants to seniors can benefit from osteopathy treatment.</p>
+    <p class="conditions-note">{{ s.conditionsNote }}</p>
   </div>
 </section>
 
