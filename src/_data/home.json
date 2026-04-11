@@ -4,7 +4,7 @@
     {
       "number": "01",
       "title": "Book Online",
-      "description": "Have an ACC claim? Bring your number. New injury? We can register it for you."
+      "description": "Have an ACC claim? Bring your number. New injury? We can claim an ACC number for you."
     },
     {
       "number": "02",
@@ -20,13 +20,13 @@
   "servicesIntro": [
     {
       "title": "Osteopathy",
-      "description": "Osteopathy treatment can be beneficial for people of all age groups, ranging from infants to seniors. This therapeutic approach uses gentle manipulations and cranial techniques to bring back equilibrium, improve mobility, and enhance overall well-being.",
+      "description": "Osteopathy is suitable for all ages — from newborns to seniors — using hands-on techniques to restore balance, improve mobility, and support your body's natural ability to heal. Whether you're managing chronic pain, recovering from injury, or simply looking to move and feel better, we tailor every treatment to you.",
       "url": "/services/osteopathy/"
     },
     {
       "title": "Acupuncture",
       "description": "Acupuncture works by stimulating specific points on the body to restore the flow of energy, release tension, and activate your body's natural healing response. Whether approached through a Traditional Chinese Medicine or modern evidence-based lens, it's an effective treatment for pain, stress, sleep, and a wide range of health concerns.",
-      "url": "/services/medical-acupuncture/"
+      "url": "/services/acupuncture/"
     },
     {
       "title": "Herbal Medicine",
@@ -55,7 +55,7 @@
   "faq": [
     {
       "question": "Do I need a GP referral?",
-      "answer": "No GP referral is needed for osteopathy appointments. You can book directly online or by calling us. If you have an ACC claim, we can process it for you at your first visit."
+      "answer": "No GP referral is needed for osteopathy or acupuncture appointments. You can book directly online or by calling us. If you have an ACC claim, bring the number for your first visit."
     },
     {
       "question": "How many sessions will I need?",
@@ -79,7 +79,7 @@
     },
     {
       "question": "What conditions do you treat?",
-      "answer": "We treat a wide range of conditions including back and neck pain, headaches, joint issues, sports injuries, stress, fatigue, digestive concerns, women's health and pregnancy related health. If you're unsure whether we can help, feel free to get in touch."
+      "answer": "We treat a wide range of conditions including back and neck pain, headaches, joint issues, sports injuries, stress, fatigue, digestive concerns, women's health and pregnancy related issues. If you're unsure, feel free to get in touch."
     }
   ],
   "practitioners": [
