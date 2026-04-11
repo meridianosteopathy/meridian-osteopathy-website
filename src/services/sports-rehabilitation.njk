@@ -4,19 +4,17 @@ title: Sports Rehabilitation
 description: "Sports Rehabilitation at Meridian Osteopathy, Christchurch. Tailored exercise programs for safe return to sport and optimal performance."
 ---
 
-{% set s = services.sports %}
-
-<section class="hero" style="background-image: url('{{ s.heroImage }}');">
+<section class="hero" style="background-image: url('/images/hero-sports.jpg');">
   <div class="hero-content">
-    <h1>{{ s.title }}</h1>
+    <h1>Sports Rehabilitation</h1>
   </div>
 </section>
 
 <section class="section text-center">
   <div class="container">
     <div class="service-intro">
-      <h2>{{ s.title }}</h2>
-      <p>{{ s.intro }}</p>
+      <h2>Sports Rehabilitation</h2>
+      <p>Our dedicated team is committed to restoring your strength, flexibility, and stability, ensuring a safe and effective return to your favourite activities. With tailored exercise programs and a holistic approach, we'll guide you every step of the way towards optimal performance.</p>
     </div>
   </div>
 </section>
@@ -35,18 +33,18 @@ description: "Sports Rehabilitation at Meridian Osteopathy, Christchurch. Tailor
         </thead>
         <tbody>
           <tr>
-            <td><span class="acc-tag">ACC</span> ACC Patient<span class="td-subnote">{{ site.pricing.acc.notes }}</span></td>
-            <td class="pricing-rate">{{ site.pricing.acc.rate }}</td>
-            <td class="pricing-notes-col">{{ site.pricing.acc.notes }}</td>
+            <td><span class="acc-tag">ACC</span> ACC Patient</td>
+            <td>{{ site.pricing.acc.rate }}</td>
+            <td>{{ site.pricing.acc.notes }}</td>
           </tr>
           <tr>
-            <td>Private Patient<span class="td-subnote">{{ site.pricing.private.notes }}</span></td>
-            <td class="pricing-rate">{{ site.pricing.private.rate }}</td>
-            <td class="pricing-notes-col">{{ site.pricing.private.notes }}</td>
+            <td>Private Patient</td>
+            <td>{{ site.pricing.private.rate }}</td>
+            <td>{{ site.pricing.private.notes }}</td>
           </tr>
         </tbody>
       </table>
-      <p class="pricing-note">* Pricing may vary slightly</p>
+      <p class="pricing-note">* Pricing may vary slightly depending on treatment time</p>
     </div>
   </div>
 </section>
