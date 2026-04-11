@@ -4,6 +4,10 @@
       <img src="/images/logo-primary-light.svg" alt="Meridian Osteopathy" class="logo-img" width="180" height="50">
     </a>
 
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+
     <nav class="main-nav">
       <ul>
         <li><a href="/" {% if page.url == "/" %}class="active"{% endif %}>Home</a></li>
@@ -25,15 +29,10 @@
           </ul>
         </li>
         <li><a href="/careers/" {% if page.url == "/careers/" %}class="active"{% endif %}>Career</a></li>
-        <li><a href="/referral/" {% if page.url == "/referral/" %}class="active"{% endif %}>Referral</a></li>
         <li><a href="/contact/" {% if page.url == "/contact/" %}class="active"{% endif %}>Contact</a></li>
       </ul>
     </nav>
 
     <a href="/book/" class="btn btn-book">BOOK APPOINTMENT</a>
-
-    <button class="mobile-menu-toggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
   </div>
 </header>
