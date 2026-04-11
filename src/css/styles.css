@@ -886,11 +886,7 @@ p { margin-bottom: 16px; }
   .dropdown a { color: var(--white); padding: 10px 16px; }
   .dropdown a:hover { background: rgba(255,255,255,0.1); }
   .btn-book {
-    margin-left: auto;
-    margin-right: 12px;
-    padding: 7px 14px;
-    font-size: 0.7rem;
-    letter-spacing: 0.3px;
+    display: none;
   }
 
   .steps-grid { grid-template-columns: 1fr; }
