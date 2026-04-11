@@ -290,6 +290,8 @@ p { margin-bottom: 16px; }
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
 }
 .team-card-image {
   height: 280px;
@@ -301,7 +303,7 @@ p { margin-bottom: 16px; }
 .team-card-info h3 { font-size: 1.1rem; margin-bottom: 4px; }
 .team-card-info .role { font-size: 0.8rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
 .team-card-info .quals { font-size: 0.8rem; color: var(--primary); font-weight: 600; margin-bottom: 12px; }
-.team-card-actions { display: flex; gap: 12px; padding: 0 20px 20px; }
+.team-card-actions { display: flex; gap: 12px; padding: 0 20px 20px; margin-top: auto; }
 .team-card-actions a {
   flex: 1;
   text-align: center;
@@ -342,6 +344,8 @@ p { margin-bottom: 16px; }
   text-align: center;
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
 }
 .service-card:hover { transform: translateY(-4px); }
 .service-card-icon {
@@ -355,6 +359,7 @@ p { margin-bottom: 16px; }
 .service-card-icon svg { width: 48px; height: 48px; color: var(--primary); }
 .service-card h3 { font-size: 1.15rem; }
 .service-card p { font-size: 0.9rem; color: var(--text-light); margin-bottom: 16px; }
+.service-card .btn { margin-top: auto; align-self: center; }
 
 /* ============================================
    FIRST VISIT STEPS
@@ -400,6 +405,8 @@ p { margin-bottom: 16px; }
   border-radius: 10px;
   padding: 24px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
 }
 .testimonial-card .stars { margin-bottom: 12px; }
 .testimonial-card blockquote {
@@ -409,6 +416,22 @@ p { margin-bottom: 16px; }
   margin-bottom: 12px;
 }
 .testimonial-card .author { font-size: 0.85rem; color: var(--text-light); }
+a.testimonial-card--linked {
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+a.testimonial-card--linked:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+.testimonial-google-link {
+  margin-top: auto;
+  padding-top: 12px;
+  font-size: 0.8rem;
+  color: var(--primary);
+  font-weight: 600;
+}
 
 /* ============================================
    FAQ
@@ -442,7 +465,7 @@ p { margin-bottom: 16px; }
   color: var(--text-light);
   font-size: 0.95rem;
 }
-.faq-item.open .faq-answer { max-height: 200px; padding-top: 12px; }
+.faq-item.open .faq-answer { max-height: 1000px; padding-top: 12px; }
 
 /* ============================================
    SERVICE DETAIL PAGE
@@ -794,6 +817,8 @@ p { margin-bottom: 16px; }
   transition: opacity 0.2s;
 }
 .footer-nav a:hover { opacity: 0.75; }
+.footer-nav a.footer-book-link { color: var(--gold); font-weight: 600; }
+.footer-nav a.footer-book-link:hover { opacity: 0.8; }
 
 .footer-contact {
   display: flex;
