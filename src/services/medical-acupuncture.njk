@@ -1,17 +1,20 @@
 ---
 layout: base.njk
-title: Medical Acupuncture
-description: "Medical Acupuncture at Meridian Osteopathy, Christchurch. Evidence-based treatment combining traditional acupuncture with modern medicine."
+title: Acupuncture
+permalink: /services/acupuncture/
+description: "Acupuncture at Meridian Osteopathy in Christchurch. Traditional Chinese Medicine combined with modern evidence-based practice. Treating pain, stress, sleep, women's health and more."
 ---
 
 {% set s = services.acupuncture %}
 
+<!-- Hero -->
 <section class="hero" style="background-image: url('{{ s.heroImage }}');">
   <div class="hero-content">
     <h1>{{ s.title }}</h1>
   </div>
 </section>
 
+<!-- Introduction -->
 <section class="section text-center">
   <div class="container">
     <div class="service-intro">
@@ -21,36 +24,69 @@ description: "Medical Acupuncture at Meridian Osteopathy, Christchurch. Evidence
   </div>
 </section>
 
+<!-- Pricing -->
 <section class="section section-light">
   <div class="container">
     <h2>Pricing</h2>
-    <div class="pricing-table">
-      <table>
-        <thead>
-          <tr>
-            <th>Patient Type</th>
-            <th>Rate</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="acc-tag">ACC</span> ACC Patient<span class="td-subnote">{{ site.pricing.acc.notes }}</span></td>
-            <td class="pricing-rate">{{ site.pricing.acc.rate }}</td>
-            <td class="pricing-notes-col">{{ site.pricing.acc.notes }}</td>
-          </tr>
-          <tr>
-            <td>Private Patient<span class="td-subnote">{{ site.pricing.private.notes }}</span></td>
-            <td class="pricing-rate">{{ site.pricing.private.rate }}</td>
-            <td class="pricing-notes-col">{{ site.pricing.private.notes }}</td>
-          </tr>
-        </tbody>
-      </table>
-      <p class="pricing-note">* Pricing may vary slightly</p>
+    <div class="pricing-cards">
+      <div class="pricing-card">
+        <div class="pricing-card-label"><span class="acc-tag">ACC</span> ACC Patient</div>
+        <div class="pricing-card-rate">{{ site.pricing.acc.rate }}</div>
+        <div class="pricing-card-time">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          40 – 60 minutes
+        </div>
+      </div>
+      <div class="pricing-card-divider"></div>
+      <div class="pricing-card">
+        <div class="pricing-card-label">Private Patient</div>
+        <div class="pricing-card-rate">{{ site.pricing.private.rate }}</div>
+        <div class="pricing-card-time">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          40 – 60 minutes
+        </div>
+      </div>
+    </div>
+    <div class="pricing-note-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" style="flex-shrink:0;margin-top:2px;"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      <p>If you've recently been injured and haven't made an ACC claim yet, our osteopath can help you lodge one. Pricing may vary slightly.</p>
     </div>
   </div>
 </section>
 
+<!-- Specialties intro -->
+<section class="section text-center">
+  <div class="container">
+    <h2>How Acupuncture Can Help You</h2>
+    <p class="subtitle">From pain relief to stress and hormonal health — here's what acupuncture can do for you.</p>
+  </div>
+</section>
+
+<!-- Specialty blocks -->
+{% for spec in s.specialties %}
+<section class="section {% if loop.index is even %}section-light{% endif %} specialty-section">
+  <div class="container">
+    <div class="specialty-block {% if loop.index is even %}specialty-block--reverse{% endif %}">
+      <div class="specialty-image">
+        {% if spec.image %}
+        <img src="{{ spec.image }}" alt="{{ spec.title }}">
+        {% else %}
+        <div class="specialty-image-placeholder">
+          <span>Image coming soon</span>
+        </div>
+        {% endif %}
+      </div>
+      <div class="specialty-content">
+        <h2>{{ spec.title }}</h2>
+        <p>{{ spec.description }}</p>
+        <a href="/book/" class="btn btn-gold">Book Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endfor %}
+
+<!-- Other Services -->
 <section class="section text-center">
   <div class="container">
     <h2>Explore Our Other Services</h2>
@@ -66,17 +102,19 @@ description: "Medical Acupuncture at Meridian Osteopathy, Christchurch. Evidence
           <span class="btn btn-outline" style="font-size:0.85rem; padding:6px 16px;">Learn more &rarr;</span>
         </div>
       </a>
-      <a href="/services/sports-rehabilitation/" class="other-service-card">
+      <a href="/services/herbal-medicine/" class="other-service-card">
         <div class="icon">
           <svg viewBox="0 0 64 64" fill="none" stroke="var(--primary)" stroke-width="2" width="50" height="50">
-            <circle cx="32" cy="16" r="8"/><path d="M16 56l8-20 8 8 8-8 8 20"/>
+            <path d="M32 56V24M20 32c0-8 12-20 12-20s12 12 12 20a12 12 0 01-24 0z"/>
           </svg>
         </div>
         <div>
-          <h3>Sports Rehabilitation</h3>
+          <h3>Herbal Medicine</h3>
           <span class="btn btn-outline" style="font-size:0.85rem; padding:6px 16px;">Learn more &rarr;</span>
         </div>
       </a>
     </div>
   </div>
 </section>
+
+{% include "back-to-top.njk" %}

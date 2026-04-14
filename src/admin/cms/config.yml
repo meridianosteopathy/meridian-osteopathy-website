@@ -138,32 +138,44 @@ collections:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
               - { label: "Intro Paragraph", name: "intro", widget: "text" }
-              - { label: "Techniques Heading", name: "techniquesHeading", widget: "string" }
-              - label: "Techniques List"
-                name: "techniques"
+              - label: "Specialties"
+                name: "specialties"
                 widget: "list"
-                field: { label: "Technique", name: "technique", widget: "string" }
-              - { label: "Conditions Heading", name: "conditionsHeading", widget: "string" }
-              - { label: "Conditions Image", name: "conditionsImage", widget: "image", required: false }
-              - label: "Conditions List"
-                name: "conditions"
-                widget: "list"
-                field: { label: "Condition", name: "condition", widget: "string" }
-              - { label: "Conditions Note", name: "conditionsNote", widget: "string" }
-          - label: "Medical Acupuncture"
+                summary: "{{ fields.title }}"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+          - label: "Acupuncture"
             name: "acupuncture"
             widget: "object"
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
               - { label: "Intro Paragraph", name: "intro", widget: "text" }
-          - label: "Sports Rehabilitation"
-            name: "sports"
+              - label: "Specialties"
+                name: "specialties"
+                widget: "list"
+                summary: "{{ fields.title }}"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+          - label: "Herbal Medicine"
+            name: "herbs"
             widget: "object"
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
               - { label: "Intro Paragraph", name: "intro", widget: "text" }
+              - label: "Specialties"
+                name: "specialties"
+                widget: "list"
+                summary: "{{ fields.title }}"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Image", name: "image", widget: "image", required: false }
 
   # ============================================
   # TEAM

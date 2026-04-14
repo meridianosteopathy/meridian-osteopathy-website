@@ -1,10 +1,10 @@
 ---
 layout: base.njk
-title: Osteopathy
-description: "Osteopathy treatment at Meridian Osteopathy in Christchurch. ACC registered, no GP referral needed. Treating back pain, headaches, joint pain and more."
+title: Herbal Medicine
+description: "Herbal Medicine at Meridian Osteopathy in Christchurch. Personalised Traditional Chinese Medicine herbal prescriptions for pain, stress, digestive health, hormonal balance and more."
 ---
 
-{% set s = services.osteopathy %}
+{% set s = services.herbs %}
 
 <!-- Hero -->
 <section class="hero" style="background-image: url('{{ s.heroImage }}');">
@@ -56,8 +56,8 @@ description: "Osteopathy treatment at Meridian Osteopathy in Christchurch. ACC r
 <!-- Specialties intro -->
 <section class="section text-center">
   <div class="container">
-    <h2>Osteopathy for Every Stage of Life</h2>
-    <p class="subtitle">Our practitioners are experienced in treating patients at every age and stage — here's how osteopathy can help you.</p>
+    <h2>What Herbal Medicine Can Treat</h2>
+    <p class="subtitle">Personalised plant-based formulas designed to support your body from the inside out.</p>
   </div>
 </section>
 
@@ -90,6 +90,17 @@ description: "Osteopathy treatment at Meridian Osteopathy in Christchurch. ACC r
   <div class="container">
     <h2>Explore Our Other Services</h2>
     <div class="other-services">
+      <a href="/services/osteopathy/" class="other-service-card">
+        <div class="icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke="var(--primary)" stroke-width="2" width="50" height="50">
+            <circle cx="32" cy="20" r="8"/><path d="M20 56V42a12 12 0 0124 0v14"/>
+          </svg>
+        </div>
+        <div>
+          <h3>Osteopathy</h3>
+          <span class="btn btn-outline" style="font-size:0.85rem; padding:6px 16px;">Learn more &rarr;</span>
+        </div>
+      </a>
       <a href="/services/acupuncture/" class="other-service-card">
         <div class="icon">
           <svg viewBox="0 0 64 64" fill="none" stroke="var(--primary)" stroke-width="2" width="50" height="50">
@@ -98,17 +109,6 @@ description: "Osteopathy treatment at Meridian Osteopathy in Christchurch. ACC r
         </div>
         <div>
           <h3>Acupuncture</h3>
-          <span class="btn btn-outline" style="font-size:0.85rem; padding:6px 16px;">Learn more &rarr;</span>
-        </div>
-      </a>
-      <a href="/services/herbal-medicine/" class="other-service-card">
-        <div class="icon">
-          <svg viewBox="0 0 64 64" fill="none" stroke="var(--primary)" stroke-width="2" width="50" height="50">
-            <path d="M32 56V24M20 32c0-8 12-20 12-20s12 12 12 20a12 12 0 01-24 0z"/>
-          </svg>
-        </div>
-        <div>
-          <h3>Herbal Medicine</h3>
           <span class="btn btn-outline" style="font-size:0.85rem; padding:6px 16px;">Learn more &rarr;</span>
         </div>
       </a>

@@ -471,19 +471,58 @@ a.testimonial-card--linked:hover {
    SERVICE DETAIL PAGE
    ============================================ */
 .service-intro { max-width: 800px; margin: 0 auto; text-align: center; }
-.pricing-table { max-width: 700px; margin: 0 auto; }
-.pricing-table table {
-  width: 100%;
-  border-collapse: collapse;
-  border-radius: 8px;
+
+/* Pricing cards */
+.pricing-cards {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
   overflow: hidden;
 }
-.pricing-table thead { background: var(--primary); color: var(--white); }
-.pricing-table th { padding: 14px 20px; text-align: left; font-weight: 600; font-size: 0.9rem; }
-.pricing-table td { padding: 14px 20px; font-size: 0.95rem; border-bottom: 1px solid var(--border); }
-.pricing-table tbody tr:last-child td { border-bottom: none; }
-.pricing-table .pricing-rate { white-space: nowrap; font-weight: 600; }
-.pricing-table .td-subnote { display: none; }
+.pricing-card {
+  flex: 1;
+  padding: 36px 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.pricing-card-divider {
+  width: 1px;
+  background: var(--border);
+  margin: 24px 0;
+}
+.pricing-card-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.pricing-card-rate {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+}
+.pricing-card-time {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
 .acc-tag {
   display: inline-block;
   background: var(--primary);
@@ -491,30 +530,30 @@ a.testimonial-card--linked:hover {
   font-size: 0.7rem;
   padding: 2px 8px;
   border-radius: 3px;
-  margin-right: 6px;
   font-weight: 600;
 }
-.pricing-note { font-size: 0.85rem; color: var(--text-light); margin-top: 10px; font-style: italic; }
+.pricing-note-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 600px;
+  margin: 16px auto 0;
+  background: rgba(52,94,133,0.06);
+  border-left: 3px solid var(--primary);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 18px;
+  color: var(--text-light);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.pricing-note-box svg { color: var(--primary); }
+.pricing-note-box p { margin: 0; }
 
-/* Mobile: collapse 3-col table into 2 cols, move notes as subtitle */
-@media (max-width: 600px) {
-  .pricing-table th,
-  .pricing-table td { padding: 12px 14px; font-size: 0.9rem; }
-  .pricing-table th { font-size: 0.75rem; letter-spacing: 0.3px; }
-  .pricing-table th:nth-child(3),
-  .pricing-table td.pricing-notes-col { display: none; }
-  .pricing-table th:nth-child(2),
-  .pricing-table td.pricing-rate { text-align: right; }
-  .pricing-table .td-subnote {
-    display: block;
-    font-size: 0.75rem;
-    color: var(--text-light);
-    font-weight: 400;
-    font-style: italic;
-    margin-top: 3px;
-    line-height: 1.35;
-  }
-  .acc-tag { font-size: 0.62rem; padding: 2px 6px; margin-right: 5px; }
+@media (max-width: 480px) {
+  .pricing-cards { flex-direction: column; }
+  .pricing-card-divider { width: auto; height: 1px; margin: 0 24px; }
+  .pricing-card { padding: 28px 24px; }
+  .pricing-card-rate { font-size: 1.8rem; }
 }
 
 .techniques-list { max-width: 700px; }
@@ -556,6 +595,49 @@ a.testimonial-card--linked:hover {
 .conditions-content li { font-size: 0.95rem; opacity: 0.9; }
 .conditions-content li::before { content: '• '; }
 .conditions-note { font-size: 0.85rem; opacity: 0.7; font-style: italic; margin-bottom: 0; }
+
+/* ============================================
+   SPECIALTY BLOCKS (Osteopathy page)
+   ============================================ */
+.specialty-block {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+}
+.specialty-block--reverse { flex-direction: row-reverse; }
+.specialty-image {
+  flex: 0 0 420px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.specialty-image img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+}
+.specialty-image-placeholder {
+  width: 100%;
+  height: 320px;
+  background: var(--light-bg);
+  border: 2px dashed var(--border);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+.specialty-content { flex: 1; }
+.specialty-content h2 { margin-bottom: 16px; }
+.specialty-content p { color: var(--text-light); line-height: 1.75; margin-bottom: 28px; }
+@media (max-width: 768px) {
+  .specialty-block,
+  .specialty-block--reverse { flex-direction: column; gap: 24px; }
+  .specialty-image { flex: none; width: 100%; }
+  .specialty-content { text-align: center; }
+  .specialty-content .btn { display: inline-block; }
+}
 
 .other-services {
   display: grid;
@@ -868,6 +950,13 @@ a.testimonial-card--linked:hover {
    RESPONSIVE
    ============================================ */
 @media (max-width: 768px) {
+  .other-service-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .other-service-card .icon { width: 44px; height: 44px; }
+
   h1 { font-size: 2rem; }
   h2 { font-size: 1.5rem; }
   .hero-home h1 { font-size: 2.2rem; }

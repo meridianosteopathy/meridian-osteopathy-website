@@ -1,38 +1,83 @@
 {
   "osteopathy": {
-    "heroImage": "/images/hero-osteopathy.jpg",
-    "techniques": [
-      "General Osteopathy Techniques",
-      "Muscle energy techniques",
-      "Myofascial release",
-      "High-Velocity, Low-amplitude techniques",
-      "Visceral techniques",
-      "Lymphatic techniques"
-    ],
-    "conditionsImage": "/images/conditions.jpg",
-    "conditionsHeading": "What can osteopathy help with?",
-    "conditionsNote": "Any age from infants to seniors can benefit from osteopathy treatment.",
-    "intro": "Osteopathy is a regulated allied health profession that specialises in musculoskeletal issues. An osteopath needs four to five years of full-time training covering subjects including Anatomy, physiology, pathology, pharmacology, neuroscience, pain science, clinical reasoning and practice.",
     "title": "Osteopathy",
-    "conditions": [
-      "Back and Neck pain",
-      "Headache and Migraine",
-      "Joint pain and Arthritis",
-      "Posture unbalance",
-      "Muscle tightness",
-      "Pregnancy pain",
-      "Growth pain"
-    ],
-    "techniquesHeading": "Osteopathy Techniques"
+    "heroImage": "/images/hero-osteopathy.jpg",
+    "intro": "Osteopathy is a regulated allied health profession specialising in musculoskeletal health. Our osteopaths treat a wide range of conditions including back and neck pain, headaches and migraines, joint pain and arthritis, posture imbalances, muscle tightness, pregnancy-related pain, and growth pain — for patients of all ages, from infants to seniors.",
+    "specialties": [
+      {
+        "title": "Paediatric Osteopathy",
+        "description": "Osteopathy is safe and effective for babies, toddlers, and children of all ages. Using gentle, non-invasive techniques, we can help with birth-related discomforts, colic, feeding difficulties, sleep disturbances, growing pains, and postural development. Early treatment supports healthy growth and addresses issues before they become chronic.",
+        "image": ""
+      },
+      {
+        "title": "Pregnancy Related Pain",
+        "description": "Pregnancy places significant demands on the body as it adapts to support new life. Osteopathic treatment can relieve lower back and pelvic pain, sciatica, rib discomfort, and postural strain — with a gentle approach that is safe throughout all trimesters and supports both mother and baby's wellbeing.",
+        "image": ""
+      },
+      {
+        "title": "Elderly Patients",
+        "description": "As we age, joint stiffness, arthritis, reduced mobility and balance issues can affect quality of life. Osteopathic care for older adults uses gentle techniques to improve movement, reduce pain, and support independence — helping manage chronic conditions and maintain an active, fulfilling lifestyle.",
+        "image": ""
+      },
+      {
+        "title": "Sport Injury",
+        "description": "Whether you're a weekend warrior or a competitive athlete, osteopathy can help you recover faster and prevent future injuries. We treat sprains, strains, shoulder and knee pain, and overuse injuries — combining hands-on treatment with personalised rehabilitation advice to get you back to doing what you love.",
+        "image": ""
+      }
+    ]
   },
   "acupuncture": {
-    "title": "Medical Acupuncture",
+    "title": "Acupuncture",
     "heroImage": "/images/hero-acupuncture.jpg",
-    "intro": "Medical Acupuncture is a modern evidence-based treatment that merges traditional acupuncture techniques with contemporary medical knowledge. By stimulating specific points on the body, it promotes the flow of energy, releases tension, and activates the body's natural pain and stress mechanisms."
+    "intro": "Acupuncture at Meridian Osteopathy blends Traditional Chinese Medicine with modern evidence-based practice. Our practitioners treat a wide range of conditions including chronic pain, headaches, stress and anxiety, sleep difficulties, hormonal imbalances, digestive concerns, and fatigue — supporting your body's natural ability to heal and restore balance.",
+    "specialties": [
+      {
+        "title": "Pain Relief & Recovery",
+        "description": "Acupuncture is highly effective for both acute and chronic pain. By stimulating specific points on the body, it triggers the release of natural pain-relieving chemicals, reduces inflammation, and improves circulation. Whether you're dealing with back pain, joint issues, headaches, or sports injuries, acupuncture offers a drug-free pathway to lasting relief.",
+        "image": ""
+      },
+      {
+        "title": "Stress, Anxiety & Sleep",
+        "description": "In today's fast-paced world, stress and poor sleep take a significant toll on health. Acupuncture helps regulate the nervous system, lower cortisol levels, and promote a deep sense of calm. Regular treatment can improve sleep quality, reduce anxiety, and restore emotional balance — helping you feel grounded and resilient.",
+        "image": ""
+      },
+      {
+        "title": "Women's Health",
+        "description": "Acupuncture has been used for centuries to support women's health across all life stages. From regulating menstrual cycles and easing period pain to supporting fertility, managing pregnancy discomforts, and navigating perimenopause and menopause, our practitioners provide gentle, holistic care tailored to your unique needs.",
+        "image": ""
+      },
+      {
+        "title": "Digestive & Immune Health",
+        "description": "A healthy gut is the foundation of overall wellbeing. Acupuncture can help regulate digestive function, reduce bloating and discomfort, and support conditions such as IBS, reflux, and nausea. It also plays a role in strengthening immune resilience and managing fatigue, helping your body maintain its natural balance.",
+        "image": ""
+      }
+    ]
   },
-  "sports": {
-    "title": "Sports Rehabilitation",
-    "heroImage": "/images/hero-sports.jpg",
-    "intro": "Our dedicated team is committed to restoring your strength, flexibility, and stability, ensuring a safe and effective return to your favourite activities. With tailored exercise programs and a holistic approach, we'll guide you every step of the way towards optimal performance."
+  "herbs": {
+    "title": "Herbal Medicine",
+    "heroImage": "/images/hero-herbs.jpg",
+    "intro": "Herbal medicine at Meridian Osteopathy draws on thousands of years of Traditional Chinese Medicine wisdom, combined with contemporary research. Our practitioners create personalised herbal prescriptions using carefully selected plant-based ingredients to address a wide range of conditions — from pain and fatigue to digestive health, hormonal imbalance, and mental wellbeing.",
+    "specialties": [
+      {
+        "title": "Pain & Inflammation",
+        "description": "Herbal formulas have long been used to address pain and reduce inflammation throughout the body. Our practitioners select specific herbs known for their analgesic and anti-inflammatory properties, creating personalised blends that work alongside your other treatments to provide sustained relief from chronic pain, arthritis, and musculoskeletal conditions.",
+        "image": ""
+      },
+      {
+        "title": "Stress, Sleep & Mental Wellbeing",
+        "description": "Adaptogenic and calming herbs have a profound ability to support the nervous system, reduce the impact of stress, and promote restful sleep. Our herbal prescriptions are tailored to your individual pattern — whether you're experiencing burnout, anxiety, insomnia, or low mood — to help restore your energy and emotional balance.",
+        "image": ""
+      },
+      {
+        "title": "Digestive Health",
+        "description": "Digestive health is central to overall wellness in Traditional Chinese Medicine. Herbal formulas can help regulate gut function, ease bloating, cramping, and discomfort, and support conditions such as IBS, reflux, and poor appetite. Our practitioners assess your individual presentation to create a formula that addresses the root cause, not just the symptoms.",
+        "image": ""
+      },
+      {
+        "title": "Women's Health & Hormonal Balance",
+        "description": "Herbal medicine is particularly powerful in supporting women's health throughout every life stage. From regulating menstrual cycles and supporting fertility to managing symptoms of perimenopause and menopause, our personalised herbal prescriptions work with your body's natural rhythms to restore hormonal balance and promote lasting wellbeing.",
+        "image": ""
+      }
+    ]
   }
 }
