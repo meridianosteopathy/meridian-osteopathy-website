@@ -1,42 +1,60 @@
-// Mobile menu toggle
 document.addEventListener('DOMContentLoaded', function() {
-  const menuToggle = document.querySelector('.mobile-menu-toggle');
-  const nav = document.querySelector('.main-nav');
 
-  if (menuToggle && nav) {
-    menuToggle.addEventListener('click', function() {
-      nav.classList.toggle('open');
-      menuToggle.classList.toggle('active');
-    });
+  // ─── Mobile menu ───────────────────────────────────────────────
+  const hamburger   = document.querySelector('.mobile-menu-toggle');
+  const closeBtn    = document.querySelector('.mobile-menu-close-btn');
+  const mobileMenu  = document.querySelector('.mobile-menu');
 
-    // Close menu when clicking a link
-    nav.querySelectorAll('a').forEach(function(link) {
-      link.addEventListener('click', function() {
-        nav.classList.remove('open');
-        menuToggle.classList.remove('active');
-      });
+  function openMobileMenu() {
+    mobileMenu.classList.add('open');
+    hamburger.classList.add('hidden');
+    closeBtn.classList.add('visible');
+    document.body.style.overflow = 'hidden'; // prevent page scroll behind menu
+  }
+
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('hidden');
+    closeBtn.classList.remove('visible');
+    document.body.style.overflow = '';
+  }
+
+  if (hamburger) hamburger.addEventListener('click', openMobileMenu);
+  if (closeBtn)  closeBtn.addEventListener('click', closeMobileMenu);
+
+  // Close when a plain link inside the mobile menu is tapped
+  if (mobileMenu) {
+    mobileMenu.querySelectorAll('.mobile-nav > ul > li > a, .mobile-dropdown a').forEach(function(link) {
+      link.addEventListener('click', closeMobileMenu);
     });
   }
 
-  // Mobile dropdown toggle
-  const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
-  dropdownTriggers.forEach(function(trigger) {
-    trigger.addEventListener('click', function(e) {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        const parent = this.parentElement;
-        parent.classList.toggle('dropdown-open');
+  // ─── Mobile accordion (Services / Team) ────────────────────────
+  document.querySelectorAll('.mobile-dropdown-trigger').forEach(function(trigger) {
+    trigger.addEventListener('click', function() {
+      const parent = this.closest('.mobile-has-dropdown');
+      const isOpen = parent.classList.contains('open');
+
+      // Close all other open dropdowns
+      document.querySelectorAll('.mobile-has-dropdown.open').forEach(function(el) {
+        el.classList.remove('open');
+        el.querySelector('.mobile-dropdown-trigger').setAttribute('aria-expanded', 'false');
+      });
+
+      // Toggle this one
+      if (!isOpen) {
+        parent.classList.add('open');
+        this.setAttribute('aria-expanded', 'true');
       }
     });
   });
 
-  // FAQ accordion
+  // ─── FAQ accordion ─────────────────────────────────────────────
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(function(item) {
     const question = item.querySelector('.faq-question');
     if (question) {
       question.addEventListener('click', function() {
-        // Close other items
         faqItems.forEach(function(other) {
           if (other !== item) other.classList.remove('open');
         });
@@ -45,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Header scroll effect
+  // ─── Header scroll effect ──────────────────────────────────────
   const header = document.querySelector('.site-header');
   if (header) {
     window.addEventListener('scroll', function() {
@@ -56,4 +74,5 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
+
 });
