@@ -1009,8 +1009,30 @@ a.testimonial-card--linked:hover {
     z-index: 999;
     max-height: calc(100vh - var(--header-height));
     overflow-y: auto;
+    overflow-x: hidden;
   }
   .mobile-menu.open { display: block; }
+
+  /* Decorative logo watermark */
+  .mobile-menu-logo-bg {
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 220px;
+    height: 220px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .mobile-menu-logo-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.06;
+  }
+
+  /* Ensure nav content sits above the watermark */
+  .mobile-nav, .mobile-menu-cta { position: relative; z-index: 1; }
 
   /* Mobile nav list */
   .mobile-nav ul {
@@ -1062,25 +1084,32 @@ a.testimonial-card--linked:hover {
     transform: rotate(180deg);
   }
 
-  /* Sub-items */
+  /* Sub-items — more visible: primary colour, weight, left accent */
   .mobile-dropdown {
     display: none;
-    background: #f5f7fa;
+    background: #f0f4f8;
     border-top: 1px solid #e8edf2;
-    padding: 4px 0;
+    padding: 6px 0;
   }
   .mobile-has-dropdown.open .mobile-dropdown { display: block; }
+  .mobile-dropdown li {
+    border-left: 3px solid var(--primary);
+    margin-left: 24px;
+  }
   .mobile-dropdown li a {
     display: block;
-    padding: 13px 24px 13px 40px;
-    color: var(--text-dark);
-    font-size: 0.92rem;
-    font-weight: 400;
+    padding: 13px 16px 13px 16px;
+    color: var(--primary);
+    font-size: 0.97rem;
+    font-weight: 600;
     opacity: 1;
   }
-  .mobile-dropdown li a:hover { color: var(--primary); }
+  .mobile-dropdown li a:hover {
+    color: var(--gold);
+    opacity: 1;
+  }
 
-  /* Book Appointment CTA at bottom */
+  /* Book Appointment CTA at bottom — gold */
   .mobile-menu-cta {
     padding: 20px 20px 28px;
   }
@@ -1088,7 +1117,7 @@ a.testimonial-card--linked:hover {
     display: block;
     width: 100%;
     text-align: center;
-    background: var(--primary);
+    background: var(--gold);
     color: var(--white) !important;
     padding: 16px 24px;
     border-radius: 8px;
@@ -1097,7 +1126,7 @@ a.testimonial-card--linked:hover {
     letter-spacing: 0.06em;
     opacity: 1 !important;
   }
-  .btn-book-mobile:hover { background: #163561; opacity: 1; }
+  .btn-book-mobile:hover { background: var(--gold-hover); opacity: 1; }
 
   .steps-grid { grid-template-columns: 1fr; }
   .contact-info-grid { grid-template-columns: 1fr; gap: 24px; }
