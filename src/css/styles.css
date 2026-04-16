@@ -735,6 +735,11 @@ a.testimonial-card--linked:hover {
 /* ============================================
    CAREERS PAGE
    ============================================ */
+/* Read-more: button hidden and content visible by default (desktop) */
+.careers-read-more-btn { display: none; }
+.careers-expandable { display: block; }
+.vacancy-req-label { display: none; }
+
 .careers-content { max-width: 700px; margin: 0 auto; }
 .careers-content p { margin-bottom: 16px; line-height: 1.7; }
 .hiring-badge {
@@ -759,8 +764,8 @@ a.testimonial-card--linked:hover {
 }
 .vacancy-table-header {
   display: grid;
-  grid-template-columns: 2fr 1fr 3fr auto;
-  column-gap: 8px;
+  grid-template-columns: 1.4fr 1fr 3.6fr 140px;
+  column-gap: 32px;
   align-items: center;
   padding: 12px 24px;
   background: var(--primary);
@@ -772,8 +777,8 @@ a.testimonial-card--linked:hover {
 }
 .vacancy-row {
   display: grid;
-  grid-template-columns: 2fr 1fr 3fr auto;
-  column-gap: 8px;
+  grid-template-columns: 1.4fr 1fr 3.6fr 140px;
+  column-gap: 32px;
   align-items: center;
   padding: 20px 24px;
   border-bottom: 1px solid var(--border);
@@ -849,6 +854,7 @@ a.testimonial-card--linked:hover {
 .form-group select,
 .form-group textarea {
   width: 100%;
+  box-sizing: border-box;
   padding: 12px 16px;
   border: none;
   border-bottom: 2px solid var(--border);
@@ -1381,10 +1387,6 @@ a.testimonial-card--linked:hover {
   }
 }
 
-/* ── Careers desktop: hide read-more button, always show expandable ── */
-.careers-read-more-btn { display: none; }
-.careers-expandable { display: block; }
-.vacancy-req-label { display: none; }
 
 /* ============================================
    PROFILE PAGE
