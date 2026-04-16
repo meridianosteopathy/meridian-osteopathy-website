@@ -248,3 +248,30 @@ collections:
               - { label: "Step Number", name: "number", widget: "string" }
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
+
+  # ============================================
+  # CAREERS
+  # ============================================
+  - name: "careers"
+    label: "Careers & Vacancies"
+    files:
+      - name: "careers"
+        label: "Current Vacancies"
+        file: "src/_data/careers.json"
+        format: "json"
+        fields:
+          - label: "Vacancies"
+            name: "vacancies"
+            widget: "list"
+            summary: "{{ fields.title }} — {{ fields.type }}"
+            hint: "Leave this list empty to show the 'No open positions' message instead."
+            fields:
+              - { label: "Job Title", name: "title", widget: "string" }
+              - label: "Employment Type"
+                name: "type"
+                widget: "select"
+                options:
+                  - { label: "Full-time", value: "Full-time" }
+                  - { label: "Part-time", value: "Part-time" }
+                  - { label: "Contractor", value: "Contractor" }
+              - { label: "Requirements / Qualifications", name: "requirements", widget: "text", hint: "Briefly describe experience level, qualifications, or registration requirements." }

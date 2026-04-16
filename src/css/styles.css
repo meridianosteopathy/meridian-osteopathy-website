@@ -518,6 +518,15 @@ a.testimonial-card--linked:hover {
   color: var(--primary);
   line-height: 1;
 }
+.pricing-card-rate--variable {
+  font-size: 1.35rem;
+  line-height: 1.35;
+  font-style: italic;
+}
+.pricing-cards--single {
+  max-width: 300px;
+  margin-left: 0;
+}
 .pricing-card-time {
   display: flex;
   align-items: center;
@@ -724,6 +733,81 @@ a.testimonial-card--linked:hover {
   font-weight: 600;
   float: right;
   margin-left: 16px;
+}
+
+/* Vacancy Table */
+.vacancy-table {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--white);
+}
+.vacancy-table-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 3fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 12px 24px;
+  background: var(--primary);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.vacancy-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 3fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+}
+.vacancy-row:last-child { border-bottom: none; }
+.vacancy-row:hover { background: var(--lighter-bg); }
+.vacancy-title {
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 0.97rem;
+}
+.vacancy-requirements {
+  font-size: 0.88rem;
+  color: var(--text-muted, #666);
+  line-height: 1.5;
+}
+.vacancy-type {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.vacancy-type--full-time { background: #e8f0fb; color: var(--primary); }
+.vacancy-type--part-time { background: #fdf3e0; color: #a06b00; }
+.vacancy-type--contractor { background: #e8f5e9; color: #2e7d32; }
+
+/* No-vacancy state */
+.vacancy-empty {
+  text-align: center;
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+.vacancy-empty-icon {
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+.vacancy-empty h3 {
+  font-size: 1.3rem;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+.vacancy-empty p {
+  color: var(--text-muted, #555);
+  line-height: 1.7;
+  font-size: 0.97rem;
 }
 
 /* Application Form */

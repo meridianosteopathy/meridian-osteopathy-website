@@ -7,22 +7,22 @@
       {
         "title": "Paediatric Osteopathy",
         "description": "Osteopathy is safe and effective for babies, toddlers, and children of all ages. Using gentle, non-invasive techniques, we can help with birth-related discomforts, colic, feeding difficulties, sleep disturbances, growing pains, and postural development. Early treatment supports healthy growth and addresses issues before they become chronic.",
-        "image": ""
+        "image": "/images/specialty-ost-paediatric.jpg"
       },
       {
         "title": "Pregnancy Related Pain",
         "description": "Pregnancy places significant demands on the body as it adapts to support new life. Osteopathic treatment can relieve lower back and pelvic pain, sciatica, rib discomfort, and postural strain — with a gentle approach that is safe throughout all trimesters and supports both mother and baby's wellbeing.",
-        "image": ""
+        "image": "/images/specialty-ost-pregnancy.jpg"
       },
       {
         "title": "Elderly Patients",
         "description": "As we age, joint stiffness, arthritis, reduced mobility and balance issues can affect quality of life. Osteopathic care for older adults uses gentle techniques to improve movement, reduce pain, and support independence — helping manage chronic conditions and maintain an active, fulfilling lifestyle.",
-        "image": ""
+        "image": "/images/specialty-ost-elderly.jpg"
       },
       {
         "title": "Sport Injury",
         "description": "Whether you're a weekend warrior or a competitive athlete, osteopathy can help you recover faster and prevent future injuries. We treat sprains, strains, shoulder and knee pain, and overuse injuries — combining hands-on treatment with personalised rehabilitation advice to get you back to doing what you love.",
-        "image": ""
+        "image": "/images/specialty-ost-sport.jpg"
       }
     ]
   },
@@ -34,22 +34,22 @@
       {
         "title": "Pain Relief & Recovery",
         "description": "Acupuncture is highly effective for both acute and chronic pain. By stimulating specific points on the body, it triggers the release of natural pain-relieving chemicals, reduces inflammation, and improves circulation. Whether you're dealing with back pain, joint issues, headaches, or sports injuries, acupuncture offers a drug-free pathway to lasting relief.",
-        "image": ""
+        "image": "/images/specialty-acu-pain.jpg"
       },
       {
         "title": "Stress, Anxiety & Sleep",
         "description": "In today's fast-paced world, stress and poor sleep take a significant toll on health. Acupuncture helps regulate the nervous system, lower cortisol levels, and promote a deep sense of calm. Regular treatment can improve sleep quality, reduce anxiety, and restore emotional balance — helping you feel grounded and resilient.",
-        "image": ""
+        "image": "/images/specialty-acu-stress.jpg"
       },
       {
         "title": "Women's Health",
         "description": "Acupuncture has been used for centuries to support women's health across all life stages. From regulating menstrual cycles and easing period pain to managing pregnancy discomforts and navigating perimenopause and menopause, our practitioners provide gentle, holistic care tailored to your unique needs. Infertility acupuncture is one of our most sought-after specialties — research supports its role in improving ovarian function, regulating hormonal cycles, reducing stress, and enhancing uterine lining receptivity. Whether you are trying to conceive naturally or are undergoing IVF or other assisted reproductive treatments, acupuncture can be a powerful complement to your fertility journey, supporting both physical and emotional wellbeing throughout the process.",
-        "image": ""
+        "image": "/images/specialty-acu-womens.jpg"
       },
       {
         "title": "Digestive & Immune Health",
         "description": "A healthy gut is the foundation of overall wellbeing. Acupuncture can help regulate digestive function, reduce bloating and discomfort, and support conditions such as IBS, reflux, and nausea. It also plays a role in strengthening immune resilience and managing fatigue, helping your body maintain its natural balance.",
-        "image": ""
+        "image": "/images/specialty-acu-digestive.jpg"
       }
     ]
   },
@@ -61,22 +61,22 @@
       {
         "title": "Pain & Inflammation",
         "description": "Herbal formulas have long been used to address pain and reduce inflammation throughout the body. Our practitioners select specific herbs known for their analgesic and anti-inflammatory properties, creating personalised blends that work alongside your other treatments to provide sustained relief from chronic pain, arthritis, and musculoskeletal conditions.",
-        "image": ""
+        "image": "/images/specialty-herb-pain.jpg"
       },
       {
         "title": "Stress, Sleep & Mental Wellbeing",
         "description": "Adaptogenic and calming herbs have a profound ability to support the nervous system, reduce the impact of stress, and promote restful sleep. Our herbal prescriptions are tailored to your individual pattern — whether you're experiencing burnout, anxiety, insomnia, or low mood — to help restore your energy and emotional balance.",
-        "image": ""
+        "image": "/images/specialty-herb-stress.jpg"
       },
       {
         "title": "Digestive Health",
         "description": "Digestive health is central to overall wellness in Traditional Chinese Medicine. Herbal formulas can help regulate gut function, ease bloating, cramping, and discomfort, and support conditions such as IBS, reflux, and poor appetite. Our practitioners assess your individual presentation to create a formula that addresses the root cause, not just the symptoms.",
-        "image": ""
+        "image": "/images/specialty-herb-digestive.jpg"
       },
       {
         "title": "Women's Health & Hormonal Balance",
         "description": "Herbal medicine is particularly powerful in supporting women's health throughout every life stage. From regulating menstrual cycles and supporting fertility to managing symptoms of perimenopause and menopause, our personalised herbal prescriptions work with your body's natural rhythms to restore hormonal balance and promote lasting wellbeing.",
-        "image": ""
+        "image": "/images/specialty-herb-womens.jpg"
       }
     ]
   }
