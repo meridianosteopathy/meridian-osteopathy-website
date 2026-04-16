@@ -16,15 +16,19 @@ description: "Join our team at Meridian Osteopathy. Osteopath jobs in Christchur
 <section class="section">
   <div class="container">
     <div class="careers-content">
-      <h2>Join Our Team at Meridian Osteopathy</h2>
+      <h2 class="text-center">Join Our Team at Meridian Osteopathy</h2>
 
       <p>We're not just offering a job — we're inviting you to embark on a <strong>rewarding career journey</strong> within a supportive and visionary environment.</p>
 
-      <p>Whether you're a <strong>recent graduate</strong> or a <strong>seasoned practitioner</strong>, we welcome dedicated individuals who are passionate about making a real difference in people's lives.</p>
+      <div class="careers-expandable">
+        <p>Whether you're a <strong>recent graduate</strong> or a <strong>seasoned practitioner</strong>, we welcome dedicated individuals who are passionate about making a real difference in people's lives.</p>
 
-      <p>For acupuncturists, all applicants — whether based in New Zealand or overseas — must hold current registration with the <strong>Chinese Medicine Council of New Zealand (CMCNZ)</strong>, or be eligible to obtain it prior to commencing practice. This is a mandatory requirement and ensures the highest standard of care for our patients.</p>
+        <p>For acupuncturists, all applicants — whether based in New Zealand or overseas — must hold current registration with the <strong>Chinese Medicine Council of New Zealand (CMCNZ)</strong>, or be eligible to obtain it prior to commencing practice. This is a mandatory requirement and ensures the highest standard of care for our patients.</p>
 
-      <p>At every stage, you'll benefit from <strong>continuous learning opportunities</strong>, a collaborative team environment, and the satisfaction of positively impacting our patients. Our remuneration packages are competitive and tailored to experience, and we offer <strong>relocation assistance</strong> for those moving to Christchurch. Overseas applicants are welcome — we can assist with guidance on CMCNZ registration, visa applications, and help you settle into Christchurch.</p>
+        <p>At every stage, you'll benefit from <strong>continuous learning opportunities</strong>, a collaborative team environment, and the satisfaction of positively impacting our patients. Our remuneration packages are competitive and tailored to experience, and we offer <strong>relocation assistance</strong> for those moving to Christchurch. Overseas applicants are welcome — we can assist with guidance on CMCNZ registration, visa applications, and help you settle into Christchurch.</p>
+      </div>
+
+      <button class="careers-read-more-btn" aria-expanded="false">Read more <span class="careers-read-more-arrow">↓</span></button>
     </div>
   </div>
 </section>
@@ -32,7 +36,7 @@ description: "Join our team at Meridian Osteopathy. Osteopath jobs in Christchur
 <!-- Current Vacancies -->
 <section class="section section-light">
   <div class="container">
-    <h2>Current Vacancies</h2>
+    <h2 class="text-center">Current Vacancies</h2>
 
     {% if careers.vacancies and careers.vacancies.length > 0 %}
 
@@ -42,15 +46,15 @@ description: "Join our team at Meridian Osteopathy. Osteopath jobs in Christchur
         <div class="vacancy-table-header">
           <span>Position</span>
           <span>Type</span>
-          <span>Requirements</span>
+          <span style="text-align:left;">Requirements</span>
           <span></span>
         </div>
         {% for v in careers.vacancies %}
         <div class="vacancy-row">
           <span class="vacancy-title">{{ v.title }}</span>
           <span class="vacancy-type vacancy-type--{{ v.type | lower | replace(' ', '-') }}">{{ v.type }}</span>
-          <span class="vacancy-requirements">{{ v.requirements }}</span>
-          <a href="#apply" class="btn btn-gold" style="font-size:0.82rem; padding:8px 18px; white-space:nowrap;">Apply Now</a>
+          <span class="vacancy-requirements"><span class="vacancy-req-label">Requirements: </span>{{ v.requirements }}</span>
+          <a href="#apply" class="btn btn-primary btn-careers vacancy-apply-btn">Apply Now</a>
         </div>
         {% endfor %}
       </div>
@@ -66,7 +70,7 @@ description: "Join our team at Meridian Osteopathy. Osteopath jobs in Christchur
         </div>
         <h3>No open positions right now</h3>
         <p>We don't have any active vacancies at the moment, but we'd still love to hear from you. If you're a passionate healthcare professional interested in joining the Meridian Osteopathy team, submit your CV below — we keep all expressions of interest on file and will reach out when a suitable opportunity arises.</p>
-        <a href="#apply" class="btn btn-gold" style="margin-top: 8px;">Register Your Interest</a>
+        <a href="#apply" class="btn btn-primary" style="margin-top: 8px;">Register Your Interest</a>
       </div>
 
     {% endif %}
@@ -100,7 +104,7 @@ description: "Join our team at Meridian Osteopathy. Osteopath jobs in Christchur
       <div class="form-group">
         <label>I am a: <span class="required">*</span></label>
         <select name="applicant-type" required>
-          <option value="" disabled selected>Recent Graduate / Experienced Osteopath / Other</option>
+          <option value="" disabled selected>Select applicant type…</option>
           <option value="recent-graduate">Recent Graduate</option>
           <option value="experienced-osteopath">Experienced Osteopath</option>
           <option value="cmcnz-acupuncturist">CMCNZ Registered Acupuncturist</option>
@@ -125,7 +129,7 @@ description: "Join our team at Meridian Osteopathy. Osteopath jobs in Christchur
       </div>
 
       <div style="text-align: center; margin-top: 16px;">
-        <button type="submit" class="btn btn-gold">Submit Application</button>
+        <button type="submit" class="btn btn-primary btn-careers">Submit Application</button>
       </div>
     </form>
   </div>

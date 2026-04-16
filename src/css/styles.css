@@ -120,6 +120,20 @@ p { margin-bottom: 16px; }
   color: var(--white);
 }
 .btn-gold:hover { background: var(--gold-hover); transform: translateY(-1px); }
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+}
+.btn-primary:hover { background: #162f4f; transform: translateY(-1px); }
+.btn-careers {
+  justify-content: center;
+}
+/* Apply Now in vacancy table — slimmer than full btn height */
+.vacancy-apply-btn {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 0.88rem;
+}
 .btn-outline {
   background: transparent;
   border: 2px solid var(--primary);
@@ -746,7 +760,7 @@ a.testimonial-card--linked:hover {
 .vacancy-table-header {
   display: grid;
   grid-template-columns: 2fr 1fr 3fr auto;
-  gap: 16px;
+  column-gap: 8px;
   align-items: center;
   padding: 12px 24px;
   background: var(--primary);
@@ -759,7 +773,7 @@ a.testimonial-card--linked:hover {
 .vacancy-row {
   display: grid;
   grid-template-columns: 2fr 1fr 3fr auto;
-  gap: 16px;
+  column-gap: 8px;
   align-items: center;
   padding: 20px 24px;
   border-bottom: 1px solid var(--border);
@@ -775,14 +789,16 @@ a.testimonial-card--linked:hover {
   font-size: 0.88rem;
   color: var(--text-muted, #666);
   line-height: 1.5;
+  text-align: left;
 }
 .vacancy-type {
   display: inline-block;
-  padding: 4px 12px;
+  padding: 5px 14px;
   border-radius: 20px;
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   font-weight: 600;
   white-space: nowrap;
+  text-align: center;
 }
 .vacancy-type--full-time { background: #e8f0fb; color: var(--primary); }
 .vacancy-type--part-time { background: #fdf3e0; color: #a06b00; }
@@ -1260,7 +1276,115 @@ a.testimonial-card--linked:hover {
   .profile-photo-card { margin-top: 0; }
   .profile-lifestyle { min-height: 300px; }
   .profile-lifestyle-nav { display: none; }
+
+  /* ── Careers page mobile ── */
+
+  /* Read-more toggle */
+  .careers-expandable {
+    display: none;
+    margin-top: 0;
+  }
+  .careers-expandable.open {
+    display: block;
+  }
+  .careers-read-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: 7px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 4px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .careers-read-more-btn:hover {
+    background: var(--primary);
+    color: var(--white);
+  }
+
+  /* Mobile vacancy cards — hide desktop table header, stack rows as cards */
+  .vacancy-table-header { display: none; }
+  .vacancy-table {
+    border: none;
+    background: transparent;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .vacancy-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 18px 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--white);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .vacancy-row:last-child { border-bottom: 1px solid var(--border); }
+  .vacancy-row:hover { background: var(--lighter-bg); }
+  .vacancy-title {
+    font-size: 1.05rem;
+  }
+  .vacancy-type {
+    align-self: center;
+    text-align: center;
+    font-size: 0.92rem;
+    padding: 6px 16px;
+  }
+  .vacancy-req-label {
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+  .btn-careers {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 28px;
+    box-sizing: border-box;
+    margin: 0;
+    line-height: 1;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  /* Override the slimmer desktop padding so mobile is full height */
+  .vacancy-apply-btn {
+    padding-top: 14px !important;
+    padding-bottom: 14px !important;
+    margin-top: 4px;
+  }
+
+  /* I am a: select — full border, white bg, proper spacing on mobile */
+  .form-group select {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 40px 12px 14px;
+    -webkit-appearance: auto;
+    appearance: auto;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .form-group select:focus {
+    border-color: var(--primary);
+    border-bottom-color: var(--primary);
+  }
 }
+
+/* ── Careers desktop: hide read-more button, always show expandable ── */
+.careers-read-more-btn { display: none; }
+.careers-expandable { display: block; }
+.vacancy-req-label { display: none; }
 
 /* ============================================
    PROFILE PAGE

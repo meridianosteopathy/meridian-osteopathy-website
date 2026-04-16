@@ -49,6 +49,24 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // ─── Careers "Read more" toggle ────────────────────────────────
+  const readMoreBtn = document.querySelector('.careers-read-more-btn');
+  const careersExpandable = document.querySelector('.careers-expandable');
+  if (readMoreBtn && careersExpandable) {
+    readMoreBtn.addEventListener('click', function() {
+      const isOpen = careersExpandable.classList.contains('open');
+      if (isOpen) {
+        careersExpandable.classList.remove('open');
+        readMoreBtn.setAttribute('aria-expanded', 'false');
+        readMoreBtn.innerHTML = 'Read more <span class="careers-read-more-arrow">↓</span>';
+      } else {
+        careersExpandable.classList.add('open');
+        readMoreBtn.setAttribute('aria-expanded', 'true');
+        readMoreBtn.innerHTML = 'Read less <span class="careers-read-more-arrow">↑</span>';
+      }
+    });
+  }
+
   // ─── FAQ accordion ─────────────────────────────────────────────
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(function(item) {
