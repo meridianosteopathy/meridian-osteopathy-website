@@ -49,6 +49,23 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // ─── Careers Apply Now → pre-select position dropdown ──────────
+  document.querySelectorAll('.vacancy-apply-btn[data-position]').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault(); // stop href firing before JS runs
+      var position = this.getAttribute('data-position');
+      var select = document.getElementById('applying-position');
+      if (select && position) {
+        select.value = position;
+      }
+      // Now scroll to the form
+      var target = document.getElementById('apply');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
   // ─── Careers "Read more" toggle ────────────────────────────────
   const readMoreBtn = document.querySelector('.careers-read-more-btn');
   const careersExpandable = document.querySelector('.careers-expandable');

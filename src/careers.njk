@@ -54,7 +54,7 @@ description: "Join our team at Meridian Osteopathy. Osteopath jobs in Christchur
           <span class="vacancy-title">{{ v.title }}</span>
           <span class="vacancy-type vacancy-type--{{ v.type | lower | replace(' ', '-') }}">{{ v.type }}</span>
           <span class="vacancy-requirements"><span class="vacancy-req-label">Requirements: </span>{{ v.requirements }}</span>
-          <a href="#apply" class="btn btn-primary btn-careers vacancy-apply-btn">Apply Now</a>
+          <a href="#apply" class="btn btn-primary btn-careers vacancy-apply-btn" data-position="{{ v.title }}">Apply Now</a>
         </div>
         {% endfor %}
       </div>
@@ -85,6 +85,23 @@ description: "Join our team at Meridian Osteopathy. Osteopath jobs in Christchur
 
     <form name="career-application" method="POST" data-netlify="true" enctype="multipart/form-data" class="form-container" style="text-align: left; margin-top: 32px;">
       <input type="hidden" name="form-name" value="career-application">
+
+      <div class="form-group">
+        <label>Applying Position <span class="required">*</span></label>
+        {% if careers.vacancies and careers.vacancies.length > 0 %}
+          <select name="applying-position" id="applying-position" required>
+            <option value="" disabled selected>Select a position…</option>
+            {% for v in careers.vacancies %}
+              <option value="{{ v.title }}">{{ v.title }}</option>
+            {% endfor %}
+          </select>
+        {% else %}
+          <input type="hidden" name="applying-position" value="Expression of Interest">
+          <select disabled>
+            <option selected>Expression of Interest</option>
+          </select>
+        {% endif %}
+      </div>
 
       <div class="form-group">
         <label>Name <span class="required">*</span></label>
