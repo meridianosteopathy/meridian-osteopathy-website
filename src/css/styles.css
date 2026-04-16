@@ -871,9 +871,11 @@ a.testimonial-card--linked:hover {
 }
 .form-group textarea { min-height: 100px; resize: vertical; }
 
-/* Date inputs — full box style on all devices so border-bottom never overflows
-   and the calendar picker icon is visible against a white background */
+/* Date inputs — box style on all devices, -webkit-appearance: none lets iOS
+   respect text-align: left (native date wheel still opens on tap/click) */
 .form-group input[type="date"] {
+  -webkit-appearance: none;
+  appearance: none;
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -881,10 +883,11 @@ a.testimonial-card--linked:hover {
   width: 100%;
   box-sizing: border-box;
   min-width: 0;
+  text-align: left;
+  color: var(--text-dark);
 }
 .form-group input[type="date"]:focus {
   border-color: var(--primary);
-  border-bottom-color: var(--primary);
   outline: none;
 }
 
