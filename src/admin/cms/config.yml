@@ -113,7 +113,7 @@ collections:
                 fields:
                   - { label: "Rate", name: "rate", widget: "string" }
                   - { label: "Notes", name: "notes", widget: "string", required: false }
-              - label: "Private Patient"
+              - label: "Non-ACC Patient"
                 name: "private"
                 widget: "object"
                 fields:
