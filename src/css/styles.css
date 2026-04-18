@@ -336,9 +336,14 @@ p { margin-bottom: 16px; }
    CTA BANNER
    ============================================ */
 .cta-banner {
-  background: url('/images/cta-banner.jpg') center top / cover no-repeat;
+  background: url('/images/cta-banner.jpg') 70% top / cover no-repeat;
   text-align: center;
-  padding: 50px 24px;
+  padding: 80px 24px;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .cta-banner h2 { font-size: 1.6rem; margin-bottom: 8px; color: var(--white); }
 .cta-banner p { margin-bottom: 20px; color: rgba(255,255,255,0.88); }
@@ -662,6 +667,14 @@ a.testimonial-card--linked:hover {
   .specialty-image { flex: none; width: 100%; }
   .specialty-content { text-align: center; }
   .specialty-content .btn { display: inline-block; }
+}
+
+@media (max-width: 768px) {
+  .cta-banner {
+    background-position: 88% top;
+    padding: 60px 20px;
+    min-height: 280px;
+  }
 }
 
 .other-services {
