@@ -131,3 +131,23 @@ description: "Meridian Osteopathy in Christchurch offers osteopathy, acupuncture
 </section>
 
 {% include "back-to-top.njk" %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {%- for f in home.faq %}
+    {
+      "@type": "Question",
+      "name": {{ f.question | dump | safe }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ f.answer | dump | safe }}
+      }
+    }{% if not loop.last %},{% endif %}
+    {%- endfor %}
+  ]
+}
+</script>
+

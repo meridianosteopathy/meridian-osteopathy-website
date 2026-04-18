@@ -1,0 +1,25 @@
+# robots.txt for Meridian Osteopathy
+
+User-agent: *
+Allow: /
+
+# Explicit allow for major AI crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://meridianosteopathy.co.nz/sitemap.xml

@@ -6,6 +6,12 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/admin");
   eleventyConfig.addPassthroughCopy("src/fonts");
 
+  // Pass through SEO / AI discovery files to site root
+  eleventyConfig.addPassthroughCopy({ "src/llms.txt": "llms.txt" });
+  eleventyConfig.addPassthroughCopy({ "src/llms-full.txt": "llms-full.txt" });
+  eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
+  eleventyConfig.addPassthroughCopy({ "src/sitemap.xml": "sitemap.xml" });
+
   return {
     dir: {
       input: "src",
