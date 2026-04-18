@@ -16,10 +16,10 @@
     "role": "Osteopath",
     "photo": "/images/team-jonathan.jpg",
     "lifestyleImage": "",
-    "qualifications": "Content coming soon.",
-    "approach": "Content coming soon.",
-    "specialInterests": "Content coming soon.",
-    "aboutMe": "Content coming soon."
+    "qualifications": "Jonathan holds a Bachelor of Health Science and a Master of Osteopathy, and is a registered member of Osteopathy New Zealand. His training gave him a deep grounding in anatomy, biomechanics, and the relationship between structure and function — knowledge he draws on every day in clinic. Jonathan has a particular interest in how chronic pain develops and how hands-on therapy can help break that cycle.",
+    "approach": "Jonathan takes a whole-body approach to treatment, believing that the source of pain is rarely the whole story. He takes time in each consultation to understand not just where it hurts, but why — looking at posture, movement patterns, and lifestyle to build a complete picture. His treatments blend structural osteopathic techniques with soft tissue work and patient education, so that each person leaves with a clearer understanding of their body and what they can do to support their own recovery.",
+    "specialInterests": "Jonathan has a strong interest in musculoskeletal pain, particularly back and neck complaints that have become persistent or recurring. He also enjoys working with desk-based workers and people whose pain is linked to posture or repetitive strain. Jonathan is committed to staying current with the latest evidence in manual therapy and regularly undertakes continuing professional development to refine his practice.",
+    "aboutMe": "Outside the clinic, Jonathan is an active person who understands first-hand how much physical wellbeing shapes everyday life. He enjoys being outdoors — whether hiking the trails around Christchurch or staying active on the weekends. This connection to movement and the body is something he brings into his work, helping patients find practical ways to stay active and feel their best."
   },
   "maddison": {
     "name": "Maddison Moffat",
@@ -27,10 +27,10 @@
     "role": "Osteopath",
     "photo": "/images/team-maddison.jpg",
     "lifestyleImage": "",
-    "qualifications": "Content coming soon.",
-    "approach": "Content coming soon.",
-    "specialInterests": "Content coming soon.",
-    "aboutMe": "Content coming soon."
+    "qualifications": "Maddison graduated with a Bachelor of Health Science and a Master of Osteopathy, and is registered with Osteopathy New Zealand. She brings a thorough, evidence-informed foundation to her practice, with additional study in areas such as pregnancy care, paediatrics, and sport-related injury. Maddison is dedicated to ongoing learning and regularly attends professional development courses to continue growing as a practitioner.",
+    "approach": "Maddison's approach is gentle, thorough, and patient-centred. She believes that good treatment starts with good listening — taking the time to understand each person's history, goals, and concerns before hands are placed. Her treatments are tailored to the individual, drawing on a range of osteopathic techniques including soft tissue therapy, articulation, and cranial approaches. Maddison aims to make every patient feel safe, heard, and genuinely supported throughout their care.",
+    "specialInterests": "Maddison has a special interest in supporting women through pregnancy and the postnatal period, as well as caring for babies and young children. She also enjoys working with patients managing chronic pain or stress-related tension. Her approach to these areas is particularly gentle and collaborative, recognising that this kind of care requires both clinical skill and a high degree of sensitivity.",
+    "aboutMe": "Maddison is passionate about helping people feel comfortable in their bodies at every stage of life. When she's not in the clinic, she loves spending time in nature, exploring what Christchurch and the surrounding region have to offer. She brings warmth and genuine care to every appointment, and believes that a positive therapeutic relationship is one of the most important ingredients in any recovery."
   },
   "min": {
     "name": "Min Jin",
@@ -38,10 +38,10 @@
     "role": "Acupuncturist",
     "photo": "/images/team-min.jpg",
     "lifestyleImage": "",
-    "qualifications": "Content coming soon.",
-    "approach": "Content coming soon.",
-    "specialInterests": "Content coming soon.",
-    "aboutMe": "Content coming soon."
+    "qualifications": "Min holds a Bachelor of Traditional Chinese Medicine and is registered with the Chinese Medicine Council of New Zealand (CMCNZ). Her training encompassed classical acupuncture, herbal medicine, and the foundational theories of Chinese medicine — all of which she integrates into her clinical practice. Min has continued to expand her expertise through postgraduate study and professional development, with a focus on women's health, pain management, and stress-related conditions.",
+    "approach": "Min approaches each patient as a whole person, not just a set of symptoms. Drawing on the rich tradition of Traditional Chinese Medicine, she works to identify and address the root cause of imbalance rather than simply managing surface-level complaints. Her treatments are gentle and restorative, combining fine-needle acupuncture with broader lifestyle and dietary guidance where appropriate. Min takes care to explain her reasoning clearly, so that patients feel informed and confident in their treatment.",
+    "specialInterests": "Min has a particular interest in women's health — including hormonal balance, fertility support, and menstrual irregularities — as well as stress, anxiety, and digestive complaints. She finds TCM especially well-suited to conditions where the interconnection between mind and body is central to healing. Min also has experience supporting patients through periods of major life change or chronic fatigue, helping them rebuild vitality from the ground up.",
+    "aboutMe": "Min was drawn to Chinese medicine through a deep respect for its philosophy — the idea that health is not merely the absence of disease, but a state of balance and harmony. Outside of work, she enjoys cooking nourishing food, practicing Tai Chi, and spending quiet time in nature. She brings patience, warmth, and genuine curiosity to every consultation, and considers it a privilege to walk alongside patients on their journey to better health."
   },
   "consultationSteps": [
     {
