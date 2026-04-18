@@ -336,7 +336,7 @@ p { margin-bottom: 16px; }
    CTA BANNER
    ============================================ */
 .cta-banner {
-  background: url('/images/cta-banner.jpg') center center / cover no-repeat;
+  background: url('/images/cta-banner.jpg') center top / cover no-repeat;
   text-align: center;
   padding: 50px 24px;
 }
