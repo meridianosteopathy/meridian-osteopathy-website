@@ -1,0 +1,42 @@
+---
+permalink: /llms.txt
+eleventyExcludeFromCollections: true
+---
+# {{ site.name | plain | safe }}
+
+> {{ site.name | plain | safe }} is a multidisciplinary clinic in Christchurch, New Zealand, offering {% for key, s in services %}{{ s.title | plain | lower | safe }}{% if not loop.last %}{% if loop.revindex0 == 1 %}, and {% else %}, {% endif %}{% endif %}{% endfor %}. We are ACC registered — no GP referral is required.
+
+## Clinic details
+
+- Location: {{ site.address | plain | safe }}, New Zealand
+- Phone: {{ site.phone }}
+- Email: {{ site.email }}
+- Hours: {{ site.hours.weekday | plain | safe }}; {{ site.hours.saturday | plain | safe }}; {{ site.hours.sunday | plain | safe }}
+- Area served: {{ site.areaServed | plain | safe }}, Canterbury, New Zealand
+- Pricing: ACC consultations {{ site.pricing.acc.rate | plain | safe }}; private consultations {{ site.pricing.private.rate | plain | safe }}
+
+## Services
+
+{% for key, s in services -%}
+- [{{ s.title | plain | safe }}]({{ site.url }}{{ s.url }}): {{ s.intro | plain | safe }}
+{% endfor %}
+
+## Practitioners
+
+{% for key, p in team -%}
+{% if p.name -%}
+- [{{ p.name | plain | safe }}]({{ site.url }}{{ p.profileUrl }}): {{ p.role | plain | safe }}
+{% endif -%}
+{% endfor %}
+
+## Key pages
+
+- [Home]({{ site.url }}/)
+- [Book online]({{ site.url }}/book/)
+- [Contact]({{ site.url }}/contact/)
+- [Careers]({{ site.url }}/careers/)
+- [Referral]({{ site.url }}/referral/)
+
+## Optional
+
+- [Full content (llms-full.txt)]({{ site.url }}/llms-full.txt)

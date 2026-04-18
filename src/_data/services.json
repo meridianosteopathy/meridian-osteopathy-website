@@ -1,6 +1,7 @@
 {
   "osteopathy": {
     "title": "Osteopathy",
+    "url": "/services/osteopathy/",
     "heroImage": "/images/hero-osteopathy.jpg",
     "intro": "Osteopathy is a regulated allied health profession specialising in musculoskeletal health. Our osteopaths treat a wide range of conditions including back and neck pain, headaches and migraines, joint pain and arthritis, posture imbalances, muscle tightness, pregnancy-related pain, and growth pain — for patients of all ages, from infants to seniors.",
     "specialties": [
@@ -28,6 +29,7 @@
   },
   "acupuncture": {
     "title": "Acupuncture",
+    "url": "/services/acupuncture/",
     "heroImage": "/images/hero-acupuncture.jpg",
     "intro": "Acupuncture at Meridian Osteopathy blends Traditional Chinese Medicine with modern evidence-based practice. Our practitioners treat a wide range of conditions including chronic pain, headaches, stress and anxiety, sleep difficulties, women's health, digestive concerns, and fatigue — supporting your body's natural ability to heal and restore balance.",
     "specialties": [
@@ -55,6 +57,7 @@
   },
   "herbs": {
     "title": "Herbal Medicine",
+    "url": "/services/herbal-medicine/",
     "heroImage": "/images/hero-herbs.jpg",
     "intro": "Herbal medicine at Meridian Osteopathy draws on thousands of years of Traditional Chinese Medicine wisdom, combined with contemporary research. Our practitioners create personalised herbal prescriptions using carefully selected plant-based ingredients to address a wide range of conditions — from pain and fatigue to digestive health, hormonal imbalance, and mental wellbeing.",
     "specialties": [

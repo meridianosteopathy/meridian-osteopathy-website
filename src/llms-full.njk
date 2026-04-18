@@ -1,0 +1,50 @@
+---
+permalink: /llms-full.txt
+eleventyExcludeFromCollections: true
+---
+# {{ site.name | plain | safe }} — Full Content
+
+> {{ site.name | plain | safe }} is a multidisciplinary clinic in Christchurch, New Zealand, offering osteopathy, acupuncture, and herbal medicine. We are ACC registered — no GP referral is required.
+
+## Clinic Details
+
+- Name: {{ site.name | plain | safe }}
+- Location: {{ site.address | plain | safe }}, New Zealand
+- Phone: {{ site.phone }}
+- Email: {{ site.email }}
+- Website: {{ site.url }}
+- Hours: {{ site.hours.weekday | plain | safe }}; {{ site.hours.saturday | plain | safe }}; {{ site.hours.sunday | plain | safe }}
+- Area served: {{ site.areaServed | plain | safe }}, Canterbury, New Zealand
+- Pricing: ACC consultations {{ site.pricing.acc.rate | plain | safe }}; private (non-ACC) consultations {{ site.pricing.private.rate | plain | safe }}
+- Booking: {{ site.url }}/book/
+
+## Services
+{% for key, s in services %}
+### {{ s.title | plain | safe }}
+
+{{ s.intro | plain | safe }}
+{% if s.specialties %}
+Specialties:
+{% for sp in s.specialties %}
+- **{{ sp.title | plain | safe }}** — {{ sp.description | plain | safe }}
+{%- endfor %}
+{% endif %}
+{% endfor %}
+## Practitioners
+{% for key, p in team %}{% if p.name %}
+### {{ p.name | plain | safe }} — {{ p.role | plain | safe }}
+
+Profile: {{ site.url }}{{ p.profileUrl }}
+{% if p.qualifications %}
+Qualifications: {{ p.qualifications | plain | safe }}
+{% endif %}{% if p.approach %}
+Approach: {{ p.approach | plain | safe }}
+{% endif %}{% if p.specialInterests %}
+Special interests: {{ p.specialInterests | plain | safe }}
+{% endif %}{% if p.aboutMe %}
+About: {{ p.aboutMe | plain | safe }}
+{% endif %}{% endif %}{% endfor %}
+## Consultation Process
+{% for step in team.consultationSteps %}
+{{ loop.index }}. **{{ step.title | plain | safe }}** — {{ step.description | plain | safe }}
+{%- endfor %}

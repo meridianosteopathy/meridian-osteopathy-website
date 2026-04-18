@@ -6,11 +6,34 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/admin");
   eleventyConfig.addPassthroughCopy("src/fonts");
 
-  // Pass through SEO / AI discovery files to site root
-  eleventyConfig.addPassthroughCopy({ "src/llms.txt": "llms.txt" });
-  eleventyConfig.addPassthroughCopy({ "src/llms-full.txt": "llms-full.txt" });
+  // Pass through robots.txt to site root (llms / sitemap are templates)
   eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
-  eleventyConfig.addPassthroughCopy({ "src/sitemap.xml": "sitemap.xml" });
+
+  // ISO-8601 date filter for sitemap lastmod
+  eleventyConfig.addFilter("dateIso", (value) => {
+    const d = value instanceof Date ? value : new Date(value);
+    return d.toISOString().split("T")[0];
+  });
+
+  // Unescape common HTML entities for plaintext output.
+  // Chain with `| safe` in templates to prevent Nunjucks from re-escaping.
+  eleventyConfig.addFilter("plain", (value) => {
+    if (value == null) return "";
+    return String(value)
+      .replace(/&amp;/g, "&")
+      .replace(/&#39;/g, "'")
+      .replace(/&quot;/g, '"')
+      .replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">");
+  });
+
+  // Filter out items whose url starts with any of the given prefixes
+  eleventyConfig.addFilter("excludePrefixes", (items, ...prefixes) => {
+    return (items || []).filter((item) => {
+      if (!item || !item.url) return false;
+      return !prefixes.some((p) => item.url.startsWith(p));
+    });
+  });
 
   return {
     dir: {

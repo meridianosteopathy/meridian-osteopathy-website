@@ -11,100 +11,74 @@
   <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  {%- set addressBlock %}
+        {
+          "@type": "PostalAddress",
+          "streetAddress": {{ site.addressParts.streetAddress | dump | safe }},
+          "addressLocality": {{ site.addressParts.locality | dump | safe }},
+          "postalCode": {{ site.addressParts.postalCode | dump | safe }},
+          "addressRegion": {{ site.addressParts.region | dump | safe }},
+          "addressCountry": {{ site.addressParts.countryCode | dump | safe }}
+        }
+  {%- endset %}
+  {%- set areaBlock %}
+        {
+          "@type": "City",
+          "name": {{ site.areaServed | dump | safe }},
+          "containedInPlace": {
+            "@type": "Country",
+            "name": {{ site.addressParts.country | dump | safe }}
+          }
+        }
+  {%- endset %}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "MedicalClinic",
-        "@id": "https://meridianosteopathy.co.nz/#clinic",
-        "name": "{{ site.name }}",
-        "url": "https://meridianosteopathy.co.nz/",
-        "telephone": "+64-21-086-55151",
-        "email": "{{ site.email }}",
-        "priceRange": "$80–$120",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "21 Coppell Place, Hillmorton",
-          "addressLocality": "Christchurch",
-          "postalCode": "8025",
-          "addressRegion": "Canterbury",
-          "addressCountry": "NZ"
-        },
-        "areaServed": {
-          "@type": "City",
-          "name": "Christchurch",
-          "containedInPlace": {
-            "@type": "Country",
-            "name": "New Zealand"
-          }
-        },
+        "@id": "{{ site.url }}/#clinic",
+        "name": {{ site.name | dump | safe }},
+        "url": "{{ site.url }}/",
+        "telephone": {{ site.phoneE164 | dump | safe }},
+        "email": {{ site.email | dump | safe }},
+        "priceRange": {{ site.priceRange | dump | safe }},
+        "address": {{ addressBlock | safe }},
+        "areaServed": {{ areaBlock | safe }},
         "openingHoursSpecification": [
+          {%- for h in site.hoursSchema %}
           {
             "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            "opens": "09:00",
-            "closes": "19:00"
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": "Saturday",
-            "opens": "09:00",
-            "closes": "13:00"
-          }
+            "dayOfWeek": {{ h.days | dump | safe }},
+            "opens": {{ h.opens | dump | safe }},
+            "closes": {{ h.closes | dump | safe }}
+          }{% if not loop.last %},{% endif %}
+          {%- endfor %}
         ]
       },
       {
         "@type": "MedicalBusiness",
-        "@id": "https://meridianosteopathy.co.nz/#business",
-        "name": "{{ site.name }}",
-        "url": "https://meridianosteopathy.co.nz/",
-        "telephone": "+64-21-086-55151",
-        "priceRange": "$80–$120",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "21 Coppell Place, Hillmorton",
-          "addressLocality": "Christchurch",
-          "postalCode": "8025",
-          "addressRegion": "Canterbury",
-          "addressCountry": "NZ"
-        },
-        "areaServed": {
-          "@type": "City",
-          "name": "Christchurch",
-          "containedInPlace": {
-            "@type": "Country",
-            "name": "New Zealand"
-          }
-        },
+        "@id": "{{ site.url }}/#business",
+        "name": {{ site.name | dump | safe }},
+        "url": "{{ site.url }}/",
+        "telephone": {{ site.phoneE164 | dump | safe }},
+        "priceRange": {{ site.priceRange | dump | safe }},
+        "address": {{ addressBlock | safe }},
+        "areaServed": {{ areaBlock | safe }},
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Clinic Services",
           "itemListElement": [
+            {%- for key, s in services %}
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "MedicalTherapy",
-                "name": "Osteopathy",
-                "url": "https://meridianosteopathy.co.nz/services/osteopathy/"
+                "name": {{ s.title | dump | safe }},
+                "url": "{{ site.url }}{{ s.url }}"
               }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "MedicalTherapy",
-                "name": "Acupuncture",
-                "url": "https://meridianosteopathy.co.nz/services/acupuncture/"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "MedicalTherapy",
-                "name": "Herbal Medicine",
-                "url": "https://meridianosteopathy.co.nz/services/herbal-medicine/"
-              }
-            }
+            }{% if not loop.last %},{% endif %}
+            {%- endfor %}
           ]
         }
       }
