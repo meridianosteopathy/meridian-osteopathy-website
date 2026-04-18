@@ -14,7 +14,9 @@ const ALLOWED_ORIGINS = [
 ];
 
 const BUCKET = "career-cvs";
-const MAX_FILE_BYTES = 8 * 1024 * 1024; // 8 MB per file
+// Netlify sync functions cap total request payload at ~6 MB (base64-inflated).
+// Keep per-file budget conservative so CV + cover letter + form fields fit.
+const MAX_FILE_BYTES = 3 * 1024 * 1024; // 3 MB per file
 const ALLOWED_MIME = new Set([
   "application/pdf",
   "application/msword",

@@ -83,8 +83,10 @@ description: "Join our team at Meridian Osteopathy. Osteopath jobs in Christchur
     <h2>Application Form</h2>
     <p class="subtitle">Apply or register your interest to work at Meridian Osteopathy</p>
 
-    <form name="career-application" method="POST" data-netlify="true" enctype="multipart/form-data" class="form-container" style="text-align: left; margin-top: 32px;">
-      <input type="hidden" name="form-name" value="career-application">
+    <form name="career-application" method="POST" action="/.netlify/functions/submit-career" enctype="multipart/form-data" class="form-container" style="text-align: left; margin-top: 32px;" onsubmit="return handleCareerSubmit(event)">
+      <p class="hidden" style="display:none;" aria-hidden="true">
+        <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+      </p>
 
       <div class="form-group">
         <label>Applying Position <span class="required">*</span></label>
@@ -145,9 +147,61 @@ description: "Join our team at Meridian Osteopathy. Osteopath jobs in Christchur
         </div>
       </div>
 
+      <div class="cf-turnstile" data-sitekey="{{ site.turnstileSiteKey }}" style="margin: 16px auto 0; display: flex; justify-content: center;"></div>
+
       <div style="text-align: center; margin-top: 16px;">
         <button type="submit" class="btn btn-primary btn-careers">Submit Application</button>
       </div>
     </form>
+
+    <div id="career-thank-you" style="display:none; margin-top: 32px;">
+      <div class="thank-you-card">
+        <h2>Thank you for your application</h2>
+        <p>We've received your application and will be in touch soon. For urgent questions, call us on <a href="tel:{{ site.phone }}">{{ site.phone }}</a>.</p>
+      </div>
+    </div>
   </div>
 </section>
+
+<script>
+  function handleCareerSubmit(event) {
+    event.preventDefault();
+    var form = event.target;
+    var submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Submitting…'; }
+
+    var data = new FormData(form);
+
+    fetch(form.action, {
+      method: 'POST',
+      body: data
+    }).then(function(response) {
+      if (response.ok) {
+        form.style.display = 'none';
+        var ty = document.getElementById('career-thank-you');
+        ty.style.display = 'block';
+        ty.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
+      }
+      return response.json().catch(function() { return {}; }).then(function(err) {
+        var msg = 'Sorry, something went wrong. Please try again or email us directly.';
+        if (err && err.error === 'turnstile-failed') {
+          msg = 'Security check failed. Please tick the "I\u2019m human" box and try again.';
+        } else if (err && err.error === 'file-too-large') {
+          msg = 'One of your files is over the 3MB limit. Please attach a smaller file.';
+        } else if (err && err.error === 'file-type-not-allowed') {
+          msg = 'Only PDF, DOC, or DOCX files are accepted.';
+        }
+        alert(msg);
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Submit Application'; }
+        if (window.turnstile) { try { window.turnstile.reset(); } catch(e) {} }
+      });
+    }).catch(function() {
+      alert('Sorry, something went wrong. Please try again or email us directly.');
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Submit Application'; }
+    });
+    return false;
+  }
+</script>
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>

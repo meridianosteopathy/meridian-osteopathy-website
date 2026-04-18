@@ -29,15 +29,13 @@ description: "Refer a patient to Meridian Osteopathy. Complete our secure online
       <form
         name="patient-referral"
         method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
+        action="/.netlify/functions/submit-referral"
         class="form-container"
         style="text-align: left; margin: 0 auto;"
         onsubmit="return handleReferralSubmit(event)">
 
-        <input type="hidden" name="form-name" value="patient-referral">
-        <p class="hidden" style="display:none;">
-          <label>Don't fill this out if you're human: <input name="bot-field"></label>
+        <p class="hidden" style="display:none;" aria-hidden="true">
+          <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
         </p>
 
         <!-- Referrer Section -->
@@ -132,6 +130,8 @@ description: "Refer a patient to Meridian Osteopathy. Complete our secure online
           </div>
         </div>
 
+        <div class="cf-turnstile" data-sitekey="{{ site.turnstileSiteKey }}" style="margin: 16px auto 0; display: flex; justify-content: center;"></div>
+
         <div style="text-align: center; margin-top: 24px;">
           <button type="submit" class="btn btn-primary">Submit Referral</button>
         </div>
@@ -164,30 +164,43 @@ description: "Refer a patient to Meridian Osteopathy. Complete our secure online
   })();
 
   function handleReferralSubmit(event) {
-    // Let Netlify process the form via AJAX so we can show an inline thank-you
     event.preventDefault();
     var form = event.target;
-    var data = new FormData(form);
-    var encoded = new URLSearchParams();
-    data.forEach(function(value, key) { encoded.append(key, value); });
+    var submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Submitting…'; }
 
-    fetch('/', {
+    var data = new FormData(form);
+    var payload = {};
+    data.forEach(function(value, key) { payload[key] = value; });
+
+    fetch(form.action, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encoded.toString()
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
     }).then(function(response) {
       if (response.ok) {
         document.getElementById('referral-form-wrapper').style.display = 'none';
         var ty = document.getElementById('referral-thank-you');
         ty.style.display = 'block';
         ty.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      } else {
-        alert('Sorry, something went wrong. Please try again or call us directly.');
+        return;
       }
+      return response.json().catch(function() { return {}; }).then(function(err) {
+        var msg = 'Sorry, something went wrong. Please try again or call us directly.';
+        if (err && err.error === 'turnstile-failed') {
+          msg = 'Security check failed. Please tick the "I\u2019m human" box and try again.';
+        }
+        alert(msg);
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Submit Referral'; }
+        if (window.turnstile) { try { window.turnstile.reset(); } catch(e) {} }
+      });
     }).catch(function() {
       alert('Sorry, something went wrong. Please try again or call us directly.');
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Submit Referral'; }
     });
     return false;
   }
 </script>
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
