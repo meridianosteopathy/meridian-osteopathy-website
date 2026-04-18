@@ -336,12 +336,12 @@ p { margin-bottom: 16px; }
    CTA BANNER
    ============================================ */
 .cta-banner {
-  background: var(--light-bg);
+  background: url('/images/cta-banner.jpg') center center / cover no-repeat;
   text-align: center;
   padding: 50px 24px;
 }
-.cta-banner h2 { font-size: 1.6rem; margin-bottom: 8px; }
-.cta-banner p { margin-bottom: 20px; color: var(--text-light); }
+.cta-banner h2 { font-size: 1.6rem; margin-bottom: 8px; color: var(--white); }
+.cta-banner p { margin-bottom: 20px; color: rgba(255,255,255,0.88); }
 
 /* ============================================
    SERVICES SECTION (Homepage)
