@@ -8,12 +8,12 @@
     "qualifications": "<ul class=\"profile-qual-list\"><li>Bachelor of Musculoskeletal Health</li><li>Postgraduate Diploma in Osteopathy</li><li>Postgraduate Certificate in Health Science (Acupuncture)</li><li>Paediatric Osteopathy</li><li>Neural Neuromeningeal Manipulation</li></ul>",
     "approach": "Nina integrates multiple modalities into each session at no extra charge. Initial consultations (45–60 minutes) include a full case history, physical examination, and osteopathic hands-on treatment and acupuncture where appropriate. Follow-up sessions are tailored to each patient's response and may include dry needling, auricular or electrical acupuncture, cupping, ultrasound therapy, and moxibustion, alongside personalised rehabilitation to support lasting recovery.",
     "specialInterests": "Nina has a special interest in women's health, integrating osteopathic cranial techniques and acupuncture to support hormonal balance, pelvic health, and overall wellbeing. She also treats a wide range of conditions — including headaches, migraines, TMJ disorders, neck and back pain, postural imbalances, and stress-related complaints — across all age groups. She has specialist training in Paediatric Osteopathy, making her well placed to care for infants and young children with great gentleness and sensitivity.",
-    "aboutMe": "Nina's journey into osteopathy began in childhood, when she experienced delayed speech development. Her grandparents introduced her to Traditional Chinese Medicine, energy healing, naturopathy, and acupuncture — experiences that sparked a lifelong fascination with the body's innate capacity for healing. Though verbal expression was once a challenge, Nina discovered an exceptional gift for intuitive feeling and palpation that continues to define her clinical style. Outside the clinic, she manages her own wellbeing through meditation and qigong — practices she loves to share with her patients. An active sports enthusiast, Nina can often be found on the badminton court, on the ski slopes, or out on the water kayaking. Her first-hand experience of sports injuries means she genuinely understands the frustration of being sidelined, and brings that empathy to every treatment. Nina is an active member of Osteopaths NZ (Membership #1847)."
+    "aboutMe": "Nina's journey into osteopathy and acupuncture began in childhood, when her grandparents introduced her to Traditional Chinese Medicine, energy healing, naturopathy, and acupuncture — sparking a lifelong fascination with the body's innate capacity for healing. Though verbal expression was once a challenge, she discovered an exceptional gift for intuitive feeling and palpation that continues to define her clinical style. Outside the clinic, Nina practises meditation and qigong, and can often be found on the badminton court, on the ski slopes, or out on the water kayaking."
   },
   "jonathan": {
     "name": "Jonathan Grice",
     "firstName": "Jonathan",
-    "role": "Osteopath &amp; Low Level Laser Therapy",
+    "role": "Senior Osteopath &amp; Low Level Laser Therapist",
     "photo": "/images/team-jonathan.jpg",
     "lifestyleImage": "",
     "qualifications": "<p>Jonathan trained at the British College of Osteopathic Medicine in London and is a NZ Registered Osteopath. After graduating, he built extensive clinical experience in private practice from 2010, before holding an NHS contract in Twickenham where he received GP referrals. From 2019 to 2022 he worked in advanced clinical practice at an NHS GP surgery, focusing on musculoskeletal diagnosis and onward referral. Born and raised in Christchurch, Jonathan returned home in 2022 — bringing with him over a decade of international experience, including a period as a vaccinator during the COVID-19 pandemic.</p>",
@@ -47,17 +47,17 @@
     {
       "number": "01",
       "title": "Initial Consultation",
-      "description": "Consent form, case history, physical examination, treatment plan discussion. 45–60 minutes. Gentle hands-on treatment including balanced ligamentous tension, soft tissue techniques, and myofascial unwinding."
+      "description": "Allow 45–60 minutes for a full case history, physical examination, and treatment plan discussion. Includes osteopathic hands-on treatment and acupuncture where appropriate — all at no extra charge."
     },
     {
       "number": "02",
       "title": "Follow-up Treatments",
-      "description": "Tailored to your response. May include different osteopathic techniques, dry needling, auricular/electrical acupuncture, and cupping based on progress."
+      "description": "Tailored to your response and progress. May include dry needling, auricular or electrical acupuncture, cupping, ultrasound therapy, and moxibustion."
     },
     {
       "number": "03",
       "title": "Rehabilitation",
-      "description": "Personalised rehab via Physitrack app — exercise videos sent to your phone. Designed to prevent future injuries and support long-term recovery."
+      "description": "Personalised rehabilitation to support lasting recovery and help prevent future injuries."
     }
   ]
 }
