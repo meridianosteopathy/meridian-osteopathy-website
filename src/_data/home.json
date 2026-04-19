@@ -1,5 +1,6 @@
 {
   "heroImage": "/images/hero-taranaki.jpg",
+  "heroImageMobile": "/images/hero-taranaki-mv.jpg",
   "firstVisitSteps": [
     {
       "number": "01",
