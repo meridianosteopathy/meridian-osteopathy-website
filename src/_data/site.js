@@ -30,7 +30,7 @@ module.exports = {
   areaServed: "Christchurch",
   hours: {
     weekday: "Mon–Fri: 9:00am – 7:00pm",
-    saturday: "Saturday: 9:00am – 1:00pm",
+    saturday: "Saturday: 9:00am – 5:00pm",
     sunday: "Sunday: Closed",
   },
   hoursSchema: [
@@ -42,7 +42,7 @@ module.exports = {
     {
       days: ["Saturday"],
       opens: "09:00",
-      closes: "13:00",
+      closes: "17:00",
     },
   ],
   social: {
