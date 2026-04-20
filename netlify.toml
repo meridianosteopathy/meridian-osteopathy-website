@@ -18,6 +18,15 @@
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
     Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://identity.netlify.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src https://challenges.cloudflare.com https://meridian-osteopathy.au2.cliniko.com https://app.netlify.com https://www.google.com; connect-src 'self' https://challenges.cloudflare.com https://identity.netlify.com https://api.netlify.com; form-action 'self'; base-uri 'self'; object-src 'none'"
 
+# Decap CMS at /admin/* needs a looser CSP: 'unsafe-eval' for Ajv
+# schema compilation and unpkg.com on connect-src for source maps.
+# Path-specific CSP overrides the global one for matching requests
+# only; public pages keep the strict policy above.
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://challenges.cloudflare.com https://identity.netlify.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; frame-src https://challenges.cloudflare.com https://meridian-osteopathy.au2.cliniko.com https://app.netlify.com https://www.google.com; connect-src 'self' https://challenges.cloudflare.com https://identity.netlify.com https://api.netlify.com https://unpkg.com; worker-src 'self' blob:; form-action 'self'; base-uri 'self'; object-src 'none'"
+
 # Cache static assets aggressively
 [[headers]]
   for = "/css/*"
