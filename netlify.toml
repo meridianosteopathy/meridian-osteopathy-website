@@ -92,6 +92,11 @@
   status = 301
 
 [[redirects]]
+  from = "/rehabilitation"
+  to = "/services/osteopathy/"
+  status = 301
+
+[[redirects]]
   from = "/about-nina"
   to = "/team/nina-hu/"
   status = 301
