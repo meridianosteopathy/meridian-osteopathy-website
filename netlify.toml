@@ -48,6 +48,16 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Send any traffic hitting the raw Netlify subdomain to the canonical
+# domain so Google de-indexes the *.netlify.app URLs. Deploy previews live
+# on deploy-preview-N--meridian-osteopathy.netlify.app, so they're not
+# affected by this rule.
+[[redirects]]
+  from = "https://meridian-osteopathy.netlify.app/*"
+  to = "https://meridianosteopathy.co.nz/:splat"
+  status = 301
+  force = true
+
 # Legacy URLs — 301 to the current equivalents. Must appear before the
 # catch-all 404 so they're matched first.
 [[redirects]]
