@@ -7,7 +7,9 @@
   node_bundler = "esbuild"
 
 # Security headers for every page.
-# CSP allows Cloudflare Turnstile + the fonts/images you already use.
+# CSP allows Cloudflare Turnstile, Google Fonts, and the Meta Pixel
+# (connect.facebook.net to load fbevents.js, www.facebook.com for the
+# noscript img + XHR callbacks).
 [[headers]]
   for = "/*"
   [headers.values]
@@ -16,7 +18,7 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), browsing-topics=()"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://identity.netlify.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src https://challenges.cloudflare.com https://meridian-osteopathy.au2.cliniko.com https://app.netlify.com https://www.google.com; connect-src 'self' https://challenges.cloudflare.com https://identity.netlify.com https://api.netlify.com; form-action 'self'; base-uri 'self'; object-src 'none'"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://identity.netlify.com https://unpkg.com https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src https://challenges.cloudflare.com https://meridian-osteopathy.au2.cliniko.com https://app.netlify.com https://www.google.com https://www.facebook.com; connect-src 'self' https://challenges.cloudflare.com https://identity.netlify.com https://api.netlify.com https://www.facebook.com; form-action 'self'; base-uri 'self'; object-src 'none'"
 
 # Decap CMS at /admin/* needs a looser CSP: 'unsafe-eval' for Ajv
 # schema compilation and unpkg.com on connect-src for source maps.
