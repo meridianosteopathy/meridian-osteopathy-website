@@ -9,6 +9,7 @@
   {%- set pageImage = site.url + (ogImage or "/images/social-card.jpg") %}
   <title>{{ pageTitle }}</title>
   <meta name="description" content="{{ pageDescription }}">
+  <link rel="canonical" href="{{ pageUrl }}">
 
   <!-- Open Graph (Facebook, LinkedIn, iMessage, Slack, WhatsApp) -->
   <meta property="og:type" content="{{ ogType or 'website' }}">
