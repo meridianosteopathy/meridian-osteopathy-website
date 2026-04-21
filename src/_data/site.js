@@ -46,11 +46,18 @@ module.exports = {
     },
   ],
   social: {
-    facebook: "",
-    instagram: "",
-    linkedin: "",
-    youtube: "",
+    // Set FACEBOOK_PAGE_URL in Netlify once the Page is live, e.g.
+    // https://www.facebook.com/meridianosteopathy. Falls back to empty so
+    // the footer icon stays hidden until configured.
+    facebook: process.env.FACEBOOK_PAGE_URL || "",
+    instagram: process.env.INSTAGRAM_URL || "",
+    linkedin: process.env.LINKEDIN_URL || "",
+    youtube: process.env.YOUTUBE_URL || "",
   },
+  // Meta (Facebook) Pixel — set META_PIXEL_ID in Netlify to the 15–16 digit
+  // pixel ID. Only injected on production builds so deploy previews and
+  // branch deploys don't pollute ad reporting.
+  metaPixelId: isProduction ? (process.env.META_PIXEL_ID || "") : "",
   pricing: {
     acc: { rate: "$80 - $85", notes: "" },
     private: { rate: "$115 - $120", notes: "Non-ACC consultation" },
