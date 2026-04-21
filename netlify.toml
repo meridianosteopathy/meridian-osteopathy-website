@@ -48,6 +48,18 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Legacy URLs — 301 to the current equivalents. Must appear before the
+# catch-all 404 so they're matched first.
+[[redirects]]
+  from = "/services/sports-rehabilitation/"
+  to = "/services/osteopathy/"
+  status = 301
+
+[[redirects]]
+  from = "/services/medical-acupuncture/"
+  to = "/services/acupuncture/"
+  status = 301
+
 [[redirects]]
   from = "/*"
   to = "/404.html"
