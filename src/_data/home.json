@@ -89,24 +89,28 @@
   "practitioners": [
     {
       "name": "Na (Nina) Hu",
+      "firstName": "Nina",
       "role": "Osteopath & Medical Acupuncture",
       "photo": "/images/team-nina.jpg",
       "profileUrl": "/team/nina-hu/"
     },
     {
       "name": "Jonathan Grice",
+      "firstName": "Jonathan",
       "role": "Osteopath & Low Level Laser Therapist",
       "photo": "/images/team-jonathan.jpg",
       "profileUrl": "/team/jonathan-grice/"
     },
     {
       "name": "Maddison Moffat",
+      "firstName": "Maddison",
       "role": "Osteopath",
       "photo": "/images/team-maddison.jpg",
       "profileUrl": "/team/maddison-moffat/"
     },
     {
       "name": "Min Jin",
+      "firstName": "Min",
       "role": "Acupuncturist",
       "photo": "/images/team-min.jpg",
       "profileUrl": "/team/min-jin/"

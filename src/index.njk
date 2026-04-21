@@ -11,7 +11,7 @@ description: "Meridian Osteopathy in Christchurch offers osteopathy, acupuncture
 <!-- Practitioners -->
 <section class="section text-center">
   <div class="container">
-    <h2>Our Practitioners at Meridian Osteopathy</h2>
+    <h1>Our Practitioners at Meridian Osteopathy</h1>
     <p class="subtitle">{{ home.practitionersIntro }}</p>
     <div class="team-grid" style="margin-top: 32px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); max-width: 960px;">
       {% for p in home.practitioners %}
@@ -22,7 +22,7 @@ description: "Meridian Osteopathy in Christchurch offers osteopathy, acupuncture
           <p class="role">{{ p.role | safe }}</p>
         </div>
         <div class="team-card-actions">
-          <a href="/book/">Book {{ p.name.split(" ")[0] }}</a>
+          <a href="/book/">Book {{ p.firstName }}</a>
           <a href="{{ p.profileUrl }}">View Profile</a>
         </div>
       </div>
@@ -47,7 +47,7 @@ description: "Meridian Osteopathy in Christchurch offers osteopathy, acupuncture
         <div class="service-card-icon">
           {% if loop.index == 1 %}
           <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="32" cy="20" r="8"/><path d="M20 56V42a12 12 0 0124 0v14"/><path d="M26 32l-4 10m16-10l4 10"/>
+            <circle cx="32" cy="20" r="8"/><path d="M20 56V42a12 12 0 0124 0v14"/>
           </svg>
           {% elif loop.index == 2 %}
           <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
@@ -55,7 +55,7 @@ description: "Meridian Osteopathy in Christchurch offers osteopathy, acupuncture
           </svg>
           {% else %}
           <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="32" cy="16" r="8"/><path d="M16 56l8-20 8 8 8-8 8 20"/><path d="M24 36l-8-4m24 4l8-4"/>
+            <path d="M32 56V24M20 32c0-8 12-20 12-20s12 12 12 20a12 12 0 01-24 0z"/>
           </svg>
           {% endif %}
         </div>

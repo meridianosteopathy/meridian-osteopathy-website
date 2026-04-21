@@ -52,7 +52,7 @@
       <div class="profile-photo-card">
         <img src="{{ member.photo }}" alt="{{ member.name }}" loading="lazy">
         <div class="profile-booking-info">
-          <h4>{{ member.firstName }}</h4>
+          <h4>{{ member.name }}</h4>
           <p class="profile-credentials">{{ member.role | safe }}</p>
           <a href="/book/" class="btn-book-profile">Book {{ member.firstName }}</a>
         </div>
