@@ -8,23 +8,30 @@ in §1 (setup) and §3 (ready-to-paste ad copy).
 
 ## 1. One-off Facebook setup
 
-1. **Create a Facebook Page** (Business → Create Page) named "Meridian
-   Osteopathy". Category: *Medical & Health → Alternative & Holistic Health*.
-   Add: profile pic (logomark), cover photo (`/images/hero-team-group.jpg`),
-   address, hours (same as `site.js`), phone, website
-   `https://meridianosteopathy.co.nz`.
-2. **Claim the vanity URL** `facebook.com/meridianosteopathy` (Page → About →
-   Username).
-3. **Create a Meta Business Manager** account and assign the Page + an ad
-   account to it. Add the clinic's primary email as admin.
+The existing Page lives at
+`https://www.facebook.com/p/Meridian-Osteopathy-100094064588797/` and is
+already wired into the site footer via `site.js`. The remaining work is
+housekeeping + ad infrastructure.
+
+1. **Polish the existing Page**: confirm category is *Medical & Health →
+   Alternative & Holistic Health*; profile pic (logomark), cover photo
+   (`/images/hero-team-group.jpg`), address, hours (match `site.js`),
+   phone, website `https://meridianosteopathy.co.nz`.
+2. **Claim a vanity URL** (optional but strongly recommended for ads —
+   shorter, brand-memorable, better CTR). Page → About → Username →
+   try `meridianosteopathy`. Once claimed, set
+   `FACEBOOK_PAGE_URL=https://www.facebook.com/meridianosteopathy` in
+   Netlify to override the default long-form URL.
+3. **Create (or claim) a Meta Business Manager** account and assign the
+   Page + an ad account to it. Add the clinic's primary email as admin.
 4. **Create a Meta Pixel** (Events Manager → Connect Data Sources → Web).
    Copy the 15–16 digit Pixel ID.
 5. **In Netlify** (Site settings → Environment variables), add, scoped to
    *Production*:
-   - `FACEBOOK_PAGE_URL` = `https://www.facebook.com/meridianosteopathy`
    - `META_PIXEL_ID` = `<the pixel ID>`
-   Then trigger a fresh deploy. The Page link will appear in the site
-   footer and the Pixel will fire on every production page load.
+   - `FACEBOOK_PAGE_URL` = *(only if you claimed a vanity URL in step 2)*
+   Trigger a fresh production deploy. The Pixel will fire on every
+   production page load.
 6. **Verify the domain** in Meta Business Settings → Brand Safety → Domains
    using the DNS TXT record method. Required for iOS tracking and ad
    delivery after Apple's ATT changes.

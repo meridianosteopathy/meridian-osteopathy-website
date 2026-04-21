@@ -46,10 +46,11 @@ module.exports = {
     },
   ],
   social: {
-    // Set FACEBOOK_PAGE_URL in Netlify once the Page is live, e.g.
-    // https://www.facebook.com/meridianosteopathy. Falls back to empty so
-    // the footer icon stays hidden until configured.
-    facebook: process.env.FACEBOOK_PAGE_URL || "",
+    // Override with FACEBOOK_PAGE_URL in Netlify if/when a vanity URL is
+    // claimed (e.g. https://www.facebook.com/meridianosteopathy).
+    facebook:
+      process.env.FACEBOOK_PAGE_URL ||
+      "https://www.facebook.com/p/Meridian-Osteopathy-100094064588797/",
     instagram: process.env.INSTAGRAM_URL || "",
     linkedin: process.env.LINKEDIN_URL || "",
     youtube: process.env.YOUTUBE_URL || "",
