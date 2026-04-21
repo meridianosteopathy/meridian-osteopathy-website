@@ -70,6 +70,37 @@
   to = "/services/acupuncture/"
   status = 301
 
+# Friendly short URLs — handy for print, business cards, verbal referral.
+[[redirects]]
+  from = "/booking"
+  to = "/book/"
+  status = 301
+
+[[redirects]]
+  from = "/booking/*"
+  to = "/book/"
+  status = 301
+
+[[redirects]]
+  from = "/acupuncture"
+  to = "/services/acupuncture/"
+  status = 301
+
+[[redirects]]
+  from = "/osteopathy"
+  to = "/services/osteopathy/"
+  status = 301
+
+[[redirects]]
+  from = "/rehabilitation"
+  to = "/services/osteopathy/"
+  status = 301
+
+[[redirects]]
+  from = "/about-nina"
+  to = "/team/nina-hu/"
+  status = 301
+
 [[redirects]]
   from = "/*"
   to = "/404.html"
