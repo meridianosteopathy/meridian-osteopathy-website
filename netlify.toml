@@ -102,6 +102,21 @@
   status = 301
 
 [[redirects]]
+  from = "/about-jonathan"
+  to = "/team/jonathan-grice/"
+  status = 301
+
+[[redirects]]
+  from = "/about-maddison"
+  to = "/team/maddison-moffat/"
+  status = 301
+
+[[redirects]]
+  from = "/about-min"
+  to = "/team/min-jin/"
+  status = 301
+
+[[redirects]]
   from = "/*"
   to = "/404.html"
   status = 404
