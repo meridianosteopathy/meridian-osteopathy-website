@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {%- set pageTitle = title + " | " + site.name %}
+  {%- set pageTitle = titleOverride or (title + " | " + site.name) %}
   {%- set pageDescription = description or "Meridian Osteopathy - Christchurch osteopathy, acupuncture and herbal medicine. ACC registered. No GP referral needed." %}
   {%- set pageUrl = site.url + page.url %}
   {%- set pageImage = site.url + (ogImage or "/images/social-card.jpg") %}
