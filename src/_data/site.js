@@ -46,10 +46,10 @@ module.exports = {
     },
   ],
   social: {
-    facebook: "https://facebook.com/meridianosteopathy",
-    instagram: "https://instagram.com/meridianosteopathy",
-    linkedin: "https://linkedin.com/company/meridianosteopathy",
-    youtube: "https://youtube.com/@meridianosteopathy",
+    facebook: "",
+    instagram: "",
+    linkedin: "",
+    youtube: "",
   },
   pricing: {
     acc: { rate: "$80 - $85", notes: "" },
