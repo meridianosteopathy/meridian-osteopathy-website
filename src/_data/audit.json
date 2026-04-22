@@ -3,12 +3,12 @@
     "reportDate": "2026-04-22",
     "schemaVersion": 1,
     "lastUpdated": "2026-04-22",
-    "generatedBy": "first-run"
+    "generatedBy": "weekly-refresh"
   },
   "tldr": [
     "The site is in a healthier starting position than most local clinics — it already ships llms.txt, llms-full.txt, MedicalClinic + MedicalBusiness JSON-LD, FAQ schema on the homepage, and an AI-crawler-friendly robots.txt. That covers roughly the top quartile of table-stakes GEO hygiene.",
-    "The two biggest gaps vs. April-2026 best practice are authorship / E-E-A-T signals on team and service pages (no Physician schema, no 'medically reviewed by' block, no sameAs links to professional registers), and content coverage — there are no condition-specific landing pages even though the FAQs and service blurbs reference those topics.",
-    "Google AI Overviews answer ~89% of healthcare-related queries in 2026, and the 2026 core update explicitly rewards pages with clear, qualified authorship — these are the two changes most likely to move citations."
+    "Nothing from the Tier 1 punch-list has shipped yet. The two biggest gaps vs. April-2026 best practice remain authorship / E-E-A-T signals on team and service pages (no Physician schema, no visible 'medically reviewed by' block near the top of service pages, no sameAs links to the Osteopathy NZ register) and content coverage — there are still no condition-specific landing pages or blog posts.",
+    "Fresh April 2026 signals sharpen the priorities: Google's April 2026 core update explicitly pushes author-credentials blocks to the top of YMYL pages (not the bottom); AI Overviews now trigger on ~48% of all searches and ~88% of healthcare queries; ChatGPT only recommends ~1.2% of local businesses, with Reddit/UGC mentions now one of the strongest off-site citation levers; and Google has publicly stated it does not use llms.txt for AI features (llms.txt still useful for dev-tool crawlers, but a <link> reference in the HTML head is now marginal)."
   ],
   "alreadyShipped": [
     "llms.txt and llms-full.txt auto-generated from site data",
@@ -19,9 +19,9 @@
     "Auto-generated sitemap with lastmod"
   ],
   "gaps": [
-    {"id": "G1", "title": "No Physician / Person schema on team profiles", "why": "YMYL + 2026 core update rewards qualified, machine-readable authorship."},
+    {"id": "G1", "title": "No Physician / Person schema on team profiles", "why": "YMYL + April 2026 core update rewards qualified, machine-readable authorship."},
     {"id": "G2", "title": "No AggregateRating / Review schema", "why": "'4.9 on Google' is on the homepage but not marked up, so AI cannot quote it."},
-    {"id": "G3", "title": "No per-service Service / MedicalTherapy schema", "why": "Service pages inherit the site-wide block but emit no page-level schema."},
+    {"id": "G3", "title": "No per-service Service / MedicalTherapy / HealthcareService schema", "why": "Service pages inherit the site-wide block but emit no page-level schema."},
     {"id": "G4", "title": "No BreadcrumbList", "why": "AI engines use breadcrumbs to understand hierarchy; also unlocks SERP breadcrumbs."},
     {"id": "G5", "title": "FAQ schema only on homepage", "why": "Service-specific Q&As are the most citation-friendly structure in 2026."},
     {"id": "G6", "title": "No visible dateModified / last-updated", "why": "65% of AI citations go to content published in the last year; freshness matters."},
@@ -31,9 +31,11 @@
     {"id": "G10", "title": "llms.txt could be richer", "why": "Missing Conditions-treated / Pricing-ACC / Common-questions sections."},
     {"id": "G11", "title": "No sameAs / social profile links", "why": "Empty social URLs in site.js; nothing for AI engines to disambiguate the entity with."},
     {"id": "G12", "title": "No MedicalWebPage / ProfilePage per team profile", "why": "Each practitioner URL should be a standalone retrievable schema node."},
-    {"id": "G13", "title": "No llms.txt reference in HTML head", "why": "Emerging convention; several indexers check for it."},
+    {"id": "G13", "title": "No llms.txt reference in HTML head", "why": "Google has now publicly said it does not use llms.txt; a <link> hint is marginal. Kept for dev-tool crawlers that do check, but deprioritised."},
     {"id": "G14", "title": "Image alt text could be richer", "why": "AI-image-grounded models benefit from descriptive, not titular, alt text."},
-    {"id": "G15", "title": "No off-site citation strategy", "why": "SE Ranking (2026): Reddit/Quora brand mentions give ~4× AI citation rate."}
+    {"id": "G15", "title": "No off-site citation strategy", "why": "Tinuiti Q1 2026: Reddit now dominates AI-citation growth across nine tracked categories; long-form (300+ word) community answers cited ~3× more."},
+    {"id": "G16", "title": "No top-of-page 'medically reviewed by' byline on service pages", "why": "April 2026 core update explicitly moves the author-credentials block to near the top of YMYL pages, not the bottom."},
+    {"id": "G17", "title": "No long-form structured deep-answer blocks", "why": "FAQ-length Q&As are the floor, not the ceiling — 300+ word structured answers with subheadings are 3× more likely to be cited by Perplexity/AI Overviews."}
   ],
   "items": [
     {"n": 1, "tier": 1, "impact": "H", "effort": "S", "title": "Add AggregateRating + Review schema", "files": ["src/_includes/base.njk", "src/_data/home.json"], "body": "Nest AggregateRating and three Review nodes under MedicalBusiness in the base JSON-LD. Use the real 4.9 / N-reviews figure from Google; review text can come from home.testimonials. Add reviewCount and ratingValue fields to home.json.", "addresses": ["G2"], "firstSeen": "2026-04-22"},
@@ -50,7 +52,9 @@
     {"n": 12, "tier": 2, "impact": "L", "effort": "S", "title": "Add speakable blocks on service intros", "files": ["src/services/*.njk"], "body": "Add schema.org speakable specification on service intro paragraphs for voice assistants / Gemini Live.", "addresses": ["G3"], "firstSeen": "2026-04-22"},
     {"n": 13, "tier": 2, "impact": "M", "effort": "M", "title": "Auto-fetch Google Business Profile reviews at build time", "files": ["package.json", "src/_data/reviews.js", "a build-time fetch script"], "body": "So reviewCount / ratingValue stay current without manual edits. Build script hits Places API with a 24h cache.", "addresses": ["G2"], "firstSeen": "2026-04-22"},
     {"n": 14, "tier": 3, "impact": "H", "effort": "L", "title": "Start a blog (2 posts/month)", "files": ["src/blog/", "Decap CMS collection config"], "body": "Short evidence-based articles per condition. Each post: author byline with Physician schema, datePublished, dateModified, 3–5 FAQs. Feeds the freshness signal AI engines reward.", "addresses": ["G8", "G6"], "firstSeen": "2026-04-22"},
-    {"n": 15, "tier": 3, "impact": "M", "effort": "M", "title": "Seed Reddit / community brand mentions", "files": ["(marketing — no repo changes)"], "body": "Genuine, non-spammy answers on r/newzealand / r/chch / r/AskNZ threads about osteopathy, ACC claims, back pain. NOT astroturf — long-game brand-mention strategy.", "addresses": ["G15"], "firstSeen": "2026-04-22"},
-    {"n": 16, "tier": 3, "impact": "M", "effort": "M", "title": "Encourage monthly Google reviews nudge", "files": ["netlify/functions/*"], "body": "Post-consultation email nudge via Resend (already wired). AI engines prefer reviews under 12 months old.", "addresses": ["G2"], "firstSeen": "2026-04-22"}
+    {"n": 15, "tier": 3, "impact": "M", "effort": "M", "title": "Seed Reddit / community brand mentions", "files": ["(marketing — no repo changes)"], "body": "Genuine, non-spammy answers on r/newzealand / r/chch / r/AskNZ threads about osteopathy, ACC claims, back pain. NOT astroturf — long-game brand-mention strategy. Tinuiti Q1 2026 confirms Reddit now dominates AI-citation growth; long-form (300+ word) comments cited ~3× more.", "addresses": ["G15"], "firstSeen": "2026-04-22"},
+    {"n": 16, "tier": 3, "impact": "M", "effort": "M", "title": "Encourage monthly Google reviews nudge", "files": ["netlify/functions/*"], "body": "Post-consultation email nudge via Resend (already wired). AI engines prefer reviews under 12 months old.", "addresses": ["G2"], "firstSeen": "2026-04-22"},
+    {"n": 17, "tier": 1, "impact": "H", "effort": "S", "title": "Add 'Medically reviewed by' byline near top of each service page", "files": ["src/services/osteopathy.njk", "src/services/medical-acupuncture.njk", "src/services/herbal-medicine.njk", "src/_includes/base.njk"], "body": "Above-the-fold block on each service page: 'Medically reviewed by {practitioner name}, {registration body + number}, {last-reviewed date}'. Link the name to the team profile. Expose the same relationship in page-level schema via reviewedBy → Physician @id. Directly addresses the April 2026 core update, which moved credentials blocks from the bottom of YMYL pages to near the top.", "addresses": ["G16", "G1"], "firstSeen": "2026-04-22"},
+    {"n": 18, "tier": 2, "impact": "M", "effort": "M", "title": "Add a 300+ word structured deep-answer block per service page", "files": ["src/services/*.njk", "src/_data/services.json"], "body": "One long-form answer per service targeting the top AI query (e.g. 'Does osteopathy work for sciatica?'). Subheadings, a short direct-answer intro, bulleted mechanism/evidence, an ACC/NZ-context paragraph, clear next step. Pairs with (not replaces) the FAQ schema from item #4. Tinuiti / Perplexity data show 300+ word structured answers are cited ~3× more than FAQ-length Q&As.", "addresses": ["G17"], "firstSeen": "2026-04-22"}
   ]
 }
