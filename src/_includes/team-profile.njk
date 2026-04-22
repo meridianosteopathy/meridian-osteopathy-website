@@ -77,3 +77,22 @@
     {% endfor %}
   </div>
 </section>
+
+<!-- Practitioner structured data — Physician schema tells AI search engines
+     this page is a qualified healthcare professional, which is a 2026 E-E-A-T
+     ranking signal for YMYL content. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Physician",
+  "@id": "{{ site.url }}{{ page.url }}#practitioner",
+  "name": {{ member.name | dump | safe }},
+  "jobTitle": {{ member.role | plain | dump | safe }},
+  "url": "{{ site.url }}{{ page.url }}",
+  "image": "{{ site.url }}{{ member.photo }}",
+  "worksFor": { "@id": "{{ site.url }}/#clinic" },
+  "description": {{ member.approach | dump | safe }}{% if member.sameAs %},
+  "sameAs": {{ member.sameAs | dump | safe }}{% endif %}{% if member.medicalSpecialty %},
+  "medicalSpecialty": {{ member.medicalSpecialty | dump | safe }}{% endif %}
+}
+</script>

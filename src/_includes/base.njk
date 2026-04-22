@@ -7,6 +7,8 @@
   {%- set pageDescription = description or "Meridian Osteopathy - Christchurch osteopathy, acupuncture and herbal medicine. ACC registered. No GP referral needed." %}
   {%- set pageUrl = site.url + page.url %}
   {%- set pageImage = site.url + (ogImage or "/images/social-card.jpg") %}
+  {%- set pageModified = updated or page.date %}
+  {%- set crumbs = page.url | breadcrumbs %}
   <title>{{ pageTitle }}</title>
   <meta name="description" content="{{ pageDescription }}">
   <link rel="canonical" href="{{ pageUrl }}">
@@ -101,6 +103,31 @@
         "priceRange": {{ site.priceRange | dump | safe }},
         "address": {{ addressBlock | safe }},
         "areaServed": {{ areaBlock | safe }},
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": {{ home.googleReviews.ratingValue | dump | safe }},
+          "reviewCount": {{ home.googleReviews.reviewCount | dump | safe }},
+          "bestRating": {{ home.googleReviews.bestRating | dump | safe }},
+          "worstRating": {{ home.googleReviews.worstRating | dump | safe }}
+        },
+        "review": [
+          {%- for t in home.testimonials %}
+          {
+            "@type": "Review",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            },
+            "author": {
+              "@type": "Person",
+              "name": {{ t.author | dump | safe }}
+            },
+            "reviewBody": {{ t.quote | dump | safe }}{% if t.link %},
+            "url": {{ t.link | dump | safe }}{% endif %}
+          }{% if not loop.last %},{% endif %}
+          {%- endfor %}
+        ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Clinic Services",
@@ -117,7 +144,35 @@
             {%- endfor %}
           ]
         }
-      }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "{{ pageUrl }}#webpage",
+        "url": "{{ pageUrl }}",
+        "name": {{ pageTitle | dump | safe }},
+        "description": {{ pageDescription | dump | safe }},
+        "isPartOf": { "@id": "{{ site.url }}/#clinic" },
+        "inLanguage": "en-NZ",
+        "dateModified": "{{ pageModified | dateIso }}"
+      }{%- if crumbs.length %},
+      {
+        "@type": "BreadcrumbList",
+        "@id": "{{ pageUrl }}#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "{{ site.url }}/"
+          }{%- for c in crumbs %},
+          {
+            "@type": "ListItem",
+            "position": {{ loop.index + 1 }},
+            "name": {{ c.name | dump | safe }},
+            "item": "{{ site.url }}{{ c.url }}"
+          }{%- endfor %}
+        ]
+      }{%- endif %}
     ]
   }
   </script>
@@ -125,7 +180,26 @@
 <body>
   {% include "header.njk" %}
   <main>
+    {%- if crumbs.length %}
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <div class="container">
+        <ol>
+          <li><a href="/">Home</a></li>
+          {%- for c in crumbs %}
+          <li>{% if loop.last %}<span aria-current="page">{{ c.name }}</span>{% else %}<a href="{{ c.url }}">{{ c.name }}</a>{% endif %}</li>
+          {%- endfor %}
+        </ol>
+      </div>
+    </nav>
+    {%- endif %}
     {{ content | safe }}
+    {%- if updated %}
+    <div class="last-updated">
+      <div class="container">
+        <p>Last updated: {{ updated | dateFriendly }}</p>
+      </div>
+    </div>
+    {%- endif %}
   </main>
   {% include "footer.njk" %}
   <script src="/js/main.js"></script>

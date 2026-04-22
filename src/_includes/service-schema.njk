@@ -1,0 +1,57 @@
+{# Expects `s` to be set to a services.<key> object. Emits MedicalTherapy
+   and (optionally) FAQPage JSON-LD so each service page is its own
+   retrievable AI-search entity rather than relying on the site-wide block. #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalTherapy",
+  "@id": "{{ site.url }}{{ s.url }}#service",
+  "name": {{ s.title | dump | safe }},
+  "url": "{{ site.url }}{{ s.url }}",
+  "description": {{ s.intro | dump | safe }},
+  "provider": { "@id": "{{ site.url }}/#clinic" },
+  "areaServed": {
+    "@type": "City",
+    "name": {{ site.areaServed | dump | safe }},
+    "containedInPlace": { "@type": "Country", "name": {{ site.addressParts.country | dump | safe }} }
+  }{%- if s.specialties %},
+  {%- set catalogName = (s.title | plain) + " specialties" %}
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": {{ catalogName | dump | safe }},
+    "itemListElement": [
+      {%- for sp in s.specialties %}
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "MedicalTherapy",
+          "name": {{ sp.title | plain | dump | safe }},
+          "description": {{ sp.description | plain | dump | safe }}
+        }
+      }{% if not loop.last %},{% endif %}
+      {%- endfor %}
+    ]
+  }{%- endif %}
+}
+</script>
+{%- if s.faq %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "{{ site.url }}{{ s.url }}#faq",
+  "mainEntity": [
+    {%- for f in s.faq %}
+    {
+      "@type": "Question",
+      "name": {{ f.question | dump | safe }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ f.answer | dump | safe }}
+      }
+    }{% if not loop.last %},{% endif %}
+    {%- endfor %}
+  ]
+}
+</script>
+{%- endif %}

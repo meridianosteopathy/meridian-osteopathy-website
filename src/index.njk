@@ -9,10 +9,18 @@ description: "Meridian Osteopathy in Christchurch offers osteopathy, acupuncture
 <section class="hero hero-home" style="background-image: url('{{ home.heroImage }}'); --hero-mobile: url('{{ home.heroImageMobile }}');">
 </section>
 
-<!-- Practitioners -->
-<section class="section text-center">
+<!-- Primary H1 — describes the clinic's primary intent so AI engines and search have a keyword-aligned page anchor -->
+<section class="section text-center" style="padding-bottom: 0;">
   <div class="container">
-    <h1>Our Practitioners at Meridian Osteopathy</h1>
+    <h1>Osteopathy, Acupuncture &amp; Herbal Medicine in Christchurch</h1>
+    <p class="subtitle">ACC registered. No GP referral needed. Hands-on care that blends osteopathy with traditional Chinese medicine.</p>
+  </div>
+</section>
+
+<!-- Practitioners -->
+<section class="section text-center" style="padding-top: 40px;">
+  <div class="container">
+    <h2>Our Practitioners</h2>
     <p class="subtitle">{{ home.practitionersIntro }}</p>
     <div class="team-grid" style="margin-top: 32px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); max-width: 960px;">
       {% for p in home.practitioners %}
