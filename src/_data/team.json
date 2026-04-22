@@ -75,7 +75,24 @@
     "qualifications": "<p>Min holds a Bachelor of Clinical Medicine from Gansu University of Chinese Medicine (2002) and a Master of Biomedical Project Management from the University of Science and Technology of China (2013). In 2025, she completed a Bachelor's degree at the New Zealand School of Acupuncture and Traditional Chinese Medicine, which included over 320 hours of supervised clinical practice. Min is a registered member of the Chinese Medicine Council of New Zealand (CMCNZ). Before establishing her acupuncture practice in New Zealand, Min spent many years in clinical research — including four years at Peking University Stem Cell Research Centre and over a decade managing nationally approved clinical projects in areas such as Parkinson's disease, spinal cord injury, and oncology.</p>",
     "approach": "Min provides safe, evidence-informed, and patient-centred care, weaving together classical Chinese medicine theory with Tung-style acupuncture techniques. She takes time to understand each patient's full picture — physical, emotional, and lifestyle — before forming a treatment plan. Alongside acupuncture, she draws on moxibustion, cupping, and therapeutic massage where clinically appropriate, tailoring every session to the individual.",
     "specialInterests": "Min's clinical focus includes musculoskeletal pain (neck, shoulder, and back), headaches and migraines, digestive complaints, sleep difficulties, stress-related symptoms, and women's health — including menstrual irregularities and menopausal symptoms. Her background in clinical research gives her a deep appreciation for evidence-based practice, which she brings together with the wisdom of traditional Chinese medicine to offer a uniquely informed approach to care.",
-    "aboutMe": "Min's path to acupuncture is shaped by a rich background in both science and medicine. Her years in clinical research gave her a profound respect for evidence-based thinking, which she combines with a genuine belief in the healing potential of traditional Chinese medicine. Outside of work, Min values balance — she enjoys time in nature, nourishing food, and the quieter rhythms of everyday life. She brings patience, warmth, and genuine curiosity to every consultation."
+    "aboutMe": "Min's path to acupuncture is shaped by a rich background in both science and medicine. Her years in clinical research gave her a profound respect for evidence-based thinking, which she combines with a genuine belief in the healing potential of traditional Chinese medicine. Outside of work, Min values balance — she enjoys time in nature, nourishing food, and the quieter rhythms of everyday life. She brings patience, warmth, and genuine curiosity to every consultation.",
+    "consultationSteps": [
+      {
+        "number": "01",
+        "title": "Initial Consultation",
+        "description": "Allow 60 minutes for a full case history, physical examination, and treatment plan discussion."
+      },
+      {
+        "number": "02",
+        "title": "Follow-up Treatments",
+        "description": "Tailored to your response and progress. May include auricular acupuncture, cupping and moxibustion."
+      },
+      {
+        "number": "03",
+        "title": "Rehabilitation",
+        "description": "Personalised rehabilitation to support lasting recovery and help prevent future injuries."
+      }
+    ]
   },
   "consultationSteps": [
     {
