@@ -44,10 +44,27 @@
     "role": "Osteopath",
     "photo": "/images/team-maddison.jpg",
     "lifestyleImage": "",
-    "qualifications": "<p>Maddison completed a Bachelor of Musculoskeletal Health and a Postgraduate Diploma in Osteopathy at Ara Institute of Canterbury. She is registered with the Osteopathic Council of New Zealand and Osteopaths New Zealand, and is an ACC-registered provider. Born and raised in Christchurch, Maddison developed a passion for understanding the human body and movement from an early age through her lifelong involvement in sport.</p>",
+    "qualifications": "<p>Maddison completed a Bachelor of Musculoskeletal Health and a Postgraduate Diploma in Osteopathy at Ara Institute of Canterbury. She is registered with the Osteopathic Council of New Zealand, and is an ACC-registered provider. Born and raised in Christchurch, Maddison developed a passion for understanding the human body and movement from an early age through her lifelong involvement in sport.</p>",
     "approach": "Maddison embraces osteopathy's holistic philosophy, providing individualised, patient-centred care that considers the whole body rather than just the site of pain or injury. She works with patients across a broad spectrum — from acute injuries to long-standing chronic conditions — adapting her approach to suit each person's needs, history, and goals. Her aim is always to help people return to the activities they love.",
     "specialInterests": "Maddison has a particular interest in sports-related injuries and movement-based complaints, informed by her own active lifestyle and lifelong connection to sport. She also has a genuine enthusiasm for working with children, bringing both care and patience to paediatric appointments. Whether supporting an athlete through recovery or helping a patient manage ongoing pain, Maddison brings the same commitment and warmth to every consultation.",
-    "aboutMe": "Outside the clinic, Maddison lives an active life — you'll find her at the gym, out walking, or cheering on her favourite sports teams. A proud Christchurch local, she loves being part of a community-focused practice where she can make a real difference to people's everyday lives. She believes that a strong therapeutic relationship is the foundation of good care, and works hard to make every patient feel genuinely supported."
+    "aboutMe": "Outside the clinic, Maddison lives an active life — you'll find her at the gym, out walking, or cheering on her favourite sports teams. A proud Christchurch local, she loves being part of a community-focused practice where she can make a real difference to people's everyday lives. She believes that a strong therapeutic relationship is the foundation of good care, and works hard to make every patient feel genuinely supported.",
+    "consultationSteps": [
+      {
+        "number": "01",
+        "title": "Initial Consultation",
+        "description": "Allow 45–60 minutes for a full case history, physical examination, and treatment plan discussion. Includes osteopathic hands-on treatment."
+      },
+      {
+        "number": "02",
+        "title": "Follow-up Treatments",
+        "description": "Tailored to your response and progress."
+      },
+      {
+        "number": "03",
+        "title": "Rehabilitation",
+        "description": "Personalised rehabilitation to support lasting recovery and help prevent future injuries."
+      }
+    ]
   },
   "min": {
     "name": "Min Jin",
