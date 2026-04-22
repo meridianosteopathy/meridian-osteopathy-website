@@ -1,0 +1,43 @@
+name: AI search audit reminder
+
+# Opens a GitHub issue every 3 days as a prompt to refresh the AEO/GEO
+# audit in reports/ai-search-audit-YYYY-MM-DD.md. Intentionally does not
+# run Claude itself — the issue body is ready to paste into a Claude
+# session (or to trigger @claude on the issue) so the human stays in the
+# loop and billing stays transparent.
+#
+# Cadence: every 3 days at 09:00 NZ time (21:00 UTC the prior day).
+# Adjust the cron below if you want a different day/time.
+
+on:
+  schedule:
+    - cron: "0 21 */3 * *"
+  workflow_dispatch: {}
+
+permissions:
+  issues: write
+
+jobs:
+  open-reminder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Open audit reminder issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const today = new Date().toISOString().slice(0, 10);
+            const title = `AI search audit — ${today}`;
+            const body = [
+              `Scheduled AEO/GEO refresh. Drop this prompt into Claude (or comment \`@claude\` with it) to generate the next report:`,
+              ``,
+              `> Research the latest AI search optimization (AEO/GEO) best practices for local healthcare / osteopathy businesses — community chatter (Reddit, HN, Search Engine Land, Ahrefs, SEMrush) from the last few days, new schema.org additions, llms.txt developments, and content-structure patterns AI tools prefer to cite. Audit this repo against those findings, then produce \`reports/ai-search-audit-${today}.md\`. Compare against the previous report in \`reports/\` and call out: new signals since last run, punch-list items that have shipped, and any regressions. Commit on a fresh \`claude/ai-search-audit-${today}\` branch and open a draft PR.`,
+              ``,
+              `Previous reports live in [\`reports/\`](../tree/main/reports).`,
+            ].join("\n");
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body,
+              labels: ["ai-search-audit"],
+            });
