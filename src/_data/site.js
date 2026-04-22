@@ -57,4 +57,7 @@ module.exports = {
   },
   priceRange: "$80–$120",
   turnstileSiteKey: isProduction ? LIVE_TURNSTILE_SITE_KEY : TEST_TURNSTILE_SITE_KEY,
+  // Only load Google Analytics on the production build, so deploy previews
+  // and branch deploys don't pollute the real stats.
+  gaMeasurementId: isProduction ? "G-C8RVVJLFBW" : "",
 };

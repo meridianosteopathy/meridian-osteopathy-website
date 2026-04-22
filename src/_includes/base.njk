@@ -37,6 +37,16 @@
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="icon" href="/images/logomark-dark.svg" type="image/svg+xml">
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  {%- if site.gaMeasurementId %}
+  <!-- Google Analytics (production only; gated in src/_data/site.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.gaMeasurementId }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.gaMeasurementId }}');
+  </script>
+  {%- endif %}
   {%- set addressBlock %}
         {
           "@type": "PostalAddress",
