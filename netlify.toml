@@ -48,6 +48,17 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# audit.meridianosteopathy.co.nz serves only the internal audit dashboard.
+# Root rewrite sends it to /admin/audit/; assets (/css, /images, /fonts,
+# /.netlify/functions) resolve normally because they live off the root.
+# No redirect for other paths — they'll fall through to the 404 catch-all.
+[[redirects]]
+  from = "/"
+  to = "/admin/audit/"
+  status = 200
+  force = true
+  conditions = {Host = ["audit.meridianosteopathy.co.nz"]}
+
 # Send any traffic hitting the raw Netlify subdomain to the canonical
 # domain so Google de-indexes the *.netlify.app URLs. Deploy previews live
 # on deploy-preview-N--meridian-osteopathy.netlify.app, so they're not

@@ -3,10 +3,10 @@
 
 const RESEND_URL = "https://api.resend.com/emails";
 
-async function sendNotification({ subject, text, html }) {
+async function sendNotification({ subject, text, html, to: toOverride }) {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.NOTIFY_FROM || "Meridian Website <no-reply@meridianosteopathy.co.nz>";
-  const to = process.env.NOTIFY_TO || "info@meridianosteopathy.co.nz";
+  const to = toOverride || process.env.NOTIFY_TO || "info@meridianosteopathy.co.nz";
 
   if (!apiKey) {
     // Don't fail the submission if email isn't wired up yet — log and move on.
