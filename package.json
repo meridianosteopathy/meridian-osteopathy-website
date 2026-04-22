@@ -8,6 +8,7 @@
     "start": "npx @11ty/eleventy --serve"
   },
   "dependencies": {
+    "@netlify/blobs": "^8.2.0",
     "@supabase/supabase-js": "^2.45.0",
     "parse-multipart-data": "^1.5.0"
   },

@@ -1,0 +1,374 @@
+---
+permalink: /admin/audit/
+eleventyExcludeFromCollections: true
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>AI Search Audit — Meridian Osteopathy</title>
+<link rel="icon" href="/images/logomark-dark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/styles.css">
+<style>
+  :root {
+    --status-approve: #5E855C;
+    --status-approve-bg: #eaf3e9;
+    --status-park: #c9963b;
+    --status-park-bg: #faf1de;
+    --status-dismiss: #B1536D;
+    --status-dismiss-bg: #f7e4ea;
+    --neutral: #6a6a6a;
+    --neutral-bg: #f4f4f5;
+  }
+  body { background: var(--lighter-bg); }
+  .audit { max-width: 960px; margin: 0 auto; padding: 40px 24px 120px; }
+  .audit-header { margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+  .audit-header h1 { font-family: var(--font-secondary); font-size: 2rem; color: var(--text-dark); margin-bottom: 8px; font-weight: 400; }
+  .audit-header .meta { color: var(--text-light); font-size: 0.9rem; }
+  .audit-header .meta a { color: var(--primary); text-decoration: underline; }
+  .audit-header .sync { margin-top: 8px; font-size: 0.82rem; color: var(--text-light); }
+  .audit-header .sync.error { color: var(--status-dismiss); }
+
+  .toolbar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 24px 0 32px; padding: 16px; background: var(--white); border: 1px solid var(--border); border-radius: 8px; }
+  .toolbar .counts { display: flex; gap: 16px; flex: 1; min-width: 240px; flex-wrap: wrap; }
+  .toolbar select, .toolbar button { font: inherit; font-size: 0.9rem; padding: 8px 14px; border: 1px solid var(--border); border-radius: 6px; background: var(--white); color: var(--text-dark); cursor: pointer; }
+  .toolbar button:hover { background: var(--neutral-bg); }
+  .toolbar .export-btn { background: var(--primary); color: var(--white); border-color: var(--primary); font-weight: 500; }
+  .toolbar .export-btn:hover { background: var(--primary-dark); }
+
+  .section-block { margin-bottom: 40px; }
+  .section-block h2 { font-family: var(--font-secondary); font-weight: 400; font-size: 1.5rem; color: var(--text-dark); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--primary); display: inline-block; }
+  .section-block > p, .section-block > ul { color: var(--text-body); margin-bottom: 12px; }
+  .section-block ul { list-style: disc; padding-left: 24px; }
+
+  .tldr { background: var(--white); padding: 24px; border-radius: 8px; border-left: 3px solid var(--primary); }
+  .tldr p { margin-bottom: 12px; }
+  .tldr p:last-child { margin-bottom: 0; }
+
+  .item { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 12px; transition: border-color .15s; position: relative; }
+  .item.status-approve { border-left: 4px solid var(--status-approve); }
+  .item.status-park    { border-left: 4px solid var(--status-park); }
+  .item.status-dismiss { border-left: 4px solid var(--status-dismiss); opacity: 0.72; }
+  .item.is-new::before { content: "New"; position: absolute; top: -8px; right: 16px; background: var(--primary); color: var(--white); font-size: 0.7rem; font-weight: 600; padding: 3px 10px; border-radius: 999px; letter-spacing: 0.05em; }
+  .item-head { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+  .item-title { font-weight: 600; font-size: 1.05rem; color: var(--text-dark); flex: 1; min-width: 260px; }
+  .item-title .num { color: var(--text-light); margin-right: 8px; font-weight: 400; }
+  .item-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+  .badge { font-size: 0.72rem; padding: 3px 8px; border-radius: 999px; font-weight: 500; letter-spacing: 0.02em; text-transform: uppercase; }
+  .badge.tier-1 { background: var(--status-approve-bg); color: var(--status-approve); }
+  .badge.tier-2 { background: var(--status-park-bg); color: var(--status-park); }
+  .badge.tier-3 { background: var(--neutral-bg); color: var(--neutral); }
+  .badge.impact-H { background: var(--primary); color: var(--white); }
+  .badge.impact-M { background: var(--light-sky-blue); color: var(--primary); }
+  .badge.impact-L { background: var(--neutral-bg); color: var(--neutral); }
+  .badge.effort { background: var(--neutral-bg); color: var(--text-body); }
+  .item-body { margin-top: 10px; color: var(--text-body); font-size: 0.95rem; }
+  .item-files { margin-top: 10px; font-size: 0.82rem; color: var(--text-light); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .item-files code { background: var(--neutral-bg); padding: 2px 6px; border-radius: 4px; margin-right: 4px; display: inline-block; margin-bottom: 2px; }
+  .actions { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; align-items: center; }
+  .actions button { font: inherit; font-size: 0.85rem; padding: 6px 14px; border: 1px solid var(--border); border-radius: 6px; background: var(--white); color: var(--text-dark); cursor: pointer; font-weight: 500; }
+  .actions button:hover { background: var(--neutral-bg); }
+  .actions button:disabled { opacity: 0.5; cursor: wait; }
+  .item.status-approve .btn-approve { background: var(--status-approve); color: var(--white); border-color: var(--status-approve); }
+  .item.status-park    .btn-park    { background: var(--status-park);    color: var(--white); border-color: var(--status-park); }
+  .item.status-dismiss .btn-dismiss { background: var(--status-dismiss); color: var(--white); border-color: var(--status-dismiss); }
+  .note-field { width: 100%; margin-top: 10px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; font: inherit; font-size: 0.9rem; color: var(--text-body); resize: vertical; min-height: 36px; font-family: inherit; display: none; }
+  .item[data-has-status="true"] .note-field { display: block; }
+
+  .sticky-footer { position: fixed; bottom: 0; left: 0; right: 0; background: var(--white); border-top: 1px solid var(--border); padding: 12px 24px; display: flex; gap: 12px; align-items: center; justify-content: center; flex-wrap: wrap; box-shadow: 0 -2px 8px rgba(0,0,0,.04); z-index: 10; }
+  .sticky-footer .counts { display: flex; gap: 14px; font-size: 0.88rem; color: var(--text-body); flex-wrap: wrap; justify-content: center; }
+  .sticky-footer .counts span { white-space: nowrap; }
+  .sticky-footer .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
+  .dot.approve { background: var(--status-approve); }
+  .dot.park { background: var(--status-park); }
+  .dot.dismiss { background: var(--status-dismiss); }
+  .dot.pending { background: var(--neutral); }
+
+  .toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: var(--text-dark); color: var(--white); padding: 10px 18px; border-radius: 6px; font-size: 0.88rem; opacity: 0; transition: opacity .2s; pointer-events: none; z-index: 20; }
+  .toast.show { opacity: 1; }
+
+  .gap-item { padding: 12px 16px; border-left: 2px solid var(--border); margin-bottom: 10px; background: var(--white); border-radius: 0 4px 4px 0; }
+  .gap-item h4 { font-size: 0.95rem; color: var(--text-dark); margin-bottom: 4px; }
+  .gap-item p { font-size: 0.88rem; color: var(--text-body); margin: 0; }
+  .gap-item .why { color: var(--text-light); font-size: 0.82rem; margin-top: 6px; font-style: italic; }
+
+  .loading { text-align: center; color: var(--text-light); padding: 40px 0; font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<main class="audit">
+
+  <header class="audit-header">
+    <h1>AI Search Audit</h1>
+    <div class="meta">
+      Latest report: <strong id="report-date">{{ audit.meta.reportDate }}</strong> ·
+      <a href="https://github.com/meridianosteopathy/meridian-osteopathy-website/tree/main/reports">Markdown archive</a>
+    </div>
+    <div class="sync" id="sync-status">Loading decisions…</div>
+  </header>
+
+  <section class="section-block">
+    <h2>TL;DR</h2>
+    <div class="tldr">
+      {%- for p in audit.tldr %}
+      <p>{{ p | safe }}</p>
+      {%- endfor %}
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2>Already implemented</h2>
+    <ul>
+      {%- for s in audit.alreadyShipped %}
+      <li>{{ s | safe }}</li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section class="section-block">
+    <h2>Gaps (reference)</h2>
+    <p style="color:var(--text-light);font-size:0.9rem;">Background context. The action buttons live on the Punch-list below — each punch-list item addresses one or more of these gaps.</p>
+    <div id="gaps">
+      {%- for g in audit.gaps %}
+      <div class="gap-item">
+        <h4>{{ g.id }}. {{ g.title }}</h4>
+        <p class="why">{{ g.why }}</p>
+      </div>
+      {%- endfor %}
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2>Punch-list</h2>
+    <div class="toolbar">
+      <div class="counts" id="toolbar-counts"></div>
+      <select id="filter-tier">
+        <option value="all">All tiers</option>
+        <option value="1">Tier 1 only</option>
+        <option value="2">Tier 2 only</option>
+        <option value="3">Tier 3 only</option>
+      </select>
+      <select id="filter-status">
+        <option value="all">All statuses</option>
+        <option value="pending">Pending only</option>
+        <option value="approve">Approved</option>
+        <option value="park">Parked</option>
+        <option value="dismiss">Dismissed</option>
+      </select>
+      <button id="approve-tier1">Approve all Tier&nbsp;1</button>
+      <button id="reset">Reset all</button>
+      <button class="export-btn" id="export">Export decisions</button>
+    </div>
+    <div id="items"><div class="loading">Loading punch-list…</div></div>
+  </section>
+
+  <footer class="sticky-footer">
+    <div class="counts" id="footer-counts"></div>
+  </footer>
+
+  <div id="toast" class="toast"></div>
+</main>
+
+<script>
+const AUDIT = {{ audit | dump | safe }};
+const ITEMS = AUDIT.items || [];
+const GAPS = AUDIT.gaps || [];
+const API_STATE = "/.netlify/functions/audit-state";
+const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
+
+let decisions = {};
+let dirty = new Set();
+
+async function loadDecisions() {
+  try {
+    const res = await fetch(API_STATE);
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const data = await res.json();
+    decisions = (data && data.decisions) || {};
+    setSync("Synced", false);
+  } catch (e) {
+    setSync("Offline — changes kept locally", true);
+    const cached = localStorage.getItem("audit.decisions.cache");
+    if (cached) decisions = JSON.parse(cached);
+  }
+  render();
+}
+
+async function saveDecision(n) {
+  dirty.add(n);
+  localStorage.setItem("audit.decisions.cache", JSON.stringify(decisions));
+  try {
+    const res = await fetch(API_STATE, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ n: Number(n), decision: decisions[n] || null })
+    });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    dirty.delete(n);
+    if (dirty.size === 0) setSync("Synced", false);
+  } catch (e) {
+    setSync("Offline — " + dirty.size + " change(s) not synced", true);
+  }
+}
+
+function setStatus(n, status) {
+  decisions[n] = decisions[n] || {};
+  if (decisions[n].status === status) delete decisions[n].status;
+  else decisions[n].status = status;
+  decisions[n].updatedAt = new Date().toISOString();
+  if (!decisions[n].status && !decisions[n].note) delete decisions[n];
+  saveDecision(n);
+  render();
+}
+
+function setNote(n, note) {
+  decisions[n] = decisions[n] || {};
+  decisions[n].note = note;
+  decisions[n].updatedAt = new Date().toISOString();
+  if (!decisions[n].status && !decisions[n].note) delete decisions[n];
+  saveDecision(n);
+}
+
+function setSync(msg, isError) {
+  const el = document.getElementById("sync-status");
+  el.textContent = msg;
+  el.classList.toggle("error", !!isError);
+}
+
+function isNew(item) {
+  if (!item.firstSeen) return false;
+  const seen = new Date(item.firstSeen).getTime();
+  return Date.now() - seen < SEVEN_DAYS_MS;
+}
+
+function render() {
+  const tierFilter = document.getElementById("filter-tier").value;
+  const statusFilter = document.getElementById("filter-status").value;
+  const list = document.getElementById("items");
+  list.innerHTML = "";
+  for (const item of ITEMS) {
+    if (tierFilter !== "all" && String(item.tier) !== tierFilter) continue;
+    const s = decisions[item.n] && decisions[item.n].status;
+    if (statusFilter === "pending" && s) continue;
+    if (statusFilter !== "all" && statusFilter !== "pending" && s !== statusFilter) continue;
+
+    const el = document.createElement("article");
+    el.className = "item" + (s ? " status-" + s : "") + (isNew(item) ? " is-new" : "");
+    el.dataset.hasStatus = s ? "true" : "false";
+    el.innerHTML = `
+      <div class="item-head">
+        <div class="item-title"><span class="num">#${item.n}</span>${escapeHtml(item.title)}</div>
+        <div class="item-badges">
+          <span class="badge tier-${item.tier}">Tier ${item.tier}</span>
+          <span class="badge impact-${item.impact}">Impact ${item.impact}</span>
+          <span class="badge effort">Effort ${item.effort}</span>
+        </div>
+      </div>
+      <p class="item-body">${escapeHtml(item.body)}</p>
+      <div class="item-files">Files: ${(item.files || []).map(f => `<code>${escapeHtml(f)}</code>`).join("")}</div>
+      <div class="actions">
+        <button class="btn-approve" data-n="${item.n}" data-status="approve">✓ Approve</button>
+        <button class="btn-park"    data-n="${item.n}" data-status="park">⏸ Park</button>
+        <button class="btn-dismiss" data-n="${item.n}" data-status="dismiss">✕ Dismiss</button>
+        <span style="font-size:0.8rem;color:var(--text-light);">Addresses ${(item.addresses || []).join(", ")}</span>
+      </div>
+      <textarea class="note-field" data-n="${item.n}" placeholder="Notes (why, when, who owns it…)">${escapeHtml((decisions[item.n] && decisions[item.n].note) || "")}</textarea>
+    `;
+    list.appendChild(el);
+  }
+  list.querySelectorAll(".actions button").forEach(btn => {
+    btn.addEventListener("click", () => setStatus(Number(btn.dataset.n), btn.dataset.status));
+  });
+  list.querySelectorAll(".note-field").forEach(ta => {
+    ta.addEventListener("blur", () => setNote(Number(ta.dataset.n), ta.value));
+  });
+  updateCounts();
+}
+
+function updateCounts() {
+  const counts = { approve: 0, park: 0, dismiss: 0, pending: 0 };
+  for (const item of ITEMS) {
+    const s = (decisions[item.n] && decisions[item.n].status) || "pending";
+    counts[s]++;
+  }
+  const html = `
+    <span><span class="dot approve"></span><strong>${counts.approve}</strong> approved</span>
+    <span><span class="dot park"></span><strong>${counts.park}</strong> parked</span>
+    <span><span class="dot dismiss"></span><strong>${counts.dismiss}</strong> dismissed</span>
+    <span><span class="dot pending"></span><strong>${counts.pending}</strong> pending</span>
+  `;
+  document.getElementById("toolbar-counts").innerHTML = html;
+  document.getElementById("footer-counts").innerHTML = html;
+}
+
+function escapeHtml(s) {
+  return String(s || "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+}
+
+function exportMarkdown() {
+  const now = new Date().toISOString().slice(0, 10);
+  const lines = [`# Audit decisions — ${now}`, ""];
+  const byStatus = { approve: [], park: [], dismiss: [], pending: [] };
+  for (const item of ITEMS) {
+    const s = (decisions[item.n] && decisions[item.n].status) || "pending";
+    byStatus[s].push(item);
+  }
+  for (const [status, label] of [["approve", "Approved — ship these"], ["park", "Parked — revisit later"], ["dismiss", "Dismissed — not doing"], ["pending", "Pending decision"]]) {
+    if (!byStatus[status].length) continue;
+    lines.push(`## ${label} (${byStatus[status].length})`, "");
+    for (const item of byStatus[status]) {
+      const note = decisions[item.n] && decisions[item.n].note;
+      lines.push(`- **#${item.n} — ${item.title}** (Tier ${item.tier}, Impact ${item.impact}, Effort ${item.effort})`);
+      if (note) lines.push(`  - Note: ${note}`);
+    }
+    lines.push("");
+  }
+  const md = lines.join("\n");
+  navigator.clipboard.writeText(md).then(() => showToast("Decisions copied to clipboard as markdown"));
+  const blob = new Blob([md], { type: "text/markdown" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = `audit-decisions-${now}.md`; a.click();
+  URL.revokeObjectURL(url);
+}
+
+function showToast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 2200);
+}
+
+document.getElementById("filter-tier").addEventListener("change", render);
+document.getElementById("filter-status").addEventListener("change", render);
+document.getElementById("export").addEventListener("click", exportMarkdown);
+document.getElementById("approve-tier1").addEventListener("click", () => {
+  for (const item of ITEMS) if (item.tier === 1) {
+    decisions[item.n] = decisions[item.n] || {};
+    decisions[item.n].status = "approve";
+    decisions[item.n].updatedAt = new Date().toISOString();
+    saveDecision(item.n);
+  }
+  render();
+  showToast("All Tier 1 items approved");
+});
+document.getElementById("reset").addEventListener("click", async () => {
+  if (!confirm("Clear all statuses and notes? This cannot be undone.")) return;
+  try {
+    const res = await fetch(API_STATE, { method: "DELETE" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    decisions = {};
+    localStorage.removeItem("audit.decisions.cache");
+    render();
+    showToast("Reset");
+  } catch (e) {
+    showToast("Reset failed — try again");
+  }
+});
+
+loadDecisions();
+</script>
+</body>
+</html>

@@ -29,3 +29,19 @@ Skip optimisation only if the user explicitly says "don't compress" or "keep ori
 ## Turnstile on previews
 
 `src/_data/site.js` swaps the live sitekey for Cloudflare's always-pass test key (`1x00000000000000000000AA`) on non-production builds. The matching server-side secret (`1x0000000000000000000000000000000AA`) is configured as a deploy-preview scoped `TURNSTILE_SECRET_KEY` in Netlify. Production uses the real key/secret.
+
+## Working preferences
+
+- **Before proposing automation, check the latest Anthropic release notes.** Prefer first-party primitives (Claude Code routines, skills, scheduled tasks, etc.) over hand-rolled GitHub Actions workflows. Anthropic ships new automation features frequently; what was "the way" 3 months ago is often superseded.
+- **Minimise touch points.** Favour approaches where the user has as few manual config/setup steps as possible. One copy-paste is better than five. Reusing existing infrastructure beats adding new infrastructure.
+- Clinic is on the **Claude Max plan** — routines allowance is 15 runs/day, included in the subscription. Use routines for recurring work; fall back to GitHub Actions only when a routine can't do it.
+
+## Reusable infrastructure already in the repo
+
+Before building anything new, check whether one of these can be reused:
+
+- **Transactional email** — `netlify/functions/_lib/email.js`. Reads `RESEND_API_KEY` from Netlify env; sender domain `meridianosteopathy.co.nz` is already verified with Resend. Any new notification path should `require('./_lib/email')` rather than re-implement.
+- **Passthrough `/admin/*`** — `.eleventy.js` line 6 passes `src/admin` through unchanged, and `netlify.toml` gives that path a looser CSP (for Decap CMS). Drop standalone internal HTML tools in `src/admin/<toolname>/` — they get the brand CSS, looser CSP, and noindex-able paths for free.
+- **Brand tokens** — CSS custom properties in `src/css/styles.css` (`:root`): `--primary` (#345E85), `--accent-pink` (#B1536D), `--accent-green` (#5E855C), `--gold` (#c9963b), `--text-dark`, `--border`, fonts `--font-primary` (Essential Sans) and `--font-secondary` (Baskervville). Internal tools should link `/css/styles.css` and use these variables to stay on-brand without reinventing type/colour.
+- **Turnstile** — gated forms should use the pattern already in `submit-referral.js` / `submit-career.js`; don't re-implement verification.
+
