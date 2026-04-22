@@ -51,13 +51,13 @@
 # audit.meridianosteopathy.co.nz serves only the internal audit dashboard.
 # Root rewrite sends it to /admin/audit/; assets (/css, /images, /fonts,
 # /.netlify/functions) resolve normally because they live off the root.
-# No redirect for other paths — they'll fall through to the 404 catch-all.
+# Using a fully-qualified `from` URL is Netlify's documented way to do
+# host-based routing — the `conditions = {Host}` form is not reliable.
 [[redirects]]
-  from = "/"
+  from = "https://audit.meridianosteopathy.co.nz/"
   to = "/admin/audit/"
   status = 200
   force = true
-  conditions = {Host = ["audit.meridianosteopathy.co.nz"]}
 
 # Send any traffic hitting the raw Netlify subdomain to the canonical
 # domain so Google de-indexes the *.netlify.app URLs. Deploy previews live
