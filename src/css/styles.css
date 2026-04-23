@@ -17,6 +17,11 @@
 .breadcrumbs a{color:var(--text-light);text-decoration:none}
 .breadcrumbs a:hover{color:var(--primary);text-decoration:underline}
 .breadcrumbs [aria-current="page"]{color:var(--text-dark);font-weight:500}
+/* When a .section immediately follows breadcrumbs, its default 60px
+   top padding plus the crumbs' own 16px creates an obvious gap before
+   the page title. Tighten it — breadcrumbs already provide the visual
+   separation that padding would otherwise add. */
+.breadcrumbs+.section{padding-top:24px}
 /* Team profile pages wrap the breadcrumbs in the dark-blue profile-body.
    Flip to a light palette so text stays readable on --primary, and add
    bottom padding so the crumbs don't crowd the profile card on mobile. */
