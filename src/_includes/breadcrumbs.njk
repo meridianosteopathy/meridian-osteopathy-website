@@ -1,0 +1,17 @@
+{# Visible breadcrumbs. Rendered per-page (not auto-injected in base.njk)
+   so each template can place them below its hero, avoiding a whitespace
+   bar above full-bleed hero images. The matching BreadcrumbList JSON-LD
+   is emitted globally in base.njk regardless of placement. #}
+{%- set _crumbs = page.url | breadcrumbs %}
+{%- if _crumbs.length %}
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <div class="container">
+    <ol>
+      <li><a href="/">Home</a></li>
+      {%- for c in _crumbs %}
+      <li>{% if loop.last %}<span aria-current="page">{{ c.name }}</span>{% else %}<a href="{{ c.url }}">{{ c.name }}</a>{% endif %}</li>
+      {%- endfor %}
+    </ol>
+  </div>
+</nav>
+{%- endif %}
