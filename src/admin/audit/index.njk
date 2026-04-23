@@ -74,6 +74,13 @@ eleventyExcludeFromCollections: true
   .item.status-approve .btn-approve { background: var(--status-approve); color: var(--white); border-color: var(--status-approve); }
   .item.status-park    .btn-park    { background: var(--status-park);    color: var(--white); border-color: var(--status-park); }
   .item.status-dismiss .btn-dismiss { background: var(--status-dismiss); color: var(--white); border-color: var(--status-dismiss); }
+  .btn-shipit { background: var(--primary) !important; color: var(--white) !important; border-color: var(--primary) !important; font-weight: 600 !important; margin-left: auto; }
+  .btn-shipit:hover { background: var(--primary-dark) !important; }
+  .btn-shipit:disabled { background: var(--neutral) !important; border-color: var(--neutral) !important; cursor: wait; }
+  .item[data-shipit="shipping"] .btn-shipit { background: var(--neutral) !important; border-color: var(--neutral) !important; }
+  .item[data-shipit="shipped"] .btn-shipit { background: var(--status-approve) !important; border-color: var(--status-approve) !important; }
+  .shipit-link { font-size: 0.78rem; color: var(--text-light); margin-left: 8px; }
+  .shipit-link a { color: var(--primary); text-decoration: underline; }
   .note-field { width: 100%; margin-top: 10px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; font: inherit; font-size: 0.9rem; color: var(--text-body); resize: vertical; min-height: 36px; font-family: inherit; display: none; }
   .item[data-has-status="true"] .note-field { display: block; }
 
@@ -176,6 +183,7 @@ const AUDIT = {{ audit | dump | safe }};
 const ITEMS = AUDIT.items || [];
 const GAPS = AUDIT.gaps || [];
 const API_STATE = "/.netlify/functions/audit-state";
+const API_SHIPIT = "/.netlify/functions/audit-ship-it";
 const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
 
 let decisions = {};
@@ -257,6 +265,9 @@ function render() {
     const el = document.createElement("article");
     el.className = "item" + (s ? " status-" + s : "") + (isNew(item) ? " is-new" : "");
     el.dataset.hasStatus = s ? "true" : "false";
+    const shipit = (decisions[item.n] && decisions[item.n].shipit) || null;
+    if (shipit && shipit.status) el.dataset.shipit = shipit.status;
+    const shipitButton = s === "approve" ? buildShipitButton(item.n, shipit) : "";
     el.innerHTML = `
       <div class="item-head">
         <div class="item-title"><span class="num">#${item.n}</span>${escapeHtml(item.title)}</div>
@@ -273,13 +284,17 @@ function render() {
         <button class="btn-park"    data-n="${item.n}" data-status="park">⏸ Park</button>
         <button class="btn-dismiss" data-n="${item.n}" data-status="dismiss">✕ Dismiss</button>
         <span style="font-size:0.8rem;color:var(--text-light);">Addresses ${(item.addresses || []).join(", ")}</span>
+        ${shipitButton}
       </div>
       <textarea class="note-field" data-n="${item.n}" placeholder="Notes (why, when, who owns it…)">${escapeHtml((decisions[item.n] && decisions[item.n].note) || "")}</textarea>
     `;
     list.appendChild(el);
   }
-  list.querySelectorAll(".actions button").forEach(btn => {
+  list.querySelectorAll(".actions button:not(.btn-shipit)").forEach(btn => {
     btn.addEventListener("click", () => setStatus(Number(btn.dataset.n), btn.dataset.status));
+  });
+  list.querySelectorAll(".btn-shipit").forEach(btn => {
+    btn.addEventListener("click", () => shipIt(Number(btn.dataset.n)));
   });
   list.querySelectorAll(".note-field").forEach(ta => {
     ta.addEventListener("blur", () => setNote(Number(ta.dataset.n), ta.value));
@@ -305,6 +320,65 @@ function updateCounts() {
 
 function escapeHtml(s) {
   return String(s || "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+}
+
+function buildShipitButton(n, shipit) {
+  if (!shipit || !shipit.status) {
+    return `<button class="btn-shipit" data-n="${n}">🚀 Ship it</button>`;
+  }
+  if (shipit.status === "shipping") {
+    const url = shipit.sessionUrl ? ` <span class="shipit-link"><a href="${shipit.sessionUrl}" target="_blank" rel="noopener">session</a></span>` : "";
+    return `<button class="btn-shipit" data-n="${n}" disabled>Shipping…</button>${url}`;
+  }
+  if (shipit.status === "shipped") {
+    const url = shipit.sessionUrl ? ` <span class="shipit-link"><a href="${shipit.sessionUrl}" target="_blank" rel="noopener">session</a></span>` : "";
+    return `<button class="btn-shipit" data-n="${n}">Ship again</button><span class="shipit-link">Shipped ✓</span>${url}`;
+  }
+  if (shipit.status === "error") {
+    return `<button class="btn-shipit" data-n="${n}">Retry ship</button><span class="shipit-link" style="color:var(--status-dismiss);">Error: ${escapeHtml(shipit.error || "unknown")}</span>`;
+  }
+  return `<button class="btn-shipit" data-n="${n}">🚀 Ship it</button>`;
+}
+
+async function shipIt(n) {
+  const item = ITEMS.find(i => i.n === n);
+  if (!item) return;
+  if (!confirm(`Ship #${n} "${item.title}"?\n\nThis triggers a Claude routine that will implement this item and open a draft PR.`)) return;
+
+  decisions[n] = decisions[n] || {};
+  decisions[n].shipit = { status: "shipping", startedAt: new Date().toISOString() };
+  saveDecision(n);
+  render();
+
+  try {
+    const res = await fetch(API_SHIPIT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ item, note: (decisions[n] && decisions[n].note) || "" }),
+    });
+    const body = await res.json();
+    if (!res.ok || !body.ok) {
+      decisions[n].shipit = { status: "error", error: body.error || ("HTTP " + res.status), at: new Date().toISOString() };
+      saveDecision(n);
+      render();
+      showToast(`Ship failed: ${body.error || res.status}`);
+      return;
+    }
+    decisions[n].shipit = {
+      status: "shipped",
+      sessionId: body.sessionId || null,
+      sessionUrl: body.sessionUrl || null,
+      at: new Date().toISOString(),
+    };
+    saveDecision(n);
+    render();
+    showToast(`Shipping #${n} — check the session or your PRs in a few minutes`);
+  } catch (e) {
+    decisions[n].shipit = { status: "error", error: String(e), at: new Date().toISOString() };
+    saveDecision(n);
+    render();
+    showToast(`Ship failed: ${e}`);
+  }
 }
 
 function exportMarkdown() {

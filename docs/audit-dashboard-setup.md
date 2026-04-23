@@ -117,7 +117,69 @@ When in doubt, add new items rather than renumbering.
   - Send you a digest email within 2–3 minutes
 - Check your inbox — you should receive an email titled something like *"Meridian weekly audit — N new, M approved, K Tier 1 pending"*.
 
-## 5. Turning things off
+## 5. Optional — set up the "Ship it" button (one-click implementation)
+
+The dashboard has a **🚀 Ship it** button on every approved item. Clicking it triggers a *second* Claude routine — an API-triggered one — that implements just that single item on a fresh `claude/ship-N-*` branch and opens a draft PR. If you want this working, do the following once.
+
+### a) Create the ship-it routine
+
+Go to [claude.ai/code/routines](https://claude.ai/code/routines) → **New routine**.
+
+- **Name**: `Meridian audit — Ship it`
+- **Repositories**: add `meridianosteopathy/meridian-osteopathy-website`. Leave **Allow unrestricted branch pushes** *off* — the routine should only push to `claude/*` branches and open a PR, not push straight to `main`.
+- **Environment**: the same `Meridian audit` environment you created for the weekly routine is fine (no new env vars needed for this routine).
+- **Trigger**: Schedule → **Skip**. Then **Add another trigger** → **API**. Save the routine first, then come back to copy the URL and generate a token.
+- **Prompt**: paste verbatim —
+
+```
+You implement a single AI-search-audit punch-list item on behalf of
+Meridian Osteopathy.
+
+The incoming `text` payload is JSON describing one item, e.g.:
+{"item":{"n":5,"title":"Fix homepage H1","body":"...","files":[...],"tier":1,"impact":"H","effort":"S","addresses":["G9"]},"note":"","requestedAt":"..."}
+
+Parse it (the item may be nested as in the example; treat malformed
+payloads by logging and exiting). Then:
+
+1. Check out a fresh branch named claude/ship-<item.n>-<kebab-slug-of-title>.
+2. Implement ONLY that single item, touching only the files it names.
+   Match the codebase style; reuse infra per CLAUDE.md; keep diffs minimal.
+3. Run `npm run build` to confirm Eleventy still builds cleanly.
+4. Commit with a message like:
+   "Ship audit #<n> — <title>"
+5. Push the branch and open a DRAFT pull request titled:
+   "Audit #<n>: <title>"
+   Body should include: the item description, the files touched, a short
+   test plan, and a link back to audit.meridianosteopathy.co.nz.
+
+Do not merge. Do not touch items other than the one requested. Stop after
+opening the draft PR.
+```
+
+### b) Copy the trigger URL and token
+
+Once saved, click the routine's **API** trigger → the dialog shows the `/fire` URL and a **Generate token** button. Copy both **immediately** — the token is shown once.
+
+### c) Add the URL and token to Netlify
+
+Netlify → `meridian-osteopathy` → **Site configuration** → **Environment variables**:
+
+| Key | Value |
+|---|---|
+| `AUDIT_SHIPIT_ROUTINE_URL` | The `/fire` URL from the routine |
+| `AUDIT_SHIPIT_ROUTINE_TOKEN` | The bearer token from the routine |
+
+### d) Try it
+
+Open the dashboard → pick an approved item → click **🚀 Ship it**. Within 2-3 minutes you'll see a new draft PR in the repo. The button reports **Shipped ✓** with a link to the routine session so you can watch it work.
+
+### Gotchas
+
+- **Daily cap**: each Ship-it click is one routine run. Max plan = 15/day total across all routines. The weekly audit uses one; the rest are available for Ship-it.
+- **Security**: the endpoint accepts POSTs from the audit dashboard origin only. A determined attacker could forge the `Origin` header to trigger runs; the blast radius is burning your daily allowance + seeing draft PRs open. Add Netlify Identity later if this worries you.
+- **Rotating the token**: in the routine's API trigger dialog click **Regenerate**, then update `AUDIT_SHIPIT_ROUTINE_TOKEN` in Netlify env vars.
+
+## 6. Turning things off
 
 - **Stop emails**: pause or delete the routine at [claude.ai/code/routines](https://claude.ai/code/routines).
 - **Stop the dashboard**: remove `audit.meridianosteopathy.co.nz` from Netlify Domain management. The `/admin/audit/` path on the main site will still work.
