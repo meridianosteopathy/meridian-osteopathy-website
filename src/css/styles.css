@@ -23,9 +23,11 @@
    separation that padding would otherwise add. */
 .breadcrumbs+.section{padding-top:24px}
 /* Team profile pages wrap the breadcrumbs in the dark-blue profile-body.
-   Flip to a light palette so text stays readable on --primary, and add
-   bottom padding so the crumbs don't crowd the profile card on mobile. */
-.profile-body .breadcrumbs{padding:24px 0 20px}
+   Flip to a light palette so text stays readable on --primary. No top
+   padding — profile-hero's 50 px bottom padding already provides the
+   separation. Bottom padding keeps the crumbs off the profile card on
+   mobile. */
+.profile-body .breadcrumbs{padding:0 0 20px}
 .profile-body .breadcrumbs,
 .profile-body .breadcrumbs a{color:rgba(255,255,255,.78)}
 .profile-body .breadcrumbs a:hover{color:var(--white);text-decoration:underline}
