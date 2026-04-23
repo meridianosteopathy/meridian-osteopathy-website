@@ -38,7 +38,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="icon" href="/images/logomark-dark.svg" type="image/svg+xml">
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   {%- if site.gaMeasurementId %}
   <!-- Google Analytics (production only; gated in src/_data/site.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.gaMeasurementId }}"></script>
@@ -191,16 +190,5 @@
   </main>
   {% include "footer.njk" %}
   <script src="/js/main.js"></script>
-  <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
-  </script>
 </body>
 </html>
