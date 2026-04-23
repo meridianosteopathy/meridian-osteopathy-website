@@ -33,6 +33,10 @@
   <meta name="twitter:image:alt" content="{{ ogImageAlt or 'Meridian Osteopathy' }}">
 
   <link rel="stylesheet" href="/css/styles.css">
+  {%- if heroPreload %}
+  <!-- Preload the LCP hero image so the browser fetches it as early as it fetches the CSS. -->
+  <link rel="preload" as="image" fetchpriority="high" href="{{ heroPreload }}">
+  {%- endif %}
   <link rel="icon" href="/images/logomark-dark.svg" type="image/svg+xml">
   {%- if site.gaMeasurementId %}
   <!-- Google Analytics (production only; gated in src/_data/site.js) -->
