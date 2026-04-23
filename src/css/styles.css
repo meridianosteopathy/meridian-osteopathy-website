@@ -17,5 +17,14 @@
 .breadcrumbs a{color:var(--text-light);text-decoration:none}
 .breadcrumbs a:hover{color:var(--primary);text-decoration:underline}
 .breadcrumbs [aria-current="page"]{color:var(--text-dark);font-weight:500}
+/* Team profile pages wrap the breadcrumbs in the dark-blue profile-body.
+   Flip to a light palette so text stays readable on --primary, and add
+   bottom padding so the crumbs don't crowd the profile card on mobile. */
+.profile-body .breadcrumbs{padding:24px 0 20px}
+.profile-body .breadcrumbs,
+.profile-body .breadcrumbs a{color:rgba(255,255,255,.78)}
+.profile-body .breadcrumbs a:hover{color:var(--white);text-decoration:underline}
+.profile-body .breadcrumbs li+li::before{color:rgba(255,255,255,.35)}
+.profile-body .breadcrumbs [aria-current="page"]{color:var(--white)}
 .last-updated{padding:24px 0;font-size:.82rem;color:var(--text-light);text-align:center;border-top:1px solid var(--border);margin-top:40px}
 .last-updated p{margin:0}
