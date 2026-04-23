@@ -12,6 +12,17 @@ const TEST_TURNSTILE_SITE_KEY = "1x00000000000000000000AA";
 
 const isProduction = process.env.CONTEXT === "production";
 
+// Google Maps search URL resolves to the clinic's Business Profile without
+// needing the Place ID. Swap for a g.page / maps.app.goo.gl short-link once
+// the owner confirms their preferred canonical URL.
+const social = {
+  googleBusinessProfile: "https://www.google.com/maps/search/?api=1&query=Meridian+Osteopathy+21+Coppell+Place+Christchurch",
+  facebook: "",
+  instagram: "",
+  linkedin: "",
+  youtube: "",
+};
+
 module.exports = {
   name: "Meridian Osteopathy",
   url: "https://meridianosteopathy.co.nz",
@@ -45,12 +56,8 @@ module.exports = {
       closes: "17:00",
     },
   ],
-  social: {
-    facebook: "",
-    instagram: "",
-    linkedin: "",
-    youtube: "",
-  },
+  social,
+  sameAs: Object.values(social).filter(Boolean),
   pricing: {
     acc: { rate: "$80 - $85", notes: "" },
     private: { rate: "$115 - $120", notes: "Non-ACC consultation" },
