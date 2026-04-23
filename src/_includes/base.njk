@@ -91,7 +91,8 @@
             "closes": {{ h.closes | dump | safe }}
           }{% if not loop.last %},{% endif %}
           {%- endfor %}
-        ]
+        ]{% if site.sameAs.length %},
+        "sameAs": {{ site.sameAs | dump | safe }}{% endif %}
       },
       {
         "@type": "MedicalBusiness",

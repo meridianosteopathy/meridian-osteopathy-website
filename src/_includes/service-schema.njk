@@ -9,6 +9,7 @@
   "name": {{ s.title | dump | safe }},
   "url": "{{ site.url }}{{ s.url }}",
   "description": {{ s.intro | dump | safe }},
+  "mainEntityOfPage": { "@id": "{{ site.url }}{{ s.url }}#webpage" },
   "provider": { "@id": "{{ site.url }}/#clinic" },
   "areaServed": {
     "@type": "City",

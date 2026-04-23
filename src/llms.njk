@@ -21,6 +21,23 @@ eleventyExcludeFromCollections: true
 - [{{ s.title | plain | safe }}]({{ site.url }}{{ s.url }}): {{ s.intro | plain | safe }}
 {% endfor %}
 
+## Conditions we treat
+
+- Musculoskeletal (osteopathy): back and neck pain, headaches and migraines, joint pain and arthritis, posture imbalances, muscle tightness, sports injuries, sciatica, rib and pelvic pain.
+- Pregnancy and paediatric (osteopathy): pregnancy-related lower back and pelvic pain, safe across all trimesters; infants and children for colic, feeding and sleep issues, growing pains, postural development.
+- Pain and recovery (acupuncture): acute and chronic pain, tension headaches, migraines, post-injury recovery.
+- Stress, sleep and mental wellbeing (acupuncture, herbal medicine): anxiety, insomnia, burnout, low mood, fatigue.
+- Women's health (acupuncture, herbal medicine): menstrual irregularity, period pain, fertility support including IVF, perimenopause and menopause symptoms.
+- Digestive and immune health (acupuncture, herbal medicine): IBS, bloating, reflux, nausea, low immunity.
+
+## Pricing & ACC
+
+- ACC consultations: {{ site.pricing.acc.rate | plain | safe }} — subsidised for accident-related injuries.
+- Private (non-ACC) consultations: {{ site.pricing.private.rate | plain | safe }}.
+- Our osteopaths and acupuncturists are ACC-registered providers. No GP referral is required.
+- If you haven't lodged an ACC claim yet, we can help you do so at your first appointment.
+- Payment is taken at the clinic after each visit. ACC subsidy is applied directly — you pay only the gap.
+
 ## Practitioners
 
 {% for key, p in team -%}
@@ -28,6 +45,16 @@ eleventyExcludeFromCollections: true
 - [{{ p.name | plain | safe }}]({{ site.url }}{{ p.profileUrl }}): {{ p.role | plain | safe }}
 {% endif -%}
 {% endfor %}
+
+## Common questions
+
+- Do I need a GP referral? No — you can book directly, including for ACC claims.
+- Is it covered by ACC? Yes, when treatment is for an accident-related injury (osteopathy and acupuncture). We can lodge the claim for you at your first visit.
+- Is osteopathy safe during pregnancy? Yes — gentle techniques are used and are safe across all trimesters.
+- Can osteopaths treat babies and children? Yes, using gentle non-invasive techniques adapted for younger patients.
+- Is acupuncture painful? The needles are finer than a hair; most patients feel deeply relaxed during treatment.
+- Can acupuncture help with fertility or IVF? Yes — it can complement both natural conception and assisted reproductive treatments.
+- Are Chinese herbs safe with other medications? Usually yes, but tell your practitioner about every medication and supplement so they can prescribe safely.
 
 ## Key pages
 
