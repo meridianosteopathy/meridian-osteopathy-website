@@ -180,18 +180,6 @@
 <body>
   {% include "header.njk" %}
   <main>
-    {%- if crumbs.length %}
-    <nav class="breadcrumbs" aria-label="Breadcrumb">
-      <div class="container">
-        <ol>
-          <li><a href="/">Home</a></li>
-          {%- for c in crumbs %}
-          <li>{% if loop.last %}<span aria-current="page">{{ c.name }}</span>{% else %}<a href="{{ c.url }}">{{ c.name }}</a>{% endif %}</li>
-          {%- endfor %}
-        </ol>
-      </div>
-    </nav>
-    {%- endif %}
     {{ content | safe }}
     {%- if updated %}
     <div class="last-updated">
