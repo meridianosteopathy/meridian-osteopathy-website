@@ -45,6 +45,11 @@ module.exports = function(eleventyConfig) {
   // Build breadcrumb trail from a URL path. Returns [] for home ("/").
   // Intermediate segments get title-cased from their slug; the final
   // segment can be overridden by the caller (e.g. using page.title).
+  //
+  // SKIP_SEGMENTS names folders that exist only as URL containers (no
+  // index page). Including them in the trail would link to a 404, which
+  // hurts both UX and AI-search schema credibility, so they're dropped.
+  const SKIP_SEGMENTS = new Set(["services", "team"]);
   eleventyConfig.addFilter("breadcrumbs", (url) => {
     if (!url || url === "/") return [];
     const segments = url.split("/").filter(Boolean);
@@ -52,6 +57,7 @@ module.exports = function(eleventyConfig) {
     let cumulative = "";
     for (const seg of segments) {
       cumulative += "/" + seg;
+      if (SKIP_SEGMENTS.has(seg)) continue;
       const name = seg.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
       crumbs.push({ name, url: cumulative + "/" });
     }
