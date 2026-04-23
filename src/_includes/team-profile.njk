@@ -3,6 +3,11 @@
   <div class="profile-hero-content">
     <h1>{{ member.name }}</h1>
     <p class="profile-subtitle">{{ member.role | safe }}</p>
+    {% if member.registration %}
+    <p class="profile-registration" style="margin-top:8px;font-size:.95rem;opacity:.85">
+      Registered with <a href="{{ member.registration.url }}" rel="noopener external" style="color:inherit;text-decoration:underline">{{ member.registration.name }}</a>
+    </p>
+    {% endif %}
   </div>
 </section>
 
@@ -94,6 +99,7 @@
   "worksFor": { "@id": "{{ site.url }}/#clinic" },
   "description": {{ member.approach | dump | safe }}{% if member.sameAs %},
   "sameAs": {{ member.sameAs | dump | safe }}{% endif %}{% if member.medicalSpecialty %},
-  "medicalSpecialty": {{ member.medicalSpecialty | dump | safe }}{% endif %}
+  "medicalSpecialty": {{ member.medicalSpecialty | dump | safe }}{% endif %}{% if member.credentials %},
+  "hasCredential": {{ member.credentials | dump | safe }}{% endif %}
 }
 </script>

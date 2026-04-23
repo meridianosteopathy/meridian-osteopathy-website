@@ -5,6 +5,17 @@
     "role": "Osteopath & Medical Acupuncture",
     "photo": "/images/team-nina.jpg",
     "lifestyleImage": "/images/lifestyle-nina.jpg",
+    "medicalSpecialty": "Osteopathic",
+    "registration": {
+      "name": "Osteopathic Council of New Zealand",
+      "url": "https://osteopathiccouncil.org.nz/"
+    },
+    "sameAs": ["https://osteopathiccouncil.org.nz/"],
+    "credentials": [
+      { "@type": "EducationalOccupationalCredential", "name": "Bachelor of Musculoskeletal Health", "credentialCategory": "Bachelor's Degree" },
+      { "@type": "EducationalOccupationalCredential", "name": "Postgraduate Diploma in Osteopathy", "credentialCategory": "Postgraduate Diploma" },
+      { "@type": "EducationalOccupationalCredential", "name": "Postgraduate Certificate in Health Science (Acupuncture)", "credentialCategory": "Postgraduate Certificate" }
+    ],
     "qualifications": "<ul class=\"profile-qual-list\"><li>Bachelor of Musculoskeletal Health</li><li>Postgraduate Diploma in Osteopathy</li><li>Postgraduate Certificate in Health Science (Acupuncture)</li><li>Paediatric Osteopathy</li><li>Neural Neuromeningeal Manipulation</li></ul>",
     "approach": "Nina integrates multiple modalities into each session at no extra charge. Initial consultations (45–60 minutes) include a full case history, physical examination, and osteopathic hands-on treatment and acupuncture where appropriate. Follow-up sessions are tailored to each patient's response and may include dry needling, auricular or electrical acupuncture, cupping, ultrasound therapy, and moxibustion, alongside personalised rehabilitation to support lasting recovery.",
     "specialInterests": "Nina has a special interest in women's health, integrating osteopathic cranial techniques and acupuncture to support hormonal balance, pelvic health, and overall wellbeing. She also treats a wide range of conditions — including headaches, migraines, TMJ disorders, neck and back pain, postural imbalances, and stress-related complaints — across all age groups. She has specialist training in Paediatric Osteopathy, making her well placed to care for infants and young children with great gentleness and sensitivity.",
@@ -16,6 +27,16 @@
     "role": "Osteopath &amp; Low Level Laser Therapist",
     "photo": "/images/team-jonathan.jpg",
     "lifestyleImage": "",
+    "medicalSpecialty": "Osteopathic",
+    "registration": {
+      "name": "Osteopathic Council of New Zealand",
+      "url": "https://osteopathiccouncil.org.nz/"
+    },
+    "sameAs": ["https://osteopathiccouncil.org.nz/"],
+    "credentials": [
+      { "@type": "EducationalOccupationalCredential", "name": "Diploma in Osteopathy, British College of Osteopathic Medicine", "credentialCategory": "Diploma" },
+      { "@type": "EducationalOccupationalCredential", "name": "NZ Registered Osteopath", "credentialCategory": "Professional Registration" }
+    ],
     "qualifications": "<p>Jonathan trained at the British College of Osteopathic Medicine in London and is a NZ Registered Osteopath. After graduating, he built extensive clinical experience in private practice from 2010, before holding an NHS contract in Twickenham where he received GP referrals. From 2019 to 2022 he worked in advanced clinical practice at an NHS GP surgery, focusing on musculoskeletal diagnosis and onward referral. Born and raised in Christchurch, Jonathan returned home in 2022 — bringing with him over a decade of international experience, including a period as a vaccinator during the COVID-19 pandemic.</p>",
     "approach": "Jonathan's treatments draw on structural, classical, and cranial osteopathic techniques, tailored to each patient's presentation and goals. Alongside hands-on osteopathy, he incorporates bio-photomodulation (low-level laser therapy) for pain management and tissue healing — an area in which he has developed particular expertise through his work with THOR Photomedicine, where he authored over 200 treatment protocols. He also uses kinesiology taping and exercise rehabilitation where clinically appropriate.",
     "specialInterests": "Jonathan has a deep specialist interest in bio-photomodulation and its clinical applications in musculoskeletal and chronic pain conditions. His work with THOR Photomedicine has seen him develop protocols for a wide range of presentations — from aphthous ulcers to post-herpetic neuralgia. He also brings extensive experience managing complex musculoskeletal cases from his years working within NHS general practice.",
@@ -44,6 +65,16 @@
     "role": "Osteopath",
     "photo": "/images/team-maddison.jpg",
     "lifestyleImage": "",
+    "medicalSpecialty": "Osteopathic",
+    "registration": {
+      "name": "Osteopathic Council of New Zealand",
+      "url": "https://osteopathiccouncil.org.nz/"
+    },
+    "sameAs": ["https://osteopathiccouncil.org.nz/"],
+    "credentials": [
+      { "@type": "EducationalOccupationalCredential", "name": "Bachelor of Musculoskeletal Health, Ara Institute of Canterbury", "credentialCategory": "Bachelor's Degree" },
+      { "@type": "EducationalOccupationalCredential", "name": "Postgraduate Diploma in Osteopathy, Ara Institute of Canterbury", "credentialCategory": "Postgraduate Diploma" }
+    ],
     "qualifications": "<p>Maddison completed a Bachelor of Musculoskeletal Health and a Postgraduate Diploma in Osteopathy at Ara Institute of Canterbury. She is registered with the Osteopathic Council of New Zealand, and is an ACC-registered provider. Born and raised in Christchurch, Maddison developed a passion for understanding the human body and movement from an early age through her lifelong involvement in sport.</p>",
     "approach": "Maddison embraces osteopathy's holistic philosophy, providing individualised, patient-centred care that considers the whole body rather than just the site of pain or injury. She works with patients across a broad spectrum — from acute injuries to long-standing chronic conditions — adapting her approach to suit each person's needs, history, and goals. Her aim is always to help people return to the activities they love.",
     "specialInterests": "Maddison has a particular interest in sports-related injuries and movement-based complaints, informed by her own active lifestyle and lifelong connection to sport. She also has a genuine enthusiasm for working with children, bringing both care and patience to paediatric appointments. Whether supporting an athlete through recovery or helping a patient manage ongoing pain, Maddison brings the same commitment and warmth to every consultation.",
@@ -72,6 +103,17 @@
     "role": "Acupuncturist",
     "photo": "/images/team-min.jpg",
     "lifestyleImage": "",
+    "medicalSpecialty": "Acupuncture",
+    "registration": {
+      "name": "Chinese Medicine Council of New Zealand",
+      "url": "https://chinesemedicinecouncil.org.nz/"
+    },
+    "sameAs": ["https://chinesemedicinecouncil.org.nz/"],
+    "credentials": [
+      { "@type": "EducationalOccupationalCredential", "name": "Bachelor of Clinical Medicine, Gansu University of Chinese Medicine", "credentialCategory": "Bachelor's Degree" },
+      { "@type": "EducationalOccupationalCredential", "name": "Master of Biomedical Project Management, University of Science and Technology of China", "credentialCategory": "Master's Degree" },
+      { "@type": "EducationalOccupationalCredential", "name": "Bachelor of Acupuncture and Traditional Chinese Medicine, New Zealand School of Acupuncture and Traditional Chinese Medicine", "credentialCategory": "Bachelor's Degree" }
+    ],
     "qualifications": "<p>Min holds a Bachelor of Clinical Medicine from Gansu University of Chinese Medicine (2002) and a Master of Biomedical Project Management from the University of Science and Technology of China (2013). In 2025, she completed a Bachelor's degree at the New Zealand School of Acupuncture and Traditional Chinese Medicine, which included over 320 hours of supervised clinical practice. Min is a registered member of the Chinese Medicine Council of New Zealand (CMCNZ). Before establishing her acupuncture practice in New Zealand, Min spent many years in clinical research — including four years at Peking University Stem Cell Research Centre and over a decade managing nationally approved clinical projects in areas such as Parkinson's disease, spinal cord injury, and oncology.</p>",
     "approach": "Min provides safe, evidence-informed, and patient-centred care, weaving together classical Chinese medicine theory with Tung-style acupuncture techniques. She takes time to understand each patient's full picture — physical, emotional, and lifestyle — before forming a treatment plan. Alongside acupuncture, she draws on moxibustion, cupping, and therapeutic massage where clinically appropriate, tailoring every session to the individual.",
     "specialInterests": "Min's clinical focus includes musculoskeletal pain (neck, shoulder, and back), headaches and migraines, digestive complaints, sleep difficulties, stress-related symptoms, and women's health — including menstrual irregularities and menopausal symptoms. Her background in clinical research gives her a deep appreciation for evidence-based practice, which she brings together with the wisdom of traditional Chinese medicine to offer a uniquely informed approach to care.",
