@@ -9,3 +9,13 @@
 .legal-content ul li:last-child{margin-bottom:0}
 .legal-content a{color:var(--primary);text-decoration:underline}
 .legal-content>p:first-of-type{font-size:1.05rem;color:var(--text-light);margin-bottom:24px}
+/* Breadcrumbs and Last-updated — added for AI-search E-E-A-T signals */
+.breadcrumbs{padding:16px 0 0;font-size:.88rem;color:var(--text-light)}
+.breadcrumbs ol{list-style:none;display:flex;flex-wrap:wrap;gap:4px;padding:0;margin:0}
+.breadcrumbs li{display:flex;align-items:center}
+.breadcrumbs li+li::before{content:"›";margin:0 8px;color:var(--border)}
+.breadcrumbs a{color:var(--text-light);text-decoration:none}
+.breadcrumbs a:hover{color:var(--primary);text-decoration:underline}
+.breadcrumbs [aria-current="page"]{color:var(--text-dark);font-weight:500}
+.last-updated{padding:24px 0;font-size:.82rem;color:var(--text-light);text-align:center;border-top:1px solid var(--border);margin-top:40px}
+.last-updated p{margin:0}

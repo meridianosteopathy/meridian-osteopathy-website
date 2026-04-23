@@ -25,6 +25,24 @@
         "description": "Whether you're a weekend warrior or a competitive athlete, osteopathy can help you recover faster and prevent future injuries. We treat sprains, strains, shoulder and knee pain, and overuse injuries — combining hands-on treatment with personalised rehabilitation advice to get you back to doing what you love.",
         "image": "/images/specialty-ost-sport.jpg"
       }
+    ],
+    "faq": [
+      {
+        "question": "What conditions can osteopathy treat?",
+        "answer": "Osteopathy can help with back and neck pain, headaches and migraines, joint pain and arthritis, posture imbalances, muscle tightness, pregnancy-related pain, sports injuries, and growth or developmental issues in children. It's suitable for patients of all ages, from infants to seniors."
+      },
+      {
+        "question": "Is osteopathy covered by ACC?",
+        "answer": "Yes. Our osteopaths are ACC-registered providers, so treatment for an accident-related injury is subsidised by ACC. If you haven't lodged a claim yet, we can help you do so at your first appointment — no GP referral needed."
+      },
+      {
+        "question": "Is osteopathy safe during pregnancy?",
+        "answer": "Yes. Osteopathic treatment uses gentle techniques that are safe throughout all trimesters. It can relieve lower back and pelvic pain, sciatica, rib discomfort, and postural strain as your body adapts to support your pregnancy."
+      },
+      {
+        "question": "Can osteopaths treat babies and children?",
+        "answer": "Yes — osteopathy is safe and effective for babies, toddlers, and children of all ages. We use gentle, non-invasive techniques adapted for younger patients to help with birth-related discomforts, colic, feeding difficulties, sleep disturbances, growing pains, and postural development."
+      }
     ]
   },
   "acupuncture": {
@@ -53,6 +71,24 @@
         "description": "A healthy gut is the foundation of overall wellbeing. Acupuncture can help regulate digestive function, reduce bloating and discomfort, and support conditions such as IBS, reflux, and nausea. It also plays a role in strengthening immune resilience and managing fatigue, helping your body maintain its natural balance.",
         "image": "/images/specialty-acu-digestive.jpg"
       }
+    ],
+    "faq": [
+      {
+        "question": "Is acupuncture painful?",
+        "answer": "Most patients find acupuncture comfortable. The needles are very fine — finer than a hair — and any sensation is usually brief. Many people feel deeply relaxed during treatment."
+      },
+      {
+        "question": "What does acupuncture treat?",
+        "answer": "Acupuncture is effective for chronic and acute pain, headaches and migraines, stress and anxiety, sleep difficulties, women's health concerns (including menstrual irregularities, fertility, and menopause), digestive complaints, and fatigue. Our practitioners blend traditional Chinese medicine with modern evidence-based approaches."
+      },
+      {
+        "question": "Can acupuncture help with fertility and IVF?",
+        "answer": "Yes. Research supports acupuncture's role in improving ovarian function, regulating hormonal cycles, reducing stress, and enhancing uterine lining receptivity. It can complement both natural conception and assisted reproductive treatments such as IVF."
+      },
+      {
+        "question": "Is acupuncture covered by ACC?",
+        "answer": "Yes, when treatment is for an accident-related injury. Our acupuncturists are ACC-registered. If you haven't lodged a claim yet, we can help you do so at your first appointment — no GP referral needed."
+      }
     ]
   },
   "herbs": {
@@ -80,6 +116,24 @@
         "title": "Women's Health & Hormonal Balance",
         "description": "Herbal medicine is particularly powerful in supporting women's health throughout every life stage. From regulating menstrual cycles and supporting fertility to managing symptoms of perimenopause and menopause, our personalised herbal prescriptions work with your body's natural rhythms to restore hormonal balance and promote lasting wellbeing.",
         "image": "/images/specialty-herb-womens.jpg"
+      }
+    ],
+    "faq": [
+      {
+        "question": "What is Chinese herbal medicine?",
+        "answer": "Traditional Chinese herbal medicine uses carefully balanced plant-based formulas, prescribed individually to your constitution and presenting pattern. It works alongside acupuncture and osteopathy to support healing from the inside out."
+      },
+      {
+        "question": "How are the herbs prescribed?",
+        "answer": "After a full case history and assessment, your practitioner creates a personalised formula tailored to your specific pattern and concern. You'll typically take the formula as a granule or liquid over several weeks, with the blend adjusted as your condition changes."
+      },
+      {
+        "question": "Are Chinese herbs safe alongside other medications?",
+        "answer": "In most cases yes, but always tell your practitioner about every medication and supplement you take so they can prescribe safely. Our practitioners are trained to recognise and avoid herb-drug interactions, and will adjust or defer herbs when that's the safer call."
+      },
+      {
+        "question": "What does herbal medicine help with?",
+        "answer": "Herbal formulas are used for chronic pain and inflammation, digestive complaints, stress, sleep difficulties, low mood, fatigue, women's health (menstrual, fertility, menopausal symptoms), and hormonal imbalances. It's particularly useful for slow-to-resolve or constitutional patterns."
       }
     ]
   }
