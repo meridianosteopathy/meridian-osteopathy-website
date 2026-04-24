@@ -22,6 +22,9 @@ const { sendNotification } = require("./_lib/email");
 // commits a refreshed audit.json, which triggers a Netlify build, which
 // re-bundles this function — so the digest always reads current data.
 const audit = require("../../src/_data/audit.json");
+// Optional — query-pool data file may not yet exist on older deploys.
+let auditQueries = { pool: [], meta: {} };
+try { auditQueries = require("../../src/_data/auditQueries.json"); } catch (e) { /* file missing is fine */ }
 
 const DIGEST_TO_DEFAULT = "nina@meridianosteopathy.co.nz";
 
@@ -38,9 +41,29 @@ function fmt(items) {
   return items.map(i => `  • #${i.n} ${i.title} (Tier ${i.tier}, Impact ${i.impact}, Effort ${i.effort})`).join("\n");
 }
 
+function fmtQueries(list) {
+  if (!list.length) return "  (none — nicely done)";
+  return list.map(q => {
+    const r = q.lastResult || {};
+    const topDomain = (r.topDomains && r.topDomains[0]) || "unknown";
+    const rank = r.meridianRank == null || r.meridianRank === 0 ? "absent" : `#${r.meridianRank}`;
+    return `  • "${q.q}" — ${rank}, top: ${topDomain}`;
+  }).join("\n");
+}
+
 function fmtHtml(items) {
   if (!items.length) return "<li><em>none</em></li>";
   return items.map(i => `<li><strong>#${i.n}</strong> ${escapeHtml(i.title)} <span style="color:#6a6a6a;font-size:0.9em;">— Tier ${i.tier}, Impact ${i.impact}, Effort ${i.effort}</span></li>`).join("");
+}
+
+function fmtMissedQueriesHtml(list) {
+  if (!list.length) return "<li><em>None — you're ranking in top 10 for everything checked this week.</em></li>";
+  return list.map(q => {
+    const r = q.lastResult || {};
+    const topDomain = (r.topDomains && r.topDomains[0]) || "unknown";
+    const rank = r.meridianRank == null || r.meridianRank === 0 ? `<span style="color:#B1536D;">absent</span>` : `#${r.meridianRank}`;
+    return `<li><strong>"${escapeHtml(q.q)}"</strong> — ${rank}, top result: <code>${escapeHtml(topDomain)}</code></li>`;
+  }).join("");
 }
 
 function escapeHtml(s) {
@@ -72,6 +95,20 @@ exports.handler = async (event) => {
   const pendingTier1 = items.filter(i => i.tier === 1 && !(decisions[i.n] && decisions[i.n].status));
   const quickWins = items.filter(i => i.effort === "S" && i.impact === "H" && !(decisions[i.n] && decisions[i.n].status === "dismiss"));
 
+  // Search-visibility signals: top queries where Meridian isn't in the top 10
+  // (or hasn't been detected at all), sorted by priority. Only include queries
+  // that were actually checked in a run — unchecked ones are noise.
+  const svPool = auditQueries.pool || [];
+  const svChecked = svPool.filter(q => q.lastResult);
+  const svMissed = svChecked
+    .filter(q => {
+      const rank = q.lastResult && q.lastResult.meridianRank;
+      return rank == null || rank === 0 || rank > 10;
+    })
+    .sort((a, b) => (b.priority || 0) - (a.priority || 0))
+    .slice(0, 5);
+  const svTopN = svChecked.filter(q => q.lastResult.meridianRank != null && q.lastResult.meridianRank > 0 && q.lastResult.meridianRank <= 10).length;
+
   const subject = `Meridian weekly audit — ${newItems.length} new, ${approved.length} approved, ${pendingTier1.length} Tier 1 pending`;
 
   const text = [
@@ -95,9 +132,13 @@ exports.handler = async (event) => {
     `PARKED (${parked.length}):`,
     fmt(parked),
     ``,
+    svChecked.length ? `SEARCH VISIBILITY — ${svTopN}/${svChecked.length} queries in top 10` : ``,
+    svChecked.length ? `Top missed (priority-ranked, not in top 10):` : ``,
+    svChecked.length ? fmtQueries(svMissed) : ``,
+    svChecked.length ? `` : ``,
     `Open the dashboard to approve, park, dismiss, or add notes:`,
     dashboardUrl,
-  ].join("\n");
+  ].filter(Boolean).join("\n");
 
   const html = `
 <!doctype html>
@@ -122,6 +163,12 @@ exports.handler = async (event) => {
 
   <h2 style="font-family: Baskervville, Georgia, serif; font-weight: 400; color: #120E0B; margin-top: 32px;">Parked (${parked.length})</h2>
   <ul>${fmtHtml(parked)}</ul>
+
+  ${svChecked.length ? `
+  <h2 style="font-family: Baskervville, Georgia, serif; font-weight: 400; color: #120E0B; margin-top: 32px;">Search visibility — ${svTopN}/${svChecked.length} in top 10</h2>
+  <p style="color:#6a6a6a;font-size:0.88rem;margin-top:0;">Real user queries for Christchurch osteopathy/acupuncture services. Missed = not in Google top 10 AND not surfaced by AI Overview.</p>
+  <ul>${fmtMissedQueriesHtml(svMissed)}</ul>
+  ` : ""}
 
   <hr style="border: 0; border-top: 1px solid #d0d8e0; margin: 32px 0 16px;">
   <p style="color: #6a6a6a; font-size: 0.85rem;">You're receiving this because you subscribed to the weekly audit. Turn it off by deleting or pausing the "Meridian weekly audit" routine at <a href="https://claude.ai/code/routines" style="color:#345E85;">claude.ai/code/routines</a>.</p>
