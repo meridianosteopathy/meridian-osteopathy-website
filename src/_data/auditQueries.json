@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "lastRun": null,
+    "maxPool": 50,
+    "maxNewPerRun": 5,
+    "targetDomain": "meridianosteopathy.co.nz",
+    "notes": "Self-expanding query pool used by the weekly audit routine. Seeds are hand-curated from Meridian's services + suburbs. The routine re-checks each query against live search results every Saturday, harvests up to 5 new queries per run from Google autocomplete on the seeds that matter, and demotes queries that stop yielding useful signal. See docs/audit-dashboard-setup.md §6 for full routine prompt and self-expansion rules."
+  },
+  "pool": [
+    {"q": "osteopath christchurch",                       "source": "seed", "priority": 90, "addedAt": "2026-04-24"},
+    {"q": "osteopath halswell",                           "source": "seed", "priority": 85, "addedAt": "2026-04-24"},
+    {"q": "osteopath hillmorton",                         "source": "seed", "priority": 70, "addedAt": "2026-04-24"},
+    {"q": "best osteopath christchurch",                  "source": "seed", "priority": 80, "addedAt": "2026-04-24"},
+    {"q": "osteopath acc christchurch",                   "source": "seed", "priority": 75, "addedAt": "2026-04-24"},
+    {"q": "osteopath near me halswell",                   "source": "seed", "priority": 80, "addedAt": "2026-04-24"},
+    {"q": "osteopath vs physiotherapist christchurch",    "source": "seed", "priority": 60, "addedAt": "2026-04-24"},
+
+    {"q": "neck pain osteopath christchurch",             "source": "seed", "priority": 80, "addedAt": "2026-04-24"},
+    {"q": "back pain osteopath christchurch",             "source": "seed", "priority": 80, "addedAt": "2026-04-24"},
+    {"q": "sciatica osteopath christchurch",              "source": "seed", "priority": 75, "addedAt": "2026-04-24"},
+    {"q": "headaches migraines osteopath christchurch",   "source": "seed", "priority": 70, "addedAt": "2026-04-24"},
+    {"q": "tmj osteopath christchurch",                   "source": "seed", "priority": 65, "addedAt": "2026-04-24"},
+    {"q": "pregnancy back pain christchurch",             "source": "seed", "priority": 75, "addedAt": "2026-04-24"},
+    {"q": "paediatric osteopath christchurch",            "source": "seed", "priority": 70, "addedAt": "2026-04-24"},
+    {"q": "sports injury osteopath christchurch",         "source": "seed", "priority": 70, "addedAt": "2026-04-24"},
+
+    {"q": "acupuncture christchurch",                     "source": "seed", "priority": 85, "addedAt": "2026-04-24"},
+    {"q": "medical acupuncture christchurch",             "source": "seed", "priority": 80, "addedAt": "2026-04-24"},
+    {"q": "dry needling christchurch",                    "source": "seed", "priority": 80, "addedAt": "2026-04-24"},
+    {"q": "dry needling halswell",                        "source": "seed", "priority": 75, "addedAt": "2026-04-24"},
+    {"q": "acupuncture for fertility christchurch",       "source": "seed", "priority": 70, "addedAt": "2026-04-24"},
+    {"q": "acupuncture for ivf christchurch",             "source": "seed", "priority": 65, "addedAt": "2026-04-24"},
+    {"q": "womens health acupuncture christchurch",       "source": "seed", "priority": 65, "addedAt": "2026-04-24"},
+    {"q": "acupuncture vs dry needling",                  "source": "seed", "priority": 55, "addedAt": "2026-04-24"},
+
+    {"q": "herbal medicine christchurch",                 "source": "seed", "priority": 60, "addedAt": "2026-04-24"},
+    {"q": "chinese herbal medicine christchurch",         "source": "seed", "priority": 60, "addedAt": "2026-04-24"}
+  ]
+}

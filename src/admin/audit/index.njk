@@ -102,6 +102,24 @@ eleventyExcludeFromCollections: true
   .gap-item .why { color: var(--text-light); font-size: 0.82rem; margin-top: 6px; font-style: italic; }
 
   .loading { text-align: center; color: var(--text-light); padding: 40px 0; font-size: 0.9rem; }
+
+  .sv-summary { margin: 12px 0 16px; }
+  .sv-stats { display: flex; gap: 20px; flex-wrap: wrap; padding: 12px 16px; background: var(--white); border: 1px solid var(--border); border-radius: 6px; font-size: 0.92rem; }
+  .sv-stats span strong { color: var(--primary); }
+  .sv-empty { color: var(--text-light); font-style: italic; padding: 12px 0; }
+  .sv-item { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; margin-bottom: 6px; }
+  .sv-q { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .sv-query { font-family: ui-monospace, Menlo, monospace; font-size: 0.9rem; color: var(--text-dark); flex: 1; min-width: 200px; }
+  .sv-rank { font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 600; letter-spacing: 0.02em; min-width: 72px; text-align: center; display: inline-block; }
+  .sv-rank-top     { background: var(--status-approve); color: var(--white); }
+  .sv-rank-mid     { background: var(--status-park);    color: var(--white); }
+  .sv-rank-miss    { background: var(--status-dismiss); color: var(--white); }
+  .sv-rank-unknown { background: var(--neutral-bg);     color: var(--neutral); }
+  .sv-priority { font-size: 0.75rem; color: var(--text-light); }
+  .sv-source { font-size: 0.72rem; color: var(--text-light); font-style: italic; }
+  .sv-detail { margin-top: 6px; font-size: 0.82rem; color: var(--text-light); display: flex; gap: 12px; flex-wrap: wrap; }
+  .sv-detail code { background: var(--neutral-bg); padding: 1px 6px; border-radius: 3px; }
+  .sv-notes { font-style: italic; }
 </style>
 </head>
 <body>
@@ -148,6 +166,17 @@ eleventyExcludeFromCollections: true
   </section>
 
   <section class="section-block">
+    <h2>Search visibility</h2>
+    <p style="color:var(--text-light);font-size:0.9rem;">
+      What real users type into Google and ChatGPT — and where Meridian ranks for each.
+      Pool self-expands via Google autocomplete on Saturdays.
+      {% if auditQueries.meta.lastRun %}Last checked <strong>{{ auditQueries.meta.lastRun }}</strong>.{% else %}<em>Not yet checked — will populate after the next Saturday routine run.</em>{% endif %}
+    </p>
+    <div id="sv-summary" class="sv-summary"></div>
+    <div id="sv-list"></div>
+  </section>
+
+  <section class="section-block">
     <h2>Punch-list</h2>
     <div class="toolbar">
       <div class="counts" id="toolbar-counts"></div>
@@ -180,8 +209,10 @@ eleventyExcludeFromCollections: true
 
 <script>
 const AUDIT = {{ audit | dump | safe }};
+const AUDIT_QUERIES = {{ auditQueries | dump | safe }};
 const ITEMS = AUDIT.items || [];
 const GAPS = AUDIT.gaps || [];
+const QUERY_POOL = (AUDIT_QUERIES && AUDIT_QUERIES.pool) || [];
 const API_STATE = "/.netlify/functions/audit-state";
 const API_SHIPIT = "/.netlify/functions/audit-ship-it";
 const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
@@ -322,6 +353,63 @@ function escapeHtml(s) {
   return String(s || "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
 }
 
+function svRankBadge(rank) {
+  if (rank == null) return `<span class="sv-rank sv-rank-unknown">—</span>`;
+  if (rank === 0 || rank > 10) return `<span class="sv-rank sv-rank-miss">not top 10</span>`;
+  if (rank <= 3) return `<span class="sv-rank sv-rank-top">#${rank}</span>`;
+  return `<span class="sv-rank sv-rank-mid">#${rank}</span>`;
+}
+
+function renderSearchVisibility() {
+  const summary = document.getElementById("sv-summary");
+  const list = document.getElementById("sv-list");
+  if (!summary || !list) return;
+  if (!QUERY_POOL.length) {
+    summary.innerHTML = "";
+    list.innerHTML = `<p class="sv-empty">No queries in pool yet.</p>`;
+    return;
+  }
+
+  const checked = QUERY_POOL.filter(q => q.lastResult);
+  const top3 = checked.filter(q => q.lastResult.meridianRank != null && q.lastResult.meridianRank > 0 && q.lastResult.meridianRank <= 3).length;
+  const top10 = checked.filter(q => q.lastResult.meridianRank != null && q.lastResult.meridianRank > 0 && q.lastResult.meridianRank <= 10).length;
+  const missed = checked.filter(q => q.lastResult.meridianRank == null || q.lastResult.meridianRank === 0 || q.lastResult.meridianRank > 10).length;
+
+  summary.innerHTML = checked.length === 0
+    ? `<p class="sv-empty">Pool has ${QUERY_POOL.length} queries. None checked yet — the next Saturday routine run will populate rankings.</p>`
+    : `
+      <div class="sv-stats">
+        <span><strong>${top3}</strong> in top 3</span>
+        <span><strong>${top10}</strong> in top 10</span>
+        <span><strong>${missed}</strong> missed</span>
+        <span style="color:var(--text-light);">of ${checked.length} checked (pool size ${QUERY_POOL.length})</span>
+      </div>`;
+
+  const sorted = [...QUERY_POOL].sort((a, b) => {
+    const aRank = (a.lastResult && a.lastResult.meridianRank) || 999;
+    const bRank = (b.lastResult && b.lastResult.meridianRank) || 999;
+    if (aRank !== bRank) return aRank - bRank;
+    return (b.priority || 0) - (a.priority || 0);
+  });
+
+  list.innerHTML = sorted.map(q => {
+    const r = q.lastResult || {};
+    const topDomain = (r.topDomains && r.topDomains[0]) || "";
+    const notes = r.notes || "";
+    const sourceTag = q.source && q.source !== "seed" ? `<span class="sv-source">via ${escapeHtml(q.source)}</span>` : "";
+    return `
+      <div class="sv-item">
+        <div class="sv-q">
+          ${svRankBadge(r.meridianRank)}
+          <span class="sv-query">${escapeHtml(q.q)}</span>
+          ${sourceTag}
+          <span class="sv-priority" title="Priority score">p${q.priority || 0}</span>
+        </div>
+        ${topDomain || notes ? `<div class="sv-detail">${topDomain ? `Top: <code>${escapeHtml(topDomain)}</code>` : ""} ${notes ? `<span class="sv-notes">${escapeHtml(notes)}</span>` : ""}</div>` : ""}
+      </div>`;
+  }).join("");
+}
+
 function buildShipitButton(n, shipit) {
   if (!shipit || !shipit.status) {
     return `<button class="btn-shipit" data-n="${n}">🚀 Ship it</button>`;
@@ -442,6 +530,7 @@ document.getElementById("reset").addEventListener("click", async () => {
   }
 });
 
+renderSearchVisibility();
 loadDecisions();
 </script>
 </body>

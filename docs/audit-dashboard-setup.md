@@ -57,12 +57,14 @@ Go to [claude.ai/code/routines](https://claude.ai/code/routines) and sign in wit
 ```
 You are the weekly AI-search-audit producer for Meridian Osteopathy
 (https://meridianosteopathy.co.nz). The previous audit data lives in
-src/_data/audit.json; the dashboard at audit.meridianosteopathy.co.nz
-reads it.
+src/_data/audit.json; the live-search query pool lives in
+src/_data/auditQueries.json; the dashboard at
+audit.meridianosteopathy.co.nz reads both.
 
 Do this in order:
 
-1. Read src/_data/audit.json for current state.
+1. Read src/_data/audit.json AND src/_data/auditQueries.json for
+   current state.
 
 2. Research the last 7 days of community + industry signals on AEO / GEO
    for local healthcare businesses. Look at Reddit (r/SEO, r/juststart,
@@ -72,37 +74,90 @@ Do this in order:
    on signals relevant to an osteopathy / multi-disciplinary allied-health
    clinic in New Zealand.
 
-3. Audit the current repo against those findings. Check for new gaps,
-   confirm existing gaps still apply, and look for items that may now be
-   implemented (see git log for items shipped since last run).
+3. SEARCH VISIBILITY — for every query in auditQueries.pool (process the
+   top 30 by priority if the pool is larger):
+   a. Web-search the query.
+   b. From the results, record into that query object as a `lastResult`
+      with fields {date, meridianRank, topDomains, notes}:
+      - date: today, ISO-8601.
+      - meridianRank: 1-based position of meridianosteopathy.co.nz in
+        the results. Use 0 if not present in the visible results.
+      - topDomains: up to 5 unique non-aggregator ranking domains in
+        order. Strip subdomains to root (e.g. `m.example.com` →
+        `example.com`).
+      - notes: one short sentence if there's a standout observation
+        (AI Overview mentioned Meridian, a new competitor appeared,
+        position shifted ≥ 5 spots since last run, etc.). Skip if
+        nothing notable.
+   c. Also fetch Google autocomplete for each query:
+        GET https://suggestqueries.google.com/complete/search?client=firefox&q=<query>
+      Take up to 2 suggestions that aren't in the pool and aren't near-
+      duplicates of existing entries. If accepted, add each with:
+      {q, source: "autocomplete", priority: 50, addedAt: today}.
+   d. Update priority per query:
+      - If Meridian rank ≤ 3: priority = min(100, priority + 5)
+      - If Meridian rank 4–10: keep priority
+      - If Meridian not in top 10: priority = max(0, priority - 10)
+   e. Demote & prune:
+      - Any query with priority < 20 for the past 3 runs → remove.
+      - Cap the pool at auditQueries.meta.maxPool (default 50).
+        Drop lowest-priority first.
+   f. Respect auditQueries.meta.maxNewPerRun (default 5) — do not add
+      more than that many new queries in a single run.
 
-4. Update src/_data/audit.json:
+4. IF the pool has fewer than 20 entries, regenerate seeds from content:
+   - Read src/_data/services.json `specialties[].title`, `services.*.intro`.
+   - Read src/_data/team.json `*.specialInterests` — extract condition
+     phrases.
+   - Cross-product with suburbs: Christchurch, Halswell, Addington,
+     Sydenham, Wigram, Hillmorton.
+   - Add 10–15 of the most natural-sounding queries.
+
+5. Audit the current repo against industry findings from step 2. Check
+   for new gaps, confirm existing gaps still apply, and look for items
+   that may now be implemented (see git log for items shipped since
+   last run).
+
+6. Update src/_data/audit.json:
    - Increment meta.reportDate to today.
    - Add any new punch-list items at the end, with a firstSeen = today.
    - Remove items that have been implemented (check git diff / grep the
      relevant source files to confirm — do not remove based on guesswork).
-   - Update tldr and gaps sections to reflect current reality.
+   - For each query with meridianRank > 10 OR absent AND priority ≥ 60,
+     if no existing punch-list item addresses it, add one:
+       - title: "Not ranking for '<query>' — [top competitor] owns it"
+       - body: describe the gap + recommend the smallest content fix
+       - tier: 2 (unless the content effort is clearly small, then 1)
+       - impact: H if priority ≥ 80, M otherwise
+       - effort: S if a page exists to tweak, L if a new page is needed
+       - addresses: ["G16"] (the search-visibility gap) + any topical gap
+   - Update tldr and gaps sections if the search-visibility data reveals
+     something material.
    - Keep existing item numbers stable so decisions in Netlify Blobs
      stay aligned.
 
-5. Save a markdown snapshot to reports/ai-search-audit-YYYY-MM-DD.md so
-   there is a human-readable historical archive. Keep the report
-   structure similar to the first one (TL;DR, Already implemented, Gaps,
-   Punch-list by tier, Sources). One per run.
+7. Update src/_data/auditQueries.json:
+   - Write the updated pool (with lastResult entries, priority changes,
+     new autocomplete entries).
+   - Update meta.lastRun to today and meta.poolSize.
 
-6. Commit both files to main with a message like:
-   "Weekly audit — N new, M shipped (YYYY-MM-DD)"
+8. Save a markdown snapshot to reports/ai-search-audit-YYYY-MM-DD.md so
+   there is a human-readable historical archive. Include a "Search
+   visibility" section summarising wins/losses vs last run.
 
-7. After the push, call the digest endpoint to send the Saturday email:
+9. Commit all three files to main with a message like:
+   "Weekly audit — N new items, M shipped, K queries checked (YYYY-MM-DD)"
 
-   curl -X POST https://meridianosteopathy.co.nz/.netlify/functions/audit-send-digest \
-     -H "Authorization: Bearer $AUDIT_DIGEST_TOKEN" \
-     -H "Content-Type: application/json"
+10. After the push, call the digest endpoint to send the Saturday email:
 
-   If the response is not 200, print the body so the failure is visible
-   in the routine run log.
+    curl -X POST https://meridianosteopathy.co.nz/.netlify/functions/audit-send-digest \
+      -H "Authorization: Bearer $AUDIT_DIGEST_TOKEN" \
+      -H "Content-Type: application/json"
 
-Be rigorous about step 4 — wrong item numbers break stored decisions.
+    If the response is not 200, print the body so the failure is visible
+    in the routine run log.
+
+Be rigorous about step 6 — wrong item numbers break stored decisions.
 When in doubt, add new items rather than renumbering.
 ```
 
