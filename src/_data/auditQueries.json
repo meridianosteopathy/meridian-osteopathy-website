@@ -1,40 +1,45 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "lastRun": null,
+    "lastRun": "2026-04-24",
+    "poolSize": 28,
     "maxPool": 50,
     "maxNewPerRun": 5,
     "targetDomain": "meridianosteopathy.co.nz",
-    "notes": "Self-expanding query pool used by the weekly audit routine. Seeds are hand-curated from Meridian's services + suburbs. The routine re-checks each query against live search results every Saturday, harvests up to 5 new queries per run from Google autocomplete on the seeds that matter, and demotes queries that stop yielding useful signal. See docs/audit-dashboard-setup.md §6 for full routine prompt and self-expansion rules."
+    "notes": "Self-expanding query pool used by the weekly audit routine. Seeds are hand-curated from Meridian's services + suburbs. The routine re-checks each query against live search results every Saturday, harvests up to 5 new queries per run from Google autocomplete on the seeds that matter, and demotes queries that stop yielding useful signal. See docs/audit-dashboard-setup.md §6 for full routine prompt and self-expansion rules. 2026-04-24: autocomplete fetch (suggestqueries.google.com) is blocked by the routine host egress allowlist — curl and WebFetch both return 403. Workaround in use: pool is self-expanding via queries derived from the previous run's SERP gaps (source: 'derived'). Durable fix = widen the routine egress allowlist to include suggestqueries.google.com and meridianosteopathy.co.nz."
   },
   "pool": [
-    {"q": "osteopath christchurch",                       "source": "seed", "priority": 90, "addedAt": "2026-04-24"},
-    {"q": "osteopath halswell",                           "source": "seed", "priority": 85, "addedAt": "2026-04-24"},
-    {"q": "osteopath hillmorton",                         "source": "seed", "priority": 70, "addedAt": "2026-04-24"},
-    {"q": "best osteopath christchurch",                  "source": "seed", "priority": 80, "addedAt": "2026-04-24"},
-    {"q": "osteopath acc christchurch",                   "source": "seed", "priority": 75, "addedAt": "2026-04-24"},
-    {"q": "osteopath near me halswell",                   "source": "seed", "priority": 80, "addedAt": "2026-04-24"},
-    {"q": "osteopath vs physiotherapist christchurch",    "source": "seed", "priority": 60, "addedAt": "2026-04-24"},
+    {"q": "osteopath christchurch",                       "source": "seed", "priority": 80, "addedAt": "2026-04-24", "lastResult": {"date": "2026-04-24", "meridianRank": 0, "topDomains": ["christchurchosteopath.co.nz", "osteopath.nz", "christchurch-osteopathy-acupuncture.co.nz", "chchosteopaths.co.nz", "mkosteopathy.co.nz"], "notes": "First-run baseline: Meridian not in top 10; Moorhouse + Shelley Joe + Christchurch Osteopathic Centre dominate."}},
+    {"q": "osteopath halswell",                           "source": "seed", "priority": 75, "addedAt": "2026-04-24", "lastResult": {"date": "2026-04-24", "meridianRank": 0, "topDomains": ["osteopath-halswellclinic.co.nz", "osteo.co.nz", "finetuneosteopathy.com", "healthpoint.co.nz", "cecc.org.nz"], "notes": "Halswell Rd Clinic + osteo.co.nz (Halswell page) own the SERP. Suburb-branded URL wins."}},
+    {"q": "osteopath hillmorton",                         "source": "seed", "priority": 60, "addedAt": "2026-04-24", "lastResult": {"date": "2026-04-24", "meridianRank": 0, "topDomains": ["osteo.co.nz", "christchurchosteopath.co.nz", "betterhealthosteopathy.nz", "christchurch-osteopathy-acupuncture.co.nz", "chchosteopaths.co.nz"], "notes": "No 'Hillmorton osteopath' content — our actual location — so generic Christchurch clinics outrank us even here."}},
+    {"q": "best osteopath christchurch",                  "source": "seed", "priority": 70, "addedAt": "2026-04-24", "lastResult": {"date": "2026-04-24", "meridianRank": 0, "topDomains": ["christchurchosteopath.co.nz", "betterhealthosteopathy.nz", "cashmereosteo.co.nz", "chchosteopaths.co.nz", "mkosteopathy.co.nz"]}},
+    {"q": "osteopath acc christchurch",                   "source": "seed", "priority": 65, "addedAt": "2026-04-24", "lastResult": {"date": "2026-04-24", "meridianRank": 0, "topDomains": ["osteo.co.nz", "chchosteopaths.co.nz", "activehealth.co.nz", "osteopath.net.nz", "osteopath.nz"], "notes": "osteo.co.nz has a dedicated ACC landing page; we don't."}},
+    {"q": "osteopath near me halswell",                   "source": "seed", "priority": 70, "addedAt": "2026-04-24", "lastResult": {"date": "2026-04-24", "meridianRank": 0, "topDomains": ["osteo.co.nz", "osteopath-halswellclinic.co.nz", "finetuneosteopathy.com"], "notes": "Mostly overseas results; strong opportunity for a Halswell-signal page."}},
+    {"q": "osteopath vs physiotherapist christchurch",    "source": "seed", "priority": 50, "addedAt": "2026-04-24", "lastResult": {"date": "2026-04-24", "meridianRank": 0, "topDomains": ["osteopath-halswellclinic.co.nz", "betterhealthosteopathy.nz", "osteopathiccare.org"], "notes": "Comparison-content gap; competitors have blog posts answering this."}},
 
-    {"q": "neck pain osteopath christchurch",             "source": "seed", "priority": 80, "addedAt": "2026-04-24"},
-    {"q": "back pain osteopath christchurch",             "source": "seed", "priority": 80, "addedAt": "2026-04-24"},
-    {"q": "sciatica osteopath christchurch",              "source": "seed", "priority": 75, "addedAt": "2026-04-24"},
-    {"q": "headaches migraines osteopath christchurch",   "source": "seed", "priority": 70, "addedAt": "2026-04-24"},
-    {"q": "tmj osteopath christchurch",                   "source": "seed", "priority": 65, "addedAt": "2026-04-24"},
-    {"q": "pregnancy back pain christchurch",             "source": "seed", "priority": 75, "addedAt": "2026-04-24"},
-    {"q": "paediatric osteopath christchurch",            "source": "seed", "priority": 70, "addedAt": "2026-04-24"},
-    {"q": "sports injury osteopath christchurch",         "source": "seed", "priority": 70, "addedAt": "2026-04-24"},
+    {"q": "neck pain osteopath christchurch",             "source": "seed", "priority": 70, "addedAt": "2026-04-24", "lastResult": {"date": "2026-04-24", "meridianRank": 0, "topDomains": ["osteopath.nz", "mkosteopathy.co.nz", "finetuneosteopathy.com", "chchosteopaths.co.nz", "betterhealthosteopathy.nz"], "notes": "Better Health has a dedicated /conditions/neck-pain/ URL; we have no condition page."}},
+    {"q": "back pain osteopath christchurch",             "source": "seed", "priority": 70, "addedAt": "2026-04-24", "lastResult": {"date": "2026-04-24", "meridianRank": 0, "topDomains": ["betterhealthosteopathy.nz", "osteopath.nz", "cashmereosteo.co.nz", "osteopathiccare.org", "osteopath.net.nz"], "notes": "Better Health owns /back-pain-relief-osteopath-christchurch/ — we have no equivalent page."}},
+    {"q": "sciatica osteopath christchurch",              "source": "seed", "priority": 65, "addedAt": "2026-04-24", "lastResult": {"date": "2026-04-24", "meridianRank": 0, "topDomains": ["betterhealthosteopathy.nz", "mkosteopathy.co.nz", "osteopath-halswellclinic.co.nz", "chchosteopaths.co.nz", "osteopath-christchurch.com"]}},
+    {"q": "headaches migraines osteopath christchurch",   "source": "seed", "priority": 60, "addedAt": "2026-04-24", "lastResult": {"date": "2026-04-24", "meridianRank": 0, "topDomains": ["osteopath-christchurch.com", "betterhealthosteopathy.nz", "osteo.co.nz", "osteopathiccare.org", "osteopath.net.nz"], "notes": "osteopath-christchurch.com has a blog-post-based migraine cluster that wins AI Overviews here."}},
+    {"q": "tmj osteopath christchurch",                   "source": "seed", "priority": 55, "addedAt": "2026-04-24", "lastResult": {"date": "2026-04-24", "meridianRank": 0, "topDomains": ["mkosteopathy.co.nz", "finetuneosteopathy.com", "betterhealthosteopathy.nz", "osteopath-christchurch.com", "headachetendon.nz"]}},
+    {"q": "pregnancy back pain christchurch",             "source": "seed", "priority": 65, "addedAt": "2026-04-24", "lastResult": {"date": "2026-04-24", "meridianRank": 0, "topDomains": ["finetuneosteopathy.com", "osteopath-halswellclinic.co.nz", "betterhealthosteopathy.nz", "osteopath-christchurch.com"]}},
+    {"q": "paediatric osteopath christchurch",            "source": "seed", "priority": 60, "addedAt": "2026-04-24", "lastResult": {"date": "2026-04-24", "meridianRank": 0, "topDomains": ["osteopath-christchurch.com", "osteo.co.nz", "happyspine.co.nz", "osteopathiccare.org", "betterhealthosteopathy.nz"], "notes": "happyspine.co.nz surfaces for 'Nina Hu' — name collision or an old site; worth checking whether our Nina profile is being deduped away."}},
+    {"q": "sports injury osteopath christchurch",         "source": "seed", "priority": 60, "addedAt": "2026-04-24", "lastResult": {"date": "2026-04-24", "meridianRank": 0, "topDomains": ["christchurchosteopath.co.nz", "activehealth.co.nz", "finetuneosteopathy.com", "betterhealthosteopathy.nz", "mkosteopathy.co.nz"]}},
 
-    {"q": "acupuncture christchurch",                     "source": "seed", "priority": 85, "addedAt": "2026-04-24"},
-    {"q": "medical acupuncture christchurch",             "source": "seed", "priority": 80, "addedAt": "2026-04-24"},
-    {"q": "dry needling christchurch",                    "source": "seed", "priority": 80, "addedAt": "2026-04-24"},
-    {"q": "dry needling halswell",                        "source": "seed", "priority": 75, "addedAt": "2026-04-24"},
-    {"q": "acupuncture for fertility christchurch",       "source": "seed", "priority": 70, "addedAt": "2026-04-24"},
-    {"q": "acupuncture for ivf christchurch",             "source": "seed", "priority": 65, "addedAt": "2026-04-24"},
-    {"q": "womens health acupuncture christchurch",       "source": "seed", "priority": 65, "addedAt": "2026-04-24"},
-    {"q": "acupuncture vs dry needling",                  "source": "seed", "priority": 55, "addedAt": "2026-04-24"},
+    {"q": "acupuncture christchurch",                     "source": "seed", "priority": 75, "addedAt": "2026-04-24", "lastResult": {"date": "2026-04-24", "meridianRank": 0, "topDomains": ["thehouseofacupuncture.co.nz", "acumore.co.nz", "proacupuncture.co.nz", "acupuncturechch.co.nz", "acucentre.co.nz"], "notes": "thehouseofacupuncture.co.nz dominates the whole acupuncture query cluster."}},
+    {"q": "medical acupuncture christchurch",             "source": "seed", "priority": 70, "addedAt": "2026-04-24", "lastResult": {"date": "2026-04-24", "meridianRank": 0, "topDomains": ["acuclinic.co.nz", "thehouseofacupuncture.co.nz", "acupuncturechch.co.nz", "acucentre.co.nz", "theacupuncturist.co.nz"], "notes": "Addressed by pending item #17 (reframe page as Western/medical first)."}},
+    {"q": "dry needling christchurch",                    "source": "seed", "priority": 70, "addedAt": "2026-04-24", "lastResult": {"date": "2026-04-24", "meridianRank": 0, "topDomains": ["musclepeople.co.nz", "fixedphysio.co.nz", "physiosouth.co.nz", "korutherapies.co.nz", "healthandsportcentral.co.nz"], "notes": "Physios own every slot — exactly the ChatGPT-test failure item #17 was created to fix."}},
+    {"q": "dry needling halswell",                        "source": "seed", "priority": 65, "addedAt": "2026-04-24", "lastResult": {"date": "2026-04-24", "meridianRank": 0, "topDomains": [], "notes": "No NZ results at all — page full of US physical-therapy clinics. Clear opportunity: owning 'Halswell' + 'dry needling' is achievable because nobody else is even trying."}},
+    {"q": "acupuncture for fertility christchurch",       "source": "seed", "priority": 60, "addedAt": "2026-04-24", "lastResult": {"date": "2026-04-24", "meridianRank": 0, "topDomains": ["thehouseofacupuncture.co.nz", "nikauroom.co.nz", "glowbody.co.nz", "burwoodacupuncture.co.nz"]}},
+    {"q": "acupuncture for ivf christchurch",             "source": "seed", "priority": 55, "addedAt": "2026-04-24", "lastResult": {"date": "2026-04-24", "meridianRank": 0, "topDomains": ["thehouseofacupuncture.co.nz", "burwoodacupuncture.co.nz", "glowbody.co.nz", "christchurch-osteopathy-acupuncture.co.nz"]}},
+    {"q": "womens health acupuncture christchurch",       "source": "seed", "priority": 55, "addedAt": "2026-04-24", "lastResult": {"date": "2026-04-24", "meridianRank": 0, "topDomains": ["thehouseofacupuncture.co.nz", "proacupuncture.co.nz", "acuclinic.co.nz", "acucentre.co.nz", "creativehealthacupuncture.co.nz"]}},
+    {"q": "acupuncture vs dry needling",                  "source": "seed", "priority": 45, "addedAt": "2026-04-24", "lastResult": {"date": "2026-04-24", "meridianRank": 0, "topDomains": ["bannerhealth.com", "denverphysicalmedicine.com", "clevelandclinic.org"], "notes": "Pure informational query — non-NZ authority sites win; low priority as a direct-intent query."}},
 
-    {"q": "herbal medicine christchurch",                 "source": "seed", "priority": 60, "addedAt": "2026-04-24"},
-    {"q": "chinese herbal medicine christchurch",         "source": "seed", "priority": 60, "addedAt": "2026-04-24"}
+    {"q": "herbal medicine christchurch",                 "source": "seed", "priority": 50, "addedAt": "2026-04-24", "lastResult": {"date": "2026-04-24", "meridianRank": 0, "topDomains": ["theherbcentre.co.nz", "the-apothecary.co.nz", "nzherbal.co.nz", "wellandgoodherbalmedicine.co.nz", "simh.co.nz"], "notes": "Retail/supply dominates — intent here is often product, not consultation."}},
+    {"q": "chinese herbal medicine christchurch",         "source": "seed", "priority": 50, "addedAt": "2026-04-24", "lastResult": {"date": "2026-04-24", "meridianRank": 0, "topDomains": ["tcmchristchurch.com", "acumore.co.nz", "acucentre.co.nz", "healthbymana.co.nz", "acupuncturechch.co.nz"]}},
+
+    {"q": "cranial osteopath christchurch",               "source": "derived", "priority": 50, "addedAt": "2026-04-24"},
+    {"q": "jaw pain osteopath christchurch",              "source": "derived", "priority": 50, "addedAt": "2026-04-24"},
+    {"q": "pregnancy osteopath christchurch",             "source": "derived", "priority": 50, "addedAt": "2026-04-24"}
   ]
 }

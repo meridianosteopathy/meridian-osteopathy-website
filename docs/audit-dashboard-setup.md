@@ -9,7 +9,7 @@ One-time setup for the weekly audit dashboard at `audit.meridianosteopathy.co.nz
 | Dashboard UI | `/admin/audit/` (rewritten to `audit.meridianosteopathy.co.nz/`) |
 | Decisions storage | Netlify Blobs — automatic, no setup |
 | Weekly report generation | Claude routine at [claude.ai/code/routines](https://claude.ai/code/routines) |
-| Saturday email digest | `netlify/functions/audit-send-digest.js` — called by the routine |
+| Saturday email digest | `netlify/functions/audit-send-digest.js` — runs on a Netlify schedule (Sat 22:00 UTC) |
 
 ## 1. Check / add Netlify environment variables
 
@@ -148,14 +148,11 @@ Do this in order:
 9. Commit all three files to main with a message like:
    "Weekly audit — N new items, M shipped, K queries checked (YYYY-MM-DD)"
 
-10. After the push, call the digest endpoint to send the Saturday email:
-
-    curl -X POST https://meridianosteopathy.co.nz/.netlify/functions/audit-send-digest \
-      -H "Authorization: Bearer $AUDIT_DIGEST_TOKEN" \
-      -H "Content-Type: application/json"
-
-    If the response is not 200, print the body so the failure is visible
-    in the routine run log.
+The Saturday digest email is sent automatically by a Netlify scheduled
+function (configured in netlify.toml — runs Saturday 22:00 UTC / Sunday
+morning NZ). The routine does NOT need to call out to send it. The
+manual POST endpoint with AUDIT_DIGEST_TOKEN remains available for
+testing or as a fallback if the schedule is paused.
 
 Be rigorous about step 6 — wrong item numbers break stored decisions.
 When in doubt, add new items rather than renumbering.
@@ -246,5 +243,6 @@ Open the dashboard → pick an approved item → click **🚀 Ship it**. Within 
 |---|---|
 | Dashboard shows "Offline — changes kept locally" | `audit-state` function is failing. Check Netlify → Functions → logs. Usually a missing `@netlify/blobs` install; re-trigger a build. |
 | Routine runs but no email arrives | (1) `AUDIT_DIGEST_TOKEN` mismatch between Netlify env and routine env; (2) `RESEND_API_KEY` missing; (3) sender domain unverified (shouldn't happen — `meridianosteopathy.co.nz` is already verified). |
-| "Unauthorized" in routine log when calling digest | Token mismatch. Re-copy `AUDIT_DIGEST_TOKEN` into the routine environment. |
+| "Unauthorized" in routine log when calling digest | The routine no longer calls the digest — it runs on a Netlify schedule. If you're testing the manual POST endpoint, re-copy `AUDIT_DIGEST_TOKEN` into your test environment. |
+| "Host not in allowlist" 403 from `curl` in the routine | The routine environment blocks outbound HTTPS at the egress proxy. Don't rely on outbound calls from the routine — use Netlify scheduled functions (as the digest does) instead. |
 | Item numbers shift unexpectedly | The routine renumbered items. Revert the last commit to `src/_data/audit.json` and remind the routine via its prompt to keep numbers stable. |

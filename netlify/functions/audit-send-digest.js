@@ -1,15 +1,20 @@
 // Sends the weekly audit digest email.
 //
-// Called by the Claude routine at the end of each run, via:
-//   POST /.netlify/functions/audit-send-digest
-//   Authorization: Bearer <AUDIT_DIGEST_TOKEN>
+// Two invocation paths:
+//   1. Netlify scheduled function — runs Saturday 10pm UTC (Sunday morning NZ).
+//      Cron lives in netlify.toml under [functions."audit-send-digest"].
+//      Netlify invokes with body {"next_run": "..."} and no auth header.
+//   2. Manual / routine POST — useful for testing and as a fallback if the
+//      schedule is paused:
+//        POST /.netlify/functions/audit-send-digest
+//        Authorization: Bearer <AUDIT_DIGEST_TOKEN>
 //
-// Reads the current audit data file from the live site, pulls decisions
+// Reads the current audit data file (bundled at build time), pulls decisions
 // from Netlify Blobs, computes a concise summary, and emails it to
 // nina@meridianosteopathy.co.nz (override with AUDIT_DIGEST_TO).
 //
 // Required env vars (set in Netlify → Site configuration → Environment):
-//   AUDIT_DIGEST_TOKEN    shared secret the routine presents in Authorization
+//   AUDIT_DIGEST_TOKEN    shared secret for manual POST invocations
 //   RESEND_API_KEY        (already set for the forms)
 //   AUDIT_DIGEST_TO       (optional, defaults to nina@meridianosteopathy.co.nz)
 //   URL                   set by Netlify automatically (site base URL)
@@ -70,11 +75,27 @@ function escapeHtml(s) {
   return String(s || "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
 }
 
+function isScheduledInvocation(event) {
+  // Netlify scheduled functions are invoked with body { "next_run": "<ISO>" }
+  // and no Authorization header. Detect either signal — body shape is the
+  // primary check; the legacy x-nf-event header is a belt-and-braces fallback.
+  if ((event.headers || {})["x-nf-event"] === "schedule") return true;
+  if (!event.body) return false;
+  try {
+    const parsed = JSON.parse(event.body);
+    return parsed && typeof parsed.next_run === "string";
+  } catch (_) {
+    return false;
+  }
+}
+
 exports.handler = async (event) => {
-  const expected = process.env.AUDIT_DIGEST_TOKEN;
-  const presented = (event.headers.authorization || "").replace(/^Bearer\s+/i, "");
-  if (!expected || presented !== expected) {
-    return json(401, { ok: false, error: "unauthorized" });
+  if (!isScheduledInvocation(event)) {
+    const expected = process.env.AUDIT_DIGEST_TOKEN;
+    const presented = (event.headers.authorization || "").replace(/^Bearer\s+/i, "");
+    if (!expected || presented !== expected) {
+      return json(401, { ok: false, error: "unauthorized" });
+    }
   }
 
   const dashboardUrl = "https://audit.meridianosteopathy.co.nz/";
