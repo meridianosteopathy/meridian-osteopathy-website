@@ -89,7 +89,54 @@
         "question": "Is acupuncture covered by ACC?",
         "answer": "Yes, when treatment is for an accident-related injury. Our acupuncturists are ACC-registered. If you haven't lodged a claim yet, we can help you do so at your first appointment — no GP referral needed."
       }
-    ]
+    ],
+    "fertility": {
+      "title": "Acupuncture for Fertility & IVF Support",
+      "url": "/services/acupuncture/fertility/",
+      "heroImage": "/images/specialty-acu-womens.jpg",
+      "intro": "Fertility-focused acupuncture is one of our most sought-after areas of care. Nina holds a Postgraduate Certificate in Health Science (Acupuncture) and integrates osteopathy with traditional Chinese medicine to support patients trying to conceive naturally and those undergoing IVF, IUI, or other assisted reproductive treatments.",
+      "sections": [
+        {
+          "title": "How acupuncture supports fertility",
+          "description": "Research suggests acupuncture can improve ovarian function, regulate hormonal cycles, increase pelvic blood flow, support uterine lining receptivity, and lower the stress hormones that disrupt ovulation. Treatment is tailored to where you are in your cycle — follicular, ovulatory, luteal — and to your wider picture of sleep, digestion, and energy.",
+          "image": "/images/specialty-acu-womens.jpg"
+        },
+        {
+          "title": "IVF cycle support — timing matters",
+          "description": "For IVF, the strongest-supported protocol is to begin acupuncture 8–12 weeks before egg retrieval, with weekly sessions through the down-regulation and stimulation phases. We add pre- and post-transfer treatments on the day of embryo transfer where possible, then continue weekly through the two-week wait. If you're starting an IVF cycle sooner than that, we can still help — we'll prioritise stimulation-phase and transfer-day support."
+        },
+        {
+          "title": "Nina's training and approach",
+          "description": "Nina trained as an osteopath (Bachelor of Musculoskeletal Health, Postgraduate Diploma in Osteopathy) and completed a Postgraduate Certificate in Health Science (Acupuncture). She has a particular clinical interest in women's health and integrates cranial osteopathic techniques and acupuncture in the same session to address pelvic alignment, autonomic balance, and hormonal rhythm. She works alongside your fertility specialist or GP, not in place of them."
+        }
+      ],
+      "faq": [
+        {
+          "question": "When should I start acupuncture if I'm doing IVF?",
+          "answer": "Ideally 8–12 weeks before egg retrieval, with weekly sessions through down-regulation and stimulation. Pre- and post-transfer treatments on transfer day are added where the timing works, then weekly support continues through the two-week wait. If your cycle is already underway we can still help — we'll focus on the stimulation phase and transfer day."
+        },
+        {
+          "question": "Can acupuncture help if I'm trying to conceive naturally?",
+          "answer": "Yes. Treatment is tailored to your menstrual cycle and wider picture — sleep, digestion, stress, and pelvic biomechanics. The aim is to regulate hormonal rhythm, support ovulation, and improve uterine lining receptivity. We typically recommend weekly sessions for at least three full cycles to give the body time to respond."
+        },
+        {
+          "question": "Is fertility acupuncture covered by ACC?",
+          "answer": "No. ACC subsidises treatment for accident-related injuries only, so fertility and IVF support sits outside ACC cover. Our private (non-ACC) rate of $115–$120 applies. If you also have an ACC injury, that part of your care can still be claimed separately."
+        },
+        {
+          "question": "What are Nina's credentials in fertility acupuncture?",
+          "answer": "Nina holds a Bachelor of Musculoskeletal Health, a Postgraduate Diploma in Osteopathy, and a Postgraduate Certificate in Health Science (Acupuncture). She is registered with the Osteopathic Council of New Zealand and has a particular clinical interest in women's health, integrating cranial osteopathic techniques with acupuncture for hormonal balance and pelvic health."
+        },
+        {
+          "question": "Will you work alongside my fertility specialist?",
+          "answer": "Yes. Acupuncture is complementary to your medical fertility care, not a replacement for it. With your permission we communicate with your fertility clinic or GP to coordinate timing — particularly around stimulation, trigger, and transfer."
+        },
+        {
+          "question": "Is acupuncture safe in early pregnancy?",
+          "answer": "Yes. Specific points are avoided in pregnancy and treatment is gentle. Acupuncture in the first trimester is sometimes used to support early pregnancy where there is a history of recurrent miscarriage — always coordinated with your medical team."
+        }
+      ]
+    }
   },
   "herbs": {
     "title": "Herbal Medicine",
