@@ -39,21 +39,21 @@
 .last-updated{padding:24px 0;font-size:.82rem;color:var(--text-light);text-align:center;border-top:1px solid var(--border);margin-top:40px}
 .last-updated p{margin:0}
 
-/* Cinematic hero — used on condition pages so the photo shows in full
-   (not edge-cropped) on wide screens, with a blurred enlarged copy
-   filling the wings so the eye reads it as continuous. Pass the image
-   URL as --hero-bg on the section, e.g. style="--hero-bg: url('...')".
+/* Cinematic hero — keeps the photo at full cover (still enlarged, edge-
+   to-edge) but feathers the outer ~8% on each side into a blurred copy
+   of the same image. Effect: the photo reads as if it extends beyond
+   the visible frame, instead of hard-cropping to the container edges.
+   Pass the image URL as --hero-bg, e.g. style="--hero-bg: url('...')".
    The default .hero rules above still apply for height + position. */
 .hero--extend{background-image:none;overflow:hidden}
 .hero--extend::before,
-.hero--extend::after{content:'';position:absolute;inset:0;pointer-events:none}
-.hero--extend::before{background-image:var(--hero-bg);background-size:cover;background-position:center;filter:blur(40px) saturate(1.05);transform:scale(1.15);z-index:0}
-.hero--extend::after{background-image:var(--hero-bg);background-size:contain;background-repeat:no-repeat;background-position:center;z-index:1}
+.hero--extend::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:var(--hero-bg);background-size:cover;background-position:center}
+.hero--extend::before{filter:blur(36px) saturate(1.05);transform:scale(1.08);z-index:0}
+.hero--extend::after{-webkit-mask-image:linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);mask-image:linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);z-index:1}
 .hero--extend>*{position:relative;z-index:2}
 
-/* On phones the viewport is narrow enough that a normal `cover` already
-   shows most of the photo. Skip the cinematic treatment there to keep
-   the hero crisp and avoid the slight haze of the blur. */
+/* On phones the photo already fills the narrow viewport at cover with
+   minimal cropping — skip the feather + blur to keep the hero crisp. */
 @media (max-width: 720px){
   .hero--extend{background-image:var(--hero-bg)}
   .hero--extend::before,
