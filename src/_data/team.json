@@ -3,7 +3,7 @@
     "name": "Na (Nina) Hu",
     "firstName": "Nina",
     "role": "Osteopath & Medical Acupuncture",
-    "treats": ["Women's health", "Neck & shoulder", "TMJ", "Headaches", "Paediatric"],
+    "treats": ["Women's health", "Neck & shoulder", "TMJ", "Headaches", "Paediatric", {"text": "Acupuncture for fertility & IVF support", "url": "/services/acupuncture/fertility/"}],
     "photo": "/images/team-nina.jpg",
     "lifestyleImage": "/images/lifestyle-nina.jpg",
     "medicalSpecialty": "Osteopathic",

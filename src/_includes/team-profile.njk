@@ -26,7 +26,7 @@
           <h3>What I Treat</h3>
         </div>
         <ul class="profile-treats-list">
-          {% for t in member.treats %}<li>{{ t }}</li>{% endfor %}
+          {% for t in member.treats %}{% if t.url %}<li class="profile-treats-list__link"><a href="{{ t.url }}">{{ t.text }} &rarr;</a></li>{% else %}<li>{{ t }}</li>{% endif %}{% endfor %}
         </ul>
       </div>
       {% endif %}
