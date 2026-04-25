@@ -1,0 +1,93 @@
+---
+layout: base.njk
+title: Neck Pain Osteopath Christchurch
+titleOverride: "Neck Pain Osteopath Christchurch — Meridian Osteopathy"
+description: "Hands-on osteopathic treatment for neck pain in Christchurch. ACC registered, no GP referral needed. Common causes, what to expect, and when to see us."
+heroPreload: /images/hero-osteopathy.jpg
+---
+
+{% set c = conditions["neck-pain"] %}
+
+<!-- Hero -->
+<section class="hero" style="background-image: url('{{ c.heroImage }}');">
+</section>
+
+{% include "breadcrumbs.njk" %}
+
+<!-- Introduction -->
+<section class="section text-center">
+  <div class="container">
+    <div class="service-intro">
+      <h1>Neck Pain Osteopath in Christchurch</h1>
+      <p>{{ c.synopsis }}</p>
+      <p style="margin-top: 24px;">
+        <a href="/book/" class="btn btn-gold">Book an Assessment</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Q&A sections -->
+{% for sec in c.sections %}
+<section class="section {% if loop.index is even %}section-light{% endif %}">
+  <div class="container" style="max-width: 760px;">
+    <h2>{{ sec.question }}</h2>
+    <p>{{ sec.answer }}</p>
+  </div>
+</section>
+{% endfor %}
+
+<!-- Related service -->
+<section class="section text-center">
+  <div class="container">
+    <h2>Our Osteopathy Service</h2>
+    <p class="subtitle">Neck pain is one of the conditions our osteopaths treat most often. See the full scope of osteopathic care at Meridian.</p>
+    <p style="margin-top: 24px;">
+      <a href="/services/osteopathy/" class="btn btn-outline">Learn more about Osteopathy</a>
+      <a href="/book/" class="btn btn-gold" style="margin-left: 8px;">Book Now</a>
+    </p>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalCondition",
+  "@id": "{{ site.url }}{{ c.url }}#condition",
+  "name": {{ c.title | dump | safe }},
+  "alternateName": {{ c.alsoKnownAs | dump | safe }},
+  "url": "{{ site.url }}{{ c.url }}",
+  "mainEntityOfPage": { "@id": "{{ site.url }}{{ c.url }}#webpage" },
+  "description": {{ c.synopsis | dump | safe }},
+  "associatedAnatomy": {
+    "@type": "AnatomicalStructure",
+    "name": "Cervical spine"
+  },
+  "possibleTreatment": {
+    "@type": "MedicalTherapy",
+    "@id": "{{ site.url }}/services/osteopathy/#service",
+    "name": "Osteopathy",
+    "url": "{{ site.url }}/services/osteopathy/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "{{ site.url }}{{ c.url }}#faq",
+  "mainEntity": [
+    {%- for sec in c.sections %}
+    {
+      "@type": "Question",
+      "name": {{ sec.question | dump | safe }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ sec.answer | dump | safe }}
+      }
+    }{% if not loop.last %},{% endif %}
+    {%- endfor %}
+  ]
+}
+</script>
+{% include "back-to-top.njk" %}
