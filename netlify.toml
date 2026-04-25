@@ -6,6 +6,12 @@
 [functions]
   node_bundler = "esbuild"
 
+# Saturday 22:00 UTC = Sunday 10:00 NZST (or 11:00 NZDT). Runs server-side
+# so the weekly digest doesn't depend on the routine being able to reach
+# meridianosteopathy.co.nz from its egress-restricted environment.
+[functions."audit-send-digest"]
+  schedule = "0 22 * * 6"
+
 # Security headers for every page.
 # CSP allows Cloudflare Turnstile + the fonts/images you already use.
 [[headers]]
