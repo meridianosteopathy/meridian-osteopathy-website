@@ -7,18 +7,24 @@ updated: 2026-04-24
 
 {% set c = conditions["sports-injury-recovery"] %}
 
-<!-- Page hero -->
-<section class="hero" style="min-height: 220px; background-color: var(--primary);">
-  <div class="hero-content" style="padding: 40px 24px;">
-    <h1 style="color: var(--white); margin-bottom: 8px;">{{ c.title }}</h1>
-    <p style="color: var(--white); opacity: 0.85; margin: 0;">{{ c.tagline }}</p>
-  </div>
+<!-- Hero -->
+<section class="hero" style="background-image: url('{{ c.heroImage }}');">
 </section>
 
 {% include "breadcrumbs.njk" %}
 
+<!-- Title + intro -->
+<section class="section text-center">
+  <div class="container">
+    <div class="service-intro">
+      <h1>{{ c.title }}</h1>
+      <p class="subtitle">{{ c.tagline }}</p>
+    </div>
+  </div>
+</section>
+
 <!-- Overview -->
-<section class="section">
+<section class="section section-light">
   <div class="container legal-content" style="max-width: 760px;">
     <p>{{ c.intro }}</p>
   </div>
