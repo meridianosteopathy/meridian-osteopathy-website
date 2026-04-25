@@ -2,7 +2,7 @@
   "meta": {
     "reportDate": "2026-04-24",
     "schemaVersion": 1,
-    "lastUpdated": "2026-04-24",
+    "lastUpdated": "2026-04-25",
     "generatedBy": "weekly-routine"
   },
   "tldr": [
@@ -25,37 +25,228 @@
     "Visible 'Last updated' block on service and team pages, with dateModified in WebPage schema",
     "sameAs block on clinic JSON-LD (Google Business Profile etc.)",
     "Expanded llms.txt — Conditions-treated, Pricing-&-ACC, Common-questions sections",
-    "Homepage H1 reframed to 'Osteopathy, Acupuncture & Herbal Medicine in Christchurch'; practitioners section demoted to H2"
+    "Homepage H1 reframed to 'Osteopathy, Acupuncture & Herbal Medicine in Christchurch'; practitioners section demoted to H2",
+    "/conditions/sciatica/, /conditions/headaches-migraines/, /conditions/pregnancy-back-pain/, /conditions/sports-injury-recovery/ — four condition Q→A pages with MedicalCondition + FAQPage schema, plus a What We Treat nav dropdown",
+    "ProfilePage + MedicalWebPage @graph schema on every team profile (alongside the Physician node), so each practitioner URL is its own retrievable AI-search entity",
+    "Hero subtitle and practitioners intro reframed to evidence-informed language (no longer says \"holistic\"); each line is now distinct rather than restating the H1",
+    "\"Serving Hillmorton, Halswell, Hoon Hay, Cashmere, Addington, Riccarton, Sydenham, Wigram & surrounding Christchurch suburbs\" — site-wide footer block + extended llms.txt Area-served line",
+    "Treats: chips on every team profile (in a What I Treat card), with Nina's row carrying a clickable pink-tinted pill linking to the new fertility page",
+    "/services/acupuncture/fertility/ sub-page — MedicalTherapy schema linking to the parent acupuncture #service, FAQPage on IVF timing / ACC status / Nina's credentials, hero + 3 specialty images"
   ],
   "gaps": [
-    {"id": "G7", "title": "No condition-specific pages", "why": "No indexable URL for 'sciatica osteopath Christchurch' etc. — biggest content gap, confirmed this week by zero top-10 presence on all condition-led queries."},
-    {"id": "G8", "title": "No blog / editorial content", "why": "Freshness cliff at ~3 months; osteopath-christchurch.com is winning headache/migraine queries purely on blog-post velocity."},
-    {"id": "G12", "title": "No MedicalWebPage / ProfilePage per team profile", "why": "Physician schema is now per-profile, but each URL should also be a standalone retrievable ProfilePage node so AI engines can cite the individual page."},
-    {"id": "G13", "title": "No llms.txt reference in HTML head", "why": "Emerging convention; several indexers check for a <link rel='llms'> or similar in the head."},
-    {"id": "G14", "title": "Image alt text could be richer", "why": "AI-image-grounded models benefit from descriptive, not titular, alt text."},
-    {"id": "G15", "title": "No off-site citation strategy", "why": "Reddit visibility now accounts for 37% of AI-Overview citations from social/forum sources — industry signal from April 2026."},
-    {"id": "G16", "title": "Acupuncture page leads with TCM framing", "why": "Confirmed by SERP: physios own every 'dry needling' slot because our acupuncture page leads with 'Traditional Chinese Medicine'."},
-    {"id": "G17", "title": "'Holistic' language downgrades positioning", "why": "ChatGPT labelled Meridian 'holistic but still evidence-based' — the 'but' subtly downgrades vs competitors framed as 'science-based / structured'."},
-    {"id": "G18", "title": "No catchment-suburb signals for local queries", "why": "Halswell, Addington, Sydenham, Wigram — zero mentions on our site; suburb-branded clinics (Halswell Rd Clinic, osteo.co.nz/halswell) outrank us for their own name."},
-    {"id": "G19", "title": "Practitioner profiles lead with a single specialty", "why": "AI engines cite the LEADING specialty; Nina's 'women's health' lead means she doesn't surface for neck/headache queries."},
-    {"id": "G20", "title": "Google Business Profile services incomplete", "why": "ChatGPT pulls clinic names + service offerings directly from GBP. Missing GBP services = missed AI citations."}
+    {
+      "id": "G7",
+      "title": "No condition-specific pages",
+      "why": "No indexable URL for 'sciatica osteopath Christchurch' etc. — biggest content gap, confirmed this week by zero top-10 presence on all condition-led queries."
+    },
+    {
+      "id": "G8",
+      "title": "No blog / editorial content",
+      "why": "Freshness cliff at ~3 months; osteopath-christchurch.com is winning headache/migraine queries purely on blog-post velocity."
+    },
+    {
+      "id": "G12",
+      "title": "No MedicalWebPage / ProfilePage per team profile",
+      "why": "Physician schema is now per-profile, but each URL should also be a standalone retrievable ProfilePage node so AI engines can cite the individual page."
+    },
+    {
+      "id": "G13",
+      "title": "No llms.txt reference in HTML head",
+      "why": "Emerging convention; several indexers check for a <link rel='llms'> or similar in the head."
+    },
+    {
+      "id": "G14",
+      "title": "Image alt text could be richer",
+      "why": "AI-image-grounded models benefit from descriptive, not titular, alt text."
+    },
+    {
+      "id": "G15",
+      "title": "No off-site citation strategy",
+      "why": "Reddit visibility now accounts for 37% of AI-Overview citations from social/forum sources — industry signal from April 2026."
+    },
+    {
+      "id": "G16",
+      "title": "Acupuncture page leads with TCM framing",
+      "why": "Confirmed by SERP: physios own every 'dry needling' slot because our acupuncture page leads with 'Traditional Chinese Medicine'."
+    },
+    {
+      "id": "G17",
+      "title": "'Holistic' language downgrades positioning",
+      "why": "ChatGPT labelled Meridian 'holistic but still evidence-based' — the 'but' subtly downgrades vs competitors framed as 'science-based / structured'."
+    },
+    {
+      "id": "G18",
+      "title": "No catchment-suburb signals for local queries",
+      "why": "Halswell, Addington, Sydenham, Wigram — zero mentions on our site; suburb-branded clinics (Halswell Rd Clinic, osteo.co.nz/halswell) outrank us for their own name."
+    },
+    {
+      "id": "G19",
+      "title": "Practitioner profiles lead with a single specialty",
+      "why": "AI engines cite the LEADING specialty; Nina's 'women's health' lead means she doesn't surface for neck/headache queries."
+    },
+    {
+      "id": "G20",
+      "title": "Google Business Profile services incomplete",
+      "why": "ChatGPT pulls clinic names + service offerings directly from GBP. Missing GBP services = missed AI citations."
+    }
   ],
   "items": [
-    {"n": 10, "tier": 2, "impact": "H", "effort": "L", "title": "Create four condition-specific pages", "files": ["src/conditions/sciatica.njk", "src/conditions/headaches-migraines.njk", "src/conditions/pregnancy-back-pain.njk", "src/conditions/sports-injury-recovery.njk", "src/_data/conditions.json", "src/_includes/header.njk"], "body": "Each page 800–1200 words, structured Q→A with MedicalCondition + FAQPage schema, internal-link to the relevant service page. Add a 'What we treat' nav section.", "addresses": ["G7"], "firstSeen": "2026-04-22"},
-    {"n": 11, "tier": 2, "impact": "M", "effort": "S", "title": "Add ProfilePage + MedicalWebPage on team layout", "files": ["src/_includes/team-profile.njk"], "body": "Make each practitioner URL a standalone retrievable schema node so AI engines can cite the individual page.", "addresses": ["G12"], "firstSeen": "2026-04-22"},
-    {"n": 12, "tier": 2, "impact": "L", "effort": "S", "title": "Add speakable blocks on service intros", "files": ["src/services/*.njk"], "body": "Add schema.org speakable specification on service intro paragraphs for voice assistants / Gemini Live.", "addresses": ["G7"], "firstSeen": "2026-04-22"},
-    {"n": 13, "tier": 2, "impact": "M", "effort": "M", "title": "Auto-fetch Google Business Profile reviews at build time", "files": ["package.json", "src/_data/reviews.js", "a build-time fetch script"], "body": "So reviewCount / ratingValue stay current without manual edits. Build script hits Places API with a 24h cache.", "addresses": ["G20"], "firstSeen": "2026-04-22"},
-    {"n": 14, "tier": 3, "impact": "H", "effort": "L", "title": "Start a blog (2 posts/month)", "files": ["src/blog/", "Decap CMS collection config"], "body": "Short evidence-based articles per condition. Each post: author byline with Physician schema, datePublished, dateModified, 3–5 FAQs. Feeds the freshness signal AI engines reward.", "addresses": ["G8"], "firstSeen": "2026-04-22"},
-    {"n": 15, "tier": 3, "impact": "M", "effort": "M", "title": "Seed Reddit / community brand mentions", "files": ["(marketing — no repo changes)"], "body": "Genuine, non-spammy answers on r/newzealand / r/chch / r/AskNZ threads about osteopathy, ACC claims, back pain. April-2026 industry data: Reddit is now 37% of AI-Overview citations from social/forum sources.", "addresses": ["G15"], "firstSeen": "2026-04-22"},
-    {"n": 16, "tier": 3, "impact": "M", "effort": "M", "title": "Encourage monthly Google reviews nudge", "files": ["netlify/functions/*"], "body": "Post-consultation email nudge via Resend (already wired). AI engines prefer reviews under 12 months old.", "addresses": ["G20"], "firstSeen": "2026-04-22"},
-    {"n": 17, "tier": 1, "impact": "H", "effort": "S", "title": "Reframe acupuncture page as Western medical / dry needling first", "files": ["src/services/medical-acupuncture.njk", "src/_data/services.json"], "body": "Surfaced by a real-world ChatGPT test: the user searched 'Western acupuncture / dry needling near Halswell' and ChatGPT routed them to physio clinics first because our acupuncture page leads with 'Traditional Chinese Medicine with modern evidence-based practice'. Flip the ordering: lead with 'Medical acupuncture / dry needling — Western evidence-based technique for trigger-point and musculoskeletal pain', then mention TCM as a complementary framework. Name Nina's Postgraduate Certificate in Health Science (Acupuncture) in the first paragraph — it's the exact credential ChatGPT told users to look for. 2026-04-24 confirmed: every top-10 slot for 'dry needling christchurch' is a physio clinic.", "addresses": ["G16"], "firstSeen": "2026-04-24"},
-    {"n": 18, "tier": 1, "impact": "H", "effort": "S", "title": "Swap 'holistic' framing for 'evidence-informed' in taglines and meta", "files": ["src/index.njk", "src/_data/site.js", "src/_data/home.json", "src/_includes/base.njk"], "body": "ChatGPT labelled Meridian 'holistic but still evidence-based' — the 'but' subtly downgrades us vs competitors framed as 'science-based / structured'. Swap the homepage subtitle and 'practitionersIntro' in home.json → 'Evidence-informed osteopathy, medical acupuncture & herbal medicine'. Replace 'holistic' in default meta descriptions with 'integrative' or 'whole-body'. Keep 'holistic' out of the site-wide description default.", "addresses": ["G17"], "firstSeen": "2026-04-24"},
-    {"n": 19, "tier": 1, "impact": "H", "effort": "S", "title": "Add catchment-suburb signals (Halswell, Addington, Sydenham, Wigram)", "files": ["src/index.njk", "src/_includes/footer.njk", "src/llms.njk"], "body": "The ChatGPT test user typed 'Halswell' six times; Meridian only surfaced after Halswell-branded clinics because there's no explicit 'serving Halswell' signal on our site. Add a single line — something like 'Serving Hillmorton, Halswell, Addington, Sydenham, Wigram and surrounding Christchurch suburbs' — to the homepage footer area, the site-wide footer, and llms.txt. 2026-04-24 confirmed: 'osteopath hillmorton' (our actual suburb) is owned by generic Christchurch clinics because we don't name the suburb anywhere indexable.", "addresses": ["G18"], "firstSeen": "2026-04-24"},
-    {"n": 20, "tier": 1, "impact": "M", "effort": "S", "title": "Add 'Treats:' specialty tag list at the top of each practitioner profile", "files": ["src/_data/team.json", "src/_includes/team-profile.njk"], "body": "AI engines cite the FIRST specialty they read. Nina's profile leads with 'women's health' so ChatGPT didn't surface her for the neck-stiffness query even though she treats that. Add a short 'Treats:' tag line at the top of each profile hero. Nina — 'Women's health · Neck & shoulder · TMJ · Headaches · Paediatric'. Jonathan — 'Musculoskeletal · Laser therapy · Chronic pain · NHS-trained MSK'. Maddison — 'Sports injuries · Paediatric · General osteopathy'. Min — 'Pain & trigger point · Women's health · Digestive · Sleep'. Store as an array on team.json and render comma-separated.", "addresses": ["G19"], "firstSeen": "2026-04-24"},
-    {"n": 21, "tier": 2, "impact": "H", "effort": "S", "title": "Audit and expand Google Business Profile services", "files": ["(off-site — Google Business Profile dashboard)"], "body": "ChatGPT pulled the clinic as 'Meridian Osteopathy - Medical Acupuncture Clinic' straight from GBP. Whatever services are listed on GBP becomes what AI tools can cite. Log into Google Business Profile and add these services: Osteopathy, Medical acupuncture, Dry needling, Neck pain treatment, Headache & migraine treatment, Sports injury treatment, Pregnancy back pain, Paediatric osteopathy, Herbal medicine. ~10 minutes of clicking. Cannot be shipped by the Ship-it button — owner task.", "addresses": ["G20"], "firstSeen": "2026-04-24"},
-    {"n": 22, "tier": 2, "impact": "H", "effort": "L", "title": "Not ranking for 'neck pain osteopath christchurch' — betterhealthosteopathy.nz owns it", "files": ["src/conditions/neck-pain.njk", "src/_data/conditions.json"], "body": "betterhealthosteopathy.nz and osteopath.nz both have dedicated neck-pain condition URLs that win this query; Meridian is not in the top 10. This is NOT covered by item #10's four-page scope (sciatica / headaches / pregnancy / sports). Add a 5th condition page — 800–1200 words Q→A with MedicalCondition + FAQPage schema — mirroring the item #10 pattern. Internal-link from the osteopathy service page.", "addresses": ["G7"], "firstSeen": "2026-04-24"},
-    {"n": 23, "tier": 2, "impact": "H", "effort": "L", "title": "Not ranking for 'back pain osteopath christchurch' — betterhealthosteopathy.nz owns it", "files": ["src/conditions/back-pain.njk", "src/_data/conditions.json"], "body": "Better Health's /back-pain-relief-osteopath-christchurch/ is the #1 result for this query cluster. Back pain is probably the single highest-intent query osteopathy patients search — it must have its own page. Mirror the item #10 pattern: MedicalCondition + FAQPage, cross-link to ACC info and the osteopathy service page, include a section on acute vs chronic and when to seek care.", "addresses": ["G7"], "firstSeen": "2026-04-24"},
-    {"n": 24, "tier": 2, "impact": "M", "effort": "L", "title": "Not ranking for 'acupuncture for fertility christchurch' — thehouseofacupuncture.co.nz owns it", "files": ["src/services/acupuncture/fertility.njk", "src/_data/services.json"], "body": "thehouseofacupuncture.co.nz has a dedicated /our-services/acupuncture-for-fertility-ivf page that owns this query. Nina holds the Postgraduate Certificate and treats fertility/IVF but there's no URL on our site that targets this intent. Add a fertility-acupuncture sub-page under /services/acupuncture/fertility/ — MedicalTherapy schema pointing at the acupuncture @id, with an FAQPage covering IVF support timing, ACC status, and Nina's credentials.", "addresses": ["G7"], "firstSeen": "2026-04-24"},
-    {"n": 25, "tier": 2, "impact": "M", "effort": "S", "title": "Not ranking for 'osteopath acc christchurch' — osteo.co.nz owns it", "files": ["src/acc.njk", "src/_includes/header.njk"], "body": "osteo.co.nz has a dedicated ACC landing page that wins this query. We already have the ACC pricing row in services.json and scattered ACC mentions, but no single indexable /acc/ URL. Build a short page (~500 words) explaining ACC-funded treatment at Meridian, the current ACC rate, no referral required, how to lodge a claim, and link out to both service pages and a booking CTA. Low-effort content fix.", "addresses": ["G7"], "firstSeen": "2026-04-24"}
+    {
+      "n": 12,
+      "tier": 2,
+      "impact": "L",
+      "effort": "S",
+      "title": "Add speakable blocks on service intros",
+      "files": [
+        "src/services/*.njk"
+      ],
+      "body": "Add schema.org speakable specification on service intro paragraphs for voice assistants / Gemini Live.",
+      "addresses": [
+        "G7"
+      ],
+      "firstSeen": "2026-04-22"
+    },
+    {
+      "n": 13,
+      "tier": 2,
+      "impact": "M",
+      "effort": "M",
+      "title": "Auto-fetch Google Business Profile reviews at build time",
+      "files": [
+        "package.json",
+        "src/_data/reviews.js",
+        "a build-time fetch script"
+      ],
+      "body": "So reviewCount / ratingValue stay current without manual edits. Build script hits Places API with a 24h cache.",
+      "addresses": [
+        "G20"
+      ],
+      "firstSeen": "2026-04-22"
+    },
+    {
+      "n": 14,
+      "tier": 3,
+      "impact": "H",
+      "effort": "L",
+      "title": "Start a blog (2 posts/month)",
+      "files": [
+        "src/blog/",
+        "Decap CMS collection config"
+      ],
+      "body": "Short evidence-based articles per condition. Each post: author byline with Physician schema, datePublished, dateModified, 3–5 FAQs. Feeds the freshness signal AI engines reward.",
+      "addresses": [
+        "G8"
+      ],
+      "firstSeen": "2026-04-22"
+    },
+    {
+      "n": 15,
+      "tier": 3,
+      "impact": "M",
+      "effort": "M",
+      "title": "Seed Reddit / community brand mentions",
+      "files": [
+        "(marketing — no repo changes)"
+      ],
+      "body": "Genuine, non-spammy answers on r/newzealand / r/chch / r/AskNZ threads about osteopathy, ACC claims, back pain. April-2026 industry data: Reddit is now 37% of AI-Overview citations from social/forum sources.",
+      "addresses": [
+        "G15"
+      ],
+      "firstSeen": "2026-04-22"
+    },
+    {
+      "n": 16,
+      "tier": 3,
+      "impact": "M",
+      "effort": "M",
+      "title": "Encourage monthly Google reviews nudge",
+      "files": [
+        "netlify/functions/*"
+      ],
+      "body": "Post-consultation email nudge via Resend (already wired). AI engines prefer reviews under 12 months old.",
+      "addresses": [
+        "G20"
+      ],
+      "firstSeen": "2026-04-22"
+    },
+    {
+      "n": 17,
+      "tier": 1,
+      "impact": "H",
+      "effort": "S",
+      "title": "Reframe acupuncture page as Western medical / dry needling first",
+      "files": [
+        "src/services/medical-acupuncture.njk",
+        "src/_data/services.json"
+      ],
+      "body": "Surfaced by a real-world ChatGPT test: the user searched 'Western acupuncture / dry needling near Halswell' and ChatGPT routed them to physio clinics first because our acupuncture page leads with 'Traditional Chinese Medicine with modern evidence-based practice'. Flip the ordering: lead with 'Medical acupuncture / dry needling — Western evidence-based technique for trigger-point and musculoskeletal pain', then mention TCM as a complementary framework. Name Nina's Postgraduate Certificate in Health Science (Acupuncture) in the first paragraph — it's the exact credential ChatGPT told users to look for. 2026-04-24 confirmed: every top-10 slot for 'dry needling christchurch' is a physio clinic.",
+      "addresses": [
+        "G16"
+      ],
+      "firstSeen": "2026-04-24"
+    },
+    {
+      "n": 21,
+      "tier": 2,
+      "impact": "H",
+      "effort": "S",
+      "title": "Audit and expand Google Business Profile services",
+      "files": [
+        "(off-site — Google Business Profile dashboard)"
+      ],
+      "body": "ChatGPT pulled the clinic as 'Meridian Osteopathy - Medical Acupuncture Clinic' straight from GBP. Whatever services are listed on GBP becomes what AI tools can cite. Log into Google Business Profile and add these services: Osteopathy, Medical acupuncture, Dry needling, Neck pain treatment, Headache & migraine treatment, Sports injury treatment, Pregnancy back pain, Paediatric osteopathy, Herbal medicine. ~10 minutes of clicking. Cannot be shipped by the Ship-it button — owner task.",
+      "addresses": [
+        "G20"
+      ],
+      "firstSeen": "2026-04-24"
+    },
+    {
+      "n": 22,
+      "tier": 2,
+      "impact": "H",
+      "effort": "L",
+      "title": "Not ranking for 'neck pain osteopath christchurch' — betterhealthosteopathy.nz owns it",
+      "files": [
+        "src/conditions/neck-pain.njk",
+        "src/_data/conditions.json"
+      ],
+      "body": "betterhealthosteopathy.nz and osteopath.nz both have dedicated neck-pain condition URLs that win this query; Meridian is not in the top 10. This is NOT covered by item #10's four-page scope (sciatica / headaches / pregnancy / sports). Add a 5th condition page — 800–1200 words Q→A with MedicalCondition + FAQPage schema — mirroring the item #10 pattern. Internal-link from the osteopathy service page.",
+      "addresses": [
+        "G7"
+      ],
+      "firstSeen": "2026-04-24"
+    },
+    {
+      "n": 23,
+      "tier": 2,
+      "impact": "H",
+      "effort": "L",
+      "title": "Not ranking for 'back pain osteopath christchurch' — betterhealthosteopathy.nz owns it",
+      "files": [
+        "src/conditions/back-pain.njk",
+        "src/_data/conditions.json"
+      ],
+      "body": "Better Health's /back-pain-relief-osteopath-christchurch/ is the #1 result for this query cluster. Back pain is probably the single highest-intent query osteopathy patients search — it must have its own page. Mirror the item #10 pattern: MedicalCondition + FAQPage, cross-link to ACC info and the osteopathy service page, include a section on acute vs chronic and when to seek care.",
+      "addresses": [
+        "G7"
+      ],
+      "firstSeen": "2026-04-24"
+    },
+    {
+      "n": 25,
+      "tier": 2,
+      "impact": "M",
+      "effort": "S",
+      "title": "Not ranking for 'osteopath acc christchurch' — osteo.co.nz owns it",
+      "files": [
+        "src/acc.njk",
+        "src/_includes/header.njk"
+      ],
+      "body": "osteo.co.nz has a dedicated ACC landing page that wins this query. We already have the ACC pricing row in services.json and scattered ACC mentions, but no single indexable /acc/ URL. Build a short page (~500 words) explaining ACC-funded treatment at Meridian, the current ACC rate, no referral required, how to lodge a claim, and link out to both service pages and a booking CTA. Low-effort content fix.",
+      "addresses": [
+        "G7"
+      ],
+      "firstSeen": "2026-04-24"
+    }
   ]
 }
