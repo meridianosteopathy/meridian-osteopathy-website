@@ -49,7 +49,7 @@ module.exports = function(eleventyConfig) {
   // SKIP_SEGMENTS names folders that exist only as URL containers (no
   // index page). Including them in the trail would link to a 404, which
   // hurts both UX and AI-search schema credibility, so they're dropped.
-  const SKIP_SEGMENTS = new Set(["services", "team"]);
+  const SKIP_SEGMENTS = new Set(["services", "team", "conditions"]);
   eleventyConfig.addFilter("breadcrumbs", (url) => {
     if (!url || url === "/") return [];
     const segments = url.split("/").filter(Boolean);

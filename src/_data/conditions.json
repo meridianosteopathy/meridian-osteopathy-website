@@ -1,0 +1,56 @@
+{
+  "neck-pain": {
+    "title": "Neck Pain",
+    "slug": "neck-pain",
+    "url": "/conditions/neck-pain/",
+    "heroImage": "/images/hero-osteopathy.jpg",
+    "metaTitle": "Neck Pain Osteopath Christchurch — Meridian Osteopathy",
+    "metaDescription": "Hands-on osteopathic treatment for neck pain in Christchurch. ACC registered, no GP referral needed. Common causes, what to expect, and when to see us.",
+    "alsoKnownAs": [
+      "Cervicalgia",
+      "Stiff neck",
+      "Whiplash",
+      "Cervical strain"
+    ],
+    "synopsis": "Neck pain is one of the most common complaints we treat at Meridian Osteopathy in Christchurch. Most cases are mechanical — driven by posture, desk work, sleep position, stress, or a specific injury — and respond well to hands-on osteopathic care combined with simple changes at home.",
+    "linkedService": "osteopathy",
+    "sections": [
+      {
+        "question": "What causes neck pain?",
+        "answer": "Most neck pain is mechanical — meaning it comes from the muscles, joints, and soft tissues of the cervical spine rather than from disease. The most common drivers we see in clinic are sustained desk and screen postures, a poor pillow or sleep position, whiplash from a motor-vehicle accident or fall, repetitive strain (lifting children, manual work, sport), and tension that builds with prolonged stress. Underlying contributors can include cervical disc changes, joint stiffness from old injuries, headaches that refer pain into the neck, and shoulder or upper-back restrictions that force the neck to compensate. Identifying the actual driver — not just the painful spot — is the first job of an osteopathic assessment."
+      },
+      {
+        "question": "When should I see an osteopath for neck pain?",
+        "answer": "Book an assessment if your neck pain has lasted more than a few days, is interfering with sleep or work, keeps coming back, or follows an accident. You don't need a GP referral and you don't have to wait for it to become chronic. We will screen for the small number of presentations that need a different pathway — sudden severe pain, pain after significant trauma, pain with fever, unexplained weight loss, progressive weakness, numbness in the hands, dizziness, or visual changes — and refer you on if anything in your history or examination suggests a non-musculoskeletal cause."
+      },
+      {
+        "question": "How does osteopathy treat neck pain?",
+        "answer": "Treatment starts with a detailed case history and a physical assessment of how your neck, upper back, shoulders, and jaw move together. From there your osteopath uses a combination of soft-tissue work, joint articulation, gentle stretching, and — where appropriate and with your consent — high-velocity manipulation. We also look upstream and downstream: the mid-back, ribs, shoulders, and even the pelvis often hold patterns that keep the neck overloaded. You leave with a clear explanation of what's driving the pain, two or three exercises tailored to your work and home setup, and a realistic plan for the next few weeks."
+      },
+      {
+        "question": "Is osteopathic treatment for neck pain safe?",
+        "answer": "Yes. Osteopaths in New Zealand are regulated under the Health Practitioners Competence Assurance Act, and our practitioners are screened, examined, and registered with the Osteopathic Council of New Zealand. We follow national clinical guidelines for assessing the neck — including a vascular and neurological screen — before using any forceful technique, and we will choose gentler options whenever they are clinically appropriate. If a high-velocity technique is on the table, we explain it, ask for your consent, and only proceed when the screen is clear and the technique is the best fit for the problem."
+      },
+      {
+        "question": "How many treatments will I need?",
+        "answer": "Most uncomplicated neck pain settles within three to six visits, often spaced one to two weeks apart. Acute episodes — a sudden stiff neck or a fresh whiplash — sometimes only need one or two sessions if you are otherwise well. Long-standing or recurrent neck pain usually takes longer because we are also unwinding patterns in the upper back, breathing, and habitual posture. We review your progress at every appointment and will tell you honestly if osteopathy isn't the right tool — for example, if imaging or a medical opinion would be more useful next."
+      },
+      {
+        "question": "What can I do at home for neck pain?",
+        "answer": "Keep moving — gentle range-of-motion within a comfortable range is better than complete rest. Check your pillow: it should keep your neck in line with your spine, not tip your head forward or to the side. At a desk, raise your screen so the top edge sits roughly at eye level, bring your keyboard close enough that your elbows stay at your sides, and stand or move every 30 to 45 minutes. Heat helps muscle pain; ice can help the first 48 hours after a fresh injury. Over-the-counter pain relief used as directed is reasonable while you wait for an appointment. If pain is escalating, spreading down the arm, or coming with new symptoms, get assessed sooner rather than later."
+      },
+      {
+        "question": "Does ACC cover neck pain treatment?",
+        "answer": "If your neck pain follows an accident — a car crash, a fall, a sports collision, lifting injury — yes. Our osteopaths are ACC-registered, so a covered claim is subsidised and your appointment fee drops to the ACC rate. You don't need to have lodged the claim yourself before booking; we can lodge it for you at the first visit if your injury qualifies. Pain that comes on gradually without a specific event isn't covered by ACC, but private osteopathic treatment is still claimable through most health-insurance providers — bring your card and we'll give you a receipt with the right codes."
+      },
+      {
+        "question": "What's the difference between an osteopath, physio, and chiropractor for neck pain?",
+        "answer": "All three are regulated allied-health professions and all three can help with neck pain — the difference is in emphasis. Osteopaths take a whole-body view and lean heavily on hands-on treatment of joints and soft tissues, alongside exercise and self-management advice. Physiotherapists typically lean further into rehabilitation, exercise prescription, and graded loading. Chiropractors focus on spinal manipulation. Many patients see good results from any of them; the right fit often depends on the practitioner and what kind of care suits you. If you're not improving after a few sessions with one approach, it is reasonable to try another."
+      },
+      {
+        "question": "How soon can I be seen at Meridian Osteopathy?",
+        "answer": "We aim to see acute neck pain within one or two working days. Our Hillmorton clinic at 21 Coppell Place is open Monday to Friday 9 am – 7 pm and Saturday 9 am – 5 pm, with on-street parking and easy access from Halswell, Hoon Hay, Cashmere, and the wider south-west of Christchurch. You can book online any time, or phone the clinic during opening hours."
+      }
+    ]
+  }
+}
