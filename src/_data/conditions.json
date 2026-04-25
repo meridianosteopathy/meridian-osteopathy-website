@@ -1,0 +1,72 @@
+{
+  "back-pain": {
+    "title": "Back Pain",
+    "url": "/conditions/back-pain/",
+    "metaTitle": "Back Pain Osteopath Christchurch | Meridian Osteopathy",
+    "metaDescription": "Back pain treatment with a registered osteopath in Christchurch. ACC-funded, no GP referral needed. Acute and chronic low back pain, sciatica, postural strain.",
+    "heroImage": "/images/hero-osteopathy.jpg",
+    "intro": "Back pain is the single most common reason people in Christchurch see an osteopath. Most episodes settle within a few weeks, but the right hands-on treatment, a clear explanation of what is going on, and the right return-to-activity plan can shorten that timeline considerably — and reduce the risk of the pain coming back.",
+    "relatedService": "osteopathy",
+    "relatedServiceUrl": "/services/osteopathy/",
+    "sections": [
+      {
+        "heading": "What we treat",
+        "paragraphs": [
+          "Most back pain is mechanical — meaning it comes from the joints, discs, ligaments and muscles of the spine rather than from any serious underlying disease. Common presentations we see at the clinic include lower back pain after lifting, twisting or a sudden movement; gradual aching from prolonged sitting at a desk or driving; pregnancy-related lumbar and sacroiliac pain; sciatica with leg-referred symptoms; and recurring stiffness in people who have had episodes of back pain for years.",
+          "We also see thoracic (mid-back) pain — usually a stiffness or burning between the shoulder blades that is closely linked to posture, breathing pattern and shoulder mechanics."
+        ]
+      },
+      {
+        "heading": "Acute vs chronic back pain",
+        "paragraphs": [
+          "Acute back pain is pain that has come on within the last six weeks. It is often sharp, can be severe, and is usually triggered by a specific movement or load. The good news is that most acute episodes resolve within four to six weeks. The role of treatment in this window is to settle pain, restore movement, get you sleeping again, and keep you moving — extended bed rest is no longer recommended and can actually slow recovery.",
+          "Chronic back pain is pain that has persisted beyond twelve weeks. It is rarely caused by ongoing tissue damage; instead it reflects a more complex picture of sensitised nerves, deconditioning, fear of movement, and lifestyle factors such as sleep and stress. Treatment for chronic back pain looks different — less focused on a single 'fix' and more on graded loading, pacing, and rebuilding confidence in your back. Hands-on treatment is one part of that picture, alongside exercise and education."
+        ]
+      },
+      {
+        "heading": "When to seek care",
+        "paragraphs": [
+          "Book an appointment if your back pain is limiting daily activities, has not started to ease after a week or two, keeps recurring, or is affecting your sleep. You do not need a GP referral, and if the pain is from an accident or sudden injury, ACC funding usually applies.",
+          "There are a small number of presentations that need urgent medical attention rather than osteopathic treatment. Go to your GP or after-hours service — or, if severe, A&E — if you have any of the following: loss of bladder or bowel control; numbness in the saddle area (between the legs); progressive weakness or numbness in both legs; back pain following significant trauma such as a fall or motor vehicle crash; back pain with fever, unexplained weight loss, or a history of cancer; or severe night pain that is not relieved by changing position. Your osteopath is trained to screen for these red flags at every appointment and will refer on if needed."
+        ]
+      },
+      {
+        "heading": "How osteopathy helps",
+        "paragraphs": [
+          "Your first appointment is forty to sixty minutes. We take a full history — how the pain started, what makes it better or worse, your work, sleep and activity patterns, and your goals. We then assess how your spine, pelvis and hips move, screen for the red flags above, and explain what we think is going on in plain language.",
+          "Treatment is hands-on and tailored to you. Depending on what we find and what you are comfortable with, that can include soft-tissue release, joint mobilisation or manipulation, neural mobilisation for sciatic-type symptoms, dry needling, and specific exercises to take home. The aim is always to give you something that works in the room and something you can do yourself between appointments."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Do I need a GP referral to see an osteopath for back pain in Christchurch?",
+        "answer": "No. Osteopaths are primary contact practitioners, which means you can book directly. If the pain is from an accident, we can also lodge an ACC claim for you at the first visit — no GP step needed."
+      },
+      {
+        "question": "Is osteopathy for back pain covered by ACC?",
+        "answer": "Yes, when the back pain is from an accident or specific injury event. Our osteopaths are ACC-registered providers, and the ACC subsidy is applied at the time of your appointment. Gradual-onset back pain that is not linked to an accident is not ACC-funded and is charged at the standard private rate."
+      },
+      {
+        "question": "How many sessions will I need for my back pain?",
+        "answer": "Most acute episodes settle within two to four sessions over a few weeks. Chronic or recurring back pain may need a longer plan focused on graded loading and self-management — your osteopath will give you a realistic estimate at the first appointment and review it as you progress."
+      },
+      {
+        "question": "Should I get an MRI or X-ray for my back pain?",
+        "answer": "For most back pain, imaging is not needed and can sometimes be unhelpful — incidental findings on scans are common in people with no pain at all. Imaging is appropriate when there are red flags (unexplained weight loss, neurological changes, history of cancer, significant trauma) or when pain has not responded to several weeks of treatment. Your osteopath will tell you if a scan or GP review is the right next step."
+      },
+      {
+        "question": "Is it safe to keep moving if my back hurts?",
+        "answer": "In most cases, yes — and it is usually better than resting in bed. Gentle, regular movement helps the tissues recover and prevents the stiffness and deconditioning that come with prolonged rest. Your osteopath will guide you on what to do, what to avoid in the first week or two, and when to progress."
+      },
+      {
+        "question": "Can osteopathy help with sciatica?",
+        "answer": "Yes. Sciatic-type symptoms — pain, pins and needles, or numbness running into the buttock and down the leg — usually come from irritation of a nerve root in the lower back. Treatment combines hands-on work to settle the local mechanics with neural mobilisation and a graded exercise plan. Most cases improve with conservative care; the small number that do not respond are referred on for imaging or specialist review."
+      },
+      {
+        "question": "Is osteopathic treatment for back pain safe during pregnancy?",
+        "answer": "Yes. Lower back and pelvic pain are extremely common in pregnancy, and osteopathic treatment uses gentle techniques that are safe across all trimesters. We adapt position and approach as your pregnancy progresses."
+      }
+    ]
+  }
+}

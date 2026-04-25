@@ -1,0 +1,133 @@
+---
+layout: base.njk
+title: Back Pain Osteopath Christchurch
+titleOverride: Back Pain Osteopath Christchurch | Meridian Osteopathy
+description: "Back pain treatment with a registered osteopath in Christchurch. ACC-funded, no GP referral needed. Acute and chronic low back pain, sciatica, postural strain."
+heroPreload: /images/hero-osteopathy.jpg
+updated: 2026-04-25
+---
+
+{% set c = conditions["back-pain"] %}
+
+<!-- Hero -->
+<section class="hero" style="background-image: url('{{ c.heroImage }}');">
+</section>
+
+{% include "breadcrumbs.njk" %}
+
+<!-- Introduction -->
+<section class="section text-center">
+  <div class="container">
+    <div class="service-intro">
+      <h1>{{ c.title }} — Osteopath in Christchurch</h1>
+      <p>{{ c.intro }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- Body sections -->
+{% for sec in c.sections %}
+<section class="section {% if loop.index is even %}section-light{% endif %}">
+  <div class="container">
+    <div class="legal-content" style="max-width:760px;margin:0 auto;">
+      <h2>{{ sec.heading }}</h2>
+      {% for p in sec.paragraphs %}
+      <p>{{ p }}</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endfor %}
+
+<!-- ACC pricing & cross-link -->
+<section class="section">
+  <div class="container">
+    <div class="legal-content" style="max-width:760px;margin:0 auto;">
+      <h2>ACC and back pain</h2>
+      <p>If your back pain came on suddenly during a specific event — lifting something at work, a slip or fall, a car accident, or a sports incident — ACC will usually cover osteopathic treatment. You do not need a GP referral and you do not need to lodge the claim before your first appointment; we can lodge it for you on the day. With the ACC subsidy applied, the consultation fee is <strong>{{ site.pricing.acc.rate }}</strong>.</p>
+      <p>Gradual-onset back pain (the kind that builds up over weeks of desk work, for example) is generally not covered by ACC because there is no single accident event. In that case the standard private rate of {{ site.pricing.private.rate }} applies. See the <a href="{{ c.relatedServiceUrl }}">osteopathy service page</a> for full pricing details and what to expect at your first appointment.</p>
+    </div>
+    <div class="pricing-note-box" style="max-width:760px;margin:24px auto 0;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" style="flex-shrink:0;margin-top:2px;"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      <p>If you've recently been injured and haven't made an ACC claim yet, our osteopath can help you lodge one at your first appointment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section section-light">
+  <div class="container">
+    <h2 class="text-center">Back Pain — Frequently Asked Questions</h2>
+    <div class="faq-list">
+      {% for f in c.faq %}
+      <div class="faq-item">
+        <button class="faq-question">{{ f.question }}</button>
+        <div class="faq-answer"><p>{{ f.answer }}</p></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section text-center">
+  <div class="container">
+    <h2>Book a back pain assessment</h2>
+    <p style="max-width:600px;margin:0 auto 24px;">Most people we see for back pain are back to normal activities within a few sessions. If you'd like a clear assessment and a plan, book online — ACC and private appointments available, no GP referral required.</p>
+    <a href="/book/" class="btn btn-gold">Book Now</a>
+    &nbsp;
+    <a href="{{ c.relatedServiceUrl }}" class="btn btn-outline">Learn about osteopathy</a>
+  </div>
+</section>
+
+{# MedicalCondition + FAQPage JSON-LD — mirrors the service-schema.njk pattern.
+   possibleTreatment links to the osteopathy MedicalTherapy @id so AI engines
+   can traverse from condition to treatment. #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalCondition",
+  "@id": "{{ site.url }}{{ c.url }}#condition",
+  "name": {{ c.title | dump | safe }},
+  "url": "{{ site.url }}{{ c.url }}",
+  "description": {{ c.intro | dump | safe }},
+  "mainEntityOfPage": { "@id": "{{ site.url }}{{ c.url }}#webpage" },
+  "associatedAnatomy": {
+    "@type": "AnatomicalStructure",
+    "name": "Spine"
+  },
+  "possibleTreatment": {
+    "@type": "MedicalTherapy",
+    "@id": "{{ site.url }}{{ c.relatedServiceUrl }}#service",
+    "name": "Osteopathy",
+    "url": "{{ site.url }}{{ c.relatedServiceUrl }}"
+  },
+  "signOrSymptom": [
+    { "@type": "MedicalSignOrSymptom", "name": "Lower back pain" },
+    { "@type": "MedicalSignOrSymptom", "name": "Sciatica" },
+    { "@type": "MedicalSignOrSymptom", "name": "Stiffness" },
+    { "@type": "MedicalSignOrSymptom", "name": "Referred leg pain" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "{{ site.url }}{{ c.url }}#faq",
+  "mainEntity": [
+    {%- for f in c.faq %}
+    {
+      "@type": "Question",
+      "name": {{ f.question | dump | safe }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ f.answer | dump | safe }}
+      }
+    }{% if not loop.last %},{% endif %}
+    {%- endfor %}
+  ]
+}
+</script>
+
+{% include "back-to-top.njk" %}
