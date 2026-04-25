@@ -36,6 +36,18 @@ Skip optimisation only if the user explicitly says "don't compress" or "keep ori
 - **Minimise touch points.** Favour approaches where the user has as few manual config/setup steps as possible. One copy-paste is better than five. Reusing existing infrastructure beats adding new infrastructure.
 - Clinic is on the **Claude Max plan** — routines allowance is 15 runs/day, included in the subscription. Use routines for recurring work; fall back to GitHub Actions only when a routine can't do it.
 
+## Accessibility — always check contrast
+
+Every text/colour pairing must meet **WCAG AA** (4.5:1 for normal text, 3:1 for large/bold ≥18 px). Don't pick a brand token because it's "the right colour" — pick the one that's also legible against the background it lands on. When in doubt, run the pair through a contrast checker before shipping.
+
+Background-aware token guidance (the common gotchas):
+
+- **Dark navy backgrounds** (`--primary`, `.profile-card`, `.site-footer`, `.profile-hero`): use `--white`, `--sakura-pink` (#F6D6E0), or `--fresh-green` (#CEE4CC) for accent text. **Don't** use `--accent-pink` (#B1536D) or `--accent-green` (#5E855C) — both fail AA on navy.
+- **White / light backgrounds** (`--white`, `--lighter-bg`, `--light-bg`): use `--primary`, `--accent-pink`, `--accent-green`, `--text-dark` for body/links. The lighter pinks/greens fail AA on white.
+- **Gold (`--gold` #c9963b)** sits in the middle — readable as a button background with white text, but as link text it works on light backgrounds and fails on dark navy.
+
+This applies to both new components and any colour swap — last incident: a "Read more" link was set to `--accent-pink` on a dark profile card and failed AA, swapped to `--sakura-pink` to fix.
+
 ## Reusable infrastructure already in the repo
 
 Before building anything new, check whether one of these can be reused:

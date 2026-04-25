@@ -1,0 +1,109 @@
+---
+layout: base.njk
+title: Pregnancy-Related Back Pain
+description: "Pregnancy back and pelvic pain treatment in Christchurch at Meridian Osteopathy. Gentle osteopathy that is safe in all trimesters, tailored to your stage."
+updated: 2026-04-24
+---
+
+{% set c = conditions["pregnancy-back-pain"] %}
+
+<!-- Hero -->
+<section class="hero" style="background-image: url('{{ c.heroImage }}');">
+</section>
+
+{% include "breadcrumbs.njk" %}
+
+<!-- Title + intro -->
+<section class="section text-center">
+  <div class="container">
+    <div class="service-intro">
+      <h1>{{ c.title }}</h1>
+      <p class="subtitle">{{ c.tagline }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- Overview -->
+<section class="section section-light">
+  <div class="container legal-content" style="max-width: 760px;">
+    <p>{{ c.intro }}</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-light">
+  <div class="container" style="max-width: 820px;">
+    <h2>Common questions about {{ c.title | lower }}</h2>
+    <div class="faq-list">
+      {% for f in c.faq %}
+      <div class="faq-item">
+        <button class="faq-question">{{ f.question }}</button>
+        <div class="faq-answer"><p>{{ f.answer }}</p></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Related service -->
+<section class="section">
+  <div class="container legal-content" style="max-width: 760px;">
+    <h2>How we treat {{ c.title | lower }}</h2>
+    <p>{{ c.relatedServiceBlurb }}</p>
+    <p>
+      <a href="{{ c.relatedService.url }}" class="btn btn-outline">Read more about {{ c.relatedService.title }} &rarr;</a>
+      {% if c.alsoConsider %}
+      <a href="{{ c.alsoConsider.url }}" class="btn btn-outline" style="margin-left: 8px;">{{ c.alsoConsider.title }} &rarr;</a>
+      {% endif %}
+    </p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <h2>Ready to get assessed?</h2>
+  <p>ACC-registered osteopaths. No GP referral needed.</p>
+  <a href="/book/" class="btn btn-gold">Book an Appointment</a>
+</section>
+
+{% include "back-to-top.njk" %}
+
+<!-- MedicalCondition schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalCondition",
+  "@id": "{{ site.url }}{{ page.url }}#condition",
+  "name": {{ c.title | dump | safe }}{% if c.alternateName %},
+  "alternateName": {{ c.alternateName | dump | safe }}{% endif %},
+  "url": "{{ site.url }}{{ page.url }}",
+  "description": {{ c.intro | dump | safe }},
+  "mainEntityOfPage": { "@id": "{{ site.url }}{{ page.url }}#webpage" },
+  "possibleTreatment": {
+    "@type": "MedicalTherapy",
+    "name": {{ c.relatedService.title | dump | safe }},
+    "url": "{{ site.url }}{{ c.relatedService.url }}"
+  }
+}
+</script>
+
+<!-- FAQPage schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "{{ site.url }}{{ page.url }}#faq",
+  "mainEntity": [
+    {%- for f in c.faq %}
+    {
+      "@type": "Question",
+      "name": {{ f.question | dump | safe }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ f.answer | dump | safe }}
+      }
+    }{% if not loop.last %},{% endif %}
+    {%- endfor %}
+  ]
+}
+</script>

@@ -1,0 +1,202 @@
+{
+  "sciatica": {
+    "slug": "sciatica",
+    "title": "Sciatica",
+    "navTitle": "Sciatica",
+    "heroImage": "/images/hero-sciatica.jpg",
+    "tagline": "Pain that travels from the lower back down the leg — assessed, treated, and explained.",
+    "metaDescription": "Sciatica treatment in Christchurch at Meridian Osteopathy. ACC-registered, no GP referral needed. What sciatica is, what causes it, and how osteopathy can help.",
+    "alternateName": ["Sciatic nerve pain", "Lumbar radiculopathy"],
+    "intro": "Sciatica is pain that travels along the sciatic nerve — from the lower back, through the buttock, and down the back of the leg to the ankle. It can range from a dull ache to a sharp, burning pain, and often comes with pins-and-needles, numbness, or weakness in the leg. Some people feel it mainly when they sit; others when they stand up after rest, roll over in bed, or cough and sneeze. The good news: most cases respond well to hands-on treatment, acupuncture, movement advice, and time. This page will help you understand what sciatica is, what is likely causing it, what the current evidence-based approach looks like, and when you should seek urgent medical attention.",
+    "relatedService": {
+      "title": "Osteopathy",
+      "url": "/services/osteopathy/"
+    },
+    "relatedServiceBlurb": "At Meridian Osteopathy we treat sciatica with a combination of hands-on osteopathic techniques — gentle joint articulation, soft tissue release around the lumbar spine and gluteal muscles, and mobility work — alongside targeted exercises you can do between sessions. Where it helps, your practitioner can integrate Western medical acupuncture (dry needling) into the same session — particularly useful for stubborn gluteal or piriformis muscle spasm and for calming an irritated nerve. Our osteopaths are ACC-registered, so if your sciatica started with an injury, treatment is subsidised. You don't need a referral.",
+    "faq": [
+      {
+        "question": "What is sciatica?",
+        "answer": "Sciatica is pain that radiates along the sciatic nerve — the body's longest nerve, running from the lower back through the buttock and down the leg. The pain can feel sharp, burning, or like an electric shock, and is often accompanied by numbness, tingling, or weakness. Importantly, sciatica is a symptom with many possible causes, not a single condition on its own."
+      },
+      {
+        "question": "What are the most common causes of sciatica?",
+        "answer": "The most common causes are a disc bulge or herniation in the lower back pressing on a nerve root, narrowing of the spinal canal (stenosis), arthritic changes in the lumbar facet joints, and piriformis syndrome — where the piriformis muscle in the buttock irritates the nerve. Pregnancy, prolonged sitting, heavy lifting, and sudden twisting movements can all trigger an episode."
+      },
+      {
+        "question": "How can osteopathy help with sciatica?",
+        "answer": "Osteopathic treatment aims to reduce the load on the irritated nerve and restore normal movement through the lower back, pelvis, and hip. Techniques include gentle joint articulation, soft tissue release around the lumbar spine and gluteal muscles, and neural mobilisation ('nerve gliding'). Your osteopath will also give you specific exercises and posture advice to support recovery between sessions."
+      },
+      {
+        "question": "Can acupuncture help with sciatica?",
+        "answer": "Yes — acupuncture can be a useful addition to hands-on osteopathy for sciatica, particularly when muscle spasm or chronic nerve irritation is part of the picture. We use a combination of Western medical acupuncture and traditional Chinese meridian points to release tight gluteal and piriformis muscles, settle inflammation around the irritated nerve, and calm the body's central pain response. The combined osteopathy + acupuncture approach often shortens recovery, especially for sciatica that has lingered beyond 4–6 weeks. Nina is dual-trained in osteopathy and medical acupuncture and can integrate both into the same session — useful when standalone manual therapy isn't quite enough."
+      },
+      {
+        "question": "Is sciatica treatment covered by ACC?",
+        "answer": "Yes, if your sciatica is related to an accident or specific injury event. Our osteopaths are ACC-registered providers and can lodge a claim for you at your first visit — you don't need a referral. If there is no accident trigger (for example, sciatica from pregnancy, prolonged sitting, or gradual onset), treatment is paid privately at the non-ACC rate."
+      },
+      {
+        "question": "How many sessions will I need?",
+        "answer": "Most acute sciatica responds within 2–4 sessions over 2–4 weeks. Longer-standing sciatica, or cases involving disc changes, may need 4–6 sessions with gradual progression. Your osteopath will reassess at each visit and adjust the plan — if you are not responding as expected, they will refer you on for imaging or specialist review."
+      },
+      {
+        "question": "Can sciatica go away on its own?",
+        "answer": "Many milder episodes of sciatica do settle within 4–6 weeks with relative rest, movement, and simple pain relief. However, early assessment and treatment usually shortens recovery, reduces the risk of recurrence, and helps you stay active — which is now the standard of care for back pain. Complete bed rest is rarely the right answer."
+      },
+      {
+        "question": "When should you see a doctor urgently?",
+        "answer": "Seek urgent medical care (emergency department or GP) if you develop any 'red flag' symptoms: loss of bladder or bowel control, numbness around the groin or inner thighs, rapidly progressing leg weakness, or sciatica after a significant fall or trauma. These can signal a serious condition (cauda equina syndrome) that needs immediate specialist attention."
+      }
+    ]
+  },
+  "headaches-migraines": {
+    "slug": "headaches-migraines",
+    "title": "Headaches & Migraines",
+    "navTitle": "Headaches & Migraines",
+    "heroImage": "/images/hero-headaches-migraines.jpg",
+    "tagline": "Tension headaches, cervicogenic headaches, and migraine patterns — what responds and what to try.",
+    "metaDescription": "Headache and migraine treatment in Christchurch at Meridian Osteopathy. How osteopathy and acupuncture reduce frequency, intensity, and duration.",
+    "alternateName": ["Headache", "Migraine", "Tension headache", "Cervicogenic headache"],
+    "intro": "Headaches and migraines are among the most common reasons people seek osteopathic care — and among the most responsive conditions when the right cause is identified. Tension-type headaches, cervicogenic headaches (coming from the neck), and some migraine patterns all have a significant musculoskeletal component that hands-on treatment can address. At Meridian Osteopathy we combine osteopathy and acupuncture to reduce headache frequency, intensity, and duration. The first step is always to understand which type of headache you are having — because the right treatment depends entirely on the right diagnosis. A good assessment looks at your pattern (when, how often, how long), your triggers, your posture, your jaw, your sleep, and the way your neck actually moves. From there, we build a plan that usually combines in-clinic treatment with a small number of self-care changes.",
+    "relatedService": {
+      "title": "Osteopathy",
+      "url": "/services/osteopathy/"
+    },
+    "alsoConsider": {
+      "title": "Acupuncture",
+      "url": "/services/acupuncture/"
+    },
+    "relatedServiceBlurb": "Osteopathic treatment for headaches focuses on the upper neck, jaw, shoulder, and upper back — areas that commonly refer pain into the head or drive migraine triggers. Techniques include gentle joint mobilisation, soft tissue release, and cranial approaches where appropriate. Where migraines are the primary pattern, acupuncture is often combined with osteopathy for better outcomes.",
+    "faq": [
+      {
+        "question": "What is the difference between a headache and a migraine?",
+        "answer": "Headaches and migraines are both head pain, but they differ in intensity, associated symptoms, and underlying mechanism. A typical tension headache feels like a dull band of pressure around the head, often worse late in the day. A migraine is usually one-sided, pulsating, more severe, and comes with nausea, light or sound sensitivity, and sometimes visual aura. Migraines involve nervous system changes; tension headaches are more muscular in origin."
+      },
+      {
+        "question": "What types of headaches respond best to osteopathy?",
+        "answer": "Tension-type headaches, cervicogenic headaches (pain coming from the neck), jaw-related headaches, and some migraine patterns respond well to hands-on treatment. Osteopathy is less useful for cluster headaches, headaches caused by medication overuse, or headaches with a clear non-musculoskeletal cause — but your osteopath will recognise these and refer on appropriately."
+      },
+      {
+        "question": "How can osteopathy help with tension headaches?",
+        "answer": "Tension headaches are often driven by tight muscles in the upper neck, jaw, shoulders, and upper back, combined with joint stiffness in the cervical spine. Osteopathic treatment releases these restrictions, improves blood flow to the area, and gives you posture and movement strategies to stop the pattern returning. Most people notice a difference within 1–3 sessions."
+      },
+      {
+        "question": "Can osteopathy help with migraines?",
+        "answer": "Yes — especially when neck dysfunction, jaw tension, or postural strain is contributing to migraine frequency. Research supports manual therapy as a useful adjunct for migraine management, reducing both frequency and intensity for many patients. It is not a replacement for medical migraine care, but it fits alongside it — addressing the physical triggers medication cannot reach."
+      },
+      {
+        "question": "Is acupuncture effective for migraines?",
+        "answer": "Yes. Acupuncture is one of the best-researched complementary treatments for migraine — with evidence supporting it for both acute attacks and prevention. It is thought to work by modulating pain pathways, reducing neurogenic inflammation, and balancing autonomic nervous system tone. Our practitioners combine traditional point selection with modern neuroanatomy to target your specific pattern."
+      },
+      {
+        "question": "How many sessions will I need?",
+        "answer": "For uncomplicated tension or cervicogenic headaches, 2–4 sessions is usually enough. Migraine management is typically a course of 4–6 weekly sessions, followed by less-frequent maintenance. Your practitioner will reassess at each visit and adjust — the goal is always to get you to a point where you are managing well between appointments."
+      },
+      {
+        "question": "Is treatment safe if I am taking migraine medication?",
+        "answer": "Yes. Osteopathy and acupuncture are both safe alongside prescribed migraine medication, including triptans, preventatives, and CGRP-targeting drugs. Tell your practitioner what you are taking so they can time treatment appropriately — for example, avoiding treatment immediately after a triptan. If herbal medicine is part of your plan, we specifically check for interactions."
+      },
+      {
+        "question": "What can I do at home to reduce headaches?",
+        "answer": "Regular sleep, steady hydration, and consistent meal timing reduce migraine triggers significantly. Moving your neck through its full range several times a day, breaking up screen time with micro-movements, and managing jaw tension (especially if you clench) all help. Tracking your headaches — timing, triggers, sleep, stress — for 4 weeks often reveals patterns you can then change."
+      }
+    ]
+  },
+  "pregnancy-back-pain": {
+    "slug": "pregnancy-back-pain",
+    "title": "Pregnancy-Related Back Pain",
+    "navTitle": "Pregnancy-Related Back Pain",
+    "heroImage": "/images/hero-pregnancy-back-pain.jpg",
+    "tagline": "Safe, gentle, drug-free care for back and pelvic pain across all three trimesters.",
+    "metaDescription": "Pregnancy back and pelvic pain treatment in Christchurch at Meridian Osteopathy. Gentle osteopathy that is safe in all trimesters, tailored to your stage.",
+    "alternateName": ["Pregnancy back pain", "Pelvic girdle pain", "PGP", "Antenatal back pain"],
+    "intro": "Back pain during pregnancy is common but not inevitable. As your body adapts to support a growing baby — with a shifting centre of gravity, softening ligaments, and an expanding abdomen — the lower back, pelvis, and hips take on new loads. Osteopathy is a safe, gentle, drug-free option for managing pregnancy-related back and pelvic pain, and can be used throughout all three trimesters. 'Back pain' in pregnancy actually covers several distinct patterns: lumbar pain centred in the lower back, pelvic girdle pain around the pubic bone or sacroiliac joints, mid-back and rib pain from the changing diaphragm and growing uterus, and sciatica-like leg pain. Knowing which pattern is driving your symptoms shapes everything — from the positions you use at home to the techniques we choose in clinic. This page covers what is normal, what responds well to treatment, and what to do if symptoms are limiting your day.",
+    "relatedService": {
+      "title": "Osteopathy",
+      "url": "/services/osteopathy/"
+    },
+    "relatedServiceBlurb": "Our osteopaths have additional training in perinatal care. We use side-lying and pregnancy-pillow positioning so you are comfortable at every stage, with gentle techniques adapted for the changes pregnancy brings. Treatment focuses on the lower back, pelvis, hips, and ribs — the areas most commonly stressed by pregnancy — with exercises and self-care advice tailored to your trimester.",
+    "faq": [
+      {
+        "question": "Is back pain during pregnancy normal?",
+        "answer": "It is common — roughly 50–70% of pregnant people experience back or pelvic pain at some point — but being common does not mean you have to put up with it. Most pregnancy back pain has a clear musculoskeletal cause that responds well to gentle hands-on treatment, movement advice, and postural support."
+      },
+      {
+        "question": "When does pregnancy back pain typically start?",
+        "answer": "Lower back pain often begins in the second trimester (weeks 13–27), as the growing uterus shifts your centre of gravity and increases load on the lumbar spine. Pelvic girdle pain (PGP) can appear earlier — sometimes in the first trimester — as hormones relax the pelvic ligaments. Third-trimester pain is often combination-type: back, pelvis, ribs, and upper body."
+      },
+      {
+        "question": "Is osteopathy safe during pregnancy?",
+        "answer": "Yes. Osteopathic treatment uses gentle techniques that are safe throughout all trimesters. Your osteopath will adapt positioning (typically side-lying with supports) and technique selection based on your stage of pregnancy. We avoid any positions, pressures, or techniques that are not appropriate. Osteopathy does not increase the risk of miscarriage or preterm labour."
+      },
+      {
+        "question": "How does osteopathic treatment work during pregnancy?",
+        "answer": "Treatment focuses on the areas pregnancy commonly affects: the lumbar spine, sacroiliac joints, pelvis, hips, and diaphragm. Techniques are gentle — soft tissue release, joint articulation, positional release, and mobility work — never high-velocity adjustments during pregnancy. The goal is to reduce pain, improve how your body moves, and help you stay active and comfortable."
+      },
+      {
+        "question": "What about pelvic girdle pain (PGP)?",
+        "answer": "Pelvic girdle pain — pain around the pubic bone, sacroiliac joints, or both — affects around 1 in 5 pregnant people. It is typically aggravated by single-leg activities (stairs, rolling in bed, getting out of the car). Osteopathic care for PGP includes manual treatment, specific exercises, positional strategies, and sometimes a pregnancy support belt. Evidence supports a multi-modal approach."
+      },
+      {
+        "question": "Can you treat me in all three trimesters?",
+        "answer": "Yes — we treat from early pregnancy through to birth, and post-partum as well. Positioning adapts as you progress: supine (back-lying) treatment is usually avoided from the second trimester onward, and we use side-lying, reclined, or seated positions with pregnancy pillows to keep you comfortable. Many patients return in the weeks after birth to help the body re-organise."
+      },
+      {
+        "question": "Is pregnancy back pain covered by ACC?",
+        "answer": "Generally no — ACC covers injuries from accidents or specific events, not the musculoskeletal changes of pregnancy itself. If you have had a fall or specific injury during pregnancy that is causing the pain, that is claimable. Otherwise, treatment is paid privately at the non-ACC rate. Some health insurance plans cover osteopathy — worth checking your policy."
+      },
+      {
+        "question": "What else can I do to manage pregnancy back pain?",
+        "answer": "Gentle daily movement (walking, swimming, prenatal yoga), good sleep positioning (side-lying with a pillow between the knees), and learning how to roll in and out of bed using a log-roll technique all help. Pregnancy-specific exercises for the deep core, glutes, and pelvic floor — prescribed by your osteopath or a women's health physio — make a significant difference over the pregnancy."
+      }
+    ]
+  },
+  "sports-injury-recovery": {
+    "slug": "sports-injury-recovery",
+    "title": "Sports Injury Recovery",
+    "navTitle": "Sports Injury Recovery",
+    "heroImage": "/images/hero-sports-injury-recovery.jpg",
+    "tagline": "From acute sprains and strains through to a confident return to sport.",
+    "metaDescription": "Sports injury treatment in Christchurch at Meridian Osteopathy. ACC-registered osteopaths for sprains, strains, overuse injuries, and return-to-sport planning.",
+    "alternateName": ["Sports injury", "Sports injury rehabilitation", "Return to sport"],
+    "intro": "Whether you are a weekend runner, a club-level cyclist, or a competitive team athlete, injuries are part of staying active. How quickly and fully you recover depends on prompt assessment, the right rehabilitation plan, and a gradual return-to-sport that respects the healing tissue. At Meridian Osteopathy we help you move through all three — from the acute phase into full performance, with ACC cover if your injury is accident-related. Recovery is rarely just 'rest until it stops hurting'. The current evidence points the other way: after the first 48–72 hours of sensible protection, gentle loading and early movement speed healing and reduce the risk of reinjury. What that loading looks like depends on the tissue, the stage, and the sport you are returning to. Our job is to make those decisions with you — and to catch the contributing factors (old niggles, movement compensations, training errors) that tend to set up the next injury.",
+    "relatedService": {
+      "title": "Osteopathy",
+      "url": "/services/osteopathy/"
+    },
+    "relatedServiceBlurb": "Our osteopaths work with sports injuries across all stages — acute sprains and strains, overuse injuries, post-operative rehabilitation, and long-standing niggles that limit performance. Treatment combines hands-on work (joint mobilisation, soft tissue release, neural techniques), individualised loading programmes, and return-to-sport planning. We work alongside physios, trainers, and coaches when that is useful.",
+    "faq": [
+      {
+        "question": "What types of sports injuries do osteopaths treat?",
+        "answer": "Osteopaths treat the full range of musculoskeletal sports injuries: ankle sprains, hamstring strains, calf tears, knee ligament and meniscus injuries, shoulder impingement, tennis and golfer's elbow, stress reactions (in co-management with imaging), back and neck injuries, and concussion-related neck or jaw symptoms. Both acute injuries and chronic overuse patterns respond well to hands-on care plus rehab."
+      },
+      {
+        "question": "Should I see an osteopath, physio, or GP for my sports injury?",
+        "answer": "For most non-traumatic musculoskeletal sports injuries, any of the three can help — the skill set overlaps significantly. Osteopaths tend to emphasise hands-on treatment and whole-body mechanics; physiotherapists more exercise-based rehab. For suspected fractures, serious ligament ruptures, or red-flag symptoms, a GP or ED visit comes first — then osteopathy or physio for rehabilitation."
+      },
+      {
+        "question": "Can I claim ACC for a sports injury?",
+        "answer": "Yes — almost all sports injuries qualify for ACC cover, whether they happened in a game, training, at the gym, or running. Our osteopaths are ACC-registered providers and can lodge a claim at your first visit. No GP referral needed. ACC-covered visits are subsidised to the ACC rate."
+      },
+      {
+        "question": "How soon after an injury should I seek treatment?",
+        "answer": "For acute injuries (sprains, strains, contusions), booking within the first week usually shortens total recovery time. The first 48–72 hours are about managing swelling, protecting the injured tissue, and starting gentle movement; by day 3–7 active rehabilitation begins. Chronic or overuse injuries benefit from assessment whenever you notice a pattern that is not resolving with rest."
+      },
+      {
+        "question": "What does a typical sports injury session look like?",
+        "answer": "The first session includes a full injury history, movement and orthopaedic testing, and (if appropriate) an ACC claim. Hands-on treatment addresses the injury site and any contributing factors up and down the chain — often the real cause is not where the pain is. You leave with specific exercises and a clear plan. Follow-up sessions progress loading as the tissue tolerates more."
+      },
+      {
+        "question": "Can osteopathy help with overuse and chronic injuries?",
+        "answer": "Yes — and they are some of our most common presentations. Tendinopathies (runner's knee, Achilles, tennis elbow), IT band issues, chronic low back pain in cyclists, and repetitive-strain patterns in team sports all respond well to a combined approach of manual therapy, specific loading, and addressing the underlying mechanical cause. Chronic injuries usually need longer plans — 6–8 sessions with tapering frequency."
+      },
+      {
+        "question": "When is it safe to return to sport?",
+        "answer": "Return-to-sport is a graded process, not a binary 'cleared / not cleared'. The standard markers are: full pain-free range of motion, strength equal to the uninjured side (within roughly 10%), confidence under load, and successful completion of a sport-specific test battery. Returning too early is the most common cause of re-injury. Your osteopath will guide this progression."
+      },
+      {
+        "question": "How can I reduce my risk of future injuries?",
+        "answer": "The evidence is consistent: progressive loading (do not increase training volume or intensity by more than around 10% per week), adequate sleep and recovery, sport-specific strength work, and regular mobility maintenance reduce injury risk significantly. Addressing old injuries fully — not just returning to play when the pain fades — stops the 'same thing, six months later' pattern. Periodic check-ups, not just treatment in crisis, help keep you on the field."
+      }
+    ]
+  }
+}
