@@ -41,6 +41,9 @@
           <h3>Special Interests</h3>
         </div>
         <p>{{ member.specialInterests }}</p>
+        {% if member.featuredLink %}
+        <p class="profile-featured-link"><a href="{{ member.featuredLink.url }}">{{ member.featuredLink.text }} &rarr;</a></p>
+        {% endif %}
       </div>
 
       <div class="profile-card">
