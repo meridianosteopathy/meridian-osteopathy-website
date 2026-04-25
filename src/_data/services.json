@@ -97,21 +97,23 @@
     "fertility": {
       "title": "Acupuncture for Fertility & IVF Support",
       "url": "/services/acupuncture/fertility/",
-      "heroImage": "/images/specialty-acu-womens.jpg",
+      "heroImage": "/images/hero-fertility.jpg",
       "intro": "Fertility-focused acupuncture is one of our most sought-after areas of care. Nina holds a Postgraduate Certificate in Health Science (Acupuncture) and integrates osteopathy with traditional Chinese medicine to support patients trying to conceive naturally and those undergoing IVF, IUI, or other assisted reproductive treatments.",
       "sections": [
         {
           "title": "How acupuncture supports fertility",
           "description": "Research suggests acupuncture can improve ovarian function, regulate hormonal cycles, increase pelvic blood flow, support uterine lining receptivity, and lower the stress hormones that disrupt ovulation. Treatment is tailored to where you are in your cycle — follicular, ovulatory, luteal — and to your wider picture of sleep, digestion, and energy.",
-          "image": "/images/specialty-acu-womens.jpg"
+          "image": "/images/specialty-fertility-mechanism.jpg"
         },
         {
           "title": "IVF cycle support — timing matters",
-          "description": "For IVF, the strongest-supported protocol is to begin acupuncture 8–12 weeks before egg retrieval, with weekly sessions through the down-regulation and stimulation phases. We add pre- and post-transfer treatments on the day of embryo transfer where possible, then continue weekly through the two-week wait. If you're starting an IVF cycle sooner than that, we can still help — we'll prioritise stimulation-phase and transfer-day support."
+          "description": "For IVF, the strongest-supported protocol is to begin acupuncture 8–12 weeks before egg retrieval, with weekly sessions through the down-regulation and stimulation phases. We add pre- and post-transfer treatments on the day of embryo transfer where possible, then continue weekly through the two-week wait. If you're starting an IVF cycle sooner than that, we can still help — we'll prioritise stimulation-phase and transfer-day support.",
+          "image": "/images/specialty-fertility-ivf.jpg"
         },
         {
           "title": "Nina's training and approach",
-          "description": "Nina trained as an osteopath (Bachelor of Musculoskeletal Health, Postgraduate Diploma in Osteopathy) and completed a Postgraduate Certificate in Health Science (Acupuncture). She has a particular clinical interest in women's health and integrates cranial osteopathic techniques and acupuncture in the same session to address pelvic alignment, autonomic balance, and hormonal rhythm. She works alongside your fertility specialist or GP, not in place of them."
+          "description": "Nina trained as an osteopath (Bachelor of Musculoskeletal Health, Postgraduate Diploma in Osteopathy) and completed a Postgraduate Certificate in Health Science (Acupuncture). She has a particular clinical interest in women's health and integrates cranial osteopathic techniques and acupuncture in the same session to address pelvic alignment, autonomic balance, and hormonal rhythm. She works alongside your fertility specialist or GP, not in place of them.",
+          "image": "/images/specialty-fertility-training.jpg"
         }
       ],
       "faq": [
