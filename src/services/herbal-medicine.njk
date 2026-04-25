@@ -77,7 +77,9 @@ description: "Herbal medicine at Meridian Osteopathy Christchurch — personalis
       <div class="specialty-content">
         <h2>{{ spec.title }}</h2>
         <p>{{ spec.description }}</p>
-        <a href="/book/" class="btn btn-gold">Book Now</a>
+        {% if spec.learnMore %}
+        <a href="{{ spec.learnMore.url }}" class="btn btn-primary">{{ spec.learnMore.text }}</a>
+        {% endif %}
       </div>
     </div>
   </div>

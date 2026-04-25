@@ -1,11 +1,11 @@
 ---
 layout: base.njk
-title: Osteopathy
-description: "Osteopathy treatment at Meridian Osteopathy in Christchurch. ACC registered, no GP referral needed. Treating back pain, headaches, joint pain and more."
-heroPreload: /images/hero-osteopathy.jpg
+title: Acupuncture for Fertility & IVF Support
+permalink: /services/acupuncture/fertility/
+description: "Fertility-focused acupuncture in Christchurch. IVF and natural conception support with Nina Hu — Postgraduate Certificate in Health Science (Acupuncture), integrating osteopathy and traditional Chinese medicine."
 ---
 
-{% set s = services.osteopathy %}
+{% set s = services.acupuncture.fertility %}
 
 <!-- Hero -->
 <section class="hero" style="background-image: url('{{ s.heroImage }}');">
@@ -24,19 +24,10 @@ heroPreload: /images/hero-osteopathy.jpg
 </section>
 
 <!-- Pricing -->
-<section class="section section-light">
+<section class="section section-light text-center">
   <div class="container">
     <h2>Pricing</h2>
-    <div class="pricing-cards">
-      <div class="pricing-card">
-        <div class="pricing-card-label"><span class="acc-tag">ACC</span> ACC Patient</div>
-        <div class="pricing-card-rate">{{ site.pricing.acc.rate }}</div>
-        <div class="pricing-card-time">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          40 – 60 minutes
-        </div>
-      </div>
-      <div class="pricing-card-divider"></div>
+    <div class="pricing-cards pricing-cards--single">
       <div class="pricing-card">
         <div class="pricing-card-label">Non-ACC Patient</div>
         <div class="pricing-card-rate">{{ site.pricing.private.rate }}</div>
@@ -48,21 +39,13 @@ heroPreload: /images/hero-osteopathy.jpg
     </div>
     <div class="pricing-note-box">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" style="flex-shrink:0;margin-top:2px;"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-      <p>If you've recently been injured and haven't made an ACC claim yet, our osteopath can help you lodge one.</p>
+      <p>Fertility and IVF support sits outside ACC cover, since it isn't accident-related. If you also have an ACC injury, that part of your care can still be claimed separately.</p>
     </div>
   </div>
 </section>
 
-<!-- Specialties intro -->
-<section class="section text-center">
-  <div class="container">
-    <h2>Osteopathy for Every Stage of Life</h2>
-    <p class="subtitle">Our practitioners are experienced in treating patients at every age and stage — here's how osteopathy can help you.</p>
-  </div>
-</section>
-
 <!-- Specialty blocks -->
-{% for spec in s.specialties %}
+{% for spec in s.sections %}
 <section class="section {% if loop.index is even %}section-light{% endif %} specialty-section">
   <div class="container">
     <div class="specialty-block {% if loop.index is even %}specialty-block--reverse{% endif %}">
@@ -87,6 +70,21 @@ heroPreload: /images/hero-osteopathy.jpg
 </section>
 {% endfor %}
 
+<!-- FAQ -->
+<section class="section section-light">
+  <div class="container">
+    <h2 class="text-center">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      {% for f in s.faq %}
+      <div class="faq-item">
+        <button class="faq-question">{{ f.question }}</button>
+        <div class="faq-answer"><p>{{ f.answer }}</p></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
 <!-- Other Services -->
 <section class="section text-center">
   <div class="container">
@@ -95,11 +93,11 @@ heroPreload: /images/hero-osteopathy.jpg
       <a href="/services/acupuncture/" class="other-service-card">
         <div class="icon">
           <svg viewBox="0 0 64 64" fill="none" stroke="var(--primary)" stroke-width="2" width="50" height="50">
-            <path d="M32 8v48M24 20l8-12 8 12M20 32h24M24 44l8 12 8-12"/>
+            <circle cx="32" cy="32" r="20"/><path d="M32 12v40M12 32h40"/>
           </svg>
         </div>
         <div>
-          <h3>Acupuncture</h3>
+          <h3>All Acupuncture Care</h3>
           <span class="btn btn-outline" style="font-size:0.85rem; padding:6px 16px;">Learn more &rarr;</span>
         </div>
       </a>
@@ -118,5 +116,45 @@ heroPreload: /images/hero-osteopathy.jpg
   </div>
 </section>
 
-{% include "service-schema.njk" %}
+{# Inline schema rather than service-schema.njk: this MedicalTherapy is a
+   sub-service of the parent acupuncture entity and references its @id, which
+   the shared include doesn't model. #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalTherapy",
+  "@id": "{{ site.url }}{{ s.url }}#service",
+  "name": {{ s.title | dump | safe }},
+  "url": "{{ site.url }}{{ s.url }}",
+  "description": {{ s.intro | dump | safe }},
+  "mainEntityOfPage": { "@id": "{{ site.url }}{{ s.url }}#webpage" },
+  "isPartOf": { "@id": "{{ site.url }}/services/acupuncture/#service" },
+  "provider": { "@id": "{{ site.url }}/#clinic" },
+  "areaServed": {
+    "@type": "City",
+    "name": {{ site.areaServed | dump | safe }},
+    "containedInPlace": { "@type": "Country", "name": {{ site.addressParts.country | dump | safe }} }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "{{ site.url }}{{ s.url }}#faq",
+  "mainEntity": [
+    {%- for f in s.faq %}
+    {
+      "@type": "Question",
+      "name": {{ f.question | dump | safe }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ f.answer | dump | safe }}
+      }
+    }{% if not loop.last %},{% endif %}
+    {%- endfor %}
+  ]
+}
+</script>
+
 {% include "back-to-top.njk" %}
