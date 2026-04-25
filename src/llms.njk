@@ -4,7 +4,7 @@ eleventyExcludeFromCollections: true
 ---
 # {{ site.name | plain | safe }}
 
-> {{ site.name | plain | safe }} is a multidisciplinary clinic in Christchurch, New Zealand, offering {% for key, s in services %}{{ s.title | plain | lower | safe }}{% if not loop.last %}{% if loop.revindex0 == 1 %}, and {% else %}, {% endif %}{% endif %}{% endfor %}. We are ACC registered — no GP referral is required.
+> {{ site.name | plain | safe }} is a multidisciplinary clinic in Christchurch, New Zealand, offering {% for key, s in services %}{{ s.title | plain | lower | safe }}{% if not loop.last %}{% if loop.revindex0 == 1 %}, and {% else %}, {% endif %}{% endif %}{% endfor %}. We are ACC registered — no referral is required.
 
 ## Clinic details
 
@@ -34,7 +34,7 @@ eleventyExcludeFromCollections: true
 
 - ACC consultations: {{ site.pricing.acc.rate | plain | safe }} — subsidised for accident-related injuries.
 - Private (non-ACC) consultations: {{ site.pricing.private.rate | plain | safe }}.
-- Our osteopaths and acupuncturists are ACC-registered providers. No GP referral is required.
+- Our osteopaths and acupuncturists are ACC-registered providers. No referral is required.
 - If you haven't lodged an ACC claim yet, we can help you do so at your first appointment.
 - Payment is taken at the clinic after each visit. ACC subsidy is applied directly — you pay only the gap.
 
@@ -48,7 +48,7 @@ eleventyExcludeFromCollections: true
 
 ## Common questions
 
-- Do I need a GP referral? No — you can book directly, including for ACC claims.
+- Do I need a referral? No — you can book directly, including for ACC claims.
 - Is it covered by ACC? Yes, when treatment is for an accident-related injury (osteopathy and acupuncture). We can lodge the claim for you at your first visit.
 - Is osteopathy safe during pregnancy? Yes — gentle techniques are used and are safe across all trimesters.
 - Can osteopaths treat babies and children? Yes, using gentle non-invasive techniques adapted for younger patients.

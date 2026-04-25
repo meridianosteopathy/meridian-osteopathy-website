@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 title: Osteopathy
-description: "Osteopathy treatment at Meridian Osteopathy in Christchurch. ACC registered, no GP referral needed. Treating back pain, headaches, joint pain and more."
+description: "Osteopathy treatment at Meridian Osteopathy in Christchurch. ACC registered, no referral needed. Treating back pain, headaches, joint pain and more."
 heroPreload: /images/hero-osteopathy.jpg
 ---
 
@@ -79,7 +79,7 @@ heroPreload: /images/hero-osteopathy.jpg
         <h2>{{ spec.title }}</h2>
         <p>{{ spec.description }}</p>
         {% if spec.learnMore %}
-        <a href="{{ spec.learnMore.url }}" class="btn btn-primary">{{ spec.learnMore.text }}</a>
+        <a href="{{ spec.learnMore.url }}" class="btn btn-outline">{{ spec.learnMore.text }}</a>
         {% endif %}
       </div>
     </div>

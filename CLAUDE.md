@@ -36,6 +36,14 @@ Skip optimisation only if the user explicitly says "don't compress" or "keep ori
 - **Minimise touch points.** Favour approaches where the user has as few manual config/setup steps as possible. One copy-paste is better than five. Reusing existing infrastructure beats adding new infrastructure.
 - Clinic is on the **Claude Max plan** — routines allowance is 15 runs/day, included in the subscription. Use routines for recurring work; fall back to GitHub Actions only when a routine can't do it.
 
+## Site copy rules
+
+- **Never mention "GP" or "GP referral" in patient-facing copy.** A patient does not need a GP to access Meridian — they can book directly. Use "no referral needed", "you don't need a referral", or "you can book directly" instead. This applies to body copy, headings, FAQ answers, meta descriptions, llms.txt content, and any new condition / service pages.
+- The same rule applies to weekly-audit and Ship-it routine output: when generating new copy, never write "GP referral" — use "no referral needed".
+- The single allowed exception is biographical detail about a practitioner's UK NHS career, where "general practice" (not "GP") is used to describe the institution.
+- **Never use "at no extra charge" in patient-facing copy.** Bundling services into one consultation should be described positively but not in pricing-comparison terms.
+- **Condition page CTA banners**: the "Ready to get assessed?" / "Ready to book?" cta-banner section should contain only the heading + the booking button — no subhead line about ACC registration or referral. ACC + no-referral wording is already covered on each service page, the contact page, and llms.txt; repeating it under every condition CTA is noisy. Future condition pages should follow this structure verbatim.
+
 ## Accessibility — always check contrast
 
 Every text/colour pairing must meet **WCAG AA** (4.5:1 for normal text, 3:1 for large/bold ≥18 px). Don't pick a brand token because it's "the right colour" — pick the one that's also legible against the background it lands on. When in doubt, run the pair through a contrast checker before shipping.
