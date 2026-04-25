@@ -3,6 +3,11 @@
   <div class="profile-hero-content">
     <h1>{{ member.name }}</h1>
     <p class="profile-subtitle">{{ member.role | safe }}</p>
+    {% if member.treats %}
+    <p class="profile-treats" style="margin-top:14px;font-size:1rem;opacity:.95">
+      <strong>Treats:</strong> {{ member.treats | join(" · ") }}
+    </p>
+    {% endif %}
     {% if member.registration %}
     <p class="profile-registration" style="margin-top:8px;font-size:.95rem;opacity:.85">
       Registered with <a href="{{ member.registration.url }}" rel="noopener external" style="color:inherit;text-decoration:underline">{{ member.registration.name }}</a>
