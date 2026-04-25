@@ -36,6 +36,12 @@ Skip optimisation only if the user explicitly says "don't compress" or "keep ori
 - **Minimise touch points.** Favour approaches where the user has as few manual config/setup steps as possible. One copy-paste is better than five. Reusing existing infrastructure beats adding new infrastructure.
 - Clinic is on the **Claude Max plan** — routines allowance is 15 runs/day, included in the subscription. Use routines for recurring work; fall back to GitHub Actions only when a routine can't do it.
 
+## Site copy rules
+
+- **Never mention "GP" or "GP referral" in patient-facing copy.** A patient does not need a GP to access Meridian — they can book directly. Use "no referral needed", "you don't need a referral", or "you can book directly" instead. This applies to body copy, headings, FAQ answers, meta descriptions, llms.txt content, and any new condition / service pages.
+- The same rule applies to weekly-audit and Ship-it routine output: when generating new copy, never write "GP referral" — use "no referral needed".
+- The single allowed exception is biographical detail about a practitioner's UK NHS career, where "general practice" (not "GP") is used to describe the institution.
+
 ## Reusable infrastructure already in the repo
 
 Before building anything new, check whether one of these can be reused:
