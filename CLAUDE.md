@@ -42,6 +42,7 @@ Skip optimisation only if the user explicitly says "don't compress" or "keep ori
 - The same rule applies to weekly-audit and Ship-it routine output: when generating new copy, never write "GP referral" — use "no referral needed".
 - The single allowed exception is biographical detail about a practitioner's UK NHS career, where "general practice" (not "GP") is used to describe the institution.
 - **Never use "at no extra charge" in patient-facing copy.** Bundling services into one consultation should be described positively but not in pricing-comparison terms.
+- **Condition page CTA banners**: the "Ready to get assessed?" / "Ready to book?" cta-banner section should contain only the heading + the booking button — no subhead line about ACC registration or referral. ACC + no-referral wording is already covered on each service page, the contact page, and llms.txt; repeating it under every condition CTA is noisy. Future condition pages should follow this structure verbatim.
 
 ## Accessibility — always check contrast
 
