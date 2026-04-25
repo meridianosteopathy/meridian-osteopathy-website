@@ -84,22 +84,40 @@
   </div>
 </section>
 
-<!-- Practitioner structured data — Physician schema tells AI search engines
-     this page is a qualified healthcare professional, which is a 2026 E-E-A-T
-     ranking signal for YMYL content. -->
+<!-- Practitioner structured data — ProfilePage + MedicalWebPage make each
+     practitioner URL a standalone retrievable schema node so AI search
+     engines can cite the individual page; Physician schema provides the
+     E-E-A-T signal for YMYL content. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Physician",
-  "@id": "{{ site.url }}{{ page.url }}#practitioner",
-  "name": {{ member.name | dump | safe }},
-  "jobTitle": {{ member.role | plain | dump | safe }},
-  "url": "{{ site.url }}{{ page.url }}",
-  "image": "{{ site.url }}{{ member.photo }}",
-  "worksFor": { "@id": "{{ site.url }}/#clinic" },
-  "description": {{ member.approach | dump | safe }}{% if member.sameAs %},
-  "sameAs": {{ member.sameAs | dump | safe }}{% endif %}{% if member.medicalSpecialty %},
-  "medicalSpecialty": {{ member.medicalSpecialty | dump | safe }}{% endif %}{% if member.credentials %},
-  "hasCredential": {{ member.credentials | dump | safe }}{% endif %}
+  "@graph": [
+    {
+      "@type": ["ProfilePage", "MedicalWebPage"],
+      "@id": "{{ site.url }}{{ page.url }}#webpage",
+      "url": "{{ site.url }}{{ page.url }}",
+      "name": {{ (member.name + " — " + (member.role | plain)) | dump | safe }},
+      "description": {{ member.approach | dump | safe }},
+      "primaryImageOfPage": "{{ site.url }}{{ member.photo }}",
+      "about": { "@id": "{{ site.url }}{{ page.url }}#practitioner" },
+      "mainEntity": { "@id": "{{ site.url }}{{ page.url }}#practitioner" },
+      "breadcrumb": { "@id": "{{ site.url }}{{ page.url }}#breadcrumbs" },
+      "isPartOf": { "@id": "{{ site.url }}/#clinic" }
+    },
+    {
+      "@type": "Physician",
+      "@id": "{{ site.url }}{{ page.url }}#practitioner",
+      "name": {{ member.name | dump | safe }},
+      "jobTitle": {{ member.role | plain | dump | safe }},
+      "url": "{{ site.url }}{{ page.url }}",
+      "image": "{{ site.url }}{{ member.photo }}",
+      "worksFor": { "@id": "{{ site.url }}/#clinic" },
+      "mainEntityOfPage": { "@id": "{{ site.url }}{{ page.url }}#webpage" },
+      "description": {{ member.approach | dump | safe }}{% if member.sameAs %},
+      "sameAs": {{ member.sameAs | dump | safe }}{% endif %}{% if member.medicalSpecialty %},
+      "medicalSpecialty": {{ member.medicalSpecialty | dump | safe }}{% endif %}{% if member.credentials %},
+      "hasCredential": {{ member.credentials | dump | safe }}{% endif %}
+    }
+  ]
 }
 </script>
