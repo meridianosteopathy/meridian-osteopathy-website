@@ -1,14 +1,14 @@
 {
   "meta": {
-    "reportDate": "2026-05-02",
+    "reportDate": "2026-05-08",
     "schemaVersion": 1,
-    "lastUpdated": "2026-05-02",
+    "lastUpdated": "2026-05-08",
     "generatedBy": "weekly-routine"
   },
   "tldr": [
-    "Quiet shipping week. Six items closed since the previous run shipped during the past 7 days (items #10, #11, #18, #19, #20, #24 moved to alreadyShipped). Most of the remaining backlog has been pending for two cycles now: items #12, #13, #14, #15, #16, #17, #21, #22, #23 and #25 — the GBP services audit (#21) and acupuncture-page reframe (#17) are still the highest-leverage Tier-1 fixes that haven't shipped.",
-    "Search visibility — second run, 28 queries: Meridian still rank 0 across every tracked query. SERP shape is essentially unchanged from last week (no penalised competitors, no AI-Overview citations of meridianosteopathy.co.nz). One small movement: 'dry needling halswell' now has Elite Physiotherapy's Halswell clinic surfacing — a physio competitor has filled the suburb gap that was uncontested last week. Reinforces urgency of items #17 + suburb signals around acupuncture/dry-needling content.",
-    "Two new industry signals worth ship-it items this week: (1) Schema.org v30 (released 2026-03-19) added IndividualPhysician, PhysiciansOffice and the practicesAt property — our Physician schema can be upgraded for sharper entity disambiguation; (2) llms.txt adoption guides now recommend a <link rel='alternate' type='text/markdown'> in the HTML head pointing to /llms.txt — a 1-line head-template change that closes G13. Both added as items #26 and #27."
+    "No items shipped this week — clean working tree since 2026-05-02 and no commits in the last seven days. Backlog unchanged at 12 items pending: #12, #13, #14, #15, #16, #17, #21, #22, #23, #25, #26 and #27. Tier-1 fixes #17 (acupuncture-page reframe) and #21 (Google Business Profile services audit) remain the two highest-leverage owner-shippable items that have now been pending for three full cycles.",
+    "Search visibility — third run, 30 queries: Meridian still rank 0 across every tracked query. Two notable SERP shifts to watch: (1) 'medical acupuncture christchurch' pivoted from physio-dominated last week (Muscle People / Physiosouth) back to TCM acupuncturists this week (acuclinic, thehouseofacupuncture, acucentre) — possibly geo personalisation noise rather than a permanent change. (2) 'dry needling halswell' regressed from last week's Elite Physio Halswell appearance to ALL US-clinic results — the Halswell+modality SERP is now genuinely vacant of NZ-relevant content, sharpening the case for item #17 to explicitly mention Halswell when reframed.",
+    "Industry signals: BrightEdge data (May 2026) shows Google AI Overviews now appear on 88% of healthcare queries — treatment/procedure queries hit 100% — and cut traditional CTR by 61% on health searches. Translation: ranking organically isn't enough; being citation-ready for AI answers matters more. Existing items #26 (head <link rel='alternate'>) and #27 (IndividualPhysician schema) directly target this. Reddit citation share on Perplexity holds at ~47% (Reddit/CMSWire data) — reinforces item #15. Image-grounded retrieval is gaining weight in 2026 GEO guides, making G14 (richer alt text) more time-sensitive than its current Tier-3 framing implies."
   ],
   "alreadyShipped": [
     "llms.txt and llms-full.txt auto-generated from site data",
@@ -38,32 +38,32 @@
     {
       "id": "G7",
       "title": "No condition-specific pages for neck pain, back pain or ACC",
-      "why": "Four condition pages now ship (sciatica/headaches/pregnancy/sports), but neck-pain, back-pain and an ACC landing remain — each is the highest-intent variant of an 'osteopath christchurch' query. Confirmed again this run: 0/3 in top 10."
+      "why": "Four condition pages now ship (sciatica/headaches/pregnancy/sports), but neck-pain, back-pain and an ACC landing remain — each is the highest-intent variant of an 'osteopath christchurch' query. Confirmed again this run: 0/3 in top 10. Better Health Osteopathy is now ranking with multiple URL variants on /back-pain-relief-osteopath-christchurch/ — they've doubled down on the cluster while we still have nothing."
     },
     {
       "id": "G8",
       "title": "No blog / editorial content",
-      "why": "Freshness cliff at ~3 months. April-2026 industry data: 76.4% of ChatGPT's top-cited pages were updated within 30 days, 50% of Perplexity citations come from content less than 13 weeks old. osteopath-christchurch.com is winning headache/migraine queries on blog-post velocity."
+      "why": "Freshness cliff at ~3 months. April-2026 industry data: 76.4% of ChatGPT's top-cited pages were updated within 30 days, 50% of Perplexity citations come from content less than 13 weeks old. osteopath-christchurch.com is winning headache/migraine/cranial/baby-osteo queries on blog-post velocity — 1 short post per condition is enough to claim those niches. MK Osteopathy is doing the same for TMJ."
     },
     {
       "id": "G13",
       "title": "No llms.txt reference in HTML head",
-      "why": "Emerging convention (now consensus best practice in 2026 llms.txt guides): <link rel='alternate' type='text/markdown' href='/llms.txt'> in the head signals AI crawlers that a Markdown summary exists. We have /llms.txt, just not the link. New item #26."
+      "why": "Emerging convention (now consensus best practice in 2026 llms.txt guides): <link rel='alternate' type='text/markdown' href='/llms.txt'> in the head signals AI crawlers that a Markdown summary exists. We have /llms.txt, just not the link. Item #26."
     },
     {
       "id": "G14",
       "title": "Image alt text could be richer",
-      "why": "AI-image-grounded models benefit from descriptive, not titular, alt text."
+      "why": "AI-image-grounded models benefit from descriptive, not titular, alt text. Reinforced by 2026 GEO guides emphasising image-grounded retrieval — Tier-3 framing may understate the urgency."
     },
     {
       "id": "G15",
       "title": "No off-site citation strategy",
-      "why": "Reddit appears in ~68% of AI-generated responses across major AI platforms in 2026 (replyagent.ai/reddireach data). Item #15 still applies."
+      "why": "Reddit appears in ~47% of Perplexity citations and ~5% of ChatGPT citations (May 2026 CMSWire/Conductor data) — still the single most influential third-party source across all major LLMs. Item #15 still applies."
     },
     {
       "id": "G16",
       "title": "Acupuncture page leads with TCM framing",
-      "why": "Confirmed by SERP again this week: physios own every 'dry needling christchurch' slot because our acupuncture intro still leads with 'Traditional Chinese Medicine with modern evidence-based practice' (services.json line 52). Item #17 unchanged."
+      "why": "services.json line 52 still leads with 'Traditional Chinese Medicine with modern evidence-based practice'. The 'dry needling christchurch' SERP is still 100% physio-owned — confirmed again this week. 'medical acupuncture christchurch' was physio-dominated last week then pivoted to TCM-owned this week — either way Meridian is invisible. Item #17 unchanged."
     },
     {
       "id": "G20",
@@ -73,7 +73,7 @@
     {
       "id": "G21",
       "title": "Physician schema not using v30 IndividualPhysician + practicesAt",
-      "why": "Schema.org v30 (released 2026-03-19) added IndividualPhysician and PhysiciansOffice as Physician subtypes, plus the practicesAt property linking an individual to their MedicalOrganization. Upgrading our team-profile @graph from Physician → IndividualPhysician with practicesAt sharpens entity disambiguation for AI engines. New item #27."
+      "why": "Schema.org v30 (released 2026-03-19) added IndividualPhysician and PhysiciansOffice as Physician subtypes, plus the practicesAt property linking an individual to their MedicalOrganization. Upgrading our team-profile @graph from Physician → IndividualPhysician with practicesAt sharpens entity disambiguation for AI engines. Item #27."
     }
   ],
   "items": [
@@ -119,7 +119,7 @@
         "src/blog/",
         "Decap CMS collection config"
       ],
-      "body": "Short evidence-based articles per condition. Each post: author byline with Physician schema, datePublished, dateModified, 3–5 FAQs. Ahrefs analysis of 17M AI citations (April 2026) found AI-cited content is 25.7% fresher than traditional Google organic results — 76.4% of ChatGPT's top-cited pages were updated within the last 30 days. Freshness compounds.",
+      "body": "Short evidence-based articles per condition. Each post: author byline with Physician schema, datePublished, dateModified, 3–5 FAQs. Ahrefs analysis of 17M AI citations (April 2026) found AI-cited content is 25.7% fresher than traditional Google organic results — 76.4% of ChatGPT's top-cited pages were updated within the last 30 days. Freshness compounds. Confirmed again 2026-05-08: osteopath-christchurch.com owns headaches/cranial/baby/teeth-grinding queries on the strength of one short blog post per condition; MK Osteopathy claimed the TMJ slot the same way.",
       "addresses": [
         "G8"
       ],
@@ -134,7 +134,7 @@
       "files": [
         "(marketing — no repo changes)"
       ],
-      "body": "Genuine, non-spammy answers on r/newzealand / r/chch / r/AskNZ threads about osteopathy, ACC claims, back pain. Reddit is now Google's #2 visible site (after Wikipedia) and is cited in ~68% of AI-generated responses across ChatGPT/Claude/Perplexity (April 2026). 90/10 rule: 90% non-promotional, 2–4 weeks of karma-building before any mention of Meridian.",
+      "body": "Genuine, non-spammy answers on r/newzealand / r/chch / r/AskNZ threads about osteopathy, ACC claims, back pain. Reddit is now ~47% of Perplexity citations and ~5% of ChatGPT citations across major AI platforms (May 2026 Conductor / CMSWire data). 90/10 rule: 90% non-promotional, 2–4 weeks of karma-building before any mention of Meridian.",
       "addresses": [
         "G15"
       ],
@@ -165,7 +165,7 @@
         "src/services/medical-acupuncture.njk",
         "src/_data/services.json"
       ],
-      "body": "Surfaced by a real-world ChatGPT test: the user searched 'Western acupuncture / dry needling near Halswell' and ChatGPT routed them to physio clinics first because our acupuncture page leads with 'Traditional Chinese Medicine with modern evidence-based practice'. Flip the ordering: lead with 'Medical acupuncture / dry needling — Western evidence-based technique for trigger-point and musculoskeletal pain', then mention TCM as a complementary framework. Name Nina's Postgraduate Certificate in Health Science (Acupuncture) in the first paragraph — it's the exact credential ChatGPT told users to look for. 2026-05-02 confirmed: services.json line 52 still leads with TCM, and every top-10 slot for 'dry needling christchurch' is still a physio clinic (Muscle People, Fixed Physio, Physiosouth, Koru, Health and Sport Central). 'dry needling halswell' now has Elite Physiotherapy's Halswell clinic appearing for the first time — the suburb gap is closing without us.",
+      "body": "Surfaced by a real-world ChatGPT test: the user searched 'Western acupuncture / dry needling near Halswell' and ChatGPT routed them to physio clinics first because our acupuncture page leads with 'Traditional Chinese Medicine with modern evidence-based practice'. Flip the ordering: lead with 'Medical acupuncture / dry needling — Western evidence-based technique for trigger-point and musculoskeletal pain', then mention TCM as a complementary framework. Name Nina's Postgraduate Certificate in Health Science (Acupuncture) in the first paragraph — it's the exact credential ChatGPT told users to look for. 2026-05-08 confirmed: services.json line 52 still leads with TCM. 'dry needling christchurch' is still 100% physio-owned (Muscle People, Fixed Physio, Physiosouth, Physio NZ, Koru Therapies); 'dry needling halswell' regressed this week from Elite Physio Halswell appearing → all US results, leaving the Halswell+modality SERP genuinely empty of NZ-relevant content. The reframe should explicitly mention Halswell so Google has something local to surface.",
       "addresses": [
         "G16"
       ],
@@ -180,7 +180,7 @@
       "files": [
         "(off-site — Google Business Profile dashboard)"
       ],
-      "body": "ChatGPT pulled the clinic as 'Meridian Osteopathy - Medical Acupuncture Clinic' straight from GBP. Whatever services are listed on GBP becomes what AI tools can cite. Log into Google Business Profile and add these services: Osteopathy, Medical acupuncture, Dry needling, Neck pain treatment, Headache & migraine treatment, Sports injury treatment, Pregnancy back pain, Paediatric osteopathy, Herbal medicine. ~10 minutes of clicking. Cannot be shipped by the Ship-it button — owner task. PROMOTED to Tier 1 this run: Google's March 2026 core update made GBP completeness score a more explicit ranking input, with profiles missing service listings 'facing a measurable penalty' (multiple 2026 healthcare-SEO sources).",
+      "body": "ChatGPT pulled the clinic as 'Meridian Osteopathy - Medical Acupuncture Clinic' straight from GBP. Whatever services are listed on GBP becomes what AI tools can cite. Log into Google Business Profile and add these services: Osteopathy, Medical acupuncture, Dry needling, Neck pain treatment, Headache & migraine treatment, Sports injury treatment, Pregnancy back pain, Paediatric osteopathy, Herbal medicine. ~10 minutes of clicking. Cannot be shipped by the Ship-it button — owner task. PROMOTED to Tier 1 since 2026-05-02: Google's March 2026 core update made GBP completeness score a more explicit ranking input, with profiles missing service listings 'facing a measurable penalty' (multiple 2026 healthcare-SEO sources). Pending three cycles now.",
       "addresses": [
         "G20"
       ],
@@ -196,7 +196,7 @@
         "src/conditions/neck-pain.njk",
         "src/_data/conditions.json"
       ],
-      "body": "betterhealthosteopathy.nz and osteopath.nz both have dedicated neck-pain condition URLs that win this query; Meridian is not in the top 10 (confirmed again 2026-05-02). This is NOT covered by item #10's four-page scope (sciatica / headaches / pregnancy / sports) — those four shipped but neck pain didn't. Add a 5th condition page — 800–1200 words Q→A with MedicalCondition + FAQPage schema — mirroring the item #10 pattern. Internal-link from the osteopathy service page.",
+      "body": "betterhealthosteopathy.nz and osteopath.nz both have dedicated neck-pain condition URLs that win this query; Meridian is not in the top 10 (confirmed again 2026-05-08). This is NOT covered by item #10's four-page scope (sciatica / headaches / pregnancy / sports) — those four shipped but neck pain didn't. Add a 5th condition page — 800–1200 words Q→A with MedicalCondition + FAQPage schema — mirroring the item #10 pattern. Internal-link from the osteopathy service page.",
       "addresses": [
         "G7"
       ],
@@ -212,7 +212,7 @@
         "src/conditions/back-pain.njk",
         "src/_data/conditions.json"
       ],
-      "body": "Better Health's /back-pain-relief-osteopath-christchurch/ is the #1 result for this query cluster (confirmed again 2026-05-02). Back pain is probably the single highest-intent query osteopathy patients search — it must have its own page. Mirror the item #10 pattern: MedicalCondition + FAQPage, cross-link to ACC info and the osteopathy service page, include a section on acute vs chronic and when to seek care.",
+      "body": "Better Health's /back-pain-relief-osteopath-christchurch/ is the #1 result for this query cluster (confirmed again 2026-05-08, AND they're now ranking with a SECOND URL on the same query — they've doubled down on the cluster). Back pain is probably the single highest-intent query osteopathy patients search — it must have its own page. Mirror the item #10 pattern: MedicalCondition + FAQPage, cross-link to ACC info and the osteopathy service page, include a section on acute vs chronic and when to seek care.",
       "addresses": [
         "G7"
       ],
@@ -228,7 +228,7 @@
         "src/acc.njk",
         "src/_includes/header.njk"
       ],
-      "body": "osteo.co.nz has a dedicated ACC landing page that wins this query (confirmed again 2026-05-02). We already have the ACC pricing row in services.json and scattered ACC mentions, but no single indexable /acc/ URL. Build a short page (~500 words) explaining ACC-funded treatment at Meridian, the current ACC rate, no referral required, how to lodge a claim, and link out to both service pages and a booking CTA. Low-effort content fix.",
+      "body": "osteo.co.nz has a dedicated ACC landing page that wins this query (confirmed again 2026-05-08). We already have the ACC pricing row in services.json and scattered ACC mentions, but no single indexable /acc/ URL. Build a short page (~500 words) explaining ACC-funded treatment at Meridian, the current ACC rate, no referral required, how to lodge a claim, and link out to both service pages and a booking CTA. Low-effort content fix.",
       "addresses": [
         "G7"
       ],
