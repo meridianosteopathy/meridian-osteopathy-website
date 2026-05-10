@@ -7,8 +7,8 @@
   },
   "tldr": [
     "Five items shipped this run (#21, #22, #23, #26, #27). #21 (Google Business Profile services audit, Tier 1) was completed manually off-site by the owner. #22 (neck-pain condition page) and #23 (back-pain condition page) shipped via PRs #63 and #64 — both follow the existing condition-page pattern with MedicalCondition + FAQPage schema. #26 (llms.txt alternate links in HTML head) shipped via PR #62. #27 (Physician → IndividualPhysician with practicesAt) shipped via PR #65. That clears the backlog of every Tier-1 item — only #17 (dry-needling sub-page) remains in Tier 1, and PR #61 reframed its scope from a parent-page rewrite to a sibling sub-page (mirror of /services/acupuncture/fertility/).",
-    "Backlog after this run: 7 items pending (#12, #13, #14, #15, #16, #17, #25). Tier 1 → just #17 remaining (now scoped as a small sub-page build). Tier 2 → #12 (speakable schema), #13 (auto-fetch GBP reviews), #25 (ACC landing page). Tier 3 → #14 (blog), #15 (Reddit seeding), #16 (review nudge cadence). Closed gaps: G7 (condition pages — neck/back now ship; only ACC remains, scoped under #25), G13 (llms.txt head link), G20 (GBP services), G21 (IndividualPhysician schema).",
-    "Search visibility: priorities and pool unchanged from 2026-05-08; no new SERP run this update (this is a status sync to reflect what shipped, not a fresh weekly audit). Indexing watch: the four condition pages from item #10 still aren't surfacing 3 weeks post-ship, so the new neck-pain and back-pain pages should be expected to take 2-3 weeks before showing up in tracked SERPs."
+    "Three new items added in this same update (#28, #29, #30) to keep the punch-list at meaningful coverage: #28 (rewrite image alt text — descriptive not titular, addresses G14), #29 (in-content Hillmorton/Wigram/Addington signals — addresses new gap G22), #30 (cross-link condition pages and surface them from osteopathy service intro + homepage — addresses new gap G23). All three are Tier 2, S effort, derived from explicit signals in the 2026-05-08 SERP run (Hillmorton SERP regressed to UK results; condition pages 3 weeks post-ship still aren't surfacing; image-grounded retrieval gaining weight in 2026 GEO guides).",
+    "Backlog after this run: 10 items pending (#12, #13, #14, #15, #16, #17, #25, #28, #29, #30). Tier 1 → just #17. Tier 2 → #12, #13, #25, #28, #29, #30. Tier 3 → #14, #15, #16. Closed gaps: G13 (llms.txt head link), G20 (GBP services), G21 (IndividualPhysician schema). Narrowed gap: G7 (only ACC landing remains under #25). New gaps: G22 (no in-content suburb signal), G23 (condition pages not discoverable from elsewhere on site). Search visibility: priorities and pool unchanged from 2026-05-08; no new SERP run this update."
   ],
   "alreadyShipped": [
     "llms.txt and llms-full.txt auto-generated from site data",
@@ -64,6 +64,16 @@
       "id": "G16",
       "title": "No Western-framed dry-needling landing URL",
       "why": "The gap isn't that the acupuncture page leads with TCM (that's correct framing for our existing patient base), it's that we have NO indexable URL targeting the Western-medical / dry-needling intent at all. 'dry needling christchurch' is 100% physio-owned and the Halswell+modality SERP is genuinely empty of NZ content. Item #17 now adds a sibling sub-page (mirror of /services/acupuncture/fertility/) rather than reframing the parent page."
+    },
+    {
+      "id": "G22",
+      "title": "No in-content suburb signals beyond the footer line",
+      "why": "We have a single footer line ('Serving Hillmorton, Halswell, Hoon Hay, Cashmere, Addington, Riccarton, Sydenham, Wigram & surrounding Christchurch suburbs') and the same in llms.txt — but no service or service-intro paragraph actually mentions any suburb in flowing copy. SERP evidence (2026-05-08): 'osteopath hillmorton' regressed to all-UK results (Google found nothing NZ-relevant for our actual location); 'osteopath wigram' is uncontested NZ-side; 'osteopath addington' is contested only by Performance Plus. A single sentence per service intro naming Hillmorton + the closest suburbs would give Google something local to surface. Addressed by item #29."
+    },
+    {
+      "id": "G23",
+      "title": "Condition pages exist but aren't discoverable from elsewhere on the site",
+      "why": "Four condition pages from item #10 (sciatica, headaches-migraines, pregnancy-back-pain, sports-injury-recovery) are 3 weeks post-ship and still don't surface for their target queries. The 'What We Treat' nav dropdown is the only on-site link path to them — they're not referenced from the osteopathy service intro, not cross-linked between related conditions, and not surfaced on the homepage. Internal link surfaces pass relevance signals to Google and accelerate indexing. Same indexing-lag risk now applies to the new neck-pain and back-pain pages. Addressed by item #30."
     }
   ],
   "items": [
@@ -172,6 +182,59 @@
         "G7"
       ],
       "firstSeen": "2026-04-24"
+    },
+    {
+      "n": 28,
+      "tier": 2,
+      "impact": "M",
+      "effort": "S",
+      "title": "Audit and rewrite image alt text — descriptive, not titular",
+      "files": [
+        "src/_includes/team-profile.njk",
+        "src/conditions/*.njk",
+        "src/services/**/*.njk",
+        "src/index.njk"
+      ],
+      "body": "G14 has been in the gaps list since the first audit but had no matching item. Most <img> alt text on the site is titular ('Nina Hu', 'hero-sciatica.jpg') rather than descriptive. 2026 GEO guides specifically call out image-grounded retrieval gaining weight in multimodal LLM retrieval — descriptive alt text helps Gemini, ChatGPT (with vision) and Perplexity understand and cite the image, not just the surrounding HTML. Audit every <img> in the site, skip decorative SVG icons (use alt=''), and rewrite content alts to describe what's visible plus relevant clinical context. Examples: team photos → 'Osteopath Nina Hu seated at her treatment table in the Hillmorton clinic'; condition hero → 'Anatomical illustration of the sciatic nerve travelling from the lower spine down the back of the leg'; service hero → 'Osteopath performing gentle cervical mobilisation on a seated patient'. Effort small (one editor pass per file).",
+      "addresses": [
+        "G14"
+      ],
+      "firstSeen": "2026-05-10"
+    },
+    {
+      "n": 29,
+      "tier": 2,
+      "impact": "M",
+      "effort": "S",
+      "title": "Add Hillmorton / Wigram / Addington signals beyond the footer line",
+      "files": [
+        "src/_data/services.json",
+        "src/services/osteopathy.njk",
+        "src/services/medical-acupuncture.njk",
+        "src/services/herbal-medicine.njk"
+      ],
+      "body": "We have a single site-wide footer catchment line and the matching llms.txt area-served line, but no service intro actually names a suburb in flowing copy. SERP evidence 2026-05-08: 'osteopath hillmorton' (our actual location) regressed to all-UK results because Google sees no NZ-relevant content beyond the footer; 'osteopath wigram' is fully uncontested NZ-side; 'osteopath addington' is only partially contested by Performance Plus. Smallest viable fix: add one in-content sentence per service intro naming Hillmorton + the closest suburbs, e.g. 'Our Hillmorton clinic serves patients across Halswell, Wigram, Addington, Cashmere and surrounding Christchurch suburbs.' If a longer play is wanted later, a small /find-us/ page with directions, parking and a paragraph naming each surrounding suburb gives more substance — but the in-content sentence is the high-leverage low-effort start. Tier 2, S effort.",
+      "addresses": [
+        "G22"
+      ],
+      "firstSeen": "2026-05-10"
+    },
+    {
+      "n": 30,
+      "tier": 2,
+      "impact": "M",
+      "effort": "S",
+      "title": "Cross-link condition pages and surface them from osteopathy intro + homepage",
+      "files": [
+        "src/services/osteopathy.njk",
+        "src/conditions/*.njk",
+        "src/index.njk"
+      ],
+      "body": "Four condition pages from item #10 (sciatica, headaches-migraines, pregnancy-back-pain, sports-injury-recovery) are 3 weeks post-ship and still don't surface for their target queries. Same indexing-lag risk now applies to the just-shipped neck-pain and back-pain. Likely root cause: the 'What We Treat' nav dropdown is the only on-site link path to them. Three small additions: (a) a 'Conditions we commonly treat' block on the osteopathy service page intro that links to each condition page; (b) cross-links between related condition pages — neck-pain ↔ headaches-migraines (both upper-quadrant), sciatica ↔ back-pain (overlap), pregnancy-back-pain → back-pain, sports-injury-recovery → relevant body areas; (c) a small 'Common conditions we treat' surface on the homepage with 2-3 of the highest-intent condition links. Internal link surfaces pass relevance signals and accelerate indexing. Tier 2, S effort.",
+      "addresses": [
+        "G23"
+      ],
+      "firstSeen": "2026-05-10"
     }
   ]
 }
