@@ -82,8 +82,10 @@
 
 <!-- Practitioner structured data — ProfilePage + MedicalWebPage make each
      practitioner URL a standalone retrievable schema node so AI search
-     engines can cite the individual page; Physician schema provides the
-     E-E-A-T signal for YMYL content. -->
+     engines can cite the individual page; IndividualPhysician (Schema.org
+     v30) with practicesAt → #clinic provides the E-E-A-T signal for YMYL
+     content and sharpens entity disambiguation between practitioner and
+     clinic. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -101,13 +103,14 @@
       "isPartOf": { "@id": "{{ site.url }}/#clinic" }
     },
     {
-      "@type": "Physician",
+      "@type": "IndividualPhysician",
       "@id": "{{ site.url }}{{ page.url }}#practitioner",
       "name": {{ member.name | dump | safe }},
       "jobTitle": {{ member.role | plain | dump | safe }},
       "url": "{{ site.url }}{{ page.url }}",
       "image": "{{ site.url }}{{ member.photo }}",
       "worksFor": { "@id": "{{ site.url }}/#clinic" },
+      "practicesAt": { "@id": "{{ site.url }}/#clinic" },
       "mainEntityOfPage": { "@id": "{{ site.url }}{{ page.url }}#webpage" },
       "description": {{ member.approach | dump | safe }}{% if member.sameAs %},
       "sameAs": {{ member.sameAs | dump | safe }}{% endif %}{% if member.medicalSpecialty %},
