@@ -75,6 +75,22 @@
   status = 301
   force = true
 
+# Force www → apex so external link-safety crawlers (OpenAI, Google, etc.)
+# see one canonical host. Netlify's dashboard handles this implicitly when
+# the apex is set as primary, but making it explicit removes any ambiguity
+# for bots that don't follow the implicit redirect cleanly.
+[[redirects]]
+  from = "https://www.meridianosteopathy.co.nz/*"
+  to = "https://meridianosteopathy.co.nz/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.meridianosteopathy.co.nz/*"
+  to = "https://meridianosteopathy.co.nz/:splat"
+  status = 301
+  force = true
+
 # Legacy URLs — 301 to the current equivalents. Must appear before the
 # catch-all 404 so they're matched first.
 [[redirects]]
