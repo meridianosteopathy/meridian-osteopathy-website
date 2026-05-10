@@ -5,6 +5,7 @@
     "role": "Osteopath & Medical Acupuncture",
     "treats": ["Women's health", "Neck & shoulder", "TMJ", "Headaches", "Paediatric", {"text": "Acupuncture for fertility & IVF support", "url": "/services/acupuncture/fertility/"}],
     "photo": "/images/team-nina.jpg",
+    "photoAlt": "Osteopath and medical acupuncturist Na (Nina) Hu of Meridian Osteopathy, smiling in branded teal clinical scrubs",
     "lifestyleImage": "/images/lifestyle-nina.jpg",
     "medicalSpecialty": "Osteopathic",
     "registration": {
@@ -28,6 +29,7 @@
     "role": "Osteopath &amp; Low Level Laser Therapist",
     "treats": ["Musculoskeletal", "Laser therapy", "Chronic pain", "NHS-trained MSK"],
     "photo": "/images/team-jonathan.jpg",
+    "photoAlt": "Osteopath and low-level laser therapist Jonathan Grice of Meridian Osteopathy, smiling in branded teal clinical scrubs",
     "lifestyleImage": "",
     "medicalSpecialty": "Osteopathic",
     "registration": {
@@ -67,6 +69,7 @@
     "role": "Osteopath",
     "treats": ["Sports injuries", "Paediatric", "General osteopathy"],
     "photo": "/images/team-maddison.jpg",
+    "photoAlt": "Osteopath Maddison Moffat of Meridian Osteopathy, smiling in branded teal clinical scrubs",
     "lifestyleImage": "",
     "medicalSpecialty": "Osteopathic",
     "registration": {
@@ -106,6 +109,7 @@
     "role": "Acupuncturist",
     "treats": ["Pain & trigger point", "Women's health", "Digestive", "Sleep"],
     "photo": "/images/team-min.jpg",
+    "photoAlt": "Acupuncturist Min Jin of Meridian Osteopathy, smiling in branded teal clinical scrubs",
     "lifestyleImage": "",
     "medicalSpecialty": "Acupuncture",
     "registration": {
