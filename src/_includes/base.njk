@@ -94,7 +94,23 @@
           }{% if not loop.last %},{% endif %}
           {%- endfor %}
         ]{% if site.sameAs.length %},
-        "sameAs": {{ site.sameAs | dump | safe }}{% endif %}
+        "sameAs": {{ site.sameAs | dump | safe }}{% endif %},
+        "potentialAction": {
+          "@type": "ReserveAction",
+          "name": "Book an appointment",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "{{ site.url }}/book/",
+            "actionPlatform": [
+              "http://schema.org/DesktopWebPlatform",
+              "http://schema.org/MobileWebPlatform"
+            ]
+          },
+          "result": {
+            "@type": "Reservation",
+            "name": "Appointment with Meridian Osteopathy"
+          }
+        }
       },
       {
         "@type": "MedicalBusiness",
