@@ -3,27 +3,31 @@
     "title": "Osteopathy",
     "url": "/services/osteopathy/",
     "heroImage": "/images/hero-osteopathy.jpg",
-    "intro": "Osteopathy is a regulated allied health profession specialising in musculoskeletal health. Our osteopaths treat a wide range of conditions including back and neck pain, headaches and migraines, joint pain and arthritis, posture imbalances, muscle tightness, pregnancy-related pain, and growth pain — for patients of all ages, from infants to seniors.",
+    "intro": "Osteopathy is a regulated allied health profession specialising in musculoskeletal health. Our osteopaths treat a wide range of conditions including back and neck pain, headaches and migraines, joint pain and arthritis, posture imbalances, muscle tightness, pregnancy-related pain, and growth pain — for patients of all ages, from infants to seniors. Our Hillmorton clinic serves patients across Halswell, Wigram, Addington, Cashmere and surrounding Christchurch suburbs.",
     "specialties": [
       {
         "title": "Paediatric Osteopathy",
         "description": "Osteopathy is safe and effective for babies, toddlers, and children of all ages. Using gentle, non-invasive techniques, we can help with birth-related discomforts, colic, feeding difficulties, sleep disturbances, growing pains, and postural development. Early treatment supports healthy growth and addresses issues before they become chronic.",
-        "image": "/images/specialty-ost-paediatric.jpg"
+        "image": "/images/specialty-ost-paediatric.jpg",
+        "alt": "Osteopath performing a gentle paediatric assessment on a baby resting on a treatment table in a bright clinic room"
       },
       {
         "title": "Pregnancy Related Pain",
         "description": "Pregnancy places significant demands on the body as it adapts to support new life. Osteopathic treatment can relieve lower back and pelvic pain, sciatica, rib discomfort, and postural strain — with a gentle approach that is safe throughout all trimesters and supports both mother and baby's wellbeing.",
-        "image": "/images/specialty-ost-pregnancy.jpg"
+        "image": "/images/specialty-ost-pregnancy.jpg",
+        "alt": "Pregnant patient seated on a sofa during a consultation with a clinician taking notes on a clipboard"
       },
       {
         "title": "Elderly Patients",
         "description": "As we age, joint stiffness, arthritis, reduced mobility and balance issues can affect quality of life. Osteopathic care for older adults uses gentle techniques to improve movement, reduce pain, and support independence — helping manage chronic conditions and maintain an active, fulfilling lifestyle.",
-        "image": "/images/specialty-ost-elderly.jpg"
+        "image": "/images/specialty-ost-elderly.jpg",
+        "alt": "Osteopath performing a gentle shoulder mobilisation on a seated elderly male patient in a bright clinic treatment room"
       },
       {
         "title": "Sport Injury",
         "description": "Whether you're a weekend warrior or a competitive athlete, osteopathy can help you recover faster and prevent future injuries. We treat sprains, strains, shoulder and knee pain, and overuse injuries — combining hands-on treatment with personalised rehabilitation advice to get you back to doing what you love.",
-        "image": "/images/specialty-ost-sport.jpg"
+        "image": "/images/specialty-ost-sport.jpg",
+        "alt": "Two athletes performing paired lunge stretches outdoors at a waterfront calisthenics training area"
       }
     ],
     "faq": [
@@ -49,22 +53,25 @@
     "title": "Acupuncture",
     "url": "/services/acupuncture/",
     "heroImage": "/images/hero-acupuncture.jpg",
-    "intro": "Acupuncture at Meridian Osteopathy blends Traditional Chinese Medicine with modern evidence-based practice. Our practitioners treat a wide range of conditions including chronic pain, headaches, stress and anxiety, sleep difficulties, women's health, digestive concerns, and fatigue — supporting your body's natural ability to heal and restore balance.",
+    "intro": "Acupuncture at Meridian Osteopathy blends Traditional Chinese Medicine with modern evidence-based practice. Our practitioners treat a wide range of conditions including chronic pain, headaches, stress and anxiety, sleep difficulties, women's health, digestive concerns, and fatigue — supporting your body's natural ability to heal and restore balance. Based in Hillmorton, our clinic welcomes patients from Wigram, Addington, Halswell, Cashmere and across greater Christchurch.",
     "specialties": [
       {
         "title": "Pain Relief & Recovery",
         "description": "Acupuncture is highly effective for both acute and chronic pain. By stimulating specific points on the body, it triggers the release of natural pain-relieving chemicals, reduces inflammation, and improves circulation. Whether you're dealing with back pain, joint issues, headaches, or sports injuries, acupuncture offers a drug-free pathway to lasting relief.",
-        "image": "/images/specialty-acu-pain.jpg"
+        "image": "/images/specialty-acu-pain.jpg",
+        "alt": "Close-up of an acupuncturist's hands inserting fine needles into a patient's shoulder"
       },
       {
         "title": "Stress, Anxiety & Sleep",
         "description": "In today's fast-paced world, stress and poor sleep take a significant toll on health. Acupuncture helps regulate the nervous system, lower cortisol levels, and promote a deep sense of calm. Regular treatment can improve sleep quality, reduce anxiety, and restore emotional balance — helping you feel grounded and resilient.",
-        "image": "/images/specialty-acu-stress.jpg"
+        "image": "/images/specialty-acu-stress.jpg",
+        "alt": "Hand of a practitioner holding a smouldering moxibustion stick above a draped patient's lower back"
       },
       {
         "title": "Women's Health",
         "description": "Acupuncture has been used for centuries to support women's health across all life stages. From regulating menstrual cycles and easing period pain to managing pregnancy discomforts and navigating perimenopause and menopause, our practitioners provide gentle, holistic care tailored to your unique needs. Infertility acupuncture is one of our most sought-after specialties — research supports its role in improving ovarian function, regulating hormonal cycles, reducing stress, and enhancing uterine lining receptivity. Whether you are trying to conceive naturally or are undergoing IVF or other assisted reproductive treatments, acupuncture can be a powerful complement to your fertility journey, supporting both physical and emotional wellbeing throughout the process.",
         "image": "/images/specialty-acu-womens.jpg",
+        "alt": "Smiling middle-aged woman seated calmly in a bright modern clinic waiting area",
         "learnMore": {
           "url": "/services/acupuncture/fertility/",
           "text": "Learn more about fertility & IVF support"
@@ -73,7 +80,8 @@
       {
         "title": "Digestive & Immune Health",
         "description": "A healthy gut is the foundation of overall wellbeing. Acupuncture can help regulate digestive function, reduce bloating and discomfort, and support conditions such as IBS, reflux, and nausea. It also plays a role in strengthening immune resilience and managing fatigue, helping your body maintain its natural balance.",
-        "image": "/images/specialty-acu-digestive.jpg"
+        "image": "/images/specialty-acu-digestive.jpg",
+        "alt": "Patient and clinician in conversation across a desk with bowls of grains and a digestive-system anatomy poster on the wall"
       }
     ],
     "faq": [
@@ -103,17 +111,20 @@
         {
           "title": "How acupuncture supports fertility",
           "description": "Research suggests acupuncture can improve ovarian function, regulate hormonal cycles, increase pelvic blood flow, support uterine lining receptivity, and lower the stress hormones that disrupt ovulation. Treatment is tailored to where you are in your cycle — follicular, ovulatory, luteal — and to your wider picture of sleep, digestion, and energy.",
-          "image": "/images/specialty-fertility-mechanism.jpg"
+          "image": "/images/specialty-fertility-mechanism.jpg",
+          "alt": "Close-up of fine acupuncture needles placed in a patient's hand resting on a treatment table in a softly lit clinic"
         },
         {
           "title": "IVF cycle support — timing matters",
           "description": "For IVF, the strongest-supported protocol is to begin acupuncture 8–12 weeks before egg retrieval, with weekly sessions through the down-regulation and stimulation phases. We add pre- and post-transfer treatments on the day of embryo transfer where possible, then continue weekly through the two-week wait. If you're starting an IVF cycle sooner than that, we can still help — we'll prioritise stimulation-phase and transfer-day support.",
-          "image": "/images/specialty-fertility-ivf.jpg"
+          "image": "/images/specialty-fertility-ivf.jpg",
+          "alt": "Person in a soft white knit jumper cradling a warm cup of herbal tea in both hands"
         },
         {
           "title": "Nina's training and approach",
           "description": "Nina trained as an osteopath (Bachelor of Musculoskeletal Health, Postgraduate Diploma in Osteopathy) and completed a Postgraduate Certificate in Health Science (Acupuncture). She has a particular clinical interest in women's health and integrates cranial osteopathic techniques and acupuncture in the same session to address pelvic alignment, autonomic balance, and hormonal rhythm. She works alongside your fertility specialist or GP, not in place of them.",
-          "image": "/images/specialty-fertility-training.jpg"
+          "image": "/images/specialty-fertility-training.jpg",
+          "alt": "Acupuncturist in a white clinical coat demonstrating careful fine-needle technique on a patient's hand"
         }
       ],
       "faq": [
@@ -148,27 +159,31 @@
     "title": "Herbal Medicine",
     "url": "/services/herbal-medicine/",
     "heroImage": "/images/hero-herbs.jpg",
-    "intro": "Herbal medicine at Meridian Osteopathy draws on thousands of years of Traditional Chinese Medicine wisdom, combined with contemporary research. Our practitioners create personalised herbal prescriptions using carefully selected plant-based ingredients to address a wide range of conditions — from pain and fatigue to digestive health, hormonal imbalance, and mental wellbeing.",
+    "intro": "Herbal medicine at Meridian Osteopathy draws on thousands of years of Traditional Chinese Medicine wisdom, combined with contemporary research. Our practitioners create personalised herbal prescriptions using carefully selected plant-based ingredients to address a wide range of conditions — from pain and fatigue to digestive health, hormonal imbalance, and mental wellbeing. Our Hillmorton-based practitioners see patients from Wigram, Addington, Halswell, Cashmere and surrounding Christchurch suburbs.",
     "specialties": [
       {
         "title": "Pain & Inflammation",
         "description": "Herbal formulas have long been used to address pain and reduce inflammation throughout the body. Our practitioners select specific herbs known for their analgesic and anti-inflammatory properties, creating personalised blends that work alongside your other treatments to provide sustained relief from chronic pain, arthritis, and musculoskeletal conditions.",
-        "image": "/images/specialty-herb-pain.jpg"
+        "image": "/images/specialty-herb-pain.jpg",
+        "alt": "Selection of dried Chinese herbs in wooden trays and marble bowls beside a stone mortar and pestle on a marble counter"
       },
       {
         "title": "Stress, Sleep & Mental Wellbeing",
         "description": "Adaptogenic and calming herbs have a profound ability to support the nervous system, reduce the impact of stress, and promote restful sleep. Our herbal prescriptions are tailored to your individual pattern — whether you're experiencing burnout, anxiety, insomnia, or low mood — to help restore your energy and emotional balance.",
-        "image": "/images/specialty-herb-stress.jpg"
+        "image": "/images/specialty-herb-stress.jpg",
+        "alt": "Open wooden apothecary drawers filled with dried Chinese herbs, with ceramic storage jars on the shelf above"
       },
       {
         "title": "Digestive Health",
         "description": "Digestive health is central to overall wellness in Traditional Chinese Medicine. Herbal formulas can help regulate gut function, ease bloating, cramping, and discomfort, and support conditions such as IBS, reflux, and poor appetite. Our practitioners assess your individual presentation to create a formula that addresses the root cause, not just the symptoms.",
-        "image": "/images/specialty-herb-digestive.jpg"
+        "image": "/images/specialty-herb-digestive.jpg",
+        "alt": "Wooden tray of varied dried Chinese herbs — including goji berries and reishi slices — beside pre-packaged formula sachets"
       },
       {
         "title": "Women's Health & Hormonal Balance",
         "description": "Herbal medicine is particularly powerful in supporting women's health throughout every life stage. From regulating menstrual cycles and supporting fertility to managing symptoms of perimenopause and menopause, our personalised herbal prescriptions work with your body's natural rhythms to restore hormonal balance and promote lasting wellbeing.",
-        "image": "/images/specialty-herb-womens.jpg"
+        "image": "/images/specialty-herb-womens.jpg",
+        "alt": "Glass bottles of herbal infusions with chamomile flowers, fresh herbs and a pink rose alongside a bowl of dried rosebud tea"
       }
     ],
     "faq": [

@@ -68,7 +68,7 @@ description: "Acupuncture at Meridian Osteopathy Christchurch — Traditional Ch
     <div class="specialty-block {% if loop.index is even %}specialty-block--reverse{% endif %}">
       <div class="specialty-image">
         {% if spec.image %}
-        <img src="{{ spec.image }}" alt="{{ spec.title }}">
+        <img src="{{ spec.image }}" alt="{{ spec.alt or spec.title }}">
         {% else %}
         <div class="specialty-image-placeholder">
           <span>Image coming soon</span>
