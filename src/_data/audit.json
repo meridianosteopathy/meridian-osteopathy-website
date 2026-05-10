@@ -62,8 +62,8 @@
     },
     {
       "id": "G16",
-      "title": "Acupuncture page leads with TCM framing",
-      "why": "services.json line 52 still leads with 'Traditional Chinese Medicine with modern evidence-based practice'. The 'dry needling christchurch' SERP is still 100% physio-owned — confirmed again this week. 'medical acupuncture christchurch' was physio-dominated last week then pivoted to TCM-owned this week — either way Meridian is invisible. Item #17 unchanged."
+      "title": "No Western-framed dry-needling landing URL",
+      "why": "REVISED 2026-05-10: the gap isn't that the acupuncture page leads with TCM (that's correct framing for our existing patient base), it's that we have NO indexable URL targeting the Western-medical / dry-needling intent at all. 'dry needling christchurch' is 100% physio-owned and the Halswell+modality SERP is genuinely empty of NZ content. Item #17 now adds a sibling sub-page (mirror of /services/acupuncture/fertility/) rather than reframing the parent page."
     },
     {
       "id": "G20",
@@ -160,12 +160,12 @@
       "tier": 1,
       "impact": "H",
       "effort": "S",
-      "title": "Reframe acupuncture page as Western medical / dry needling first",
+      "title": "Add /services/acupuncture/dry-needling/ sub-page (Western framing) — keep main acupuncture page TCM-first",
       "files": [
-        "src/services/medical-acupuncture.njk",
+        "src/services/acupuncture/dry-needling.njk",
         "src/_data/services.json"
       ],
-      "body": "Surfaced by a real-world ChatGPT test: the user searched 'Western acupuncture / dry needling near Halswell' and ChatGPT routed them to physio clinics first because our acupuncture page leads with 'Traditional Chinese Medicine with modern evidence-based practice'. Flip the ordering: lead with 'Medical acupuncture / dry needling — Western evidence-based technique for trigger-point and musculoskeletal pain', then mention TCM as a complementary framework. Name Nina's Postgraduate Certificate in Health Science (Acupuncture) in the first paragraph — it's the exact credential ChatGPT told users to look for. 2026-05-08 confirmed: services.json line 52 still leads with TCM. 'dry needling christchurch' is still 100% physio-owned (Muscle People, Fixed Physio, Physiosouth, Physio NZ, Koru Therapies); 'dry needling halswell' regressed this week from Elite Physio Halswell appearing → all US results, leaving the Halswell+modality SERP genuinely empty of NZ-relevant content. The reframe should explicitly mention Halswell so Google has something local to surface.",
+      "body": "REVISED 2026-05-10 per owner feedback: the original framing (reframe the main acupuncture page to lead with Western medical / dry needling) would alienate existing TCM patients who book Nina specifically for Traditional Chinese Medicine. Instead, mirror the pattern already shipped at /services/acupuncture/fertility/: keep the parent /services/medical-acupuncture/ page TCM-first as it is today, and add a sibling sub-page /services/acupuncture/dry-needling/ that leads with 'Medical acupuncture / dry needling — Western evidence-based technique for trigger-point and musculoskeletal pain'. Two indexable URLs, each surfacing for its own intent, no compromise on TCM identity. Sub-page should: (a) name Nina's Postgraduate Certificate in Health Science (Acupuncture) in the first paragraph — exact credential ChatGPT told users to look for; (b) explicitly mention Halswell so Google has local content to surface (the Halswell+modality SERP is genuinely empty of NZ content as of 2026-05-08); (c) carry a MedicalTherapy schema linking back to the parent acupuncture #service; (d) include a FAQPage block on dry-needling-vs-acupuncture, ACC status, and what to expect. Why this is now the better shape: the existing fertility sub-page already proves the pattern works in our build, and 'dry needling christchurch' is still 100% physio-owned (Muscle People, Fixed Physio, Physiosouth, Physio NZ, Koru Therapies) so a dedicated landing URL is the smallest defensible move. Effort stays S — small templated page mirroring the fertility sub-page.",
       "addresses": [
         "G16"
       ],
