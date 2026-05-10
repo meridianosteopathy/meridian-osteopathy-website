@@ -1,14 +1,14 @@
 {
   "meta": {
-    "reportDate": "2026-05-08",
+    "reportDate": "2026-05-10",
     "schemaVersion": 1,
-    "lastUpdated": "2026-05-08",
+    "lastUpdated": "2026-05-10",
     "generatedBy": "weekly-routine"
   },
   "tldr": [
-    "No items shipped this week — clean working tree since 2026-05-02 and no commits in the last seven days. Backlog unchanged at 12 items pending: #12, #13, #14, #15, #16, #17, #21, #22, #23, #25, #26 and #27. Tier-1 fixes #17 (acupuncture-page reframe) and #21 (Google Business Profile services audit) remain the two highest-leverage owner-shippable items that have now been pending for three full cycles.",
-    "Search visibility — third run, 30 queries: Meridian still rank 0 across every tracked query. Two notable SERP shifts to watch: (1) 'medical acupuncture christchurch' pivoted from physio-dominated last week (Muscle People / Physiosouth) back to TCM acupuncturists this week (acuclinic, thehouseofacupuncture, acucentre) — possibly geo personalisation noise rather than a permanent change. (2) 'dry needling halswell' regressed from last week's Elite Physio Halswell appearance to ALL US-clinic results — the Halswell+modality SERP is now genuinely vacant of NZ-relevant content, sharpening the case for item #17 to explicitly mention Halswell when reframed.",
-    "Industry signals: BrightEdge data (May 2026) shows Google AI Overviews now appear on 88% of healthcare queries — treatment/procedure queries hit 100% — and cut traditional CTR by 61% on health searches. Translation: ranking organically isn't enough; being citation-ready for AI answers matters more. Existing items #26 (head <link rel='alternate'>) and #27 (IndividualPhysician schema) directly target this. Reddit citation share on Perplexity holds at ~47% (Reddit/CMSWire data) — reinforces item #15. Image-grounded retrieval is gaining weight in 2026 GEO guides, making G14 (richer alt text) more time-sensitive than its current Tier-3 framing implies."
+    "Five items shipped this run (#21, #22, #23, #26, #27). #21 (Google Business Profile services audit, Tier 1) was completed manually off-site by the owner. #22 (neck-pain condition page) and #23 (back-pain condition page) shipped via PRs #63 and #64 — both follow the existing condition-page pattern with MedicalCondition + FAQPage schema. #26 (llms.txt alternate links in HTML head) shipped via PR #62. #27 (Physician → IndividualPhysician with practicesAt) shipped via PR #65. That clears the backlog of every Tier-1 item — only #17 (dry-needling sub-page) remains in Tier 1, and PR #61 reframed its scope from a parent-page rewrite to a sibling sub-page (mirror of /services/acupuncture/fertility/).",
+    "Backlog after this run: 7 items pending (#12, #13, #14, #15, #16, #17, #25). Tier 1 → just #17 remaining (now scoped as a small sub-page build). Tier 2 → #12 (speakable schema), #13 (auto-fetch GBP reviews), #25 (ACC landing page). Tier 3 → #14 (blog), #15 (Reddit seeding), #16 (review nudge cadence). Closed gaps: G7 (condition pages — neck/back now ship; only ACC remains, scoped under #25), G13 (llms.txt head link), G20 (GBP services), G21 (IndividualPhysician schema).",
+    "Search visibility: priorities and pool unchanged from 2026-05-08; no new SERP run this update (this is a status sync to reflect what shipped, not a fresh weekly audit). Indexing watch: the four condition pages from item #10 still aren't surfacing 3 weeks post-ship, so the new neck-pain and back-pain pages should be expected to take 2-3 weeks before showing up in tracked SERPs."
   ],
   "alreadyShipped": [
     "llms.txt and llms-full.txt auto-generated from site data",
@@ -32,23 +32,23 @@
     "\"Serving Hillmorton, Halswell, Hoon Hay, Cashmere, Addington, Riccarton, Sydenham, Wigram & surrounding Christchurch suburbs\" — site-wide footer block + extended llms.txt Area-served line",
     "Treats: chips on every team profile (in a What I Treat card), with Nina's row carrying a clickable pink-tinted pill linking to the new fertility page",
     "/services/acupuncture/fertility/ sub-page — MedicalTherapy schema linking to the parent acupuncture #service, FAQPage on IVF timing / ACC status / Nina's credentials, hero + 3 specialty images",
-    "Site-wide sweep removing 'GP referral' from patient-facing copy (per the CLAUDE.md copy rule); condition CTA banners simplified to heading + booking button only"
+    "Site-wide sweep removing 'GP referral' from patient-facing copy (per the CLAUDE.md copy rule); condition CTA banners simplified to heading + booking button only",
+    "Google Business Profile services audit completed manually (item #21) — owner added Osteopathy, Medical acupuncture, Dry needling, Neck pain treatment, Headache & migraine treatment, Sports injury treatment, Pregnancy back pain, Paediatric osteopathy, Herbal medicine to GBP service list",
+    "/conditions/neck-pain/ — Q→A page with MedicalCondition + FAQPage schema, mirroring the four item-#10 pages; covers acute vs chronic, when to seek urgent care, ACC eligibility, links back to the osteopathy service (item #22, PR #63)",
+    "/conditions/back-pain/ — Q→A page with MedicalCondition + FAQPage schema; covers acute vs chronic, sciatica overlap, when to seek urgent care, ACC eligibility, links to /conditions/sciatica/ and the osteopathy service (item #23, PR #64)",
+    "<link rel=\"alternate\" type=\"text/markdown\" href=\"/llms.txt\"> + the same for /llms-full.txt added in the HTML head — signals AI crawlers that a Markdown summary exists alongside the HTML (item #26, PR #62)",
+    "Physician schema upgraded to Schema.org v30 IndividualPhysician on every team profile, with practicesAt: { @id: '#clinic' } linking each practitioner to the MedicalClinic node — sharpens entity disambiguation for ChatGPT / Perplexity / AI Overviews (item #27, PR #65)"
   ],
   "gaps": [
     {
       "id": "G7",
-      "title": "No condition-specific pages for neck pain, back pain or ACC",
-      "why": "Four condition pages now ship (sciatica/headaches/pregnancy/sports), but neck-pain, back-pain and an ACC landing remain — each is the highest-intent variant of an 'osteopath christchurch' query. Confirmed again this run: 0/3 in top 10. Better Health Osteopathy is now ranking with multiple URL variants on /back-pain-relief-osteopath-christchurch/ — they've doubled down on the cluster while we still have nothing."
+      "title": "No ACC landing page",
+      "why": "Neck-pain and back-pain condition pages now ship (items #22, #23 closed). The remaining piece of G7 is a single indexable /acc/ URL — osteo.co.nz still owns 'osteopath acc christchurch' and we have ACC mentions scattered across the site but no canonical landing. Scoped under item #25."
     },
     {
       "id": "G8",
       "title": "No blog / editorial content",
       "why": "Freshness cliff at ~3 months. April-2026 industry data: 76.4% of ChatGPT's top-cited pages were updated within 30 days, 50% of Perplexity citations come from content less than 13 weeks old. osteopath-christchurch.com is winning headache/migraine/cranial/baby-osteo queries on blog-post velocity — 1 short post per condition is enough to claim those niches. MK Osteopathy is doing the same for TMJ."
-    },
-    {
-      "id": "G13",
-      "title": "No llms.txt reference in HTML head",
-      "why": "Emerging convention (now consensus best practice in 2026 llms.txt guides): <link rel='alternate' type='text/markdown' href='/llms.txt'> in the head signals AI crawlers that a Markdown summary exists. We have /llms.txt, just not the link. Item #26."
     },
     {
       "id": "G14",
@@ -63,17 +63,7 @@
     {
       "id": "G16",
       "title": "No Western-framed dry-needling landing URL",
-      "why": "REVISED 2026-05-10: the gap isn't that the acupuncture page leads with TCM (that's correct framing for our existing patient base), it's that we have NO indexable URL targeting the Western-medical / dry-needling intent at all. 'dry needling christchurch' is 100% physio-owned and the Halswell+modality SERP is genuinely empty of NZ content. Item #17 now adds a sibling sub-page (mirror of /services/acupuncture/fertility/) rather than reframing the parent page."
-    },
-    {
-      "id": "G20",
-      "title": "Google Business Profile services incomplete",
-      "why": "Google's March 2026 core update made the GBP completeness score a more explicit ranking input. Profiles missing service listings now face a measurable penalty. Item #21 is now a Tier-1 must-do, not a nice-to-have."
-    },
-    {
-      "id": "G21",
-      "title": "Physician schema not using v30 IndividualPhysician + practicesAt",
-      "why": "Schema.org v30 (released 2026-03-19) added IndividualPhysician and PhysiciansOffice as Physician subtypes, plus the practicesAt property linking an individual to their MedicalOrganization. Upgrading our team-profile @graph from Physician → IndividualPhysician with practicesAt sharpens entity disambiguation for AI engines. Item #27."
+      "why": "The gap isn't that the acupuncture page leads with TCM (that's correct framing for our existing patient base), it's that we have NO indexable URL targeting the Western-medical / dry-needling intent at all. 'dry needling christchurch' is 100% physio-owned and the Halswell+modality SERP is genuinely empty of NZ content. Item #17 now adds a sibling sub-page (mirror of /services/acupuncture/fertility/) rather than reframing the parent page."
     }
   ],
   "items": [
@@ -104,9 +94,7 @@
         "a build-time fetch script"
       ],
       "body": "So reviewCount / ratingValue stay current without manual edits. Build script hits Places API with a 24h cache. Reinforced this week: post-March-2026 Google update weights review recency more heavily than raw count.",
-      "addresses": [
-        "G20"
-      ],
+      "addresses": [],
       "firstSeen": "2026-04-22"
     },
     {
@@ -150,9 +138,7 @@
         "netlify/functions/*"
       ],
       "body": "Post-consultation email nudge via Resend (already wired). AI engines prefer reviews under 12 months old. Reinforced 2026-05-02: Google's March 2026 core update now weights review recency AND owner response rate more heavily than raw count. Healthcare best-practice = at least 1 new review/week.",
-      "addresses": [
-        "G20"
-      ],
+      "addresses": [],
       "firstSeen": "2026-04-22"
     },
     {
@@ -172,53 +158,6 @@
       "firstSeen": "2026-04-24"
     },
     {
-      "n": 21,
-      "tier": 1,
-      "impact": "H",
-      "effort": "S",
-      "title": "Audit and expand Google Business Profile services",
-      "files": [
-        "(off-site — Google Business Profile dashboard)"
-      ],
-      "body": "ChatGPT pulled the clinic as 'Meridian Osteopathy - Medical Acupuncture Clinic' straight from GBP. Whatever services are listed on GBP becomes what AI tools can cite. Log into Google Business Profile and add these services: Osteopathy, Medical acupuncture, Dry needling, Neck pain treatment, Headache & migraine treatment, Sports injury treatment, Pregnancy back pain, Paediatric osteopathy, Herbal medicine. ~10 minutes of clicking. Cannot be shipped by the Ship-it button — owner task. PROMOTED to Tier 1 since 2026-05-02: Google's March 2026 core update made GBP completeness score a more explicit ranking input, with profiles missing service listings 'facing a measurable penalty' (multiple 2026 healthcare-SEO sources). Pending three cycles now.",
-      "addresses": [
-        "G20"
-      ],
-      "firstSeen": "2026-04-24"
-    },
-    {
-      "n": 22,
-      "tier": 2,
-      "impact": "H",
-      "effort": "L",
-      "title": "Not ranking for 'neck pain osteopath christchurch' — betterhealthosteopathy.nz owns it",
-      "files": [
-        "src/conditions/neck-pain.njk",
-        "src/_data/conditions.json"
-      ],
-      "body": "betterhealthosteopathy.nz and osteopath.nz both have dedicated neck-pain condition URLs that win this query; Meridian is not in the top 10 (confirmed again 2026-05-08). This is NOT covered by item #10's four-page scope (sciatica / headaches / pregnancy / sports) — those four shipped but neck pain didn't. Add a 5th condition page — 800–1200 words Q→A with MedicalCondition + FAQPage schema — mirroring the item #10 pattern. Internal-link from the osteopathy service page.",
-      "addresses": [
-        "G7"
-      ],
-      "firstSeen": "2026-04-24"
-    },
-    {
-      "n": 23,
-      "tier": 2,
-      "impact": "H",
-      "effort": "L",
-      "title": "Not ranking for 'back pain osteopath christchurch' — betterhealthosteopathy.nz owns it",
-      "files": [
-        "src/conditions/back-pain.njk",
-        "src/_data/conditions.json"
-      ],
-      "body": "Better Health's /back-pain-relief-osteopath-christchurch/ is the #1 result for this query cluster (confirmed again 2026-05-08, AND they're now ranking with a SECOND URL on the same query — they've doubled down on the cluster). Back pain is probably the single highest-intent query osteopathy patients search — it must have its own page. Mirror the item #10 pattern: MedicalCondition + FAQPage, cross-link to ACC info and the osteopathy service page, include a section on acute vs chronic and when to seek care.",
-      "addresses": [
-        "G7"
-      ],
-      "firstSeen": "2026-04-24"
-    },
-    {
       "n": 25,
       "tier": 2,
       "impact": "M",
@@ -233,37 +172,6 @@
         "G7"
       ],
       "firstSeen": "2026-04-24"
-    },
-    {
-      "n": 26,
-      "tier": 2,
-      "impact": "M",
-      "effort": "S",
-      "title": "Add <link rel=\"alternate\" type=\"text/markdown\"> in HTML head",
-      "files": [
-        "src/_includes/base.njk"
-      ],
-      "body": "G13 (no llms.txt reference in head) is now addressable with a single-line head template change. The 2026 llms.txt guides (BigCloudy, ALLMO, AEO Press) all converge on this convention: a <link rel=\"alternate\" type=\"text/markdown\" href=\"/llms.txt\"> in <head> signals to AI crawlers that a Markdown summary exists alongside the HTML, even though most still discover it via /llms.txt directly. Optionally also add the same link with href=\"/llms-full.txt\" and a title attribute. Trivial change, no risk to CSP.",
-      "addresses": [
-        "G13"
-      ],
-      "firstSeen": "2026-05-02"
-    },
-    {
-      "n": 27,
-      "tier": 2,
-      "impact": "M",
-      "effort": "S",
-      "title": "Upgrade Physician schema to v30 IndividualPhysician with practicesAt",
-      "files": [
-        "src/_includes/team-profile.njk",
-        "src/_data/team.json"
-      ],
-      "body": "Schema.org v30 (released 2026-03-19) introduced two new Physician subtypes: IndividualPhysician (a person who practises medicine) and PhysiciansOffice (the place they practise at). The new practicesAt property on IndividualPhysician points to the MedicalOrganization where the individual practises — exactly the relationship we currently express through worksFor / employee in the @graph. Switching @type from Physician to IndividualPhysician on each team-profile node and adding practicesAt: { @id: '#clinic' } should be a small JSON-LD edit in the team-profile partial. No content changes, no visible UI changes, no CSP impact. Sharpens entity disambiguation for ChatGPT / Perplexity / AI Overviews that map our team to the clinic graph.",
-      "addresses": [
-        "G21"
-      ],
-      "firstSeen": "2026-05-02"
     }
   ]
 }
