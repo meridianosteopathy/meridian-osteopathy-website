@@ -101,6 +101,59 @@
       }
     ]
   },
+  "neck-pain": {
+    "slug": "neck-pain",
+    "title": "Neck Pain",
+    "navTitle": "Neck Pain",
+    "heroImage": "/images/hero-osteopathy.jpg",
+    "tagline": "Stiff necks, whiplash, and headache-driving tension — assessed, treated, and explained.",
+    "metaDescription": "Neck pain treatment in Christchurch at Meridian Osteopathy. ACC-registered, no referral needed. What causes neck pain, how osteopathy helps, and when to seek urgent care.",
+    "alternateName": ["Cervical pain", "Cervical spine pain", "Wry neck", "Acute torticollis", "Whiplash-associated disorder"],
+    "intro": "Neck pain is one of the most common reasons people book in to see us — and one of the most varied in cause. It might be a stiff neck after a heavy day at the desk, the lingering ache of a whiplash injury, a recurring 'crick' that grabs you when you turn to check your blind spot, or a deeper pattern that drives headaches and shoulder tension. Most neck pain has a clear musculoskeletal cause and responds well to hands-on treatment, posture and movement advice, and time. The first step is always a careful assessment — distinguishing simple mechanical neck pain (the most common pattern) from cervical radiculopathy, whiplash-associated disorders, and the small number of cases that need imaging or onward referral. From there, we build a plan that addresses the joint stiffness, soft tissue tension, and movement habits keeping the pattern going. This page covers what neck pain typically looks like, what causes it, what osteopathy can offer, and when you should seek urgent medical attention.",
+    "relatedService": {
+      "title": "Osteopathy",
+      "url": "/services/osteopathy/"
+    },
+    "alsoConsider": {
+      "title": "Acupuncture",
+      "url": "/services/acupuncture/"
+    },
+    "relatedServiceBlurb": "At Meridian Osteopathy we treat neck pain with a combination of hands-on osteopathic techniques — gentle joint articulation, soft tissue release through the upper back and shoulders, and graded mobility work — alongside posture and movement strategies you can use between sessions. Where it helps, your practitioner can integrate Western medical acupuncture (dry needling) into the same session — particularly useful for stubborn upper-trapezius spasm, headaches driven from the neck, and chronic patterns that have not responded to manual therapy alone. Our osteopaths are ACC-registered, so if your neck pain started with an accident or injury, treatment is subsidised. You don't need a referral.",
+    "faq": [
+      {
+        "question": "What is neck pain?",
+        "answer": "Neck pain is any discomfort, stiffness, or pain felt in the cervical spine — the seven vertebrae that run from the base of the skull to the top of the upper back. It can be local (just in the neck) or refer outwards into the head, shoulders, upper back, or arms. Neck pain is a symptom with many possible causes, ranging from simple muscle strain through to disc, joint, or nerve involvement."
+      },
+      {
+        "question": "What are the most common causes of neck pain?",
+        "answer": "The most common causes are mechanical strain from prolonged desk and screen postures, sudden movements or 'sleeping awkwardly', whiplash from a motor-vehicle accident or sports impact, arthritic changes in the cervical facet joints, and disc-related irritation of a cervical nerve root. Stress, poor sleep, and clenching or grinding the jaw can all add to the pattern by loading the same muscles repeatedly."
+      },
+      {
+        "question": "How can osteopathy help with neck pain?",
+        "answer": "Osteopathic treatment aims to restore normal movement through the cervical spine, upper back, and shoulders, and to release the soft tissue tension that builds up around stiff joints. Techniques include gentle joint articulation, soft tissue release, mobilisation of the upper thoracic spine and ribs, and — where appropriate and consented to — higher-velocity manipulation. Your osteopath will also give you specific exercises and posture advice, usually small frequent movements rather than long stretches, to support recovery between sessions."
+      },
+      {
+        "question": "Can acupuncture help with neck pain?",
+        "answer": "Yes — acupuncture is a useful addition to hands-on osteopathy for neck pain, particularly when muscle spasm is severe, the pattern is driving headaches, or the neck pain has lingered beyond a few weeks. We use Western medical acupuncture (dry needling) into trigger points in the upper traps, levator scapulae, and suboccipital muscles, alongside traditional points to settle the wider pattern. The combined osteopathy + acupuncture approach often shortens recovery for stubborn neck pain. Nina is dual-trained in osteopathy and medical acupuncture and can integrate both into the same session."
+      },
+      {
+        "question": "Is neck pain treatment covered by ACC?",
+        "answer": "Yes, if your neck pain is related to an accident or specific injury event — for example a motor-vehicle accident, a sports impact, or a fall. Whiplash is one of the most common ACC-claimed neck injuries. Our osteopaths are ACC-registered providers and can lodge a claim for you at your first visit — you don't need a referral. If there is no accident trigger (for example, a gradual onset from desk posture), treatment is paid privately at the non-ACC rate."
+      },
+      {
+        "question": "How many sessions will I need?",
+        "answer": "Most acute neck pain — including a typical 'wry neck' or stiff neck — settles within 2–4 sessions over 2–4 weeks. Whiplash and longer-standing patterns often need 4–6 sessions with gradual progression and a return-to-activity plan. Your osteopath will reassess at each visit and adjust — if you are not responding as expected, they will refer you on for imaging or specialist review."
+      },
+      {
+        "question": "Is it safe to have my neck treated?",
+        "answer": "Yes. Osteopathic treatment of the neck is safe when performed by a registered practitioner who has screened you appropriately. Your osteopath will check for the small number of contraindications to neck manipulation before treating, and will choose the technique that suits your presentation — gentle articulation and soft tissue work are usually enough, with higher-velocity manipulation reserved for cases where it is clearly indicated and consented to. Tell your practitioner about any blood-pressure medication, anticoagulants, dizziness, or recent injury so they can tailor the approach."
+      },
+      {
+        "question": "When should you see a doctor urgently?",
+        "answer": "Seek urgent medical care (emergency department or your doctor) if neck pain is accompanied by any 'red flag' symptoms: significant trauma to the head or neck, progressive arm or hand weakness, loss of bladder or bowel control, a sudden severe 'thunderclap' headache, fever with neck stiffness, unexplained weight loss, or numbness around the mouth or face. These can signal serious conditions that need immediate medical attention rather than osteopathic care."
+      }
+    ]
+  },
   "pregnancy-back-pain": {
     "slug": "pregnancy-back-pain",
     "title": "Pregnancy-Related Back Pain",
