@@ -60,7 +60,7 @@
     <!-- Right: Photo & Booking -->
     <div class="profile-sidebar">
       <div class="profile-photo-card">
-        <img src="{{ member.photo }}" alt="{{ member.name }}" loading="lazy">
+        <img src="{{ member.photo }}" alt="{{ member.photoAlt or member.name }}" loading="lazy">
         <div class="profile-booking-info">
           <h4>{{ member.name }}</h4>
           <p class="profile-credentials">{{ member.role | safe }}</p>
