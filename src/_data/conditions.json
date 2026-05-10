@@ -1,4 +1,88 @@
 {
+  "back-pain": {
+    "slug": "back-pain",
+    "title": "Back Pain",
+    "navTitle": "Back Pain",
+    "heroImage": "/images/hero-back-pain.jpg",
+    "tagline": "Acute, chronic, and recurring back pain — assessed, treated, and explained.",
+    "metaDescription": "Back pain treatment in Christchurch at Meridian Osteopathy. ACC-registered, no referral needed. Acute, chronic, and recurring lower back pain — what causes it, how osteopathy helps, and when to seek urgent care.",
+    "alternateName": ["Lower back pain", "Low back pain", "Lumbar pain", "Backache", "Acute back pain", "Chronic back pain"],
+    "intro": "Back pain is the most common reason people see an osteopath, and one of the most common reasons people miss work, sleep, sport, and time with their families. The reassuring news: most back pain is mechanical, not dangerous, and responds well to a combination of hands-on treatment, movement, and good information. The frustrating news: 'back pain' is a single label hiding many different patterns — a stiff joint, a strained muscle, an irritated disc, a sensitised nerve, or simply a back that has been guarded for so long it has forgotten how to move freely. Sorting out which pattern is yours is the first job of a good assessment, because it shapes everything that follows. This page covers what back pain is, what causes it, the difference between acute and chronic episodes, when you should seek urgent care, and how osteopathy at Meridian Osteopathy fits into modern, evidence-based back-pain care.",
+    "relatedService": {
+      "title": "Osteopathy",
+      "url": "/services/osteopathy/"
+    },
+    "alsoConsider": {
+      "title": "Acupuncture",
+      "url": "/services/acupuncture/"
+    },
+    "relatedServiceBlurb": "At Meridian Osteopathy we treat back pain with hands-on osteopathic techniques — joint mobilisation and articulation, soft tissue release, and gentle manipulation where appropriate — alongside a clear plan you can follow between sessions: how much to move, what to avoid, what to load, and when to return. Where it helps, your practitioner can integrate Western medical acupuncture (dry needling) into the same session, which is particularly useful for stubborn paraspinal or gluteal muscle spasm and for calming a sensitised nervous system. Our osteopaths are ACC-registered, so if your back pain started with an injury — a lift, a fall, a twist — treatment is subsidised. You don't need a referral; you can book directly.",
+    "acuteVsChronic": {
+      "title": "Acute vs chronic back pain — what's the difference?",
+      "intro": "Back pain is usually grouped by how long it has been going on, because the priorities of care change at each stage. Knowing which stage you are in helps you understand what is normal, what to expect from treatment, and how active to be.",
+      "stages": [
+        {
+          "title": "Acute back pain (less than 6 weeks)",
+          "body": "Most acute back pain is muscular, joint-related, or a mild disc strain. It often comes on after a specific event — a lift, a twist, or simply rolling out of bed the wrong way — and can feel disproportionately severe even when nothing serious is going on. The current evidence is clear: gentle movement and early treatment shorten recovery, while strict bed rest tends to prolong it. Most uncomplicated acute episodes settle within 2–4 weeks with hands-on care, simple pain relief, and a return to normal activity as soon as it is tolerable."
+        },
+        {
+          "title": "Sub-acute back pain (6–12 weeks)",
+          "body": "If pain is still significant past the six-week mark, this is the window where the right input matters most. Sub-acute pain is when habits of guarding, fear of movement, and patterns of compensating around the painful area start to set in. Treatment at this stage focuses on restoring confident movement, progressive loading, and addressing any contributing factors — sleep, stress, posture, or training load — before the pain becomes chronic."
+        },
+        {
+          "title": "Chronic back pain (more than 12 weeks)",
+          "body": "Chronic back pain is rarely just a structural problem. By this stage, the nervous system itself is often part of the picture: the pain alarm is more sensitive than it needs to be, even when the original tissue has healed. Modern care looks at the whole picture — manual therapy to settle the local area, graded loading to rebuild strength and confidence, and clear education about why pain persists and how the system can be retrained. Progress is slower than in acute pain but is genuinely possible — most people improve significantly with a 6–10 session plan and a consistent home routine."
+        }
+      ]
+    },
+    "redFlags": {
+      "title": "When to seek urgent care",
+      "intro": "Most back pain is not dangerous, but a small number of cases need urgent medical assessment rather than osteopathic treatment. Go to an emergency department (or contact your doctor straight away) if you experience any of the following:",
+      "items": [
+        "Loss of bladder or bowel control, or difficulty starting to urinate",
+        "Numbness or pins-and-needles around the groin, buttocks, or inner thighs (the 'saddle' area)",
+        "Rapidly progressing weakness in one or both legs",
+        "Back pain after a significant fall, road accident, or other major trauma",
+        "Fever, unexplained weight loss, or pain that wakes you at night and is not eased by changing position",
+        "Severe, unrelenting pain that is not improving at all with rest, position change, or simple pain relief"
+      ],
+      "cta": "These can signal a serious condition (such as cauda equina syndrome, a fracture, or infection) that needs immediate specialist care. If you are unsure but worried, err on the side of being seen — your osteopath would rather you ruled out something serious first."
+    },
+    "faq": [
+      {
+        "question": "What causes back pain?",
+        "answer": "Most back pain is mechanical — coming from the joints, discs, ligaments, and muscles of the spine. Common drivers include disc strain or bulge, stiff lumbar facet joints, sacroiliac joint irritation, muscle spasm, and irritated nerves. Daily contributors include prolonged sitting, repetitive lifting, sudden twisting, poor sleep, and periods of high stress that increase muscle guarding. Less commonly, back pain comes from the kidneys, gut, or other internal sources — a thorough assessment screens for these so you are not treated for the wrong thing."
+      },
+      {
+        "question": "How can osteopathy help with back pain?",
+        "answer": "Osteopathic treatment aims to reduce the local pain, restore normal movement through the spine and pelvis, and address the contributing factors that set the episode up in the first place. Techniques include joint articulation and mobilisation, soft tissue release, gentle high-velocity manipulation where appropriate, and targeted exercises for between sessions. The evidence supports manual therapy as part of a multi-modal approach to both acute and chronic back pain — alongside movement, education, and a graded return to normal activity."
+      },
+      {
+        "question": "Is back pain treatment covered by ACC?",
+        "answer": "Yes, if your back pain is linked to an accident or specific injury event — a lift, a fall, a sporting collision, a sudden twist. Our osteopaths are ACC-registered providers and can lodge a claim for you at your first visit. You don't need a referral; you can book directly. ACC-covered visits are subsidised. If there is no clear accident trigger (gradual-onset pain, posture-related, stress-related), treatment is paid privately at the non-ACC rate. See our osteopathy page for current ACC and private rates."
+      },
+      {
+        "question": "How many sessions will I need for back pain?",
+        "answer": "Most acute back pain responds within 2–4 sessions over 2–4 weeks. Sub-acute pain (6–12 weeks in) usually needs 4–6 sessions with a clear home programme. Chronic back pain typically benefits from a longer plan — 6–10 sessions with tapering frequency, paired with consistent loading and movement at home. Your osteopath will reassess at each visit and adjust the plan; if you are not responding as expected, they will refer you on for imaging or specialist review rather than continue indefinitely."
+      },
+      {
+        "question": "Should I rest or stay active with back pain?",
+        "answer": "Stay as active as your pain reasonably allows. The old advice of strict bed rest is now known to slow recovery and increase the risk of pain becoming chronic. The current evidence-based approach is 'relative rest' — avoid the specific movements or loads that flare the pain, but keep walking, keep doing the gentle activities that feel okay, and return to normal activity as soon as your back tolerates it. Movement is medicine, in graded doses."
+      },
+      {
+        "question": "Will I need an X-ray or MRI for my back pain?",
+        "answer": "Usually not. For the great majority of back pain, imaging does not change the treatment plan and can sometimes mislead — most adults have age-related disc and joint changes on a scan that have nothing to do with their current pain. Imaging is recommended when there are red-flag features (see above), when pain is not responding to a course of conservative care, or when there is significant nerve involvement that may need surgical review. Your osteopath will tell you clearly if and when a scan is the right next step."
+      },
+      {
+        "question": "Can acupuncture help with back pain?",
+        "answer": "Yes — acupuncture has reasonable evidence for both acute and chronic low back pain, and works particularly well for muscle spasm and for chronic pain where the nervous system has become sensitised. We use a combination of Western medical acupuncture and traditional points to release tight paraspinal and gluteal muscles, settle local inflammation, and calm the body's central pain response. Nina is dual-trained in osteopathy and medical acupuncture and can integrate both into the same session — useful when manual therapy alone is not quite enough."
+      },
+      {
+        "question": "How can I stop my back pain from coming back?",
+        "answer": "Recurrence is common — but it is not inevitable. The strongest protective factors are regular movement (walking, swimming, cycling — anything you'll actually keep doing), specific strengthening for the deep core, hips, and spinal extensors, sleep that lets the nervous system recover, and learning how to lift, sit, and move without bracing or holding your breath. A short course of follow-up sessions after the acute pain settles, plus a clear home programme, is what most people need to break a recurring pattern."
+      }
+    ]
+  },
   "sciatica": {
     "slug": "sciatica",
     "title": "Sciatica",
