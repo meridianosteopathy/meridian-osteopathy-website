@@ -107,7 +107,7 @@
     "name": "Min Jin",
     "firstName": "Min",
     "role": "Acupuncturist",
-    "treats": ["Pain & trigger point", "Women's health", "Digestive", "Sleep"],
+    "treats": ["Pain", "Women's health", "Digestive Issues", "Sleep Disorder"],
     "photo": "/images/team-min.jpg",
     "photoAlt": "Acupuncturist Min Jin of Meridian Osteopathy, smiling in branded teal clinical scrubs",
     "lifestyleImage": "",
