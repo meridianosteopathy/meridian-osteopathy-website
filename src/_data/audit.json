@@ -1,14 +1,14 @@
 {
   "meta": {
-    "reportDate": "2026-05-10",
+    "reportDate": "2026-05-15",
     "schemaVersion": 1,
-    "lastUpdated": "2026-05-10",
+    "lastUpdated": "2026-05-15",
     "generatedBy": "weekly-routine"
   },
   "tldr": [
-    "Five items shipped this run (#21, #22, #23, #26, #27). #21 (Google Business Profile services audit, Tier 1) was completed manually off-site by the owner. #22 (neck-pain condition page) and #23 (back-pain condition page) shipped via PRs #63 and #64 — both follow the existing condition-page pattern with MedicalCondition + FAQPage schema. #26 (llms.txt alternate links in HTML head) shipped via PR #62. #27 (Physician → IndividualPhysician with practicesAt) shipped via PR #65. That clears the backlog of every Tier-1 item — only #17 (dry-needling sub-page) remains in Tier 1, and PR #61 reframed its scope from a parent-page rewrite to a sibling sub-page (mirror of /services/acupuncture/fertility/).",
-    "Three new items added in this same update (#28, #29, #30) to keep the punch-list at meaningful coverage: #28 (rewrite image alt text — descriptive not titular, addresses G14), #29 (in-content Hillmorton/Wigram/Addington signals — addresses new gap G22), #30 (cross-link condition pages and surface them from osteopathy service intro + homepage — addresses new gap G23). All three are Tier 2, S effort, derived from explicit signals in the 2026-05-08 SERP run (Hillmorton SERP regressed to UK results; condition pages 3 weeks post-ship still aren't surfacing; image-grounded retrieval gaining weight in 2026 GEO guides).",
-    "Backlog after this run: 10 items pending (#12, #13, #14, #15, #16, #17, #25, #28, #29, #30). Tier 1 → just #17. Tier 2 → #12, #13, #25, #28, #29, #30. Tier 3 → #14, #15, #16. Closed gaps: G13 (llms.txt head link), G20 (GBP services), G21 (IndividualPhysician schema). Narrowed gap: G7 (only ACC landing remains under #25). New gaps: G22 (no in-content suburb signal), G23 (condition pages not discoverable from elsewhere on site). Search visibility: priorities and pool unchanged from 2026-05-08; no new SERP run this update."
+    "Three items shipped this run (#28, #29, #30) via PR #71 (which bundled PRs #68/#69/#70). #28 (image alt text rewritten descriptive-not-titular across team profiles, condition pages, and service pages) closes G14. #29 (Hillmorton + Wigram + Addington + Halswell + Cashmere now appear in flowing intro copy on every service page in services.json, not just the footer line) closes G22. #30 (a 'Conditions we commonly treat' block on the osteopathy service page linking all six condition pages, plus a matching 'Common conditions we treat' section on the homepage) closes G23. Two further non-punch-list improvements also shipped: PR #72 made /book/ AI-citable with a ReserveAction schema + visible intro content (relevant for ChatGPT-driven booking flows now that Perplexity Health launched 2026-03-19 with first-party EHR integration), and PR #73 added explicit www → apex 301 redirects in netlify.toml so Google consolidates link equity onto the canonical apex domain. PR #74 added Kaylee Frost as a new practitioner (sixth team member).",
+    "Search visibility: 31 queries re-checked against live SERPs on 2026-05-15. Meridian still absent from every visible top 10 — same pattern as the previous five runs. Per the priority-decay rule, every checked query lost 10 points (e.g. 'osteopath christchurch' 60→50, 'osteopath halswell' 55→45, 'acupuncture christchurch' 55→45). Notable shifts vs 2026-05-08: 'dry needling halswell' regained an NZ player (Elite Physiotherapy Halswell back in top 5 vs gone last week) — the suburb+modality SERP is now partially contested again. 'osteopath addington' lost its only NZ player (Performance Plus disappeared) so the SERP is now fully UK-only — same hollow-SERP pattern as 'osteopath wigram' which remains uncontested. 'osteopath hillmorton' is STILL all-UK results — even after #29 added Hillmorton to flowing intro copy, Google hasn't re-indexed yet (re-check next run). The four condition pages from item #10 are now 4-5 weeks post-ship and STILL not surfacing for their target queries; #30 (cross-links from osteopathy intro + homepage) shipped 2026-05-10, so we'll know in 1-2 runs whether the internal-link surface accelerated indexing.",
+    "Backlog after this run: 8 items pending (#12, #13, #14, #15, #16, #17, #25, #31). Tier 1 → just #17 (dry-needling sub-page). Tier 2 → #12, #13, #25, #31. Tier 3 → #14, #15, #16. One new item added (#31, citation-ready opening pattern audit) addressing new gap G24. Closed gaps: G14 (alt text), G22 (suburb signals), G23 (cross-linking). Remaining gaps: G7 (only ACC landing remains under #25), G8 (no blog), G15 (no Reddit citations), G16 (no Western-framed dry-needling URL), G24 (intros don't open with a citation-ready 40–60 word direct answer)."
   ],
   "alreadyShipped": [
     "llms.txt and llms-full.txt auto-generated from site data",
@@ -37,7 +37,12 @@
     "/conditions/neck-pain/ — Q→A page with MedicalCondition + FAQPage schema, mirroring the four item-#10 pages; covers acute vs chronic, when to seek urgent care, ACC eligibility, links back to the osteopathy service (item #22, PR #63)",
     "/conditions/back-pain/ — Q→A page with MedicalCondition + FAQPage schema; covers acute vs chronic, sciatica overlap, when to seek urgent care, ACC eligibility, links to /conditions/sciatica/ and the osteopathy service (item #23, PR #64)",
     "<link rel=\"alternate\" type=\"text/markdown\" href=\"/llms.txt\"> + the same for /llms-full.txt added in the HTML head — signals AI crawlers that a Markdown summary exists alongside the HTML (item #26, PR #62)",
-    "Physician schema upgraded to Schema.org v30 IndividualPhysician on every team profile, with practicesAt: { @id: '#clinic' } linking each practitioner to the MedicalClinic node — sharpens entity disambiguation for ChatGPT / Perplexity / AI Overviews (item #27, PR #65)"
+    "Physician schema upgraded to Schema.org v30 IndividualPhysician on every team profile, with practicesAt: { @id: '#clinic' } linking each practitioner to the MedicalClinic node — sharpens entity disambiguation for ChatGPT / Perplexity / AI Overviews (item #27, PR #65)",
+    "Image alt text rewritten descriptive-not-titular across team profiles (team-profile.njk now uses member.photoAlt with name fallback), condition pages, and service pages — each <img> now describes what's visible plus relevant clinical context. Closes G14 (item #28, PR #70 / bundled in #71)",
+    "Hillmorton + Wigram + Addington + Halswell + Cashmere now appear in flowing intro copy on every service page in services.json (osteopathy, acupuncture, herbal medicine), not just the site-wide footer line. Closes G22 (item #29, PR #68 / bundled in #71)",
+    "'Conditions we commonly treat' block added to the osteopathy service page linking all six condition pages (back-pain, neck-pain, sciatica, headaches-migraines, pregnancy-back-pain, sports-injury-recovery), plus a matching 'Common conditions we treat' section on the homepage with high-intent button links — gives the condition pages an internal-link surface beyond the nav dropdown so Google can pass relevance signals to them. Closes G23 (item #30, PR #69 / bundled in #71)",
+    "/book/ page made AI-citable — added ReserveAction schema and visible intro content so ChatGPT / Perplexity / Gemini can recommend it as a booking action, not just an interstitial. Especially relevant after Perplexity Health launched 2026-03-19 with EHR integration, since AI assistants are increasingly handling the appointment-booking step (PR #72)",
+    "Explicit www → apex 301 redirects added in netlify.toml — Google now consolidates link equity onto the canonical meridianosteopathy.co.nz apex domain rather than splitting it between www and apex variants (PR #73)"
   ],
   "gaps": [
     {
@@ -48,32 +53,22 @@
     {
       "id": "G8",
       "title": "No blog / editorial content",
-      "why": "Freshness cliff at ~3 months. April-2026 industry data: 76.4% of ChatGPT's top-cited pages were updated within 30 days, 50% of Perplexity citations come from content less than 13 weeks old. osteopath-christchurch.com is winning headache/migraine/cranial/baby-osteo queries on blog-post velocity — 1 short post per condition is enough to claim those niches. MK Osteopathy is doing the same for TMJ."
-    },
-    {
-      "id": "G14",
-      "title": "Image alt text could be richer",
-      "why": "AI-image-grounded models benefit from descriptive, not titular, alt text. Reinforced by 2026 GEO guides emphasising image-grounded retrieval — Tier-3 framing may understate the urgency."
+      "why": "Freshness cliff at ~3 months. April-2026 industry data: 76.4% of ChatGPT's top-cited pages were updated within 30 days, 50% of Perplexity citations come from content less than 13 weeks old. osteopath-christchurch.com is winning headache/migraine/cranial/baby-osteo queries on blog-post velocity — 1 short post per condition is enough to claim those niches. MK Osteopathy is doing the same for TMJ. May-2026 BrightEdge data confirms the pattern is hardening: AI Overviews now trigger on 80%+ of healthcare queries, with cited brands earning 35% more clicks and AI visitors converting 4.4× higher than organic."
     },
     {
       "id": "G15",
       "title": "No off-site citation strategy",
-      "why": "Reddit appears in ~47% of Perplexity citations and ~5% of ChatGPT citations (May 2026 CMSWire/Conductor data) — still the single most influential third-party source across all major LLMs. Item #15 still applies."
+      "why": "Reddit appears in ~47% of Perplexity citations and ~5% of ChatGPT citations (May 2026 CMSWire/Conductor data). Reddit is the second most visible website in Google search results in 2026 (only Wikipedia ahead) and is now the most-cited domain across all major AI models — 450% growth in AI-overview citations year-on-year. Item #15 still applies."
     },
     {
       "id": "G16",
       "title": "No Western-framed dry-needling landing URL",
-      "why": "The gap isn't that the acupuncture page leads with TCM (that's correct framing for our existing patient base), it's that we have NO indexable URL targeting the Western-medical / dry-needling intent at all. 'dry needling christchurch' is 100% physio-owned and the Halswell+modality SERP is genuinely empty of NZ content. Item #17 now adds a sibling sub-page (mirror of /services/acupuncture/fertility/) rather than reframing the parent page."
+      "why": "The gap isn't that the acupuncture page leads with TCM (that's correct framing for our existing patient base), it's that we have NO indexable URL targeting the Western-medical / dry-needling intent at all. 'dry needling christchurch' is still 100% physio-owned (Fixed Physio, Muscle People, Physiosouth, Physio NZ, Koru Therapies). Item #17 adds a sibling sub-page (mirror of /services/acupuncture/fertility/) rather than reframing the parent page."
     },
     {
-      "id": "G22",
-      "title": "No in-content suburb signals beyond the footer line",
-      "why": "We have a single footer line ('Serving Hillmorton, Halswell, Hoon Hay, Cashmere, Addington, Riccarton, Sydenham, Wigram & surrounding Christchurch suburbs') and the same in llms.txt — but no service or service-intro paragraph actually mentions any suburb in flowing copy. SERP evidence (2026-05-08): 'osteopath hillmorton' regressed to all-UK results (Google found nothing NZ-relevant for our actual location); 'osteopath wigram' is uncontested NZ-side; 'osteopath addington' is contested only by Performance Plus. A single sentence per service intro naming Hillmorton + the closest suburbs would give Google something local to surface. Addressed by item #29."
-    },
-    {
-      "id": "G23",
-      "title": "Condition pages exist but aren't discoverable from elsewhere on the site",
-      "why": "Four condition pages from item #10 (sciatica, headaches-migraines, pregnancy-back-pain, sports-injury-recovery) are 3 weeks post-ship and still don't surface for their target queries. The 'What We Treat' nav dropdown is the only on-site link path to them — they're not referenced from the osteopathy service intro, not cross-linked between related conditions, and not surfaced on the homepage. Internal link surfaces pass relevance signals to Google and accelerate indexing. Same indexing-lag risk now applies to the new neck-pain and back-pain pages. Addressed by item #30."
+      "id": "G24",
+      "title": "Service + condition intros don't open with a citation-ready 40–60 word direct answer",
+      "why": "May 2026 healthcare AEO/GEO research is consistent on this: ChatGPT, Perplexity and Google AI Overviews preferentially cite content that opens with a direct, concise answer to the query intent in the first 40-60 words, then expands with supporting context. Our current intros open with topic-framing rather than answer-leading copy — e.g. /conditions/back-pain/ opens 'Back pain is the most common reason people see an osteopath, and one of the most common reasons people miss work, sleep, sport, and time with their families.' Informative, but not answer-leading. A citation-ready rewrite would open 'Back pain treatment at Meridian Osteopathy in Christchurch combines hands-on assessment, manual therapy, and movement-based recovery — most cases respond well to 3–6 sessions, ACC-funded, no referral required.' Then the existing prose can continue. Same pattern applies to every service intro. Addressed by item #31."
     }
   ],
   "items": [
@@ -117,7 +112,7 @@
         "src/blog/",
         "Decap CMS collection config"
       ],
-      "body": "Short evidence-based articles per condition. Each post: author byline with Physician schema, datePublished, dateModified, 3–5 FAQs. Ahrefs analysis of 17M AI citations (April 2026) found AI-cited content is 25.7% fresher than traditional Google organic results — 76.4% of ChatGPT's top-cited pages were updated within the last 30 days. Freshness compounds. Confirmed again 2026-05-08: osteopath-christchurch.com owns headaches/cranial/baby/teeth-grinding queries on the strength of one short blog post per condition; MK Osteopathy claimed the TMJ slot the same way.",
+      "body": "Short evidence-based articles per condition. Each post: author byline with Physician schema, datePublished, dateModified, 3–5 FAQs. Ahrefs analysis of 17M AI citations (April 2026) found AI-cited content is 25.7% fresher than traditional Google organic results — 76.4% of ChatGPT's top-cited pages were updated within the last 30 days. Freshness compounds. Confirmed again 2026-05-15: osteopath-christchurch.com still owns headaches/cranial/baby/teeth-grinding queries on the strength of one short blog post per condition; MK Osteopathy still owns the TMJ slot the same way. Per BrightEdge May-2026 data, AI Overviews now trigger on 80%+ of healthcare queries — the freshness signal feeds directly into AI Overview citation eligibility.",
       "addresses": [
         "G8"
       ],
@@ -132,7 +127,7 @@
       "files": [
         "(marketing — no repo changes)"
       ],
-      "body": "Genuine, non-spammy answers on r/newzealand / r/chch / r/AskNZ threads about osteopathy, ACC claims, back pain. Reddit is now ~47% of Perplexity citations and ~5% of ChatGPT citations across major AI platforms (May 2026 Conductor / CMSWire data). 90/10 rule: 90% non-promotional, 2–4 weeks of karma-building before any mention of Meridian.",
+      "body": "Genuine, non-spammy answers on r/newzealand / r/chch / r/AskNZ threads about osteopathy, ACC claims, back pain. Reddit is now ~47% of Perplexity citations and ~5% of ChatGPT citations across major AI platforms (May 2026 Conductor / CMSWire data) and the second most visible site in Google results overall (Wikipedia first). 90/10 rule: 90% non-promotional, 2–4 weeks of karma-building before any mention of Meridian.",
       "addresses": [
         "G15"
       ],
@@ -161,7 +156,7 @@
         "src/services/acupuncture/dry-needling.njk",
         "src/_data/services.json"
       ],
-      "body": "REVISED 2026-05-10 per owner feedback: the original framing (reframe the main acupuncture page to lead with Western medical / dry needling) would alienate existing TCM patients who book Nina specifically for Traditional Chinese Medicine. Instead, mirror the pattern already shipped at /services/acupuncture/fertility/: keep the parent /services/medical-acupuncture/ page TCM-first as it is today, and add a sibling sub-page /services/acupuncture/dry-needling/ that leads with 'Medical acupuncture / dry needling — Western evidence-based technique for trigger-point and musculoskeletal pain'. Two indexable URLs, each surfacing for its own intent, no compromise on TCM identity. Sub-page should: (a) name Nina's Postgraduate Certificate in Health Science (Acupuncture) in the first paragraph — exact credential ChatGPT told users to look for; (b) explicitly mention Halswell so Google has local content to surface (the Halswell+modality SERP is genuinely empty of NZ content as of 2026-05-08); (c) carry a MedicalTherapy schema linking back to the parent acupuncture #service; (d) include a FAQPage block on dry-needling-vs-acupuncture, ACC status, and what to expect. Why this is now the better shape: the existing fertility sub-page already proves the pattern works in our build, and 'dry needling christchurch' is still 100% physio-owned (Muscle People, Fixed Physio, Physiosouth, Physio NZ, Koru Therapies) so a dedicated landing URL is the smallest defensible move. Effort stays S — small templated page mirroring the fertility sub-page.",
+      "body": "REVISED 2026-05-10 per owner feedback: the original framing (reframe the main acupuncture page to lead with Western medical / dry needling) would alienate existing TCM patients who book Nina specifically for Traditional Chinese Medicine. Instead, mirror the pattern already shipped at /services/acupuncture/fertility/: keep the parent /services/medical-acupuncture/ page TCM-first as it is today, and add a sibling sub-page /services/acupuncture/dry-needling/ that leads with 'Medical acupuncture / dry needling — Western evidence-based technique for trigger-point and musculoskeletal pain'. Two indexable URLs, each surfacing for its own intent, no compromise on TCM identity. Sub-page should: (a) name Nina's Postgraduate Certificate in Health Science (Acupuncture) in the first paragraph — exact credential ChatGPT told users to look for; (b) explicitly mention Halswell so Google has local content to surface (the Halswell+modality SERP is empty of NZ content most weeks — Elite Physio Halswell flickered in/out across the last 3 runs); (c) carry a MedicalTherapy schema linking back to the parent acupuncture #service; (d) include a FAQPage block on dry-needling-vs-acupuncture, ACC status, and what to expect. Why this is now the better shape: the existing fertility sub-page already proves the pattern works in our build, and 'dry needling christchurch' is still 100% physio-owned (Muscle People, Fixed Physio, Physiosouth, Physio NZ, Koru Therapies) so a dedicated landing URL is the smallest defensible move. Effort stays S — small templated page mirroring the fertility sub-page.",
       "addresses": [
         "G16"
       ],
@@ -177,64 +172,27 @@
         "src/acc.njk",
         "src/_includes/header.njk"
       ],
-      "body": "osteo.co.nz has a dedicated ACC landing page that wins this query (confirmed again 2026-05-08). We already have the ACC pricing row in services.json and scattered ACC mentions, but no single indexable /acc/ URL. Build a short page (~500 words) explaining ACC-funded treatment at Meridian, the current ACC rate, no referral required, how to lodge a claim, and link out to both service pages and a booking CTA. Low-effort content fix.",
+      "body": "osteo.co.nz has a dedicated ACC landing page that wins this query (confirmed again 2026-05-15). We already have the ACC pricing row in services.json and scattered ACC mentions, but no single indexable /acc/ URL. Build a short page (~500 words) explaining ACC-funded treatment at Meridian, the current ACC rate, no referral required, how to lodge a claim, and link out to both service pages and a booking CTA. Low-effort content fix.",
       "addresses": [
         "G7"
       ],
       "firstSeen": "2026-04-24"
     },
     {
-      "n": 28,
+      "n": 31,
       "tier": 2,
       "impact": "M",
       "effort": "S",
-      "title": "Audit and rewrite image alt text — descriptive, not titular",
+      "title": "Rewrite condition + service intros with a citation-ready 40–60 word direct answer first",
       "files": [
-        "src/_includes/team-profile.njk",
-        "src/conditions/*.njk",
-        "src/services/**/*.njk",
-        "src/index.njk"
+        "src/_data/conditions.json",
+        "src/_data/services.json"
       ],
-      "body": "G14 has been in the gaps list since the first audit but had no matching item. Most <img> alt text on the site is titular ('Nina Hu', 'hero-sciatica.jpg') rather than descriptive. 2026 GEO guides specifically call out image-grounded retrieval gaining weight in multimodal LLM retrieval — descriptive alt text helps Gemini, ChatGPT (with vision) and Perplexity understand and cite the image, not just the surrounding HTML. Audit every <img> in the site, skip decorative SVG icons (use alt=''), and rewrite content alts to describe what's visible plus relevant clinical context. Examples: team photos → 'Osteopath Nina Hu seated at her treatment table in the Hillmorton clinic'; condition hero → 'Anatomical illustration of the sciatic nerve travelling from the lower spine down the back of the leg'; service hero → 'Osteopath performing gentle cervical mobilisation on a seated patient'. Effort small (one editor pass per file).",
+      "body": "May 2026 healthcare AEO/GEO research (ALM Corp, Conductor, BrightEdge, RankVed, Sapt) converges on the same opening pattern for AI-citation-eligible content: lead with a direct, concise answer to the query intent in the first 40-60 words, then expand with supporting context. AI Overviews now trigger on 80%+ of healthcare queries and cited brands earn 35% more clicks (4.4× higher conversion vs organic). Our intros currently open with topic-framing — sample: /conditions/back-pain/ opens 'Back pain is the most common reason people see an osteopath, and one of the most common reasons people miss work, sleep, sport, and time with their families.' That's good prose but it's not answer-leading. The fix is small: rewrite the first 40-60 words of every condition intro AND every service intro in services.json to lead with 'X treatment at Meridian Osteopathy in Christchurch …' format, then keep the existing copy as the second paragraph onward. Same approach for /conditions/* (back-pain, neck-pain, sciatica, headaches-migraines, pregnancy-back-pain, sports-injury-recovery) and /services/* (osteopathy, medical-acupuncture, herbal-medicine, acupuncture/fertility). 10 intros × ~30 words rewritten = under an hour of editor time. Keeps the existing evidence-informed prose intact; just front-loads the answer.",
       "addresses": [
-        "G14"
+        "G24"
       ],
-      "firstSeen": "2026-05-10"
-    },
-    {
-      "n": 29,
-      "tier": 2,
-      "impact": "M",
-      "effort": "S",
-      "title": "Add Hillmorton / Wigram / Addington signals beyond the footer line",
-      "files": [
-        "src/_data/services.json",
-        "src/services/osteopathy.njk",
-        "src/services/medical-acupuncture.njk",
-        "src/services/herbal-medicine.njk"
-      ],
-      "body": "We have a single site-wide footer catchment line and the matching llms.txt area-served line, but no service intro actually names a suburb in flowing copy. SERP evidence 2026-05-08: 'osteopath hillmorton' (our actual location) regressed to all-UK results because Google sees no NZ-relevant content beyond the footer; 'osteopath wigram' is fully uncontested NZ-side; 'osteopath addington' is only partially contested by Performance Plus. Smallest viable fix: add one in-content sentence per service intro naming Hillmorton + the closest suburbs, e.g. 'Our Hillmorton clinic serves patients across Halswell, Wigram, Addington, Cashmere and surrounding Christchurch suburbs.' If a longer play is wanted later, a small /find-us/ page with directions, parking and a paragraph naming each surrounding suburb gives more substance — but the in-content sentence is the high-leverage low-effort start. Tier 2, S effort.",
-      "addresses": [
-        "G22"
-      ],
-      "firstSeen": "2026-05-10"
-    },
-    {
-      "n": 30,
-      "tier": 2,
-      "impact": "M",
-      "effort": "S",
-      "title": "Cross-link condition pages and surface them from osteopathy intro + homepage",
-      "files": [
-        "src/services/osteopathy.njk",
-        "src/conditions/*.njk",
-        "src/index.njk"
-      ],
-      "body": "Four condition pages from item #10 (sciatica, headaches-migraines, pregnancy-back-pain, sports-injury-recovery) are 3 weeks post-ship and still don't surface for their target queries. Same indexing-lag risk now applies to the just-shipped neck-pain and back-pain. Likely root cause: the 'What We Treat' nav dropdown is the only on-site link path to them. Three small additions: (a) a 'Conditions we commonly treat' block on the osteopathy service page intro that links to each condition page; (b) cross-links between related condition pages — neck-pain ↔ headaches-migraines (both upper-quadrant), sciatica ↔ back-pain (overlap), pregnancy-back-pain → back-pain, sports-injury-recovery → relevant body areas; (c) a small 'Common conditions we treat' surface on the homepage with 2-3 of the highest-intent condition links. Internal link surfaces pass relevance signals and accelerate indexing. Tier 2, S effort.",
-      "addresses": [
-        "G23"
-      ],
-      "firstSeen": "2026-05-10"
+      "firstSeen": "2026-05-15"
     }
   ]
 }
