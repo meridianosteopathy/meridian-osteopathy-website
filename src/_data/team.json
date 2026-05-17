@@ -152,6 +152,7 @@
     "name": "Min Jin",
     "firstName": "Min",
     "bookingPractitionerId": "1912696368506345883",
+    "noAcc": true,
     "role": "Acupuncturist",
     "treats": ["Pain", "Women's health", "Digestive Issues", "Sleep Disorder"],
     "photo": "/images/team-min.jpg",
