@@ -1,0 +1,35 @@
+<section class="hero" style="background-image: url('/images/hero-book.jpg');">
+</section>
+
+{% include "breadcrumbs.njk" %}
+
+<section class="section">
+  <div class="container text-center">
+    <h1>Book with {{ member.firstName }}</h1>
+    <p style="max-width: 720px; margin: 16px auto 0; font-size: 1.05rem;">
+      Book an appointment online with {{ member.name }}, {{ member.role | plain }} at Meridian Osteopathy in Hillmorton.{% if not member.noAcc %} ACC claims can be lodged at your first visit.{% endif %}
+    </p>
+    <ul style="max-width: 720px; margin: 16px auto 0; text-align: left; padding-left: 24px;">
+      <li>Choose your service and time slot in the booking widget below.</li>
+      <li>You'll receive an email confirmation immediately after booking.</li>
+      {% if not member.noAcc %}<li>If your visit relates to an injury covered by ACC, please bring your ACC claim number if you have one — otherwise our osteopath can lodge a new claim at your first appointment.</li>{% endif %}
+    </ul>
+    <div style="max-width: 800px; margin: 32px auto 0;">
+      <iframe id='cliniko-25867357' src='https://meridian-osteopathy.au2.cliniko.com/bookings?practitioner_id={{ member.bookingPractitionerId }}&embedded=true' frameborder='0' scrolling='auto' width='100%' height='1000' style='pointer-events: auto;'></iframe>
+      <script type='text/javascript'>
+        window.addEventListener('message', function handleIFrameMessage (e) {
+          var clinikoBookings = document.getElementById('cliniko-25867357');
+          if (typeof e.data !== 'string') return;
+          if (e.data.search('cliniko-bookings-resize') > -1) {
+            var height = Number(e.data.split(':')[1]);
+            clinikoBookings.style.height = height + 'px';
+          }
+          e.data.search('cliniko-bookings-page') > -1 && clinikoBookings.scrollIntoView();
+        });
+      </script>
+    </div>
+    <p style="max-width: 720px; margin: 32px auto 0; font-size: .95rem;">
+      <a href="/book/">&larr; Book with a different practitioner</a>
+    </p>
+  </div>
+</section>

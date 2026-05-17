@@ -64,7 +64,7 @@
         <div class="profile-booking-info">
           <h4>{{ member.name }}</h4>
           <p class="profile-credentials">{{ member.role | safe }}</p>
-          <a href="/book/" class="btn-book-profile">Book {{ member.firstName }}</a>
+          <a href="/book/{{ member.firstName | lower }}/" class="btn-book-profile">Book {{ member.firstName }}</a>
         </div>
       </div>
     </div>

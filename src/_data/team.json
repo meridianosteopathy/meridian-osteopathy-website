@@ -2,6 +2,7 @@
   "nina": {
     "name": "Na (Nina) Hu",
     "firstName": "Nina",
+    "bookingPractitionerId": "1153474380940974239",
     "role": "Osteopath & Medical Acupuncture",
     "treats": ["Women's health", "TMJ Disorder", "Headaches", "Tennis Elbow", {"text": "Acupuncture for fertility & IVF support", "url": "/services/acupuncture/fertility/"}],
     "photo": "/images/team-nina.jpg",
@@ -26,6 +27,7 @@
   "jonathan": {
     "name": "Jonathan Grice",
     "firstName": "Jonathan",
+    "bookingPractitionerId": "1826011224211462400",
     "role": "Osteopath &amp; Low Level Laser Therapist",
     "treats": ["Musculoskeletal Issues", "Chronic pain", "Lower back pain", "Sciatica"],
     "photo": "/images/team-jonathan.jpg",
@@ -66,6 +68,7 @@
   "maddison": {
     "name": "Maddison Moffat",
     "firstName": "Maddison",
+    "bookingPractitionerId": "1917729597328202196",
     "role": "Osteopath",
     "treats": ["Sports injuries", "Paediatric", "Neck pain", "Pregnancy-related pain"],
     "photo": "/images/team-maddison.jpg",
@@ -106,6 +109,7 @@
   "kaylee": {
     "name": "Kaylee Frost",
     "firstName": "Kaylee",
+    "bookingPractitionerId": "1947461745974975214",
     "role": "Osteopath",
     "treats": ["Musculoskeletal injuries", "Pregnancy & postpartum", "Paediatric", "Headaches", "Jaw pain"],
     "photo": "/images/team-kaylee.jpg",
@@ -147,6 +151,8 @@
   "min": {
     "name": "Min Jin",
     "firstName": "Min",
+    "bookingPractitionerId": "1912696368506345883",
+    "noAcc": true,
     "role": "Acupuncturist",
     "treats": ["Pain", "Women's health", "Digestive Issues", "Sleep Disorder"],
     "photo": "/images/team-min.jpg",

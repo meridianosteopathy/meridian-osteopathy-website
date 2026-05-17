@@ -31,7 +31,7 @@ description: "Christchurch clinic offering osteopathy, acupuncture, dry needling
           <p class="role">{{ p.role | safe }}</p>
         </div>
         <div class="team-card-actions">
-          <a href="/book/">Book {{ p.firstName }}</a>
+          <a href="/book/{{ p.firstName | lower }}/">Book {{ p.firstName }}</a>
           <a href="{{ p.profileUrl }}">View Profile</a>
         </div>
       </div>
