@@ -50,14 +50,14 @@
     ]
   },
   "acupuncture": {
-    "title": "Acupuncture",
+    "title": "Acupuncture & Dry Needling",
     "url": "/services/acupuncture/",
     "heroImage": "/images/hero-acupuncture.jpg",
-    "intro": "Acupuncture at Meridian Osteopathy blends Traditional Chinese Medicine with modern evidence-based practice. Our practitioners treat a wide range of conditions including chronic pain, headaches, stress and anxiety, sleep difficulties, women's health, digestive concerns, and fatigue — supporting your body's natural ability to heal and restore balance. Based in Hillmorton, our clinic welcomes patients from Wigram, Addington, Halswell, Cashmere and across greater Christchurch.",
+    "intro": "Acupuncture at Meridian Osteopathy brings two complementary traditions together under one roof. Min Jin leads our Traditional Chinese Medicine practice — she is registered with the Chinese Medicine Council of New Zealand and works across women's health, fertility, sleep, stress, digestion, and chronic pain through a TCM constitutional lens. Nina Hu leads our Western medical acupuncture and dry needling — she holds a Postgraduate Certificate in Health Science (Acupuncture) and integrates fine-needle technique with osteopathic treatment for trigger-point release, musculoskeletal pain, headaches, and sports-injury recovery. Whichever approach suits you, treatment is gentle, ACC-claimable for accident-related injury, and you can book directly — no referral needed. Based in Hillmorton, our clinic welcomes patients from Wigram, Addington, Halswell, Cashmere and across greater Christchurch.",
     "specialties": [
       {
-        "title": "Pain Relief & Recovery",
-        "description": "Acupuncture is highly effective for both acute and chronic pain. By stimulating specific points on the body, it triggers the release of natural pain-relieving chemicals, reduces inflammation, and improves circulation. Whether you're dealing with back pain, joint issues, headaches, or sports injuries, acupuncture offers a drug-free pathway to lasting relief.",
+        "title": "Pain Relief, Dry Needling & Recovery",
+        "description": "Acupuncture is highly effective for both acute and chronic pain — through Traditional Chinese Medicine point selection, Western dry needling of muscular trigger points, or a blend of both. By stimulating specific points on the body, it triggers the release of natural pain-relieving chemicals, reduces inflammation, and improves circulation. Nina integrates dry needling with osteopathic treatment in the same session for back pain, neck pain, headaches, stubborn muscle spasm, and sports-injury recovery — particularly useful for the upper traps, suboccipitals, glutes, calves, and forearms. Min uses TCM-based acupuncture for chronic pain patterns that benefit from a constitutional approach. Whichever path you take, acupuncture offers a drug-free route to lasting relief.",
         "image": "/images/specialty-acu-pain.jpg",
         "alt": "Close-up of an acupuncturist's hands inserting fine needles into a patient's shoulder"
       },
@@ -94,12 +94,24 @@
         "answer": "Acupuncture is effective for chronic and acute pain, headaches and migraines, stress and anxiety, sleep difficulties, women's health concerns (including menstrual irregularities, fertility, and menopause), digestive complaints, and fatigue. Our practitioners blend traditional Chinese medicine with modern evidence-based approaches."
       },
       {
+        "question": "What's the difference between acupuncture and dry needling?",
+        "answer": "Both use the same fine, sterile, single-use filiform needles, but they are framed differently. Traditional Chinese Medicine acupuncture selects points along meridians based on your overall pattern — sleep, digestion, menstrual cycle, energy, and the presenting complaint together. Dry needling (also called Western medical acupuncture) selects points anatomically — into a specific muscular trigger point, motor point, or peripheral nerve — with the immediate goal of releasing muscle spasm and dampening local pain. At Meridian, Min Jin leads our TCM acupuncture and Nina Hu leads our dry-needling work; you can choose the lens that fits your goal, or we will recommend one at your first visit."
+      },
+      {
+        "question": "Which practitioner should I book — Min or Nina?",
+        "answer": "Book Min Jin if you are seeking Traditional Chinese Medicine — she holds a Bachelor of Acupuncture and Traditional Chinese Medicine, is registered with the Chinese Medicine Council of New Zealand, and works across women's health, fertility, sleep, stress, digestion, and constitutional patterns. Book Nina Hu if you are seeking dry needling or integrated osteopathy + acupuncture for musculoskeletal pain, sports injuries, headaches, or trigger-point release — she holds a Postgraduate Certificate in Health Science (Acupuncture) and treats patients from Hillmorton, serving Halswell, Wigram, Addington and surrounding suburbs. If you are unsure, book either of them and we will redirect within the clinic if a different practitioner is a better fit."
+      },
+      {
         "question": "Can acupuncture help with fertility and IVF?",
         "answer": "Yes. Research supports acupuncture's role in improving ovarian function, regulating hormonal cycles, reducing stress, and enhancing uterine lining receptivity. It can complement both natural conception and assisted reproductive treatments such as IVF."
       },
       {
-        "question": "Is acupuncture covered by ACC?",
-        "answer": "Yes, when treatment is for an accident-related injury. Our acupuncturists are ACC-registered. If you haven't lodged a claim yet, we can help you do so at your first appointment — no referral needed."
+        "question": "Is acupuncture or dry needling covered by ACC?",
+        "answer": "Yes, when treatment is for an accident-related injury. Nina Hu is an ACC-registered osteopath who integrates dry needling within her osteopathic consultations, so a single ACC-subsidised appointment covers both. Our acupuncturists are ACC-registered providers; if you haven't lodged a claim yet, we can help you do so at your first appointment — no referral needed. For non-accident-related care, the private (non-ACC) rate applies."
+      },
+      {
+        "question": "What can I expect at my first dry-needling session?",
+        "answer": "Your first visit starts with a brief history and a physical assessment — Nina will ask about your pain pattern, what aggravates and eases it, your sleep, and any relevant injury history, then check movement, posture, and the muscles she suspects are involved. Treatment typically combines hands-on osteopathic technique with dry needling into specific trigger points: the needle insertion is brief and the most common sensation is a deep ache or muscle twitch that settles within seconds. Sessions are 40–60 minutes. Mild post-treatment soreness for 24–48 hours is normal; gentle movement and hydration help."
       }
     ],
     "fertility": {
