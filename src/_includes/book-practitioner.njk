@@ -14,6 +14,11 @@
       <li>You'll receive an email confirmation immediately after booking.</li>
       {% if not member.noAcc %}{% if member.cannotLodgeAcc %}<li>If your visit relates to an injury covered by ACC, please bring your existing ACC claim number — {{ member.firstName }} can treat you under your active claim. To lodge a new claim, please book one of our osteopaths first.</li>{% else %}<li>If your visit relates to an injury covered by ACC, please bring your ACC claim number if you have one — otherwise our osteopath can lodge a new claim at your first appointment.</li>{% endif %}{% endif %}
     </ul>
+    {% if member.cannotLodgeAcc %}
+    <p style="max-width: 720px; margin: 16px auto 0; font-size: .9rem; font-style: italic; opacity: 0.8;">
+      Note for ACC patients: ACC funds up to 12 acupuncture sessions within a 12-week window from your first appointment with {{ member.firstName }}, and your injury must be less than 12 months old. If you've already used those sessions or the window has closed, {{ member.firstName }} can request additional cover from ACC with clinical evidence.
+    </p>
+    {% endif %}
     <div style="max-width: 800px; margin: 32px auto 0;">
       <iframe id='cliniko-25867357' src='https://meridian-osteopathy.au2.cliniko.com/bookings?practitioner_id={{ member.bookingPractitionerId }}&embedded=true' frameborder='0' scrolling='auto' width='100%' height='1000' style='pointer-events: auto;'></iframe>
       <script type='text/javascript'>
