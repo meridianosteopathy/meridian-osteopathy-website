@@ -26,7 +26,8 @@ collections:
             widget: "object"
             fields:
               - { label: "Hero Title", name: "heroTitle", widget: "string", required: false }
-              - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+              - { label: "Hero Image (desktop)", name: "heroImage", widget: "image", required: false }
+              - { label: "Hero Image (mobile)", name: "heroImageMobile", widget: "image", required: false, hint: "Optional. Shown instead of the desktop hero on small screens." }
           - { label: "Practitioners Intro Text", name: "practitionersIntro", widget: "text" }
           - label: "Practitioners"
             name: "practitioners"
@@ -57,6 +58,15 @@ collections:
               - { label: "Description", name: "description", widget: "string" }
           - { label: "Testimonials Heading", name: "testimonialsHeading", widget: "string" }
           - { label: "Rating Text", name: "testimonialsRating", widget: "string" }
+          - label: "Google Reviews Summary (used in homepage schema markup)"
+            name: "googleReviews"
+            widget: "object"
+            hint: "These values appear in the homepage's structured data so search engines display the aggregate rating. Update after any significant change in Google review count."
+            fields:
+              - { label: "Average Rating", name: "ratingValue", widget: "string", hint: "e.g. 4.9" }
+              - { label: "Total Review Count", name: "reviewCount", widget: "string", hint: "e.g. 65" }
+              - { label: "Best Possible Rating", name: "bestRating", widget: "string", default: "5" }
+              - { label: "Worst Possible Rating", name: "worstRating", widget: "string", default: "1" }
           - label: "Testimonials"
             name: "testimonials"
             widget: "list"
@@ -196,7 +206,13 @@ collections:
               - { label: "First Name (for Book button)", name: "firstName", widget: "string" }
               - { label: "Role", name: "role", widget: "string" }
               - { label: "Photo", name: "photo", widget: "image" }
+              - { label: "Photo Alt Text", name: "photoAlt", widget: "string", hint: "Describes the photo for screen readers and SEO." }
               - { label: "Lifestyle Image", name: "lifestyleImage", widget: "image", required: false }
+              - label: "What I Treat (pill list)"
+                name: "treats"
+                widget: "list"
+                field: { label: "Pill", name: "text", widget: "string" }
+                hint: "Each entry becomes a pill under \"What I Treat\" on the profile. For linked pills (e.g. pointing to a service page) edit team.json directly."
               - { label: "Qualifications & Background", name: "qualifications", widget: "text" }
               - { label: "Treatment Approach", name: "approach", widget: "text" }
               - { label: "Special Interests", name: "specialInterests", widget: "text" }
@@ -209,7 +225,13 @@ collections:
               - { label: "First Name", name: "firstName", widget: "string" }
               - { label: "Role", name: "role", widget: "string" }
               - { label: "Photo", name: "photo", widget: "image" }
+              - { label: "Photo Alt Text", name: "photoAlt", widget: "string", hint: "Describes the photo for screen readers and SEO." }
               - { label: "Lifestyle Image", name: "lifestyleImage", widget: "image", required: false }
+              - label: "What I Treat (pill list)"
+                name: "treats"
+                widget: "list"
+                field: { label: "Pill", name: "text", widget: "string" }
+                hint: "Each entry becomes a pill under \"What I Treat\" on the profile."
               - { label: "Qualifications & Background", name: "qualifications", widget: "text" }
               - { label: "Treatment Approach", name: "approach", widget: "text" }
               - { label: "Special Interests", name: "specialInterests", widget: "text" }
@@ -222,7 +244,32 @@ collections:
               - { label: "First Name", name: "firstName", widget: "string" }
               - { label: "Role", name: "role", widget: "string" }
               - { label: "Photo", name: "photo", widget: "image" }
+              - { label: "Photo Alt Text", name: "photoAlt", widget: "string", hint: "Describes the photo for screen readers and SEO." }
               - { label: "Lifestyle Image", name: "lifestyleImage", widget: "image", required: false }
+              - label: "What I Treat (pill list)"
+                name: "treats"
+                widget: "list"
+                field: { label: "Pill", name: "text", widget: "string" }
+                hint: "Each entry becomes a pill under \"What I Treat\" on the profile."
+              - { label: "Qualifications & Background", name: "qualifications", widget: "text" }
+              - { label: "Treatment Approach", name: "approach", widget: "text" }
+              - { label: "Special Interests", name: "specialInterests", widget: "text" }
+              - { label: "About Me", name: "aboutMe", widget: "text" }
+          - label: "Kaylee Frost"
+            name: "kaylee"
+            widget: "object"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "First Name", name: "firstName", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Photo", name: "photo", widget: "image" }
+              - { label: "Photo Alt Text", name: "photoAlt", widget: "string", hint: "Describes the photo for screen readers and SEO." }
+              - { label: "Lifestyle Image", name: "lifestyleImage", widget: "image", required: false }
+              - label: "What I Treat (pill list)"
+                name: "treats"
+                widget: "list"
+                field: { label: "Pill", name: "text", widget: "string" }
+                hint: "Each entry becomes a pill under \"What I Treat\" on the profile."
               - { label: "Qualifications & Background", name: "qualifications", widget: "text" }
               - { label: "Treatment Approach", name: "approach", widget: "text" }
               - { label: "Special Interests", name: "specialInterests", widget: "text" }
@@ -235,7 +282,13 @@ collections:
               - { label: "First Name", name: "firstName", widget: "string" }
               - { label: "Role", name: "role", widget: "string" }
               - { label: "Photo", name: "photo", widget: "image" }
+              - { label: "Photo Alt Text", name: "photoAlt", widget: "string", hint: "Describes the photo for screen readers and SEO." }
               - { label: "Lifestyle Image", name: "lifestyleImage", widget: "image", required: false }
+              - label: "What I Treat (pill list)"
+                name: "treats"
+                widget: "list"
+                field: { label: "Pill", name: "text", widget: "string" }
+                hint: "Each entry becomes a pill under \"What I Treat\" on the profile."
               - { label: "Qualifications & Background", name: "qualifications", widget: "text" }
               - { label: "Treatment Approach", name: "approach", widget: "text" }
               - { label: "Special Interests", name: "specialInterests", widget: "text" }
