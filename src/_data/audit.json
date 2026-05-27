@@ -1,14 +1,14 @@
 {
   "meta": {
-    "reportDate": "2026-05-15",
+    "reportDate": "2026-05-22",
     "schemaVersion": 1,
-    "lastUpdated": "2026-05-15",
+    "lastUpdated": "2026-05-22",
     "generatedBy": "weekly-routine"
   },
   "tldr": [
-    "Three items shipped this run (#28, #29, #30) via PR #71 (which bundled PRs #68/#69/#70). #28 (image alt text rewritten descriptive-not-titular across team profiles, condition pages, and service pages) closes G14. #29 (Hillmorton + Wigram + Addington + Halswell + Cashmere now appear in flowing intro copy on every service page in services.json, not just the footer line) closes G22. #30 (a 'Conditions we commonly treat' block on the osteopathy service page linking all six condition pages, plus a matching 'Common conditions we treat' section on the homepage) closes G23. Two further non-punch-list improvements also shipped: PR #72 made /book/ AI-citable with a ReserveAction schema + visible intro content (relevant for ChatGPT-driven booking flows now that Perplexity Health launched 2026-03-19 with first-party EHR integration), and PR #73 added explicit www → apex 301 redirects in netlify.toml so Google consolidates link equity onto the canonical apex domain. PR #74 added Kaylee Frost as a new practitioner (sixth team member).",
-    "Search visibility: 31 queries re-checked against live SERPs on 2026-05-15. Meridian still absent from every visible top 10 — same pattern as the previous five runs. Per the priority-decay rule, every checked query lost 10 points (e.g. 'osteopath christchurch' 60→50, 'osteopath halswell' 55→45, 'acupuncture christchurch' 55→45). Notable shifts vs 2026-05-08: 'dry needling halswell' regained an NZ player (Elite Physiotherapy Halswell back in top 5 vs gone last week) — the suburb+modality SERP is now partially contested again. 'osteopath addington' lost its only NZ player (Performance Plus disappeared) so the SERP is now fully UK-only — same hollow-SERP pattern as 'osteopath wigram' which remains uncontested. 'osteopath hillmorton' is STILL all-UK results — even after #29 added Hillmorton to flowing intro copy, Google hasn't re-indexed yet (re-check next run). The four condition pages from item #10 are now 4-5 weeks post-ship and STILL not surfacing for their target queries; #30 (cross-links from osteopathy intro + homepage) shipped 2026-05-10, so we'll know in 1-2 runs whether the internal-link surface accelerated indexing.",
-    "Backlog after this run: 8 items pending (#12, #13, #14, #15, #16, #17, #25, #31). Tier 1 → just #17 (dry-needling sub-page). Tier 2 → #12, #13, #25, #31. Tier 3 → #14, #15, #16. One new item added (#31, citation-ready opening pattern audit) addressing new gap G24. Closed gaps: G14 (alt text), G22 (suburb signals), G23 (cross-linking). Remaining gaps: G7 (only ACC landing remains under #25), G8 (no blog), G15 (no Reddit citations), G16 (no Western-framed dry-needling URL), G24 (intros don't open with a citation-ready 40–60 word direct answer)."
+    "Two punch-list items shipped this run (#17, #31) plus a wave of non-audit improvements. #17 closed G16 — but with a revised shape: instead of a separate /services/acupuncture/dry-needling/ sub-page (the original spec), PR #78 renamed the parent /services/medical-acupuncture/ service to 'Acupuncture & Dry Needling' across nav, homepage card, JSON-LD, breadcrumbs and inter-service cards; Min Jin is positioned as the TCM lead, Nina Hu as the Western medical acupuncture / dry needling lead; new FAQ entries cover acupuncture-vs-dry-needling, which practitioner to book, and what to expect at a first dry-needling session. #31 closed G24 — PR #77 rewrote every condition AND every service intro to open with a 40–60 word citation-ready direct answer ('Back pain treatment at Meridian Osteopathy in Christchurch combines …'), then keeps the existing evidence-informed prose as the second paragraph. Non-audit improvements: PRs #80/#81 added per-practitioner booking pages with Cliniko pre-targeted (each practitioner gets their own /book/<slug>/ URL), homepage practitioner cards now point at those specific pages, and PR #82 distinguished Min's ACC eligibility (registered to treat, doesn't lodge claims) from Nina's (registered osteopath who lodges claims and integrates dry needling within ACC-subsidised consultations). PRs #84-#93 covered Kaylee Frost's team photo (multiple iterations + colour correction + optimisation) and PR #91 filled the /admin Decap CMS coverage gaps so all editable content blocks now have CMS controls.",
+    "Search visibility: 38 queries re-checked against live SERPs on 2026-05-22. **First-ever Meridian ranking in any tracked top 10 — meridianosteopathy.co.nz now sits at position 5 for 'osteopath vs physiotherapist christchurch'** (non-aggregator rank, between christchurchosteopath.co.nz and 13thbeachhealthservices.com.au). Almost certainly Google blending our homepage into the comparison-intent query rather than a content-led win — we don't have a dedicated /osteopath-vs-physio/ page, but the homepage's broadened title (now 'Osteopathy, Acupuncture, Dry Needling & Herbal Medicine in Christchurch' after PR #78) plus the apex-domain consolidation from PR #73 and the citation-ready intros from #31/#77 are starting to register. Priority preserved at 30 per the 4-10 rank rule. Every other tracked query stayed absent from top 10, so the standard -10 decay applies to the remaining 37. Notable shifts vs 2026-05-15: chchacupuncture.co.nz reclaimed #1 for 'acupuncture christchurch' (was outside top 5 last week, thehouseofacupuncture had held #1); 'osteopath hillmorton' is STILL all-UK results (winchmore-osteopaths.co.uk, bostonosteopathichealth.com, hillsosteopath.com, fionarobertson.net) 12 days after item #29 added Hillmorton to flowing intro copy — indexing lag continues; 'osteopath wigram' and 'osteopath addington' also remain hollow on the NZ side. Two new queries got first-time checks this run ('whiplash osteopath christchurch', 'concussion osteopath christchurch') — both currently dominated by Triskelion-family clinics (triskelionosteopathy.co.nz, triskelionconcussioncare.co.nz) plus Better Health and osteo.co.nz/concussion/. Three new derived queries added to the pool ('post concussion osteopath christchurch', 'lower back pain christchurch', 'tennis elbow osteopath christchurch') — last one tracks Nina's recently-added What I Treat tag.",
+    "Backlog after this run: 7 items pending (#12, #13, #14, #15, #16, #25, #32). Tier 1 → none. Tier 2 → #12, #13, #25, #32. Tier 3 → #14, #15, #16. One new item added (#32 — /conditions/concussion/ page mirroring the existing condition-page pattern; triskelionconcussioncare.co.nz + osteo.co.nz/concussion/ + triskelionosteopathy.co.nz/concussion/ own that SERP, HeadWise and Better Health also surface). Closed gaps: G16 (Acupuncture & Dry Needling rename gives us an indexable URL targeting Western dry-needling intent), G24 (citation-ready intros shipped). Remaining gaps: G7 (no ACC landing — under #25), G8 (no blog — under #14), G15 (no Reddit citations — under #15). Industry signal this week: AI Overviews now trigger on 88% of healthcare queries (up from 72% in 2024) per BrightEdge / Healthcare Success May-2026 data, and ClaudeBot crawl volume grew 800% at the start of 2026 — our explicit allow-list in robots.txt and the now-shipping citation-ready intros position us to benefit if/when our condition pages get indexed."
   ],
   "alreadyShipped": [
     "llms.txt and llms-full.txt auto-generated from site data",
@@ -42,33 +42,29 @@
     "Hillmorton + Wigram + Addington + Halswell + Cashmere now appear in flowing intro copy on every service page in services.json (osteopathy, acupuncture, herbal medicine), not just the site-wide footer line. Closes G22 (item #29, PR #68 / bundled in #71)",
     "'Conditions we commonly treat' block added to the osteopathy service page linking all six condition pages (back-pain, neck-pain, sciatica, headaches-migraines, pregnancy-back-pain, sports-injury-recovery), plus a matching 'Common conditions we treat' section on the homepage with high-intent button links — gives the condition pages an internal-link surface beyond the nav dropdown so Google can pass relevance signals to them. Closes G23 (item #30, PR #69 / bundled in #71)",
     "/book/ page made AI-citable — added ReserveAction schema and visible intro content so ChatGPT / Perplexity / Gemini can recommend it as a booking action, not just an interstitial. Especially relevant after Perplexity Health launched 2026-03-19 with EHR integration, since AI assistants are increasingly handling the appointment-booking step (PR #72)",
-    "Explicit www → apex 301 redirects added in netlify.toml — Google now consolidates link equity onto the canonical meridianosteopathy.co.nz apex domain rather than splitting it between www and apex variants (PR #73)"
+    "Explicit www → apex 301 redirects added in netlify.toml — Google now consolidates link equity onto the canonical meridianosteopathy.co.nz apex domain rather than splitting it between www and apex variants (PR #73)",
+    "/services/medical-acupuncture/ renamed to 'Acupuncture & Dry Needling' across nav, homepage card, JSON-LD, breadcrumbs and inter-service cards; Min Jin positioned as TCM lead and Nina Hu as Western medical acupuncture / dry needling lead; new FAQ entries on acupuncture-vs-dry-needling, which practitioner to book, and what to expect at a first dry-needling session. Implementation diverged from the original spec (which had been a separate /services/acupuncture/dry-needling/ sub-page) — the rename achieves the same G16 goal of one indexable URL targeting Western dry-needling intent, without splitting authority across two pages. Closes G16 (item #17, PR #78)",
+    "Every condition page (back-pain, neck-pain, sciatica, headaches-migraines, pregnancy-back-pain, sports-injury-recovery) and every service page (osteopathy, acupuncture, herbal-medicine) now opens with a 40–60 word citation-ready direct answer in the 'X treatment at Meridian Osteopathy in Christchurch …' format, followed by the existing evidence-informed prose as the second paragraph onward. The answer-leading sentence also becomes the first sentence of the MedicalCondition / Service JSON-LD description field, so it propagates to AI-citation crawlers. Closes G24 (item #31, PR #77)",
+    "Per-practitioner booking pages added — each practitioner now has their own /book/<slug>/ URL with Cliniko pre-targeted to their calendar (no more landing on the generic 'select a practitioner' page after a homepage card click); homepage practitioner cards repointed at the matching per-practitioner /book/ page. Reduces clicks from 'pick a practitioner' to 'pick a time' from 3 to 1 (PRs #80, #81)",
+    "Min Jin's ACC eligibility correctly distinguished from Nina Hu's across acupuncture pages and per-practitioner booking pages — Nina is an ACC-registered osteopath who lodges claims in clinic and integrates dry needling within ACC-subsidised consultations; Min is registered to treat as an ACC acupuncture provider but does not lodge new claims herself. Wording on /book/min-jin/ adjusted accordingly (PR #82)",
+    "Kaylee Frost team photo updated, colour-corrected, and optimised across multiple iterations (PRs #86, #88, #90, #93)",
+    "/admin Decap CMS coverage gaps filled — all editable content blocks on the live site now have corresponding CMS controls so the clinic can self-serve copy updates without code changes (PR #91)"
   ],
   "gaps": [
     {
       "id": "G7",
       "title": "No ACC landing page",
-      "why": "Neck-pain and back-pain condition pages now ship (items #22, #23 closed). The remaining piece of G7 is a single indexable /acc/ URL — osteo.co.nz still owns 'osteopath acc christchurch' and we have ACC mentions scattered across the site but no canonical landing. Scoped under item #25."
+      "why": "Neck-pain and back-pain condition pages now ship (items #22, #23 closed). The remaining piece of G7 is a single indexable /acc/ URL — osteo.co.nz still owns 'osteopath acc christchurch' and we have ACC mentions scattered across the site but no canonical landing. Reinforced 2026-05-22: thehouseofacupuncture.co.nz/our-services/acc-acupuncture-chistchurch still owns 'acupuncture acc christchurch' for the same structural reason. Scoped under item #25."
     },
     {
       "id": "G8",
       "title": "No blog / editorial content",
-      "why": "Freshness cliff at ~3 months. April-2026 industry data: 76.4% of ChatGPT's top-cited pages were updated within 30 days, 50% of Perplexity citations come from content less than 13 weeks old. osteopath-christchurch.com is winning headache/migraine/cranial/baby-osteo queries on blog-post velocity — 1 short post per condition is enough to claim those niches. MK Osteopathy is doing the same for TMJ. May-2026 BrightEdge data confirms the pattern is hardening: AI Overviews now trigger on 80%+ of healthcare queries, with cited brands earning 35% more clicks and AI visitors converting 4.4× higher than organic."
+      "why": "Freshness cliff at ~3 months. April-2026 industry data: 76.4% of ChatGPT's top-cited pages were updated within 30 days, 50% of Perplexity citations come from content less than 13 weeks old. osteopath-christchurch.com is winning headache/migraine/cranial/baby-osteo queries on blog-post velocity — 1 short post per condition is enough to claim those niches. MK Osteopathy is doing the same for TMJ. May-2026 BrightEdge / Healthcare Success data confirms the pattern is hardening: AI Overviews now trigger on 88% of healthcare queries (up from 72% in 2024), with cited brands earning 35% more clicks and AI visitors converting 4.4× higher than organic. Reinforced 2026-05-22: osteopath-christchurch.com is still publishing fresh dated posts (most recent: 'Cranial Osteopathy for Fatigue and Recovery in Older Adults' dated 2026-04-02) and continues to surface across cranial / migraine / baby / arthritis / stress queries."
     },
     {
       "id": "G15",
       "title": "No off-site citation strategy",
-      "why": "Reddit appears in ~47% of Perplexity citations and ~5% of ChatGPT citations (May 2026 CMSWire/Conductor data). Reddit is the second most visible website in Google search results in 2026 (only Wikipedia ahead) and is now the most-cited domain across all major AI models — 450% growth in AI-overview citations year-on-year. Item #15 still applies."
-    },
-    {
-      "id": "G16",
-      "title": "No Western-framed dry-needling landing URL",
-      "why": "The gap isn't that the acupuncture page leads with TCM (that's correct framing for our existing patient base), it's that we have NO indexable URL targeting the Western-medical / dry-needling intent at all. 'dry needling christchurch' is still 100% physio-owned (Fixed Physio, Muscle People, Physiosouth, Physio NZ, Koru Therapies). Item #17 adds a sibling sub-page (mirror of /services/acupuncture/fertility/) rather than reframing the parent page."
-    },
-    {
-      "id": "G24",
-      "title": "Service + condition intros don't open with a citation-ready 40–60 word direct answer",
-      "why": "May 2026 healthcare AEO/GEO research is consistent on this: ChatGPT, Perplexity and Google AI Overviews preferentially cite content that opens with a direct, concise answer to the query intent in the first 40-60 words, then expands with supporting context. Our current intros open with topic-framing rather than answer-leading copy — e.g. /conditions/back-pain/ opens 'Back pain is the most common reason people see an osteopath, and one of the most common reasons people miss work, sleep, sport, and time with their families.' Informative, but not answer-leading. A citation-ready rewrite would open 'Back pain treatment at Meridian Osteopathy in Christchurch combines hands-on assessment, manual therapy, and movement-based recovery — most cases respond well to 3–6 sessions, ACC-funded, no referral required.' Then the existing prose can continue. Same pattern applies to every service intro. Addressed by item #31."
+      "why": "Reddit appears in ~47% of Perplexity citations and ~5% of ChatGPT citations (May 2026 CMSWire/Conductor data). Reddit is the second most visible website in Google search results in 2026 (only Wikipedia ahead) and is now the most-cited domain across all major AI models. Tinuiti's Q1 2026 AI Citations Trends Report shows social-media share of AI citations climbed past 9% Oct-2025 → Jan-2026, with Reddit accounting for the dominant share of that growth across nine product categories. ClaudeBot crawl volume grew 800% at the start of 2026 as Anthropic scaled its web search API — Reddit citations are increasingly the path into Claude's answers too, not just Perplexity's. Item #15 still applies."
     }
   ],
   "items": [
@@ -81,7 +77,7 @@
       "files": [
         "src/services/*.njk"
       ],
-      "body": "Add schema.org speakable specification on service intro paragraphs for voice assistants / Gemini Live.",
+      "body": "Add schema.org speakable specification on service intro paragraphs for voice assistants / Gemini Live. With the citation-ready 40–60 word answers now in place (item #31 shipped 2026-05-17), wrapping them in a speakable block is the natural follow-up — gives voice assistants a single span to read aloud rather than guessing.",
       "addresses": [
         "G7"
       ],
@@ -98,7 +94,7 @@
         "src/_data/reviews.js",
         "a build-time fetch script"
       ],
-      "body": "So reviewCount / ratingValue stay current without manual edits. Build script hits Places API with a 24h cache. Reinforced this week: post-March-2026 Google update weights review recency more heavily than raw count.",
+      "body": "So reviewCount / ratingValue stay current without manual edits. Build script hits Places API with a 24h cache. Reinforced this week: post-March-2026 Google update weights review recency more heavily than raw count; GBP is the primary data source for AI-driven local search results per May-2026 PinMeTo / MedRankSEO data.",
       "addresses": [],
       "firstSeen": "2026-04-22"
     },
@@ -112,7 +108,7 @@
         "src/blog/",
         "Decap CMS collection config"
       ],
-      "body": "Short evidence-based articles per condition. Each post: author byline with Physician schema, datePublished, dateModified, 3–5 FAQs. Ahrefs analysis of 17M AI citations (April 2026) found AI-cited content is 25.7% fresher than traditional Google organic results — 76.4% of ChatGPT's top-cited pages were updated within the last 30 days. Freshness compounds. Confirmed again 2026-05-15: osteopath-christchurch.com still owns headaches/cranial/baby/teeth-grinding queries on the strength of one short blog post per condition; MK Osteopathy still owns the TMJ slot the same way. Per BrightEdge May-2026 data, AI Overviews now trigger on 80%+ of healthcare queries — the freshness signal feeds directly into AI Overview citation eligibility.",
+      "body": "Short evidence-based articles per condition. Each post: author byline with Physician schema, datePublished, dateModified, 3–5 FAQs. Ahrefs analysis of 17M AI citations (April 2026) found AI-cited content is 25.7% fresher than traditional Google organic results — 76.4% of ChatGPT's top-cited pages were updated within the last 30 days. Freshness compounds. Confirmed again 2026-05-22: osteopath-christchurch.com still owns headaches/cranial/baby/teeth-grinding/stress/arthritis queries on the strength of one short blog post per condition (most recent post dated 2026-04-02); MK Osteopathy still owns the TMJ slot the same way. Per BrightEdge May-2026 data, AI Overviews now trigger on 88% of healthcare queries (up from 72% in 2024) — the freshness signal feeds directly into AI Overview citation eligibility. With /admin CMS coverage now filled (PR #91), the editorial path is shorter than it was — adding a Decap blog collection would let the clinic publish without code changes.",
       "addresses": [
         "G8"
       ],
@@ -127,7 +123,7 @@
       "files": [
         "(marketing — no repo changes)"
       ],
-      "body": "Genuine, non-spammy answers on r/newzealand / r/chch / r/AskNZ threads about osteopathy, ACC claims, back pain. Reddit is now ~47% of Perplexity citations and ~5% of ChatGPT citations across major AI platforms (May 2026 Conductor / CMSWire data) and the second most visible site in Google results overall (Wikipedia first). 90/10 rule: 90% non-promotional, 2–4 weeks of karma-building before any mention of Meridian.",
+      "body": "Genuine, non-spammy answers on r/newzealand / r/chch / r/AskNZ threads about osteopathy, ACC claims, back pain. Reddit is now ~47% of Perplexity citations and ~5% of ChatGPT citations across major AI platforms (May 2026 Conductor / CMSWire data) and the second most visible site in Google results overall (Wikipedia first). Tinuiti Q1 2026 data: social-media share of AI citations climbed past 9% Oct-2025 → Jan-2026 with Reddit accounting for the dominant share of that growth. ClaudeBot scaled 800% at start of 2026 — Reddit is increasingly the path into Claude's answers too. 90/10 rule: 90% non-promotional, 2–4 weeks of karma-building before any mention of Meridian.",
       "addresses": [
         "G15"
       ],
@@ -142,25 +138,9 @@
       "files": [
         "netlify/functions/*"
       ],
-      "body": "Post-consultation email nudge via Resend (already wired). AI engines prefer reviews under 12 months old. Reinforced 2026-05-02: Google's March 2026 core update now weights review recency AND owner response rate more heavily than raw count. Healthcare best-practice = at least 1 new review/week.",
+      "body": "Post-consultation email nudge via Resend (already wired). AI engines prefer reviews under 12 months old. Reinforced 2026-05-02: Google's March 2026 core update now weights review recency AND owner response rate more heavily than raw count. Healthcare best-practice = at least 1 new review/week. May-2026 PinMeTo data: GBP is the primary data source for AI-driven local search across Google AI Overviews, ChatGPT and Perplexity location queries.",
       "addresses": [],
       "firstSeen": "2026-04-22"
-    },
-    {
-      "n": 17,
-      "tier": 1,
-      "impact": "H",
-      "effort": "S",
-      "title": "Add /services/acupuncture/dry-needling/ sub-page (Western framing) — keep main acupuncture page TCM-first",
-      "files": [
-        "src/services/acupuncture/dry-needling.njk",
-        "src/_data/services.json"
-      ],
-      "body": "REVISED 2026-05-10 per owner feedback: the original framing (reframe the main acupuncture page to lead with Western medical / dry needling) would alienate existing TCM patients who book Nina specifically for Traditional Chinese Medicine. Instead, mirror the pattern already shipped at /services/acupuncture/fertility/: keep the parent /services/medical-acupuncture/ page TCM-first as it is today, and add a sibling sub-page /services/acupuncture/dry-needling/ that leads with 'Medical acupuncture / dry needling — Western evidence-based technique for trigger-point and musculoskeletal pain'. Two indexable URLs, each surfacing for its own intent, no compromise on TCM identity. Sub-page should: (a) name Nina's Postgraduate Certificate in Health Science (Acupuncture) in the first paragraph — exact credential ChatGPT told users to look for; (b) explicitly mention Halswell so Google has local content to surface (the Halswell+modality SERP is empty of NZ content most weeks — Elite Physio Halswell flickered in/out across the last 3 runs); (c) carry a MedicalTherapy schema linking back to the parent acupuncture #service; (d) include a FAQPage block on dry-needling-vs-acupuncture, ACC status, and what to expect. Why this is now the better shape: the existing fertility sub-page already proves the pattern works in our build, and 'dry needling christchurch' is still 100% physio-owned (Muscle People, Fixed Physio, Physiosouth, Physio NZ, Koru Therapies) so a dedicated landing URL is the smallest defensible move. Effort stays S — small templated page mirroring the fertility sub-page.",
-      "addresses": [
-        "G16"
-      ],
-      "firstSeen": "2026-04-24"
     },
     {
       "n": 25,
@@ -172,27 +152,25 @@
         "src/acc.njk",
         "src/_includes/header.njk"
       ],
-      "body": "osteo.co.nz has a dedicated ACC landing page that wins this query (confirmed again 2026-05-15). We already have the ACC pricing row in services.json and scattered ACC mentions, but no single indexable /acc/ URL. Build a short page (~500 words) explaining ACC-funded treatment at Meridian, the current ACC rate, no referral required, how to lodge a claim, and link out to both service pages and a booking CTA. Low-effort content fix.",
+      "body": "osteo.co.nz has a dedicated ACC landing page that wins this query (confirmed again 2026-05-22). We already have the ACC pricing row in services.json and scattered ACC mentions, but no single indexable /acc/ URL. Same gap reinforces 'acupuncture acc christchurch' (thehouseofacupuncture.co.nz/our-services/acc-acupuncture-chistchurch owns that one for the same structural reason). Build a short page (~500 words) explaining ACC-funded treatment at Meridian, the current ACC rate, no referral required, who lodges the claim (Nina, our osteopath; Min for acupuncture-specific claims), how to lodge, and link out to both service pages and a booking CTA. Low-effort content fix.",
       "addresses": [
         "G7"
       ],
       "firstSeen": "2026-04-24"
     },
     {
-      "n": 31,
+      "n": 32,
       "tier": 2,
       "impact": "M",
       "effort": "S",
-      "title": "Rewrite condition + service intros with a citation-ready 40–60 word direct answer first",
+      "title": "Add /conditions/concussion/ page — Triskelion Concussion Care owns 'concussion osteopath christchurch'",
       "files": [
-        "src/_data/conditions.json",
-        "src/_data/services.json"
+        "src/conditions/concussion.njk",
+        "src/_data/conditions.json"
       ],
-      "body": "May 2026 healthcare AEO/GEO research (ALM Corp, Conductor, BrightEdge, RankVed, Sapt) converges on the same opening pattern for AI-citation-eligible content: lead with a direct, concise answer to the query intent in the first 40-60 words, then expand with supporting context. AI Overviews now trigger on 80%+ of healthcare queries and cited brands earn 35% more clicks (4.4× higher conversion vs organic). Our intros currently open with topic-framing — sample: /conditions/back-pain/ opens 'Back pain is the most common reason people see an osteopath, and one of the most common reasons people miss work, sleep, sport, and time with their families.' That's good prose but it's not answer-leading. The fix is small: rewrite the first 40-60 words of every condition intro AND every service intro in services.json to lead with 'X treatment at Meridian Osteopathy in Christchurch …' format, then keep the existing copy as the second paragraph onward. Same approach for /conditions/* (back-pain, neck-pain, sciatica, headaches-migraines, pregnancy-back-pain, sports-injury-recovery) and /services/* (osteopathy, medical-acupuncture, herbal-medicine, acupuncture/fertility). 10 intros × ~30 words rewritten = under an hour of editor time. Keeps the existing evidence-informed prose intact; just front-loads the answer.",
-      "addresses": [
-        "G24"
-      ],
-      "firstSeen": "2026-05-15"
+      "body": "First check 2026-05-22 of 'concussion osteopath christchurch' shows triskelionconcussioncare.co.nz at #1, osteo.co.nz/concussion/ at #2, triskelionosteopathy.co.nz/concussion/ at #3; HeadWise (headwise.co.nz/who-we-are/andy-gibson) and Better Health (anastasia-mcpherson-osteopath-christchurch) also rank in the top 10, and Russell Johns at Moorhouse Osteopathic Centre is named explicitly in the AI summary. Concussion is high-value, ACC-adjacent injury content (post-concussion symptoms — headaches, dizziness, fatigue, brain fog — overlap directly with the headache/migraine and neck pain conditions we already treat) and a single-condition specialist site (Triskelion Concussion Care) is currently the strongest competitor. The smallest fix is a /conditions/concussion/ page that mirrors the existing condition-page pattern (sciatica, neck-pain, back-pain, headaches-migraines, pregnancy-back-pain, sports-injury-recovery): MedicalCondition + FAQPage schema, 40–60 word citation-ready intro (per #31's pattern), acute-vs-chronic / when-to-seek-urgent-care / ACC eligibility / how osteopathy fits / book-now sections. Add a corresponding entry to conditions.json and a tile in the homepage 'Common conditions we treat' grid. Page exists pattern to copy; effort S.",
+      "addresses": [],
+      "firstSeen": "2026-05-22"
     }
   ]
 }
