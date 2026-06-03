@@ -30,6 +30,22 @@ updated: 2026-05-10
   </div>
 </section>
 
+{% if c.lists %}
+<!-- Structured lists: common signs, when to see, first appointment -->
+<section class="section">
+  <div class="container legal-content" style="max-width: 760px;">
+    {% for list in c.lists %}
+    <h2>{{ list.title }}</h2>
+    <ul>
+      {% for item in list.items %}
+      <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
 <!-- FAQ -->
 <section class="section section-light">
   <div class="container" style="max-width: 820px;">

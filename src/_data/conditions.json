@@ -48,6 +48,44 @@
       ],
       "cta": "These can signal a serious condition (such as cauda equina syndrome, a fracture, or infection) that needs immediate specialist care. If you are unsure but worried, err on the side of being seen — it is always better to check and find nothing than to miss something that needs urgent care."
     },
+    "lists": [
+      {
+        "title": "Common signs of back pain",
+        "items": [
+          "Aching, stiffness, or sharp pain across the lower back that worsens with prolonged sitting, lifting, or rolling in bed",
+          "Pain that radiates into the buttock, hip, or down the leg, sometimes with pins-and-needles or numbness",
+          "Difficulty straightening up after rest, or a back that feels locked first thing in the morning",
+          "Muscle spasm or guarding around the spine that limits bending, twisting, or reaching forward",
+          "Recurring episodes triggered by lifting, sneezing, coughing, or a sudden change in posture",
+          "Pain that eases with gentle movement and worsens after long periods in one position",
+          "A general sense of lower-back fatigue, weakness, or instability when carrying loads or climbing stairs"
+        ]
+      },
+      {
+        "title": "When to see an osteopath for back pain",
+        "items": [
+          "Back pain has lasted longer than a week without clear improvement from rest and simple pain relief",
+          "Pain started after a specific lift, fall, twist, or sporting incident that you want assessed under ACC",
+          "Back pain keeps returning every few weeks or months despite your best self-care attempts",
+          "Pain is interfering with sleep, work, exercise, or your ability to lift the children",
+          "You feel stiff, guarded, or afraid to move normally and want clear guidance on what is safe",
+          "Pregnancy, postnatal recovery, or recent surgery is changing how your back tolerates daily loads",
+          "Previous back episodes are starting to merge into a longer, more persistent pattern"
+        ]
+      },
+      {
+        "title": "What to expect at your first appointment",
+        "items": [
+          "A full case history covering onset, aggravating factors, past episodes, general health, and any imaging you have had",
+          "A movement and orthopaedic assessment of the spine, pelvis, hips, and lower limbs to localise the driver",
+          "A clear explanation of what is likely going on, in plain language, with diagrams where that helps",
+          "Hands-on treatment — joint mobilisation, soft tissue release, and gentle manipulation where appropriate and consented",
+          "Two to four tailored exercises plus clear advice on activity, posture, sleep position, and pacing",
+          "An ACC claim lodged in clinic if your back pain is linked to a specific accident or injury event",
+          "A realistic treatment plan with expected number of sessions, review points, and onward referral criteria"
+        ]
+      }
+    ],
     "faq": [
       {
         "question": "What causes back pain?",
@@ -97,6 +135,44 @@
       "url": "/services/osteopathy/"
     },
     "relatedServiceBlurb": "At Meridian Osteopathy we treat sciatica with a combination of hands-on osteopathic techniques — gentle joint articulation, soft tissue release around the lumbar spine and gluteal muscles, and mobility work — alongside targeted exercises you can do between sessions. Where it helps, your practitioner can integrate Western medical acupuncture (dry needling) into the same session — particularly useful for stubborn gluteal or piriformis muscle spasm and for calming an irritated nerve. Our osteopaths are ACC-registered, so if your sciatica started with an injury, treatment is subsidised. You don't need a referral.",
+    "lists": [
+      {
+        "title": "Common signs of sciatica",
+        "items": [
+          "Sharp, burning, or electric pain that travels from the lower back through the buttock and down the leg",
+          "Pins-and-needles, numbness, or tingling along the back of the leg, calf, or into the foot",
+          "Pain that worsens when sitting, driving, or standing up after a period of rest",
+          "A pulling or aching feeling along the back of the thigh that intensifies when you bend forward",
+          "Weakness in the leg or foot — difficulty pushing off, walking on toes, or lifting the foot clear",
+          "Symptoms that flare with coughing, sneezing, or straining, then ease with walking or lying flat",
+          "Pain that follows a clear stripe down one leg rather than wrapping around the whole limb"
+        ]
+      },
+      {
+        "title": "When to see an osteopath for sciatica",
+        "items": [
+          "Sciatic pain has lasted longer than a week or is making sitting, driving, and sleep difficult",
+          "The pain started after a specific lift, fall, or twist that you want assessed under ACC",
+          "Symptoms are recurring or have flared multiple times in the past year",
+          "Pregnancy, prolonged desk work, or a recent change in training is loading the lower back differently",
+          "You have ongoing pins-and-needles or mild weakness but no red-flag symptoms (see below)",
+          "Painkillers and rest alone are not shifting the pattern within the first 7–10 days",
+          "You want a clear diagnosis, a plan, and exercises that will not flare the nerve further"
+        ]
+      },
+      {
+        "title": "What to expect at your first appointment",
+        "items": [
+          "A detailed history of the pain — onset, pattern, what helps, what flares it, and any leg symptoms",
+          "A neurological screen — reflexes, sensation, and strength in the legs and feet to check the nerve root",
+          "Movement testing of the lumbar spine, hips, and sacroiliac joints to find what is loading the nerve",
+          "A plain-language explanation of what is likely irritating the sciatic nerve and a realistic timeline for recovery",
+          "Hands-on treatment — joint articulation, soft tissue release around the gluteals, and neural mobilisation",
+          "Two to three exercises — nerve gliders and positional strategies — to use between sessions without flaring symptoms",
+          "An ACC claim lodged in clinic if a specific accident triggered the episode, plus a clear review plan"
+        ]
+      }
+    ],
     "faq": [
       {
         "question": "What is sciatica?",
@@ -150,6 +226,44 @@
       "url": "/services/acupuncture/"
     },
     "relatedServiceBlurb": "Osteopathic treatment for headaches focuses on the upper neck, jaw, shoulder, and upper back — areas that commonly refer pain into the head or drive migraine triggers. Techniques include gentle joint mobilisation, soft tissue release, and cranial approaches where appropriate. Where migraines are the primary pattern, acupuncture is often combined with osteopathy for better outcomes.",
+    "lists": [
+      {
+        "title": "Common signs of headaches and migraines",
+        "items": [
+          "A dull band of pressure around the head that builds through the afternoon or after long screen sessions",
+          "One-sided throbbing pain often paired with nausea, light or sound sensitivity, or visual aura",
+          "Pain that begins at the base of the skull and travels up over the head or behind the eye",
+          "Tight, tender muscles in the upper neck, shoulders, and jaw that flare ahead of the headache",
+          "Headaches triggered by poor sleep, missed meals, hormonal changes, weather shifts, or stress spikes",
+          "Mornings dominated by headache after a night of clenching, grinding, or restless sleep",
+          "Patterns that change with neck movement, head position, or sustained postures at the desk"
+        ]
+      },
+      {
+        "title": "When to see an osteopath for headaches",
+        "items": [
+          "Headaches happen more than once a week or are starting to interfere with work, family, or exercise",
+          "You notice a clear link between neck stiffness, jaw tension, or posture and the start of a headache",
+          "Migraine frequency or intensity is climbing despite medical management and lifestyle changes",
+          "Painkiller use is creeping up, raising the risk of medication-overuse headache",
+          "A new pattern has emerged after a whiplash, concussion, or sustained period of poor sleep",
+          "Tension-type headaches keep returning despite rest, hydration, and regular screen breaks",
+          "You want a non-drug option to add alongside your existing migraine plan"
+        ]
+      },
+      {
+        "title": "What to expect at your first appointment",
+        "items": [
+          "A detailed headache history — frequency, duration, intensity, triggers, aura, and any current medication",
+          "Screening questions to rule out red-flag patterns and decide whether onward referral is needed first",
+          "Assessment of the cervical spine, jaw, upper back, and shoulders to find the musculoskeletal drivers",
+          "A plain-language explanation of which headache type you have and how osteopathy can realistically help",
+          "Hands-on treatment of the upper neck, suboccipitals, jaw, and shoulders, with dry needling where it helps",
+          "Two to three exercises and self-care strategies — posture resets, jaw relaxation, sleep and trigger tracking",
+          "A realistic plan: 2–4 sessions for tension-type, 4–6 for migraine-pattern, with clear review points"
+        ]
+      }
+    ],
     "faq": [
       {
         "question": "What is the difference between a headache and a migraine?",
@@ -203,6 +317,44 @@
       "url": "/services/acupuncture/"
     },
     "relatedServiceBlurb": "At Meridian Osteopathy we treat neck pain with a combination of hands-on osteopathic techniques — gentle joint articulation, soft tissue release through the upper back and shoulders, and graded mobility work — alongside posture and movement strategies you can use between sessions. Where it helps, your practitioner can integrate Western medical acupuncture (dry needling) into the same session — particularly useful for stubborn upper-trapezius spasm, headaches driven from the neck, and chronic patterns that have not responded to manual therapy alone. Our osteopaths are ACC-registered, so if your neck pain started with an accident or injury, treatment is subsidised. You don't need a referral.",
+    "lists": [
+      {
+        "title": "Common signs of neck pain",
+        "items": [
+          "Stiffness or aching across the back of the neck and upper shoulders that builds through the working day",
+          "Sharp pain or 'catching' when turning the head to check a blind spot or look over the shoulder",
+          "A 'crick' or wry neck that limits rotation in one direction and feels locked for several days",
+          "Pain that radiates from the neck into the shoulder, between the shoulder blades, or down the arm",
+          "Headaches starting at the base of the skull that ease when the neck is mobilised",
+          "Pins-and-needles, numbness, or weakness in the hand suggesting a cervical nerve is irritated",
+          "A persistent post-whiplash ache that has not settled in the weeks since a motor-vehicle or sporting impact"
+        ]
+      },
+      {
+        "title": "When to see an osteopath for neck pain",
+        "items": [
+          "Neck pain has lasted more than a few days or is interfering with sleep, work, or driving",
+          "The pain started after a whiplash, sporting impact, or fall that you want claimed under ACC",
+          "Stiffness keeps returning at the end of each working week despite stretching and screen breaks",
+          "Headaches, jaw tension, or shoulder pain are clearly part of the same upper-body pattern",
+          "A recurring 'wry neck' grabs you every few months and you want to understand the underlying driver",
+          "You have mild arm symptoms — aching, tingling — but no red-flag features (see below)",
+          "You want a clear self-care plan as well as hands-on relief, not just symptom management"
+        ]
+      },
+      {
+        "title": "What to expect at your first appointment",
+        "items": [
+          "A full history covering onset, aggravating positions, sleep and screen habits, past injuries, and headaches",
+          "A neurological screen of the arms — reflexes, sensation, and strength — to check whether a nerve root is involved",
+          "Movement and joint testing of the cervical spine, upper back, ribs, and shoulders to find the local driver",
+          "A plain-language explanation of what is happening and how it fits the type of neck pain you have",
+          "Hands-on treatment — gentle joint articulation, soft tissue release, and manipulation only where appropriate and consented",
+          "Two to three exercises — small, frequent movements rather than long stretches — plus posture and pillow advice",
+          "An ACC claim lodged in clinic if neck pain followed an accident, plus a clear plan and review point"
+        ]
+      }
+    ],
     "faq": [
       {
         "question": "What is neck pain?",
@@ -252,6 +404,44 @@
       "url": "/services/osteopathy/"
     },
     "relatedServiceBlurb": "Our osteopaths have additional training in perinatal care. We use side-lying and pregnancy-pillow positioning so you are comfortable at every stage, with gentle techniques adapted for the changes pregnancy brings. Treatment focuses on the lower back, pelvis, hips, and ribs — the areas most commonly stressed by pregnancy — with exercises and self-care advice tailored to your trimester.",
+    "lists": [
+      {
+        "title": "Common signs of pregnancy-related back pain",
+        "items": [
+          "Aching across the lower back that builds through the day, especially after standing or carrying older children",
+          "Sharp pain around the pubic bone, sacroiliac joints, or groin when climbing stairs or rolling in bed",
+          "Pain or pressure that flares with single-leg activities — getting out of the car, lunging, or putting on trousers",
+          "Mid-back, rib, or shoulder ache as the growing uterus changes how the diaphragm and chest move",
+          "Sciatic-style leg pain or pins-and-needles, particularly in the second and third trimesters",
+          "A pulling, dragging sense in the lower abdomen or pelvis when walking long distances",
+          "Difficulty finding a comfortable sleeping position despite pregnancy pillows and side-lying support"
+        ]
+      },
+      {
+        "title": "When to see an osteopath during pregnancy",
+        "items": [
+          "Lower back, hip, or pelvic pain is starting to limit walking, work, or how you sleep",
+          "Pelvic girdle pain has appeared and is making stairs, rolling in bed, or getting dressed difficult",
+          "You want a safe, drug-free option to manage discomfort without skipping daily activity",
+          "Symptoms have built across a trimester and self-care alone is no longer enough",
+          "You are heading into the third trimester or birth and want to keep your pelvis moving well",
+          "Post-birth back, pelvic, or rib pain has not settled in the weeks since delivery",
+          "Previous pregnancies left a recurring pattern you want to address before it sets in again"
+        ]
+      },
+      {
+        "title": "What to expect at your first appointment",
+        "items": [
+          "A full pregnancy and back-pain history — trimester, scans, any complications, and previous pregnancies",
+          "Gentle movement and orthopaedic testing adapted to your stage, with side-lying or seated positioning",
+          "A plain-language explanation of which pregnancy pattern is driving your symptoms and what helps",
+          "Hands-on treatment using soft tissue release, joint articulation, and positional release — never high-velocity techniques",
+          "Side-lying with pregnancy pillows used throughout so you are comfortable and well-supported at every stage",
+          "Two to three pregnancy-safe exercises and positional strategies for sleep, getting in and out of the car, and stairs",
+          "A clear plan across the remainder of your pregnancy and into the postnatal period, paced to your stage"
+        ]
+      }
+    ],
     "faq": [
       {
         "question": "Is back pain during pregnancy normal?",
@@ -301,6 +491,44 @@
       "url": "/services/osteopathy/"
     },
     "relatedServiceBlurb": "Our osteopaths work with sports injuries across all stages — acute sprains and strains, overuse injuries, post-operative rehabilitation, and long-standing niggles that limit performance. Treatment combines hands-on work (joint mobilisation, soft tissue release, neural techniques), individualised loading programmes, and return-to-sport planning. We work alongside physios, trainers, and coaches when that is useful.",
+    "lists": [
+      {
+        "title": "Common signs of a sports injury",
+        "items": [
+          "A sudden 'pop', tear, or sharp pain during a game, run, or training session that limits your next movement",
+          "Swelling, bruising, or warmth around a joint within hours of the injury",
+          "Pain on weight-bearing, change-of-direction, or push-off that was not there at the start of the session",
+          "A nagging, location-specific ache that has built across training weeks rather than starting suddenly",
+          "Stiffness or reduced range that returns the day after sessions and slowly worsens week on week",
+          "A confidence drop on the affected side — flinching, guarding, or favouring the other limb under load",
+          "Recurring 'niggles' in the same area that flare every time you progress training volume or intensity"
+        ]
+      },
+      {
+        "title": "When to see an osteopath for a sports injury",
+        "items": [
+          "An acute injury occurred during sport, training, gym work, or a fall that you want claimed under ACC",
+          "An overuse injury — tendon, joint, or muscle — has built over weeks and is not settling with rest",
+          "Returning to sport from rehab is feeling slower or shakier than you expected",
+          "Old injuries are starting to flare again as you increase training load or intensity",
+          "You want a clear loading plan rather than open-ended rest, and exercises that progress as you do",
+          "Post-surgical rehab has plateaued or you are unsure when the next step is safe",
+          "A periodic check-up before a goal event, season, or training block would help you stay on the field"
+        ]
+      },
+      {
+        "title": "What to expect at your first appointment",
+        "items": [
+          "A detailed injury history — mechanism, sport, training load, previous injuries, and current goals",
+          "Movement and orthopaedic testing of the injured area and the links up and down the kinetic chain",
+          "A plain-language explanation of which tissue is involved, the stage of healing, and the rehab roadmap",
+          "Hands-on treatment to settle the local area — joint mobilisation, soft tissue release, neural techniques",
+          "A staged loading programme matched to the tissue and your sport, with clear progress criteria",
+          "An ACC claim lodged in clinic for accident-related sports injuries — no referral needed",
+          "A return-to-sport plan with markers — pain, range, strength, confidence, sport-specific tests — to clear each stage"
+        ]
+      }
+    ],
     "faq": [
       {
         "question": "What types of sports injuries do osteopaths treat?",
