@@ -36,7 +36,7 @@ Specialties:
 
 Profile: {{ site.url }}{{ p.profileUrl }}
 {% if p.qualifications %}
-Qualifications: {{ p.qualifications | plain | safe }}
+Qualifications: {{ p.qualifications | htmlToText | safe }}
 {% endif %}{% if p.approach %}
 Approach: {{ p.approach | plain | safe }}
 {% endif %}{% if p.specialInterests %}
