@@ -154,7 +154,7 @@
     "bookingPractitionerId": "1912696368506345883",
     "cannotLodgeAcc": true,
     "role": "Acupuncturist &amp; Massage Therapist",
-    "treats": ["Pain", "Women's health", "Digestive Issues", "Sleep Disorder"],
+    "treats": ["PCOS", "Endometriosis", "Dysmenorrhoea", "Post-cancer fatigue & wellbeing"],
     "photo": "/images/team-min.jpg",
     "photoAlt": "Acupuncturist and massage therapist Min Jin of Meridian Osteopathy, smiling in branded teal clinical scrubs",
     "lifestyleImage": "",
