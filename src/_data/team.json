@@ -8,6 +8,7 @@
     "photo": "/images/team-nina.jpg",
     "photoAlt": "Osteopath and medical acupuncturist Na (Nina) Hu of Meridian Osteopathy, smiling in branded teal clinical scrubs",
     "lifestyleImage": "/images/lifestyle-nina.jpg",
+    "profileUrl": "/team/nina-hu/",
     "medicalSpecialty": "Osteopathic",
     "registration": {
       "name": "Osteopathic Council of New Zealand",
@@ -33,6 +34,7 @@
     "photo": "/images/team-jonathan.jpg",
     "photoAlt": "Osteopath and low-level laser therapist Jonathan Grice of Meridian Osteopathy, smiling in branded teal clinical scrubs",
     "lifestyleImage": "",
+    "profileUrl": "/team/jonathan-grice/",
     "medicalSpecialty": "Osteopathic",
     "registration": {
       "name": "Osteopathic Council of New Zealand",
@@ -74,6 +76,7 @@
     "photo": "/images/team-maddison.jpg",
     "photoAlt": "Osteopath Maddison Moffat of Meridian Osteopathy, smiling in branded teal clinical scrubs",
     "lifestyleImage": "",
+    "profileUrl": "/team/maddison-moffat/",
     "medicalSpecialty": "Osteopathic",
     "registration": {
       "name": "Osteopathic Council of New Zealand",
@@ -153,11 +156,12 @@
     "firstName": "Min",
     "bookingPractitionerId": "1912696368506345883",
     "cannotLodgeAcc": true,
-    "role": "Acupuncturist",
-    "treats": ["Pain", "Women's health", "Digestive Issues", "Sleep Disorder"],
+    "role": "Acupuncturist &amp; Massage Therapist",
+    "treats": ["PCOS", "Endometriosis", "Dysmenorrhoea", "Post-cancer fatigue & wellbeing"],
     "photo": "/images/team-min.jpg",
-    "photoAlt": "Acupuncturist Min Jin of Meridian Osteopathy, smiling in branded teal clinical scrubs",
+    "photoAlt": "Acupuncturist and massage therapist Min Jin of Meridian Osteopathy, smiling in branded teal clinical scrubs",
     "lifestyleImage": "",
+    "profileUrl": "/team/min-jin/",
     "medicalSpecialty": "Acupuncture",
     "registration": {
       "name": "Chinese Medicine Council of New Zealand",
@@ -169,10 +173,10 @@
       { "@type": "EducationalOccupationalCredential", "name": "Master of Biomedical Project Management, University of Science and Technology of China", "credentialCategory": "Master's Degree" },
       { "@type": "EducationalOccupationalCredential", "name": "Bachelor of Acupuncture and Traditional Chinese Medicine, New Zealand School of Acupuncture and Traditional Chinese Medicine", "credentialCategory": "Bachelor's Degree" }
     ],
-    "qualifications": "<p>Min holds a Bachelor of Clinical Medicine from Gansu University of Chinese Medicine (2002) and a Master of Biomedical Project Management from the University of Science and Technology of China (2013). In 2025, she completed a Bachelor's degree at the New Zealand School of Acupuncture and Traditional Chinese Medicine, which included over 320 hours of supervised clinical practice. Min is a registered member of the Chinese Medicine Council of New Zealand (CMCNZ). Before establishing her acupuncture practice in New Zealand, Min spent many years in clinical research — including four years at Peking University Stem Cell Research Centre and over a decade managing nationally approved clinical projects in areas such as Parkinson's disease, spinal cord injury, and oncology.</p>",
+    "qualifications": "<ul class=\"profile-qual-list\"><li>Bachelor of Clinical Medicine, Gansu University of Chinese Medicine (2002)</li><li>Master of Biomedical Project Management, University of Science and Technology of China (2013)</li><li>Bachelor of Acupuncture &amp; Traditional Chinese Medicine, New Zealand School of Acupuncture and Traditional Chinese Medicine (2025)</li><li>Registered member of Chinese Medicine Council of New Zealand (CMCNZ)</li></ul><p>Before establishing her acupuncture practice in New Zealand, Min spent many years in clinical research — including four years at Peking University Stem Cell Research Centre and over a decade managing nationally approved clinical projects in areas such as Parkinson's disease, spinal cord injury, and oncology.</p>",
     "approach": "Min provides safe, evidence-informed, and patient-centred care, weaving together classical Chinese medicine theory with Tung-style acupuncture techniques. She takes time to understand each patient's full picture — physical, emotional, and lifestyle — before forming a treatment plan. Alongside acupuncture, she draws on moxibustion, cupping, and therapeutic massage where clinically appropriate, tailoring every session to the individual.",
-    "specialInterests": "Min's background in clinical research gives her a deep appreciation for evidence-based practice, which she brings together with the wisdom of traditional Chinese medicine to offer a uniquely informed approach to care.",
-    "aboutMe": "Min's path to acupuncture is shaped by a rich background in both science and medicine. Her years in clinical research gave her a profound respect for evidence-based thinking, which she combines with a genuine belief in the healing potential of traditional Chinese medicine. Outside of work, Min values balance — she enjoys time in nature, nourishing food, and the quieter rhythms of everyday life. She brings patience, warmth, and genuine curiosity to every consultation.",
+    "specialInterests": "Min has a particular focus on women's health, using acupuncture and Chinese medicine for conditions such as polycystic ovary syndrome (PCOS), endometriosis, and dysmenorrhoea (painful periods). With over a decade in oncology research behind her, she also has a special interest in supporting people after cancer, particularly breast cancer. Here she focuses on easing the symptoms that can linger after treatment — such as nausea and vomiting, fatigue, chronic pain, and peripheral neuropathy — supporting comfort and wellbeing.",
+    "aboutMe": "Outside of work, Min values balance — she enjoys time in nature, nourishing food, and the quieter rhythms of everyday life. She brings patience, warmth, and genuine curiosity to every consultation.",
     "consultationSteps": [
       {
         "number": "01",

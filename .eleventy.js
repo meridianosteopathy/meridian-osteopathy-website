@@ -34,6 +34,29 @@ module.exports = function(eleventyConfig) {
       .replace(/&gt;/g, ">");
   });
 
+  // Flatten simple HTML (e.g. the qualifications list) to clean plain text
+  // for the llms.txt / llms-full.txt AI-search feeds: list items become
+  // "; "-separated, the list/paragraph boundary becomes ". ", remaining tags
+  // are stripped and entities decoded. Chain with `| safe` so Nunjucks does
+  // not re-escape.
+  eleventyConfig.addFilter("htmlToText", (value) => {
+    if (value == null) return "";
+    return String(value)
+      .replace(/<li>\s*/gi, "")
+      .replace(/\s*<\/li>\s*/gi, "; ")
+      .replace(/\s*<\/ul>\s*/gi, ". ")
+      .replace(/<\/p>\s*/gi, " ")
+      .replace(/<[^>]+>/g, "")
+      .replace(/&amp;/g, "&")
+      .replace(/&#39;/g, "'")
+      .replace(/&quot;/g, '"')
+      .replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">")
+      .replace(/;\s*\.\s*/g, ". ")
+      .replace(/\s+/g, " ")
+      .trim();
+  });
+
   // Filter out items whose url starts with any of the given prefixes
   eleventyConfig.addFilter("excludePrefixes", (items, ...prefixes) => {
     return (items || []).filter((item) => {
