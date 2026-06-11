@@ -38,3 +38,9 @@
 .profile-body .breadcrumbs [aria-current="page"]{color:var(--white)}
 .last-updated{padding:24px 0;font-size:.82rem;color:var(--text-light);text-align:center;border-top:1px solid var(--border);margin-top:40px}
 .last-updated p{margin:0}
+/* Personal-website link under the Book button on the profile booking
+   card. Quiet secondary action so the gold button stays the primary
+   CTA; --primary on the card's white background passes AA (~6.4:1). */
+.profile-website-link{display:inline-flex;align-items:center;justify-content:center;gap:6px;margin-top:14px;font-size:.85rem;font-weight:500;color:var(--primary);text-decoration:none}
+.profile-website-link svg{width:14px;height:14px;flex-shrink:0}
+.profile-website-link:hover{text-decoration:underline}
