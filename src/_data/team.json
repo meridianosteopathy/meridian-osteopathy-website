@@ -158,7 +158,7 @@
     "bookingPractitionerId": "1912696368506345883",
     "cannotLodgeAcc": true,
     "role": "Acupuncturist &amp; Massage Therapist",
-    "treats": ["PCOS", "Endometriosis", "Dysmenorrhoea", "Post-cancer fatigue & wellbeing"],
+    "treats": ["Musculoskeletal Pain", "Chronic Health Conditions (headache, sleep disturbance)", "Women's Health (menstrual disorder, menopause management)", "Wellness & Recovery (fatigue, Post-COVID recovery)"],
     "photo": "/images/team-min.jpg",
     "photoAlt": "Acupuncturist and massage therapist Min Jin of Meridian Osteopathy, smiling in branded teal clinical scrubs",
     "lifestyleImage": "",
@@ -176,8 +176,8 @@
     ],
     "qualifications": "<ul class=\"profile-qual-list\"><li>Bachelor of Clinical Medicine, Gansu University of Chinese Medicine (2002)</li><li>Master of Biomedical Project Management, University of Science and Technology of China (2013)</li><li>Bachelor of Acupuncture &amp; Traditional Chinese Medicine, New Zealand School of Acupuncture and Traditional Chinese Medicine (2025)</li><li>Registered member of Chinese Medicine Council of New Zealand (CMCNZ)</li></ul><p>Before establishing her acupuncture practice in New Zealand, Min spent many years in clinical research — including four years at Peking University Stem Cell Research Centre and over a decade managing nationally approved clinical projects in areas such as Parkinson's disease, spinal cord injury, and oncology.</p>",
     "approach": "Min provides safe, evidence-informed, and patient-centred care, weaving together classical Chinese medicine theory with Tung-style acupuncture techniques. She takes time to understand each patient's full picture — physical, emotional, and lifestyle — before forming a treatment plan. Alongside acupuncture, she draws on moxibustion, cupping, and therapeutic massage where clinically appropriate, tailoring every session to the individual.",
-    "specialInterests": "Min has a particular focus on women's health, using acupuncture and Chinese medicine for conditions such as polycystic ovary syndrome (PCOS), endometriosis, and dysmenorrhoea (painful periods). With over a decade in oncology research behind her, she also has a special interest in supporting people after cancer, particularly breast cancer. Here she focuses on easing the symptoms that can linger after treatment — such as nausea and vomiting, fatigue, chronic pain, and peripheral neuropathy — supporting comfort and wellbeing.",
-    "aboutMe": "Outside of work, Min values balance — she enjoys time in nature, nourishing food, and the quieter rhythms of everyday life. She brings patience, warmth, and genuine curiosity to every consultation.",
+    "specialInterests": "Min's special interests include musculoskeletal acupuncture, using acupuncture to effectively manage musculoskeletal pain, improve movement, and support recovery from injuries. She also has a strong interest in women's health, providing care for menstrual health, menopause, fertility support, and conditions such as polycystic ovary syndrome (PCOS). In addition, she enjoys supporting patients with chronic condition management, including chronic headaches, digestive disorders, sleep disturbances, and other long-term health concerns through a holistic Traditional Chinese Medicine approach.",
+    "aboutMe": "Outside of work, Min stays active through regular badminton and gym training, and has a keen interest in nutrition and healthy ageing. She enjoys exploring the principles of Traditional Chinese Medicine — particularly how dietary therapy and lifestyle habits can help restore the body's natural balance and support long-term wellbeing.",
     "consultationSteps": [
       {
         "number": "01",
