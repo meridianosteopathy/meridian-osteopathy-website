@@ -44,3 +44,21 @@
 .profile-website-link{display:inline-flex;align-items:center;justify-content:center;gap:6px;margin-top:14px;font-size:.85rem;font-weight:500;color:var(--primary);text-decoration:none}
 .profile-website-link svg{width:14px;height:14px;flex-shrink:0}
 .profile-website-link:hover{text-decoration:underline}
+/* Practitioner Spotlight — monthly recognition card on the homepage
+   (section-light background, white card). All text sits on white, so the
+   standard dark tokens apply: --primary headings, --text-body copy and
+   --text-light role line all pass AA; the gold button keeps white text. */
+.spotlight-card{display:flex;align-items:center;gap:32px;max-width:780px;margin:32px auto 0;padding:32px 36px;background:var(--white);border:1px solid var(--border);border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,.08);text-align:left}
+.spotlight-photo{width:150px;height:150px;border-radius:50%;background:var(--light-bg);background-size:cover;background-position:center top;flex-shrink:0}
+.spotlight-role{color:var(--text-light);font-size:.9rem;margin-bottom:12px}
+.spotlight-blurb{line-height:1.7;margin-bottom:20px}
+.spotlight-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.spotlight-actions .btn{font-size:.9rem;padding:10px 24px}
+@media (max-width:640px){.spotlight-card{flex-direction:column;text-align:center;padding:28px 24px}.spotlight-actions{justify-content:center}}
+/* Links inside the spotlight card: the global reset strips link colour and
+   underline, so restore both — --primary on the white card passes AA, and
+   the underline keeps the inline blurb link perceivable without colour. */
+.spotlight-blurb a{color:var(--primary);text-decoration:underline}
+.spotlight-blurb a:hover{color:var(--primary-dark)}
+.spotlight-actions>a:not(.btn){color:var(--primary);font-weight:500}
+.spotlight-actions>a:not(.btn):hover{text-decoration:underline}
