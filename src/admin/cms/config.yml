@@ -99,6 +99,7 @@ collections:
               - { label: "Na (Nina) Hu", value: "nina" }
               - { label: "Min Jin", value: "min" }
             hint: "Photo, role and booking link are pulled from the Team profile automatically."
+          - { label: "Highlighted treatment pill", name: "highlightTreat", widget: "string", required: false, hint: "Exact text of one of their \"What I Treat\" pills to highlight on the profile page, e.g. \"Sports injuries\". Leave blank for none." }
           - { label: "Blurb", name: "blurb", widget: "text", hint: "2–3 sentences on what you're celebrating them for this month. Plain text; a simple HTML link is allowed." }
 
   # ============================================

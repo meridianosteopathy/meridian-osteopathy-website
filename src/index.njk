@@ -25,6 +25,9 @@ description: "Christchurch clinic offering osteopathy, acupuncture, dry needling
     <div class="team-grid" style="margin-top: 32px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); max-width: 960px;">
       {% for p in home.practitioners %}
       <div class="team-card">
+        {% if spotlight.active and team[spotlight.memberKey] and p.profileUrl == team[spotlight.memberKey].profileUrl %}
+        <span class="spotlight-ribbon">&#9733; {{ spotlight.month }} Spotlight</span>
+        {% endif %}
         <div class="team-card-image" style="background-image: url('{{ p.photo }}');"></div>
         <div class="team-card-info">
           <h3>{{ p.name }}</h3>
