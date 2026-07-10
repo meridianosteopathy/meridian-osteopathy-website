@@ -82,6 +82,25 @@ collections:
             fields:
               - { label: "Question", name: "question", widget: "string" }
               - { label: "Answer", name: "answer", widget: "text" }
+      - name: "spotlight"
+        label: "Practitioner Spotlight"
+        file: "src/_data/spotlight.json"
+        format: "json"
+        fields:
+          - { label: "Show spotlight on homepage", name: "active", widget: "boolean", default: true, hint: "Turn off to hide the section without deleting the content." }
+          - { label: "Month", name: "month", widget: "string", hint: "Shown in the heading, e.g. \"June\"." }
+          - label: "Practitioner"
+            name: "memberKey"
+            widget: "select"
+            options:
+              - { label: "Maddison Moffat", value: "maddison" }
+              - { label: "Kaylee Frost", value: "kaylee" }
+              - { label: "Jonathan Grice", value: "jonathan" }
+              - { label: "Na (Nina) Hu", value: "nina" }
+              - { label: "Min Jin", value: "min" }
+            hint: "Photo, role and booking link are pulled from the Team profile automatically."
+          - { label: "Highlighted treatment pill", name: "highlightTreat", widget: "string", required: false, hint: "Exact text of one of their \"What I Treat\" pills to highlight on the profile page, e.g. \"Sports injuries\". Leave blank for none." }
+          - { label: "Blurb", name: "blurb", widget: "text", hint: "2–3 sentences on what you're celebrating them for this month. Plain text; a simple HTML link is allowed." }
 
   # ============================================
   # SITE-WIDE INFO

@@ -25,6 +25,9 @@ description: "Christchurch clinic offering osteopathy, acupuncture, dry needling
     <div class="team-grid" style="margin-top: 32px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); max-width: 960px;">
       {% for p in home.practitioners %}
       <div class="team-card">
+        {% if spotlight.active and team[spotlight.memberKey] and p.profileUrl == team[spotlight.memberKey].profileUrl %}
+        <span class="spotlight-ribbon">&#9733; {{ spotlight.month }} Spotlight</span>
+        {% endif %}
         <div class="team-card-image" style="background-image: url('{{ p.photo }}');"></div>
         <div class="team-card-info">
           <h3>{{ p.name }}</h3>
@@ -39,6 +42,31 @@ description: "Christchurch clinic offering osteopathy, acupuncture, dry needling
     </div>
   </div>
 </section>
+
+<!-- Practitioner Spotlight — monthly recognition. Content lives in
+     src/_data/spotlight.json (editable via the CMS under Homepage →
+     Practitioner Spotlight); name/photo/booking link come from team.json
+     so a monthly swap is a one-file change. -->
+{% if spotlight.active and team[spotlight.memberKey] %}
+{% set star = team[spotlight.memberKey] %}
+<section class="section section-light text-center" style="padding-top: 48px; padding-bottom: 48px;">
+  <div class="container">
+    <h2>Practitioner Spotlight &mdash; {{ spotlight.month }}</h2>
+    <div class="spotlight-card">
+      <div class="spotlight-photo" style="background-image: url('{{ star.photo }}');" role="img" aria-label="{{ star.photoAlt }}"></div>
+      <div>
+        <h3 style="margin-bottom: 4px;">{{ star.name }}</h3>
+        <p class="spotlight-role">{{ star.role | safe }}</p>
+        <p class="spotlight-blurb">{{ spotlight.blurb | safe }}</p>
+        <div class="spotlight-actions">
+          <a href="/book/{{ star.firstName | lower }}/" class="btn btn-gold">Book with {{ star.firstName }}</a>
+          <a href="{{ star.profileUrl }}">Meet {{ star.firstName }} &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
 
 <!-- CTA Banner -->
 <section class="cta-banner">

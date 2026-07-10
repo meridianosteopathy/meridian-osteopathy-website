@@ -1,8 +1,12 @@
 <!-- Profile Hero -->
+{% set isSpotlightMember = spotlight.active and team[spotlight.memberKey] and member.name == team[spotlight.memberKey].name %}
 <section class="profile-hero">
   <div class="profile-hero-content">
     <h1>{{ member.name }}</h1>
     <p class="profile-subtitle">{{ member.role | safe }}</p>
+    {% if isSpotlightMember %}
+    <p style="margin-top:10px"><span class="spotlight-ribbon spotlight-ribbon--hero">&#9733; Practitioner Spotlight &mdash; {{ spotlight.month }}</span></p>
+    {% endif %}
     {% if member.registration %}
     <p class="profile-registration" style="margin-top:8px;font-size:.95rem;opacity:.85">
       Registered with <a href="{{ member.registration.url }}" rel="noopener external" style="color:inherit;text-decoration:underline">{{ member.registration.name }}</a>
@@ -26,7 +30,7 @@
           <h3>What I Treat</h3>
         </div>
         <ul class="profile-treats-list">
-          {% for t in member.treats %}{% if t.url %}<li class="profile-treats-list__link"><a href="{{ t.url }}">{{ t.text }} &rarr;</a></li>{% else %}<li>{{ t }}</li>{% endif %}{% endfor %}
+          {% for t in member.treats %}{% if t.url %}<li class="profile-treats-list__link{% if isSpotlightMember and t.text == spotlight.highlightTreat %} treat-pill--spotlight{% endif %}"><a href="{{ t.url }}">{{ t.text }} &rarr;</a></li>{% else %}<li{% if isSpotlightMember and t == spotlight.highlightTreat %} class="treat-pill--spotlight"{% endif %}>{{ t }}</li>{% endif %}{% endfor %}
         </ul>
       </div>
       {% endif %}
