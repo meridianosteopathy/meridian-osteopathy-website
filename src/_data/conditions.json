@@ -204,7 +204,7 @@
       },
       {
         "question": "When should you see a doctor urgently?",
-        "answer": "Seek urgent medical care (emergency department or GP) if you develop any 'red flag' symptoms: loss of bladder or bowel control, numbness around the groin or inner thighs, rapidly progressing leg weakness, or sciatica after a significant fall or trauma. These can signal a serious condition (cauda equina syndrome) that needs immediate specialist attention."
+        "answer": "Seek urgent medical care (emergency department or your doctor) if you develop any 'red flag' symptoms: loss of bladder or bowel control, numbness around the groin or inner thighs, rapidly progressing leg weakness, or sciatica after a significant fall or trauma. These can signal a serious condition (cauda equina syndrome) that needs immediate specialist attention."
       }
     ]
   },
@@ -535,8 +535,8 @@
         "answer": "Osteopaths treat the full range of musculoskeletal sports injuries: ankle sprains, hamstring strains, calf tears, knee ligament and meniscus injuries, shoulder impingement, tennis and golfer's elbow, stress reactions (in co-management with imaging), back and neck injuries, and concussion-related neck or jaw symptoms. Both acute injuries and chronic overuse patterns respond well to hands-on care plus rehab."
       },
       {
-        "question": "Should I see an osteopath, physio, or GP for my sports injury?",
-        "answer": "For most non-traumatic musculoskeletal sports injuries, any of the three can help — the skill set overlaps significantly. Osteopaths tend to emphasise hands-on treatment and whole-body mechanics; physiotherapists more exercise-based rehab. For suspected fractures, serious ligament ruptures, or red-flag symptoms, a GP or ED visit comes first — then osteopathy or physio for rehabilitation."
+        "question": "Should I see an osteopath, physio, or doctor for my sports injury?",
+        "answer": "For most non-traumatic musculoskeletal sports injuries, any of the three can help — the skill set overlaps significantly. Osteopaths tend to emphasise hands-on treatment and whole-body mechanics; physiotherapists more exercise-based rehab. For suspected fractures, serious ligament ruptures, or red-flag symptoms, a doctor or ED visit comes first — then osteopathy or physio for rehabilitation."
       },
       {
         "question": "Can I claim ACC for a sports injury?",
