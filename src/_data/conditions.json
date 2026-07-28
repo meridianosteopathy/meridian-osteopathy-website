@@ -65,7 +65,7 @@
         "title": "When to see an osteopath for back pain",
         "items": [
           "Back pain has lasted longer than a week without clear improvement from rest and simple pain relief",
-          "Pain started after a specific lift, fall, twist, or sporting incident that you want assessed under ACC",
+          "Pain started after a specific lift, fall, twist, or sporting incident that you want assessed for ACC cover",
           "Back pain keeps returning every few weeks or months despite your best self-care attempts",
           "Pain is interfering with sleep, work, exercise, or your ability to lift the children",
           "You feel stiff, guarded, or afraid to move normally and want clear guidance on what is safe",
@@ -81,7 +81,7 @@
           "A clear explanation of what is likely going on, in plain language, with diagrams where that helps",
           "Hands-on treatment — joint mobilisation, soft tissue release, and gentle manipulation where appropriate and consented",
           "Two to four tailored exercises plus clear advice on activity, posture, sleep position, and pacing",
-          "An ACC claim lodged in clinic if your back pain is linked to a specific accident or injury event",
+          "ACC cover applied if your back pain is linked to a specific accident or injury event",
           "A realistic treatment plan with expected number of sessions, review points, and onward referral criteria"
         ]
       }
@@ -97,7 +97,7 @@
       },
       {
         "question": "Is back pain treatment covered by ACC?",
-        "answer": "Yes, if your back pain is linked to an accident or specific injury event — a lift, a fall, a sporting collision, a sudden twist. Our osteopaths are ACC-registered providers and can lodge a claim for you at your first visit. You don't need a referral; you can book directly. ACC-covered visits are subsidised. If there is no clear accident trigger (gradual-onset pain, posture-related, stress-related), treatment is paid privately at the non-ACC rate. See our osteopathy page for current ACC and private rates."
+        "answer": "Yes, if your back pain is linked to an accident or specific injury event — a lift, a fall, a sporting collision, a sudden twist. Our osteopaths are ACC-registered providers, so accident-related visits are subsidised. You don't need a referral; you can book directly. ACC-covered visits are subsidised. If there is no clear accident trigger (gradual-onset pain, posture-related, stress-related), treatment is paid privately at the non-ACC rate. See our osteopathy page for current ACC and private rates."
       },
       {
         "question": "How many sessions will I need for back pain?",
@@ -152,7 +152,7 @@
         "title": "When to see an osteopath for sciatica",
         "items": [
           "Sciatic pain has lasted longer than a week or is making sitting, driving, and sleep difficult",
-          "The pain started after a specific lift, fall, or twist that you want assessed under ACC",
+          "The pain started after a specific lift, fall, or twist that you want assessed for ACC cover",
           "Symptoms are recurring or have flared multiple times in the past year",
           "Pregnancy, prolonged desk work, or a recent change in training is loading the lower back differently",
           "You have ongoing pins-and-needles or mild weakness but no red-flag symptoms (see below)",
@@ -169,7 +169,7 @@
           "A plain-language explanation of what is likely irritating the sciatic nerve and a realistic timeline for recovery",
           "Hands-on treatment — joint articulation, soft tissue release around the gluteals, and neural mobilisation",
           "Two to three exercises — nerve gliders and positional strategies — to use between sessions without flaring symptoms",
-          "An ACC claim lodged in clinic if a specific accident triggered the episode, plus a clear review plan"
+          "ACC cover applied if a specific accident triggered the episode, plus a clear review plan"
         ]
       }
     ],
@@ -192,7 +192,7 @@
       },
       {
         "question": "Is sciatica treatment covered by ACC?",
-        "answer": "Yes, if your sciatica is related to an accident or specific injury event. Our osteopaths are ACC-registered providers and can lodge a claim for you at your first visit — you don't need a referral. If there is no accident trigger (for example, sciatica from pregnancy, prolonged sitting, or gradual onset), treatment is paid privately at the non-ACC rate."
+        "answer": "Yes, if your sciatica is related to an accident or specific injury event. Our osteopaths are ACC-registered providers, so accident-related visits are subsidised — you don't need a referral. If there is no accident trigger (for example, sciatica from pregnancy, prolonged sitting, or gradual onset), treatment is paid privately at the non-ACC rate."
       },
       {
         "question": "How many sessions will I need?",
@@ -334,7 +334,7 @@
         "title": "When to see an osteopath for neck pain",
         "items": [
           "Neck pain has lasted more than a few days or is interfering with sleep, work, or driving",
-          "The pain started after a whiplash, sporting impact, or fall that you want claimed under ACC",
+          "The pain started after a whiplash, sporting impact, or fall that you want assessed for ACC cover",
           "Stiffness keeps returning at the end of each working week despite stretching and screen breaks",
           "Headaches, jaw tension, or shoulder pain are clearly part of the same upper-body pattern",
           "A recurring 'wry neck' grabs you every few months and you want to understand the underlying driver",
@@ -351,7 +351,7 @@
           "A plain-language explanation of what is happening and how it fits the type of neck pain you have",
           "Hands-on treatment — gentle joint articulation, soft tissue release, and manipulation only where appropriate and consented",
           "Two to three exercises — small, frequent movements rather than long stretches — plus posture and pillow advice",
-          "An ACC claim lodged in clinic if neck pain followed an accident, plus a clear plan and review point"
+          "ACC cover applied if neck pain followed an accident, plus a clear plan and review point"
         ]
       }
     ],
@@ -374,7 +374,7 @@
       },
       {
         "question": "Is neck pain treatment covered by ACC?",
-        "answer": "Yes, if your neck pain is related to an accident or specific injury event — for example a motor-vehicle accident, a sports impact, or a fall. Whiplash is one of the most common ACC-claimed neck injuries. Our osteopaths are ACC-registered providers and can lodge a claim for you at your first visit — you don't need a referral. If there is no accident trigger (for example, a gradual onset from desk posture), treatment is paid privately at the non-ACC rate."
+        "answer": "Yes, if your neck pain is related to an accident or specific injury event — for example a motor-vehicle accident, a sports impact, or a fall. Whiplash is one of the most common ACC-claimed neck injuries. Our osteopaths are ACC-registered providers, so accident-related visits are subsidised — you don't need a referral. If there is no accident trigger (for example, a gradual onset from desk posture), treatment is paid privately at the non-ACC rate."
       },
       {
         "question": "How many sessions will I need?",
@@ -485,7 +485,7 @@
     "tagline": "From acute sprains and strains through to a confident return to sport.",
     "metaDescription": "Sports injury treatment in Christchurch at Meridian Osteopathy. ACC-registered osteopaths for sprains, strains, overuse injuries, and return-to-sport planning.",
     "alternateName": ["Sports injury", "Sports injury rehabilitation", "Return to sport"],
-    "intro": "Sports injury treatment at Meridian Osteopathy in Christchurch covers acute sprains and strains, overuse injuries, post-operative rehabilitation, and return-to-sport planning. Our ACC-registered osteopaths combine hands-on care — joint mobilisation, soft tissue release, neural techniques — with individualised loading programmes and clear return-to-sport criteria. No referral needed; we lodge ACC claims in clinic. Whether you are a weekend runner, a club-level cyclist, or a competitive team athlete, injuries are part of staying active. How quickly and fully you recover depends on prompt assessment, the right rehabilitation plan, and a gradual return-to-sport that respects the healing tissue. At Meridian Osteopathy we help you move through all three — from the acute phase into full performance, with ACC cover if your injury is accident-related. Recovery is rarely just 'rest until it stops hurting'. The current evidence points the other way: after the first 48–72 hours of sensible protection, gentle loading and early movement speed healing and reduce the risk of reinjury. What that loading looks like depends on the tissue, the stage, and the sport you are returning to. Our job is to make those decisions with you — and to catch the contributing factors (old niggles, movement compensations, training errors) that tend to set up the next injury.",
+    "intro": "Sports injury treatment at Meridian Osteopathy in Christchurch covers acute sprains and strains, overuse injuries, post-operative rehabilitation, and return-to-sport planning. Our ACC-registered osteopaths combine hands-on care — joint mobilisation, soft tissue release, neural techniques — with individualised loading programmes and clear return-to-sport criteria. No referral needed; we're ACC-registered, so accident-related injuries are subsidised. Whether you are a weekend runner, a club-level cyclist, or a competitive team athlete, injuries are part of staying active. How quickly and fully you recover depends on prompt assessment, the right rehabilitation plan, and a gradual return-to-sport that respects the healing tissue. At Meridian Osteopathy we help you move through all three — from the acute phase into full performance, with ACC cover if your injury is accident-related. Recovery is rarely just 'rest until it stops hurting'. The current evidence points the other way: after the first 48–72 hours of sensible protection, gentle loading and early movement speed healing and reduce the risk of reinjury. What that loading looks like depends on the tissue, the stage, and the sport you are returning to. Our job is to make those decisions with you — and to catch the contributing factors (old niggles, movement compensations, training errors) that tend to set up the next injury.",
     "relatedService": {
       "title": "Osteopathy",
       "url": "/services/osteopathy/"
@@ -507,7 +507,7 @@
       {
         "title": "When to see an osteopath for a sports injury",
         "items": [
-          "An acute injury occurred during sport, training, gym work, or a fall that you want claimed under ACC",
+          "An acute injury occurred during sport, training, gym work, or a fall that you want assessed for ACC cover",
           "An overuse injury — tendon, joint, or muscle — has built over weeks and is not settling with rest",
           "Returning to sport from rehab is feeling slower or shakier than you expected",
           "Old injuries are starting to flare again as you increase training load or intensity",
@@ -524,7 +524,7 @@
           "A plain-language explanation of which tissue is involved, the stage of healing, and the rehab roadmap",
           "Hands-on treatment to settle the local area — joint mobilisation, soft tissue release, neural techniques",
           "A staged loading programme matched to the tissue and your sport, with clear progress criteria",
-          "An ACC claim lodged in clinic for accident-related sports injuries — no referral needed",
+          "ACC cover applied for accident-related sports injuries — no referral needed",
           "A return-to-sport plan with markers — pain, range, strength, confidence, sport-specific tests — to clear each stage"
         ]
       }
@@ -540,7 +540,7 @@
       },
       {
         "question": "Can I claim ACC for a sports injury?",
-        "answer": "Yes — almost all sports injuries qualify for ACC cover, whether they happened in a game, training, at the gym, or running. Our osteopaths are ACC-registered providers and can lodge a claim at your first visit. No referral needed. ACC-covered visits are subsidised to the ACC rate."
+        "answer": "Yes — almost all sports injuries qualify for ACC cover, whether they happened in a game, training, at the gym, or running. Our osteopaths are ACC-registered providers, so those visits are subsidised. No referral needed. ACC-covered visits are subsidised to the ACC rate."
       },
       {
         "question": "How soon after an injury should I seek treatment?",
@@ -548,7 +548,7 @@
       },
       {
         "question": "What does a typical sports injury session look like?",
-        "answer": "The first session includes a full injury history, movement and orthopaedic testing, and (if appropriate) an ACC claim. Hands-on treatment addresses the injury site and any contributing factors up and down the chain — often the real cause is not where the pain is. You leave with specific exercises and a clear plan. Follow-up sessions progress loading as the tissue tolerates more."
+        "answer": "The first session includes a full injury history, movement and orthopaedic testing, and (if appropriate) confirmation of your ACC cover. Hands-on treatment addresses the injury site and any contributing factors up and down the chain — often the real cause is not where the pain is. You leave with specific exercises and a clear plan. Follow-up sessions progress loading as the tissue tolerates more."
       },
       {
         "question": "Can osteopathy help with overuse and chronic injuries?",
