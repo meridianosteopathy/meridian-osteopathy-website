@@ -33,6 +33,87 @@ description: "Book an osteopathy, acupuncture or herbal medicine appointment at 
           e.data.search('cliniko-bookings-page') > -1 && clinikoBookings.scrollIntoView();
         });
       </script>
+      <!--
+        TEMPORARY diagnostic — do not merge to main.
+        Renders an on-page log of every postMessage the Cliniko iframe sends the
+        parent, so we can find out which booking steps are observable from
+        outside the iframe (the widget is cross-origin, so its buttons cannot be
+        listened to directly). Runs only with ?debug=cliniko in the URL and is
+        entirely inert otherwise. Delete once the message vocabulary is known.
+      -->
+      <script type="text/javascript">
+        (function () {
+          if (!/[?&]debug=cliniko(?:&|$)/.test(window.location.search)) return;
+
+          var t0 = Date.now();
+          var seen = {};
+          var count = 0;
+
+          var panel = document.createElement('div');
+          panel.setAttribute('role', 'log');
+          panel.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:9999;max-height:45vh;display:flex;flex-direction:column;background:#12222f;color:#e8eef3;font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;border-top:3px solid #c9963b;';
+
+          var bar = document.createElement('div');
+          bar.style.cssText = 'display:flex;gap:10px;align-items:center;padding:8px 12px;background:#0b171f;flex:0 0 auto;';
+
+          var title = document.createElement('strong');
+          title.textContent = 'Cliniko probe';
+          title.style.color = '#c9963b';
+
+          var counter = document.createElement('span');
+          counter.textContent = '0 messages';
+          counter.style.opacity = '.75';
+
+          var copyBtn = document.createElement('button');
+          copyBtn.type = 'button';
+          copyBtn.textContent = 'Copy log';
+          copyBtn.style.cssText = 'margin-left:auto;background:#c9963b;color:#12222f;border:0;border-radius:4px;padding:6px 12px;font:inherit;font-weight:700;cursor:pointer;';
+
+          var log = document.createElement('div');
+          log.style.cssText = 'overflow:auto;padding:8px 12px;flex:1 1 auto;white-space:pre-wrap;word-break:break-all;-webkit-overflow-scrolling:touch;';
+          log.textContent = 'Waiting. Click through the widget: service -> practitioner -> time -> details -> confirm.';
+
+          bar.appendChild(title);
+          bar.appendChild(counter);
+          bar.appendChild(copyBtn);
+          panel.appendChild(bar);
+          panel.appendChild(log);
+          document.body.appendChild(panel);
+
+          var lines = [];
+          copyBtn.addEventListener('click', function () {
+            var text = lines.join('\n') || '(no messages captured)';
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(text).then(function () {
+                copyBtn.textContent = 'Copied';
+                setTimeout(function () { copyBtn.textContent = 'Copy log'; }, 1500);
+              });
+            } else {
+              window.prompt('Copy the log below:', text);
+            }
+          });
+
+          window.addEventListener('message', function (e) {
+            var d = e.data;
+            if (typeof d !== 'string' || d.indexOf('cliniko') === -1) return;
+            if (d.indexOf('resize') > -1) return; // fires constantly, drowns everything
+
+            if (count === 0) log.textContent = '';
+            count++;
+            seen[d] = (seen[d] || 0) + 1;
+
+            var line = '[' + ((Date.now() - t0) / 1000).toFixed(1) + 's] ' + d +
+              (seen[d] > 1 ? '  (x' + seen[d] + ')' : '');
+            lines.push(line);
+
+            var row = document.createElement('div');
+            row.textContent = line;
+            log.appendChild(row);
+            log.scrollTop = log.scrollHeight;
+            counter.textContent = count + (count === 1 ? ' message' : ' messages');
+          });
+        })();
+      </script>
     </div>
   </div>
 </section>
