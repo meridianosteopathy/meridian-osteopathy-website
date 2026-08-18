@@ -101,8 +101,10 @@ const { data } = await supabase
 
 | Symptom | Likely cause |
 |---|---|
-| Form returns `turnstile-failed` | Widget not loaded, secret key mismatch, or test key swapped on only one side |
+| Form returns `turnstile-failed` | Widget not loaded, secret key mismatch, test key swapped on only one side, or the token expired (tokens last 300s; the referral widget auto-refreshes) |
 | Form returns `storage-failed` | `SUPABASE_SERVICE_ROLE_KEY` missing or migration not applied |
+| Form returns `config-error` | One of `TURNSTILE_SECRET_KEY` / `SUPABASE_URL` / `SUPABASE_SERVICE_ROLE_KEY` is unset for this deploy context. The Netlify function log names the missing variable. |
+| Form returns `server-error` | Something threw unexpectedly. The Netlify function log has the stack under `submit-referral unhandled error`. |
 | Form succeeds, no email arrives | `RESEND_API_KEY` not set, or sending domain not verified in Resend |
 | File upload returns `file-too-large` | File over 3 MB — ask applicant to compress |
 | `FUNCTION_INVOCATION_FAILED` in Netlify logs | Run `npm install` locally, redeploy — dependencies might be missing |

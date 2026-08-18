@@ -132,9 +132,10 @@ description: "Refer a patient to Meridian Osteopathy. Complete our secure online
           </div>
         </div>
 
-        <div class="cf-turnstile" data-sitekey="{{ site.turnstileSiteKey }}" style="margin: 16px auto 0; display: flex; justify-content: center;"></div>
+        <div class="cf-turnstile" data-sitekey="{{ site.turnstileSiteKey }}" data-refresh-expired="auto" style="margin: 16px auto 0; display: flex; justify-content: center;"></div>
 
         <div style="text-align: center; margin-top: 24px;">
+          <p id="referral-error" role="alert" style="display:none; margin: 0 0 16px; padding: 12px 16px; border-radius: 6px; background: #FBEAEE; border: 1px solid var(--accent-pink); color: #8E3F55; font-size: 0.95rem; text-align: left;"></p>
           <button type="submit" class="btn btn-primary">Submit Referral</button>
           <p style="margin-top: 12px; font-size: 0.85rem; opacity: 0.75;">By submitting this form, you confirm you have authority to share this information and agree to our <a href="/privacy/">Privacy Policy</a>.</p>
         </div>
@@ -166,11 +167,66 @@ description: "Refer a patient to Meridian Osteopathy. Complete our secure online
     }
   })();
 
+  // Server error codes → something the referrer can actually act on. Every
+  // failure used to collapse into one generic alert, which told neither the
+  // referrer nor the clinic anything about what had gone wrong.
+  var FIELD_LABELS = {
+    'referrer-first-name': 'your first name',
+    'referrer-last-name': 'your last name',
+    'referrer-relation': 'your relation to the patient',
+    'referrer-phone': 'your phone number',
+    'referrer-email': 'your email address',
+    'patient-first-name': "the patient's first name",
+    'patient-last-name': "the patient's last name",
+    'patient-email': "the patient's email address",
+    'patient-phone': "the patient's phone number",
+    'patient-dob': "the patient's date of birth",
+    'reason-for-referral': 'the reason for referral',
+    'signature': 'your signature',
+    'submission-date': "today's date"
+  };
+
+  var CALL_US = 'please try again or call us on {{ site.phone }}';
+
+  function referralErrorMessage(err) {
+    var code = err && err.error;
+    if (code === 'turnstile-failed') {
+      return 'The security check expired or failed. Please complete the "I\u2019m human" check again and resubmit.';
+    }
+    if (code === 'invalid-field') {
+      var label = FIELD_LABELS[err.field] || 'one of the fields';
+      return 'Please check ' + label + ' \u2014 it looks incomplete or incorrectly formatted.';
+    }
+    if (code === 'consent-required') {
+      return 'Please tick the consent box to confirm the patient has agreed to this referral.';
+    }
+    if (code === 'storage-failed' || code === 'config-error' || code === 'server-error') {
+      return 'We couldn\u2019t save this referral \u2014 that\u2019s a problem on our end, not yours. Please call us on {{ site.phone }} and we\u2019ll take the details directly.';
+    }
+    return 'Sorry, something went wrong \u2014 ' + CALL_US + '.';
+  }
+
+  function showReferralError(message) {
+    var box = document.getElementById('referral-error');
+    box.textContent = message;
+    box.style.display = 'block';
+    box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function resetReferralForm(submitBtn) {
+    if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Submit Referral'; }
+    // Always reset the widget: a used or expired token can never be replayed,
+    // so leaving it in place guarantees the next attempt fails too.
+    if (window.turnstile) { try { window.turnstile.reset(); } catch (e) {} }
+  }
+
   function handleReferralSubmit(event) {
     event.preventDefault();
     var form = event.target;
     var submitBtn = form.querySelector('button[type="submit"]');
-    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Submitting…'; }
+    var errorBox = document.getElementById('referral-error');
+    if (errorBox) { errorBox.style.display = 'none'; }
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Submitting\u2026'; }
 
     var data = new FormData(form);
     var payload = {};
@@ -188,18 +244,15 @@ description: "Refer a patient to Meridian Osteopathy. Complete our secure online
         ty.scrollIntoView({ behavior: 'smooth', block: 'start' });
         return;
       }
+      // A crashed function returns a non-JSON body; fall back to {} so the
+      // reader still gets the generic-but-honest message rather than a throw.
       return response.json().catch(function() { return {}; }).then(function(err) {
-        var msg = 'Sorry, something went wrong. Please try again or call us directly.';
-        if (err && err.error === 'turnstile-failed') {
-          msg = 'Security check failed. Please tick the "I\u2019m human" box and try again.';
-        }
-        alert(msg);
-        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Submit Referral'; }
-        if (window.turnstile) { try { window.turnstile.reset(); } catch(e) {} }
+        showReferralError(referralErrorMessage(err));
+        resetReferralForm(submitBtn);
       });
     }).catch(function() {
-      alert('Sorry, something went wrong. Please try again or call us directly.');
-      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Submit Referral'; }
+      showReferralError('We couldn\u2019t reach the server. Check your connection and try again, or call us on {{ site.phone }}.');
+      resetReferralForm(submitBtn);
     });
     return false;
   }
