@@ -39,6 +39,24 @@ function looksLikeDate(v) {
   return typeof v === "string" && /^\d{4}-\d{2}-\d{2}$/.test(v);
 }
 
+// Fail loudly and early if the function is deployed without its env vars.
+// Previously a missing key threw from deep inside verifyTurnstile/getSupabase,
+// which escaped the handler entirely — Netlify then returned a plain-text 500
+// with no CORS headers, so the browser only ever saw "something went wrong".
+const REQUIRED_ENV = ["TURNSTILE_SECRET_KEY", "SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY"];
+function missingEnv() {
+  return REQUIRED_ENV.filter((k) => !process.env[k]);
+}
+
+// source_ip is a Postgres `inet` column. x-forwarded-for may be a
+// comma-separated chain ("client, proxy1, proxy2"), which fails the inet cast
+// and takes the whole insert down with it. Keep only the first hop.
+function clientIp(headers) {
+  const raw =
+    headers["x-nf-client-connection-ip"] || headers["x-forwarded-for"] || "";
+  return String(raw).split(",")[0].trim();
+}
+
 function escapeHtml(s) {
   return String(s).replace(
     /[&<>"']/g,
@@ -95,9 +113,7 @@ function patientNoticeHtml({ patientFirst, referrerName }) {
 </div>`;
 }
 
-exports.handler = async (event) => {
-  const origin = event.headers.origin || event.headers.Origin || "";
-
+async function handleReferral(event, origin) {
   if (event.httpMethod === "OPTIONS") {
     return { statusCode: 204, headers: corsHeaders(origin), body: "" };
   }
@@ -105,10 +121,24 @@ exports.handler = async (event) => {
     return json(405, { error: "method-not-allowed" }, origin);
   }
 
+  const missing = missingEnv();
+  if (missing.length) {
+    console.error("submit-referral misconfigured; missing env:", missing.join(", "));
+    return json(500, { error: "config-error" }, origin);
+  }
+
+  // Netlify base64-encodes the body for content types it doesn't treat as
+  // text. submit-career.js already accounted for this; this function did not,
+  // so an encoded body fell straight through to "invalid-json".
+  const rawBody = event.isBase64Encoded
+    ? Buffer.from(event.body || "", "base64").toString("utf8")
+    : event.body || "";
+
   let payload;
   try {
-    payload = JSON.parse(event.body || "{}");
-  } catch {
+    payload = JSON.parse(rawBody || "{}");
+  } catch (e) {
+    console.error("submit-referral invalid JSON body", e);
     return json(400, { error: "invalid-json" }, origin);
   }
 
@@ -118,10 +148,7 @@ exports.handler = async (event) => {
   }
 
   // Turnstile
-  const ip =
-    event.headers["x-nf-client-connection-ip"] ||
-    event.headers["x-forwarded-for"] ||
-    "";
+  const ip = clientIp(event.headers);
   const ts = await verifyTurnstile(payload["cf-turnstile-response"], ip);
   if (!ts.ok) {
     return json(400, { error: "turnstile-failed", reason: ts.reason }, origin);
@@ -224,4 +251,18 @@ exports.handler = async (event) => {
   }).catch((e) => console.error("patient notice email failed", e));
 
   return json(200, { ok: true, id: data.id }, origin);
+}
+
+// Any throw that escapes handleReferral would otherwise become a bare Netlify
+// 500 with a non-JSON body and no CORS headers — invisible to the form and to
+// anyone debugging it. Catch, log, and answer in the same shape as every other
+// error so the browser can say something useful.
+exports.handler = async (event) => {
+  const origin = event.headers.origin || event.headers.Origin || "";
+  try {
+    return await handleReferral(event, origin);
+  } catch (e) {
+    console.error("submit-referral unhandled error", e);
+    return json(500, { error: "server-error" }, origin);
+  }
 };

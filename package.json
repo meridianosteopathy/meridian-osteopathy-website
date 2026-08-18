@@ -5,7 +5,8 @@
   "scripts": {
     "build": "npx @11ty/eleventy",
     "serve": "npx @11ty/eleventy --serve",
-    "start": "npx @11ty/eleventy --serve"
+    "start": "npx @11ty/eleventy --serve",
+    "test": "node scripts/test-submit-referral.js"
   },
   "dependencies": {
     "@netlify/blobs": "^8.2.0",
