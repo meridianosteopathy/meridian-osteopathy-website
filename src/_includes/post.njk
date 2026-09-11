@@ -1,0 +1,172 @@
+---
+layout: base.njk
+---
+
+{% set author = team[authorKey] %}
+
+<article class="post">
+
+  {% if coverImage %}
+  <section class="post-hero" style="background-image: url('{{ coverImage }}');" role="img" aria-label="{{ coverAlt or title }}"></section>
+  {% endif %}
+
+  {% include "breadcrumbs.njk" %}
+
+  <header class="post-header">
+    <div class="container" style="max-width: 760px;">
+      <p class="post-eyebrow"><a href="/blog/">Blog</a>{% if category %} &middot; {{ category }}{% endif %}</p>
+      <h1>{{ title }}</h1>
+      {% if excerpt %}<p class="post-excerpt">{{ excerpt }}</p>{% endif %}
+      <div class="post-meta">
+        {% if author %}
+        <a href="{{ author.profileUrl }}" class="post-author-link">
+          <span class="post-author-photo" style="background-image: url('{{ author.photo }}');" aria-hidden="true"></span>
+          <span>
+            <span class="post-author-name">{{ author.name }}</span>
+            <span class="post-author-role">{{ author.role | safe }}</span>
+          </span>
+        </a>
+        {% endif %}
+        <span class="post-dates">
+          <time datetime="{{ publishedDate | dateIso }}">Published {{ publishedDate | dateFriendly }}</time>
+          {% if updated and (updated | dateIso) != (publishedDate | dateIso) %}
+          &middot; <time datetime="{{ updated | dateIso }}">Updated {{ updated | dateFriendly }}</time>
+          {% endif %}
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container legal-content" style="max-width: 760px;">
+      {{ content | safe }}
+    </div>
+  </section>
+
+  {% if faq %}
+  <section class="section section-light">
+    <div class="container" style="max-width: 820px;">
+      <h2>Common questions</h2>
+      <div class="faq-list">
+        {% for f in faq %}
+        <div class="faq-item">
+          <button class="faq-question">{{ f.question }}</button>
+          <div class="faq-answer"><p>{{ f.answer | safe }}</p></div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  {% if relatedService %}
+  <section class="section">
+    <div class="container legal-content" style="max-width: 760px;">
+      <h2>Book with us</h2>
+      <p>{{ relatedService.blurb or ("Learn more about " + relatedService.title + " at Meridian Osteopathy, or book directly online.") }}</p>
+      <p>
+        <a href="{{ relatedService.url }}" class="btn btn-outline">Read more about {{ relatedService.title }} &rarr;</a>
+        {% if relatedService.alsoConsider %}
+        <a href="{{ relatedService.alsoConsider.url }}" class="btn btn-outline" style="margin-left: 8px;">{{ relatedService.alsoConsider.title }} &rarr;</a>
+        {% endif %}
+      </p>
+    </div>
+  </section>
+  {% endif %}
+
+  {% if author %}
+  <section class="section section-light">
+    <div class="container" style="max-width: 760px;">
+      <div class="post-author-card">
+        <div class="post-author-card-photo" style="background-image: url('{{ author.photo }}');" role="img" aria-label="{{ author.photoAlt }}"></div>
+        <div>
+          <p class="post-author-card-heading">Written by {{ author.name }}</p>
+          <p class="post-author-card-role">{{ author.role | safe }}</p>
+          {% if author.specialInterests %}<p>{{ author.specialInterests }}</p>{% endif %}
+          <p><a href="{{ author.profileUrl }}" class="btn btn-outline">See {{ author.firstName }}'s profile &rarr;</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  {% set relatedPosts = collections.post | excludePrefixes(page.url) | reverse %}
+  {% if relatedPosts.length %}
+  <section class="section">
+    <div class="container" style="max-width: 960px;">
+      <h2 class="text-center">More from the blog</h2>
+      <ul class="post-related-list">
+        {% for p in relatedPosts %}{% if loop.index0 < 3 %}
+        <li class="post-related-item">
+          <a href="{{ p.url }}">
+            <span class="post-related-title">{{ p.data.title }}</span>
+            {% if p.data.excerpt %}<span class="post-related-excerpt">{{ p.data.excerpt }}</span>{% endif %}
+          </a>
+        </li>
+        {% endif %}{% endfor %}
+      </ul>
+    </div>
+  </section>
+  {% endif %}
+
+  <section class="cta-banner">
+    <h2>Ready to book?</h2>
+    <a href="/book/" class="btn btn-gold">Book an Appointment</a>
+  </section>
+
+</article>
+
+{% include "back-to-top.njk" %}
+
+<!-- Article + Physician (author) schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "{{ site.url }}{{ page.url }}#article",
+  "headline": {{ title | dump | safe }},
+  {% if excerpt %}"description": {{ excerpt | dump | safe }},
+  {% endif %}"url": "{{ site.url }}{{ page.url }}",
+  "datePublished": "{{ publishedDate | dateIso }}",
+  "dateModified": "{{ (updated or publishedDate) | dateIso }}",
+  "inLanguage": "en-NZ",
+  "mainEntityOfPage": { "@id": "{{ site.url }}{{ page.url }}#webpage" },
+  "publisher": { "@id": "{{ site.url }}/#clinic" }{% if author %},
+  "author": {
+    "@type": "Physician",
+    "@id": "{{ site.url }}{{ author.profileUrl }}#physician",
+    "name": {{ author.name | dump | safe }},
+    "url": "{{ site.url }}{{ author.profileUrl }}",
+    "image": "{{ site.url }}{{ author.photo }}",
+    "jobTitle": {{ author.role | plain | dump | safe }},
+    "medicalSpecialty": {{ (author.medicalSpecialty or "Osteopathic") | dump | safe }},
+    "worksFor": { "@id": "{{ site.url }}/#clinic" }{% if author.credentials %},
+    "hasCredential": {{ author.credentials | dump | safe }}{% endif %}{% if author.sameAs %},
+    "sameAs": {{ author.sameAs | dump | safe }}{% endif %}
+  }{% endif %}{% if coverImage %},
+  "image": "{{ site.url }}{{ coverImage }}"{% endif %}
+}
+</script>
+
+{% if faq %}
+<!-- FAQPage schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "{{ site.url }}{{ page.url }}#faq",
+  "mainEntity": [
+    {%- for f in faq %}
+    {
+      "@type": "Question",
+      "name": {{ f.question | dump | safe }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ f.answer | plain | dump | safe }}
+      }
+    }{% if not loop.last %},{% endif %}
+    {%- endfor %}
+  ]
+}
+</script>
+{% endif %}

@@ -1,0 +1,78 @@
+---
+layout: base.njk
+permalink: /blog/
+title: Blog
+description: "Articles on pregnancy, baby and postnatal care from Meridian Osteopathy in Christchurch. Practical, evidence-informed writing by our osteopaths and acupuncturists."
+tags: []
+---
+
+{% include "breadcrumbs.njk" %}
+
+<section class="section text-center">
+  <div class="container">
+    <div class="service-intro">
+      <h1>Blog</h1>
+      <p class="subtitle">Practical, evidence-informed writing on osteopathy, acupuncture, and care through pregnancy, birth and the first year with baby.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container" style="max-width: 960px;">
+
+    {%- set posts = collections.post | reverse %}
+    {% if posts.length %}
+    <ul class="post-list">
+      {% for p in posts %}
+      {% set a = team[p.data.authorKey] %}
+      <li class="post-card">
+        <a href="{{ p.url }}" class="post-card-link">
+          {% if p.data.coverImage %}
+          <span class="post-card-cover" style="background-image: url('{{ p.data.coverImage }}');" role="img" aria-label="{{ p.data.coverAlt or p.data.title }}"></span>
+          {% else %}
+          <span class="post-card-cover post-card-cover--placeholder" aria-hidden="true">
+            <span>{{ p.data.title }}</span>
+          </span>
+          {% endif %}
+          <span class="post-card-body">
+            {% if p.data.category %}<span class="post-card-category">{{ p.data.category }}</span>{% endif %}
+            <span class="post-card-title">{{ p.data.title }}</span>
+            {% if p.data.excerpt %}<span class="post-card-excerpt">{{ p.data.excerpt }}</span>{% endif %}
+            <span class="post-card-meta">
+              {% if a %}<span>{{ a.name }}</span> &middot; {% endif %}<time datetime="{{ p.data.publishedDate | dateIso }}">{{ p.data.publishedDate | dateFriendly }}</time>
+            </span>
+          </span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="text-center" style="color: var(--text-light);">No posts yet.</p>
+    {% endif %}
+
+  </div>
+</section>
+
+{% include "back-to-top.njk" %}
+
+<!-- CollectionPage / Blog schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": "{{ site.url }}{{ page.url }}#blog",
+  "name": "Meridian Osteopathy Blog",
+  "url": "{{ site.url }}{{ page.url }}",
+  "publisher": { "@id": "{{ site.url }}/#clinic" },
+  "blogPost": [
+    {%- for p in collections.post | reverse %}
+    {
+      "@type": "BlogPosting",
+      "url": "{{ site.url }}{{ p.url }}",
+      "headline": {{ p.data.title | dump | safe }},
+      "datePublished": "{{ p.data.publishedDate | dateIso }}"
+    }{% if not loop.last %},{% endif %}
+    {%- endfor %}
+  ]
+}
+</script>
