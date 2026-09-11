@@ -1,0 +1,148 @@
+---
+layout: base.njk
+---
+
+{% set author = team[authorKey] %}
+
+<article class="post blog-page">
+  <div class="post-wrap">
+
+    {% include "breadcrumbs.njk" %}
+
+    <header class="post-head">
+      {% if category %}<p class="post-eyebrow">{{ category }}</p>{% endif %}
+      <h1>{{ title }}</h1>
+      {% if excerpt %}<p class="post-excerpt">{{ excerpt }}</p>{% endif %}
+      <div class="post-byline">
+        {% if author %}
+        <a href="{{ author.profileUrl }}" class="post-byline-author">
+          <span class="post-byline-photo" style="background-image: url('{{ author.photo }}');" role="img" aria-label="{{ author.photoAlt }}"></span>
+          <span class="post-byline-text">
+            <span class="post-byline-name">{{ author.name }}</span>
+            <span class="post-byline-role">{{ author.role | safe }}</span>
+          </span>
+        </a>
+        {% endif %}
+        <span class="post-byline-date">
+          <time datetime="{{ publishedDate | dateIso }}">{{ publishedDate | dateFriendly }}</time>
+          {% if updated and (updated | dateIso) != (publishedDate | dateIso) %}
+          <span class="post-byline-sep" aria-hidden="true">&middot;</span> Updated <time datetime="{{ updated | dateIso }}">{{ updated | dateFriendly }}</time>
+          {% endif %}
+        </span>
+      </div>
+    </header>
+
+    {% if coverImage %}
+    <figure class="post-cover">
+      <img src="{{ coverImage }}" alt="{{ coverAlt or '' }}" fetchpriority="high">
+    </figure>
+    {% endif %}
+
+    <div class="post-body legal-content">
+      {{ content | safe }}
+    </div>
+
+    {% if faq %}
+    <section class="post-faq">
+      <h2>Common questions</h2>
+      <div class="faq-list">
+        {% for f in faq %}
+        <div class="faq-item">
+          <button class="faq-question">{{ f.question }}</button>
+          <div class="faq-answer"><p>{{ f.answer | safe }}</p></div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    {% if relatedService %}
+    <aside class="post-callout">
+      <p>{{ relatedService.blurb or ("Learn more about " + relatedService.title + " at Meridian Osteopathy, or book directly online.") }}</p>
+      <p class="post-callout-links">
+        <a href="{{ relatedService.url }}" class="btn btn-outline">Read more about {{ relatedService.title }} &rarr;</a>
+        {% if relatedService.alsoConsider %}
+        <a href="{{ relatedService.alsoConsider.url }}" class="btn btn-outline">{{ relatedService.alsoConsider.title }} &rarr;</a>
+        {% endif %}
+      </p>
+    </aside>
+    {% endif %}
+
+    {% set relatedPosts = collections.post | excludePrefixes(page.url) | reverse %}
+    {% if relatedPosts.length %}
+    <nav class="post-more" aria-label="More from the blog">
+      <h2>More from the blog</h2>
+      <ul>
+        {% for p in relatedPosts %}{% if loop.index0 < 3 %}
+        <li>
+          <a href="{{ p.url }}">{{ p.data.title }}</a>
+          <time datetime="{{ p.data.publishedDate | dateIso }}">{{ p.data.publishedDate | dateFriendly }}</time>
+        </li>
+        {% endif %}{% endfor %}
+      </ul>
+    </nav>
+    {% endif %}
+
+  </div>
+
+  <section class="cta-banner">
+    <h2>Ready to book?</h2>
+    <a href="/book/" class="btn btn-gold">Book an Appointment</a>
+  </section>
+</article>
+
+{% include "back-to-top.njk" %}
+
+<!-- Article + Physician (author) schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "{{ site.url }}{{ page.url }}#article",
+  "headline": {{ title | dump | safe }},
+  {% if excerpt %}"description": {{ excerpt | dump | safe }},
+  {% endif %}"url": "{{ site.url }}{{ page.url }}",
+  "datePublished": "{{ publishedDate | dateIso }}",
+  "dateModified": "{{ (updated or publishedDate) | dateIso }}",
+  "inLanguage": "en-NZ",
+  "mainEntityOfPage": { "@id": "{{ site.url }}{{ page.url }}#webpage" },
+  "publisher": { "@id": "{{ site.url }}/#clinic" }{% if author %},
+  "author": {
+    "@type": "Physician",
+    "@id": "{{ site.url }}{{ author.profileUrl }}#physician",
+    "name": {{ author.name | dump | safe }},
+    "url": "{{ site.url }}{{ author.profileUrl }}",
+    "image": "{{ site.url }}{{ author.photo }}",
+    "jobTitle": {{ author.role | plain | dump | safe }},
+    "medicalSpecialty": {{ (author.medicalSpecialty or "Osteopathic") | dump | safe }},
+    "worksFor": { "@id": "{{ site.url }}/#clinic" }{% if author.credentials %},
+    "hasCredential": {{ author.credentials | dump | safe }}{% endif %}{% if author.sameAs %},
+    "sameAs": {{ author.sameAs | dump | safe }}{% endif %}
+  }{% else %},
+  "author": { "@id": "{{ site.url }}/#clinic" }{% endif %}{% if coverImage %},
+  "image": "{{ site.url }}{{ coverImage }}"{% endif %}
+}
+</script>
+
+{% if faq %}
+<!-- FAQPage schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "{{ site.url }}{{ page.url }}#faq",
+  "mainEntity": [
+    {%- for f in faq %}
+    {
+      "@type": "Question",
+      "name": {{ f.question | dump | safe }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ f.answer | plain | dump | safe }}
+      }
+    }{% if not loop.last %},{% endif %}
+    {%- endfor %}
+  ]
+}
+</script>
+{% endif %}
