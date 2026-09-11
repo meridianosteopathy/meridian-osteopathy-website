@@ -477,6 +477,97 @@
       }
     ]
   },
+  "postpartum-recovery": {
+    "slug": "postpartum-recovery",
+    "title": "Postpartum Recovery",
+    "navTitle": "Postpartum Recovery",
+    "heroImage": "/images/hero-pregnancy-back-pain.jpg",
+    "tagline": "Hands-on osteopathy for your body after birth — back, pelvis, ribs, feeding posture and everything the first year asks of it.",
+    "metaDescription": "Postpartum recovery treatment in Christchurch at Meridian Osteopathy. Gentle osteopathy for back, pelvic, rib and feeding-posture recovery after birth — vaginal or caesarean. Book directly, no referral needed.",
+    "alternateName": ["Postnatal recovery", "After birth recovery", "Post-pregnancy recovery", "Post-partum recovery"],
+    "intro": "Postpartum recovery treatment at Meridian Osteopathy in Christchurch focuses on the musculoskeletal side of the first year after birth — the lower back, pelvis, ribs, abdominal wall, wrists and neck that quietly bear the load of feeding, carrying and settling a new baby. Care is gentle, unhurried, and adapted around whether you birthed vaginally or by caesarean; you can bring baby with you, and no referral is needed to book. Postpartum recovery is one of the least-supported stages of women's health in New Zealand. Antenatal care is thorough, birth is well-supported, your midwife covers the first six weeks, and Plunket picks up the well-baby side — but hands-on care for your body specifically is rarely part of the picture unless you go looking. That gap matters, because the pregnancy, the birth itself, and the months of feeding, lifting and settling that follow all leave patterns the body can benefit from help unwinding. This page covers what postpartum osteopathy addresses, what it does not, when to start, how it works alongside women's health physiotherapy and other postnatal care, and when a symptom needs a different specialist rather than us.",
+    "relatedService": {
+      "title": "Osteopathy",
+      "url": "/services/osteopathy/"
+    },
+    "alsoConsider": {
+      "title": "Acupuncture & Dry Needling",
+      "url": "/services/acupuncture/"
+    },
+    "relatedServiceBlurb": "Postpartum osteopathy at Meridian uses the same hands-on approach as our general osteopathy — joint mobilisation, soft-tissue release, and gentle mobility work — with extra attention to the pelvis, abdominal wall, ribs, diaphragm and neck. Positions are adapted so you can lie comfortably whether you are breastfeeding, still tender from a caesarean, or bringing baby along. Where acupuncture would help — for headaches, milk-supply anxiety, low mood, or sleep — your practitioner can integrate dry needling or medical acupuncture in the same session. You do not need a referral to book; you can bring baby, and we can pause the session at any time for feeding or a nappy change.",
+    "lists": [
+      {
+        "title": "Common signs postpartum osteopathy can help with",
+        "items": [
+          "Lower back or pelvic pain that started in pregnancy and has not fully settled six or more weeks after birth",
+          "Neck, shoulder and upper-back tension from feeding posture, bending over the cot or pram, and settling baby",
+          "Wrist and thumb pain (De Quervain's, or 'mother's thumb') from lifting a growing baby dozens of times a day",
+          "Ribs and diaphragm that feel 'stuck up' — shallow breathing, tightness across the front of the chest, or a rib on one side that clicks",
+          "Discomfort or restriction around a healed caesarean scar, or an abdomen that feels disconnected from the rest of the body",
+          "Headaches or jaw tension that started or worsened in the postnatal period",
+          "A general sense that your body has not 'come back down' since the pregnancy, months after birth"
+        ]
+      },
+      {
+        "title": "When to see an osteopath after birth",
+        "items": [
+          "Six weeks or more have passed and pregnancy-related back, pelvic or rib pain has not fully settled",
+          "Feeding, settling or lifting are triggering neck, shoulder, wrist or thumb pain",
+          "You are recovering from a caesarean and want hands-on work around a fully healed scar and abdominal wall",
+          "You are planning to return to running, weightlifting or a specific sport and want a musculoskeletal check first",
+          "Headaches, jaw pain or breathing that feels 'high and shallow' have not resolved with rest and rehydration",
+          "You had a long labour, an instrumental birth (ventouse or forceps), or a fast birth and your body feels wound up",
+          "You want to unpick postural patterns before they set in for the second year of carrying, lifting and settling"
+        ]
+      },
+      {
+        "title": "What to expect at your first postpartum appointment",
+        "items": [
+          "A full history covering the pregnancy, birth, feeding, sleep, mood and anything specific you want addressed",
+          "A gentle assessment of your posture, spine, pelvis, ribs and abdominal wall, adapted around comfort and any tenderness",
+          "A plain-language explanation of which patterns are driving your symptoms and what will help most in the first few sessions",
+          "Hands-on treatment — soft-tissue release, joint mobilisation, rib and diaphragm work, and gentle scar mobilisation where appropriate",
+          "Practical advice on feeding positions, sleep setup, carrying and how to reintroduce exercise safely",
+          "Referral suggestions where a women's health physio, lactation consultant, mental-health professional or GP would be a better fit for part of the picture",
+          "A short, realistic plan — usually a small block of fortnightly sessions rather than a fixed course"
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "When can I start postpartum osteopathy?",
+        "answer": "Whenever you feel ready to leave the house for an hour with or without baby. Many people come from around six weeks postpartum — often after their midwife discharge check — but there is no minimum wait. Gentle treatment is safe from as early as the first week or two if something specific is bothering you, and can be adapted around a caesarean scar, breastfeeding, and a very young baby who needs to come along."
+      },
+      {
+        "question": "What kind of things can it help with?",
+        "answer": "The most common reasons are lower-back and pelvic pain that has not fully settled since pregnancy, neck and upper-back tension from feeding, wrist and thumb pain from lifting baby, rib and diaphragm tension after a long pregnancy or caesarean, headaches, and a general 'my body feels different' picture that has not yet found a name. We also work with people around healed caesarean scars and preparing to return to running or exercise."
+      },
+      {
+        "question": "Is it different from women's health physiotherapy?",
+        "answer": "Yes, and the two are complementary rather than competing. Women's health physiotherapists specialise in the pelvic floor, abdominal separation, prolapse and internal-examination-based assessments — the specific gynaecological side of postpartum recovery. Osteopathy covers the wider musculoskeletal picture — spine, ribs, hips, shoulders, wrists, jaw, headaches — with hands-on techniques. If your primary concern is pelvic floor, a women's health physio is often the better first step; if it is back, neck, ribs, wrists or general body recovery, osteopathy is a good fit. Many people benefit from both over the first year."
+      },
+      {
+        "question": "Can I bring my baby with me?",
+        "answer": "Yes — most people do in the first few months. There is space beside the treatment table for a car seat or pram, and you are welcome to pause the session to feed, settle or change baby whenever you need. If you would rather come alone, evening and Saturday slots may be easier to arrange around another adult."
+      },
+      {
+        "question": "Is it safe if I am breastfeeding?",
+        "answer": "Yes. Nothing in osteopathic treatment affects milk supply or feeding. Positioning is adapted so you can lie comfortably whether you are lactating heavily, still tender across the front of the chest, or coming straight from a feed. Most people find sessions actually help feeding-related neck, shoulder and upper-back tension."
+      },
+      {
+        "question": "What about scar work after a caesarean?",
+        "answer": "Once the scar is fully healed and any dressings are off — usually from around six weeks — gentle scar mobilisation can help the abdominal wall move more freely and reduce tightness that pulls into the pelvis or lower back. Treatment is very gentle, and we work at whatever pace feels tolerable. If the scar is still sensitive, tingling or numb, we can start with surrounding tissues and build up as it settles."
+      },
+      {
+        "question": "Is postpartum osteopathy covered by ACC?",
+        "answer": "Usually not — postpartum recovery is a physiological process rather than an accident or specific injury. If a fall, lift or specific event during pregnancy, birth or the postnatal period caused a musculoskeletal injury, that part may be claimable; mention it when you book. Otherwise treatment is billed at the private rate. Some health insurance plans cover osteopathy — worth checking your policy."
+      },
+      {
+        "question": "How many sessions will I need?",
+        "answer": "Most people find a short block — three to five sessions across a couple of months — is enough to unpick the main patterns and give them something to work with at home. Some prefer to keep a fortnightly maintenance rhythm through the first year of feeding and lifting; others come only when a specific symptom flares. We will agree a realistic plan at the first visit and revisit it as things change, rather than book you into a fixed course."
+      }
+    ]
+  },
   "sports-injury-recovery": {
     "slug": "sports-injury-recovery",
     "title": "Sports Injury Recovery",
