@@ -4,54 +4,46 @@ layout: base.njk
 
 {% set author = team[authorKey] %}
 
-<article class="post">
+<article class="post blog-page">
+  <div class="post-wrap">
 
-  {# Hero band — always rendered so its margin-top clears the fixed nav.
-     If the post has a coverImage, it becomes the hero background; otherwise
-     the site's default primary-colour hero band is shown. #}
-  {% if coverImage %}
-  <section class="hero" style="background-image: url('{{ coverImage }}');" role="img" aria-label="{{ coverAlt or title }}"></section>
-  {% else %}
-  <section class="hero"></section>
-  {% endif %}
+    {% include "breadcrumbs.njk" %}
 
-  {% include "breadcrumbs.njk" %}
-
-  <header class="post-header">
-    <div class="container" style="max-width: 760px;">
-      <p class="post-eyebrow"><a href="/blog/">Blog</a>{% if category %} &middot; {{ category }}{% endif %}</p>
+    <header class="post-head">
+      {% if category %}<p class="post-eyebrow">{{ category }}</p>{% endif %}
       <h1>{{ title }}</h1>
       {% if excerpt %}<p class="post-excerpt">{{ excerpt }}</p>{% endif %}
-      <div class="post-meta">
+      <div class="post-byline">
         {% if author %}
-        <a href="{{ author.profileUrl }}" class="post-author-link">
-          <span class="post-author-photo" style="background-image: url('{{ author.photo }}');" role="img" aria-label="{{ author.photoAlt }}"></span>
-          <span class="post-author-info">
-            <span class="post-author-name">{{ author.name }}</span>
-            <span class="post-author-role">{{ author.role | safe }}</span>
+        <a href="{{ author.profileUrl }}" class="post-byline-author">
+          <span class="post-byline-photo" style="background-image: url('{{ author.photo }}');" role="img" aria-label="{{ author.photoAlt }}"></span>
+          <span class="post-byline-text">
+            <span class="post-byline-name">{{ author.name }}</span>
+            <span class="post-byline-role">{{ author.role | safe }}</span>
           </span>
         </a>
-        <span class="post-meta-divider" aria-hidden="true"></span>
         {% endif %}
-        <span class="post-dates">
-          <time datetime="{{ publishedDate | dateIso }}">Published {{ publishedDate | dateFriendly }}</time>
+        <span class="post-byline-date">
+          <time datetime="{{ publishedDate | dateIso }}">{{ publishedDate | dateFriendly }}</time>
           {% if updated and (updated | dateIso) != (publishedDate | dateIso) %}
-          &middot; <time datetime="{{ updated | dateIso }}">Updated {{ updated | dateFriendly }}</time>
+          <span class="post-byline-sep" aria-hidden="true">&middot;</span> Updated <time datetime="{{ updated | dateIso }}">{{ updated | dateFriendly }}</time>
           {% endif %}
         </span>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <section class="section">
-    <div class="container legal-content" style="max-width: 760px;">
+    {% if coverImage %}
+    <figure class="post-cover">
+      <img src="{{ coverImage }}" alt="{{ coverAlt or '' }}" fetchpriority="high">
+    </figure>
+    {% endif %}
+
+    <div class="post-body legal-content">
       {{ content | safe }}
     </div>
-  </section>
 
-  {% if faq %}
-  <section class="section section-light">
-    <div class="container" style="max-width: 820px;">
+    {% if faq %}
+    <section class="post-faq">
       <h2>Common questions</h2>
       <div class="faq-list">
         {% for f in faq %}
@@ -61,65 +53,42 @@ layout: base.njk
         </div>
         {% endfor %}
       </div>
-    </div>
-  </section>
-  {% endif %}
+    </section>
+    {% endif %}
 
-  {% if relatedService %}
-  <section class="section">
-    <div class="container legal-content" style="max-width: 760px;">
-      <h2>Book with us</h2>
+    {% if relatedService %}
+    <aside class="post-callout">
       <p>{{ relatedService.blurb or ("Learn more about " + relatedService.title + " at Meridian Osteopathy, or book directly online.") }}</p>
-      <p>
+      <p class="post-callout-links">
         <a href="{{ relatedService.url }}" class="btn btn-outline">Read more about {{ relatedService.title }} &rarr;</a>
         {% if relatedService.alsoConsider %}
-        <a href="{{ relatedService.alsoConsider.url }}" class="btn btn-outline" style="margin-left: 8px;">{{ relatedService.alsoConsider.title }} &rarr;</a>
+        <a href="{{ relatedService.alsoConsider.url }}" class="btn btn-outline">{{ relatedService.alsoConsider.title }} &rarr;</a>
         {% endif %}
       </p>
-    </div>
-  </section>
-  {% endif %}
+    </aside>
+    {% endif %}
 
-  {% if author %}
-  <section class="section section-light">
-    <div class="container" style="max-width: 760px;">
-      <div class="post-author-card">
-        <div class="post-author-card-photo" style="background-image: url('{{ author.photo }}');" role="img" aria-label="{{ author.photoAlt }}"></div>
-        <div class="post-author-card-body">
-          <p class="post-author-card-heading">Written by {{ author.name }}</p>
-          <p class="post-author-card-role">{{ author.role | safe }}</p>
-          {% if author.specialInterests %}<p>{{ author.specialInterests }}</p>{% endif %}
-          <p><a href="{{ author.profileUrl }}" class="btn btn-outline">See {{ author.firstName }}'s profile &rarr;</a></p>
-        </div>
-      </div>
-    </div>
-  </section>
-  {% endif %}
-
-  {% set relatedPosts = collections.post | excludePrefixes(page.url) | reverse %}
-  {% if relatedPosts.length %}
-  <section class="section">
-    <div class="container" style="max-width: 960px;">
-      <h2 class="text-center">More from the blog</h2>
-      <ul class="post-related-list">
+    {% set relatedPosts = collections.post | excludePrefixes(page.url) | reverse %}
+    {% if relatedPosts.length %}
+    <nav class="post-more" aria-label="More from the blog">
+      <h2>More from the blog</h2>
+      <ul>
         {% for p in relatedPosts %}{% if loop.index0 < 3 %}
-        <li class="post-related-item">
-          <a href="{{ p.url }}">
-            <span class="post-related-title">{{ p.data.title }}</span>
-            {% if p.data.excerpt %}<span class="post-related-excerpt">{{ p.data.excerpt }}</span>{% endif %}
-          </a>
+        <li>
+          <a href="{{ p.url }}">{{ p.data.title }}</a>
+          <time datetime="{{ p.data.publishedDate | dateIso }}">{{ p.data.publishedDate | dateFriendly }}</time>
         </li>
         {% endif %}{% endfor %}
       </ul>
-    </div>
-  </section>
-  {% endif %}
+    </nav>
+    {% endif %}
+
+  </div>
 
   <section class="cta-banner">
     <h2>Ready to book?</h2>
     <a href="/book/" class="btn btn-gold">Book an Appointment</a>
   </section>
-
 </article>
 
 {% include "back-to-top.njk" %}

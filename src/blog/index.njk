@@ -6,26 +6,19 @@ description: "Articles on pregnancy, baby and postnatal care from Meridian Osteo
 tags: []
 ---
 
-<!-- Hero (empty; site's .hero rule clears the fixed nav via margin-top and paints the primary-colour band). -->
-<section class="hero"></section>
+<section class="blog-page">
+  <div class="container blog-wrap">
 
-{% include "breadcrumbs.njk" %}
+    {% include "breadcrumbs.njk" %}
 
-<section class="section text-center">
-  <div class="container">
-    <div class="service-intro">
+    <header class="blog-head">
       <h1>Blog</h1>
       <p class="subtitle">Practical, evidence-informed writing on osteopathy, acupuncture, and care through pregnancy, birth and the first year with baby.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section section-light">
-  <div class="container" style="max-width: 960px;">
+    </header>
 
     {%- set posts = collections.post | reverse %}
     {% if posts.length %}
-    <ul class="post-list">
+    <ul class="post-grid">
       {% for p in posts %}
       {% set a = team[p.data.authorKey] %}
       <li class="post-card">
@@ -33,16 +26,14 @@ tags: []
           {% if p.data.coverImage %}
           <span class="post-card-cover" style="background-image: url('{{ p.data.coverImage }}');" role="img" aria-label="{{ p.data.coverAlt or p.data.title }}"></span>
           {% else %}
-          <span class="post-card-cover post-card-cover--placeholder" aria-hidden="true">
-            <span>{{ p.data.title }}</span>
-          </span>
+          <span class="post-card-cover post-card-cover--placeholder" aria-hidden="true"></span>
           {% endif %}
           <span class="post-card-body">
             {% if p.data.category %}<span class="post-card-category">{{ p.data.category }}</span>{% endif %}
             <span class="post-card-title">{{ p.data.title }}</span>
             {% if p.data.excerpt %}<span class="post-card-excerpt">{{ p.data.excerpt }}</span>{% endif %}
             <span class="post-card-meta">
-              {% if a %}<span>{{ a.name }}</span> &middot; {% endif %}<time datetime="{{ p.data.publishedDate | dateIso }}">{{ p.data.publishedDate | dateFriendly }}</time>
+              {% if a %}<span class="post-card-avatar" style="background-image: url('{{ a.photo }}');" aria-hidden="true"></span><span>{{ a.name }}</span><span class="post-card-sep" aria-hidden="true">&middot;</span>{% endif %}<time datetime="{{ p.data.publishedDate | dateIso }}">{{ p.data.publishedDate | dateFriendly }}</time>
             </span>
           </span>
         </a>
@@ -58,7 +49,7 @@ tags: []
 
 {% include "back-to-top.njk" %}
 
-<!-- CollectionPage / Blog schema -->
+<!-- Blog schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
