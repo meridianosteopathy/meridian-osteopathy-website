@@ -117,7 +117,7 @@
 .post-byline-text{display:inline-flex;flex-direction:column;line-height:1.25;gap:2px}
 .post-byline-name{font-weight:600;color:var(--text-dark);font-size:.92rem}
 .post-byline-role{color:var(--text-light);font-size:.78rem}
-.post-byline-date{color:var(--text-light);white-space:nowrap}
+.post-byline-date{color:var(--text-light);white-space:nowrap;margin-left:auto}
 .post-byline-date time{color:var(--text-light)}
 .post-byline-sep{margin:0 4px;color:var(--border)}
 .post-cover{margin:0 0 32px}
