@@ -92,8 +92,8 @@
 .post-author-link{display:inline-flex;align-items:center;gap:10px;color:var(--text-dark);text-decoration:none}
 .post-author-link:hover .post-author-name{text-decoration:underline}
 .post-author-photo{width:36px;height:36px;border-radius:50%;background:var(--light-bg);background-size:cover;background-position:center top;flex-shrink:0;display:inline-block}
-.post-author-name{display:block;font-weight:500;color:var(--text-dark);font-size:.92rem;line-height:1.1}
-.post-author-role{display:block;color:var(--text-light);font-size:.78rem;line-height:1.2;margin-top:2px}
+.post-author-name{font-weight:500;color:var(--text-dark);font-size:.92rem}
+.post-author-role{color:var(--text-light);font-size:.78rem}
 .post-dates{color:var(--text-light);font-size:.88rem}
 .post-dates time{color:var(--text-light)}
 .post-author-card{display:flex;gap:24px;align-items:center;padding:24px;background:var(--white);border:1px solid var(--border);border-radius:12px}

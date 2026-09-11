@@ -27,7 +27,6 @@ tags: []
     {% if posts.length %}
     <ul class="post-list">
       {% for p in posts %}
-      {% set a = team[p.data.authorKey] %}
       <li class="post-card">
         <a href="{{ p.url }}" class="post-card-link">
           {% if p.data.coverImage %}
@@ -42,7 +41,7 @@ tags: []
             <span class="post-card-title">{{ p.data.title }}</span>
             {% if p.data.excerpt %}<span class="post-card-excerpt">{{ p.data.excerpt }}</span>{% endif %}
             <span class="post-card-meta">
-              {% if a %}<span>{{ a.name }}</span> &middot; {% endif %}<time datetime="{{ p.data.publishedDate | dateIso }}">{{ p.data.publishedDate | dateFriendly }}</time>
+              <span>Meridian Osteopathy</span> &middot; <time datetime="{{ p.data.publishedDate | dateIso }}">{{ p.data.publishedDate | dateFriendly }}</time>
             </span>
           </span>
         </a>

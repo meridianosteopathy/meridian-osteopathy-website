@@ -2,8 +2,7 @@
 title: "Osteopathy Through Pregnancy: Gentle, Trimester-Aware Care"
 description: "Gentle osteopathy in Christchurch for pregnancy-related back, pelvic and hip discomfort. Safe across all trimesters, tailored to your body as it changes."
 excerpt: "Hands-on osteopathic care to help you stay comfortable as your posture, ligaments and pelvis change through pregnancy — safe across all trimesters, working alongside your midwife."
-publishedDate: 2026-09-11
-authorKey: nina
+publishedDate: 2026-09-09
 category: "Pregnancy & baby"
 coverImage: /images/specialty-ost-pregnancy.jpg
 coverAlt: "Pregnant woman receiving gentle osteopathic treatment on a treatment table"

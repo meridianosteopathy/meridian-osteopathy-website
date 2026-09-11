@@ -2,8 +2,7 @@
 title: "Baby Osteopathy: Extremely Gentle, Light-Touch Care for the First Year"
 description: "Very gentle paediatric osteopathy in Christchurch for babies — settling, feeding comfort, flat spots, head-turning preferences, and a careful whole-body check."
 excerpt: "A light-touch, unhurried appointment for your baby — settling and feeding comfort, flat spots and head-turning preferences, with a careful whole-body check by an osteopath trained in paediatric care."
-publishedDate: 2026-09-11
-authorKey: nina
+publishedDate: 2026-07-29
 category: "Pregnancy & baby"
 coverImage: /images/specialty-ost-paediatric.jpg
 coverAlt: "Osteopath gently examining a young baby with light-touch cranial techniques"

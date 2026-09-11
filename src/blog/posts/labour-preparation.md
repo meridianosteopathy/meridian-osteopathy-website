@@ -2,8 +2,7 @@
 title: "Labour Preparation Acupuncture: What It Is and When to Start"
 description: "Labour preparation acupuncture in Christchurch from around 36 weeks — gentle sessions to help you feel relaxed, rested and ready for birth."
 excerpt: "From around 36 weeks, a weekly acupuncture protocol many people choose alongside their maternity care — designed to help you feel relaxed, rested and ready, not to force anything to happen."
-publishedDate: 2026-09-11
-authorKey: nina
+publishedDate: 2026-08-12
 category: "Pregnancy & baby"
 coverImage: /images/specialty-fertility-mechanism.jpg
 coverAlt: "Calm treatment room ready for a labour preparation acupuncture session"
