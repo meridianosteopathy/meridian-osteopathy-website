@@ -6,8 +6,13 @@ layout: base.njk
 
 <article class="post">
 
+  {# Hero band — always rendered so its margin-top clears the fixed nav.
+     If the post has a coverImage, it becomes the hero background; otherwise
+     the site's default primary-colour hero band is shown. #}
   {% if coverImage %}
-  <section class="post-hero" style="background-image: url('{{ coverImage }}');" role="img" aria-label="{{ coverAlt or title }}"></section>
+  <section class="hero" style="background-image: url('{{ coverImage }}');" role="img" aria-label="{{ coverAlt or title }}"></section>
+  {% else %}
+  <section class="hero"></section>
   {% endif %}
 
   {% include "breadcrumbs.njk" %}
