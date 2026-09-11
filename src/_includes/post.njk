@@ -2,6 +2,8 @@
 layout: base.njk
 ---
 
+{% set author = team[authorKey] %}
+
 <article class="post">
 
   {# Hero band — always rendered so its margin-top clears the fixed nav.
@@ -21,7 +23,16 @@ layout: base.njk
       <h1>{{ title }}</h1>
       {% if excerpt %}<p class="post-excerpt">{{ excerpt }}</p>{% endif %}
       <div class="post-meta">
-        <span class="post-author-name">Meridian Osteopathy</span>
+        {% if author %}
+        <a href="{{ author.profileUrl }}" class="post-author-link">
+          <span class="post-author-photo" style="background-image: url('{{ author.photo }}');" role="img" aria-label="{{ author.photoAlt }}"></span>
+          <span class="post-author-info">
+            <span class="post-author-name">{{ author.name }}</span>
+            <span class="post-author-role">{{ author.role | safe }}</span>
+          </span>
+        </a>
+        <span class="post-meta-divider" aria-hidden="true"></span>
+        {% endif %}
         <span class="post-dates">
           <time datetime="{{ publishedDate | dateIso }}">Published {{ publishedDate | dateFriendly }}</time>
           {% if updated and (updated | dateIso) != (publishedDate | dateIso) %}
@@ -69,9 +80,25 @@ layout: base.njk
   </section>
   {% endif %}
 
+  {% if author %}
+  <section class="section section-light">
+    <div class="container" style="max-width: 760px;">
+      <div class="post-author-card">
+        <div class="post-author-card-photo" style="background-image: url('{{ author.photo }}');" role="img" aria-label="{{ author.photoAlt }}"></div>
+        <div class="post-author-card-body">
+          <p class="post-author-card-heading">Written by {{ author.name }}</p>
+          <p class="post-author-card-role">{{ author.role | safe }}</p>
+          {% if author.specialInterests %}<p>{{ author.specialInterests }}</p>{% endif %}
+          <p><a href="{{ author.profileUrl }}" class="btn btn-outline">See {{ author.firstName }}'s profile &rarr;</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
   {% set relatedPosts = collections.post | excludePrefixes(page.url) | reverse %}
   {% if relatedPosts.length %}
-  <section class="section section-light">
+  <section class="section">
     <div class="container" style="max-width: 960px;">
       <h2 class="text-center">More from the blog</h2>
       <ul class="post-related-list">
@@ -97,8 +124,7 @@ layout: base.njk
 
 {% include "back-to-top.njk" %}
 
-<!-- Article schema (author = clinic; publisher = clinic; the MedicalClinic
-     entity itself is defined once in base.njk and referenced here by @id). -->
+<!-- Article + Physician (author) schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -111,8 +137,20 @@ layout: base.njk
   "dateModified": "{{ (updated or publishedDate) | dateIso }}",
   "inLanguage": "en-NZ",
   "mainEntityOfPage": { "@id": "{{ site.url }}{{ page.url }}#webpage" },
-  "publisher": { "@id": "{{ site.url }}/#clinic" },
-  "author": { "@id": "{{ site.url }}/#clinic" }{% if coverImage %},
+  "publisher": { "@id": "{{ site.url }}/#clinic" }{% if author %},
+  "author": {
+    "@type": "Physician",
+    "@id": "{{ site.url }}{{ author.profileUrl }}#physician",
+    "name": {{ author.name | dump | safe }},
+    "url": "{{ site.url }}{{ author.profileUrl }}",
+    "image": "{{ site.url }}{{ author.photo }}",
+    "jobTitle": {{ author.role | plain | dump | safe }},
+    "medicalSpecialty": {{ (author.medicalSpecialty or "Osteopathic") | dump | safe }},
+    "worksFor": { "@id": "{{ site.url }}/#clinic" }{% if author.credentials %},
+    "hasCredential": {{ author.credentials | dump | safe }}{% endif %}{% if author.sameAs %},
+    "sameAs": {{ author.sameAs | dump | safe }}{% endif %}
+  }{% else %},
+  "author": { "@id": "{{ site.url }}/#clinic" }{% endif %}{% if coverImage %},
   "image": "{{ site.url }}{{ coverImage }}"{% endif %}
 }
 </script>

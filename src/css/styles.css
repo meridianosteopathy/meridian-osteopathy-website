@@ -88,21 +88,35 @@
 .post-eyebrow a:hover{text-decoration:underline}
 .post-header h1{font-size:clamp(1.9rem,4vw,2.6rem);color:var(--text-dark);margin-bottom:14px;line-height:1.2}
 .post-excerpt{font-size:1.1rem;color:var(--text-body);max-width:640px;margin:0 auto 20px;line-height:1.55}
-.post-meta{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 24px;margin-top:12px;color:var(--text-light);font-size:.9rem}
-.post-author-link{display:inline-flex;align-items:center;gap:10px;color:var(--text-dark);text-decoration:none}
+/* Byline under the post h1. Photo + name/role stack + divider + published
+   date, all centred on one row on desktop; on narrow screens the divider
+   hides and the two groups stack vertically with a modest gap. Name/role
+   inside the author link is left-aligned so it reads as one label. */
+.post-meta{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;column-gap:20px;row-gap:12px;margin-top:20px;color:var(--text-light);font-size:.9rem}
+.post-author-link{display:inline-flex;align-items:center;gap:12px;color:var(--text-dark);text-decoration:none;text-align:left}
 .post-author-link:hover .post-author-name{text-decoration:underline}
-.post-author-photo{width:36px;height:36px;border-radius:50%;background:var(--light-bg);background-size:cover;background-position:center top;flex-shrink:0;display:inline-block}
-.post-author-name{font-weight:500;color:var(--text-dark);font-size:.92rem}
-.post-author-role{color:var(--text-light);font-size:.78rem}
-.post-dates{color:var(--text-light);font-size:.88rem}
+.post-author-photo{width:44px;height:44px;border-radius:50%;background:var(--light-bg);background-size:cover;background-position:center top;flex-shrink:0;display:inline-block}
+.post-author-info{display:inline-flex;flex-direction:column;line-height:1.25;gap:2px}
+.post-author-name{font-weight:600;color:var(--text-dark);font-size:.95rem}
+.post-author-role{color:var(--text-light);font-size:.8rem}
+.post-meta-divider{display:inline-block;width:1px;height:28px;background:var(--border)}
+.post-dates{color:var(--text-light);font-size:.9rem;white-space:nowrap}
 .post-dates time{color:var(--text-light)}
-.post-author-card{display:flex;gap:24px;align-items:center;padding:24px;background:var(--white);border:1px solid var(--border);border-radius:12px}
-.post-author-card-photo{width:88px;height:88px;border-radius:50%;background:var(--light-bg);background-size:cover;background-position:center top;flex-shrink:0}
-.post-author-card-heading{font-size:1.15rem;color:var(--text-dark);margin-bottom:2px;font-weight:600}
-.post-author-card-role{color:var(--text-light);font-size:.9rem;margin-bottom:10px}
+@media (max-width:560px){
+  .post-meta-divider{display:none}
+  .post-meta{row-gap:14px}
+}
+/* Author card at the bottom of every post — larger photo, stacked
+   info, left-aligned. Uses the same border/radius language as
+   .item cards on /admin/audit/ and .spotlight-card on the homepage. */
+.post-author-card{display:flex;gap:24px;align-items:center;padding:28px;background:var(--white);border:1px solid var(--border);border-radius:12px}
+.post-author-card-photo{width:96px;height:96px;border-radius:50%;background:var(--light-bg);background-size:cover;background-position:center top;flex-shrink:0}
+.post-author-card-body{flex:1;min-width:0}
+.post-author-card-heading{font-size:1.2rem;color:var(--text-dark);margin-bottom:2px;font-weight:600}
+.post-author-card-role{color:var(--text-light);font-size:.9rem;margin-bottom:12px}
 .post-author-card p{margin-bottom:10px;line-height:1.6}
 .post-author-card p:last-child{margin-bottom:0}
-@media (max-width:640px){.post-author-card{flex-direction:column;text-align:center}}
+@media (max-width:640px){.post-author-card{flex-direction:column;text-align:center;padding:24px}}
 .post-related-list{list-style:none;padding:0;margin:20px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
 .post-related-item a{display:flex;flex-direction:column;gap:6px;padding:18px 20px;background:var(--white);border:1px solid var(--border);border-radius:10px;color:var(--text-dark);text-decoration:none;transition:border-color .15s,transform .15s}
 .post-related-item a:hover{border-color:var(--primary);transform:translateY(-2px)}

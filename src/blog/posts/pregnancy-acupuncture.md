@@ -3,6 +3,7 @@ title: "Acupuncture in Pregnancy: A Calm, Restful Option for Nausea, Sleep and S
 description: "Gentle acupuncture in Christchurch to support you through pregnancy — for nausea, sleep, stress and general wellbeing. Safe, restful, and tailored to your stage."
 excerpt: "A calm, needle-based option that many people reach for during pregnancy — most often for nausea, sleep, anxiety and general wellbeing, using points and techniques adapted to your trimester."
 publishedDate: 2026-08-26
+authorKey: nina
 category: "Pregnancy & baby"
 coverImage: /images/specialty-acu-womens.jpg
 coverAlt: "Close-up of gentle acupuncture needles being placed for a pregnancy wellbeing treatment"

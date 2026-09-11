@@ -3,6 +3,7 @@ title: "Postnatal Recovery: Care for Your Body After Birth"
 description: "Postnatal osteopathy in Christchurch — pelvic and back recovery, feeding posture, and the physical demands of newborn life. Gentle care whether you birthed vaginally or by caesarean."
 excerpt: "The first year after birth asks a lot of your body — pelvic and back recovery, feeding posture, broken sleep, and lifting a growing baby. Postnatal osteopathy is the boring, practical part of feeling like yourself again."
 publishedDate: 2026-07-15
+authorKey: nina
 category: "Pregnancy & baby"
 coverImage: /images/hero-pregnancy-back-pain.jpg
 coverAlt: "New parent with baby, illustrating the physical demands of the postnatal period"
