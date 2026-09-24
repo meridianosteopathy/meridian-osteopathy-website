@@ -12,7 +12,8 @@ One-time setup for the weekly audit dashboard at `audit.meridianosteopathy.co.nz
 | Saturday email digest | `netlify/functions/audit-send-digest.js` — runs on a Netlify schedule (Sat 22:00 UTC); warns if the routine didn't run |
 | Real Google numbers | Google Search Console, fetched at build time — one-time setup in [gsc-setup.md](gsc-setup.md) |
 | Routine instructions | [audit-routine.md](audit-routine.md) (weekly) and [audit-shipit-routine.md](audit-shipit-routine.md) (Ship it) |
-| Settings | `src/_data/auditConfig.json` — domain, brand terms, thresholds, digest recipient |
+| Settings | `src/_data/auditConfig.json` — domain, brand terms, thresholds, digest recipient, review admins |
+| Practitioner reviews | `/admin/reviews/` (short address `audit.meridianosteopathy.co.nz/reviews`) — no extra setup; uses the content-editor login, the existing email sender and the Ship-it routine. See [practitioner-reviews.md](practitioner-reviews.md) |
 
 ## 1. Check / add Netlify environment variables
 

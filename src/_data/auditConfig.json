@@ -1,11 +1,12 @@
 {
-  "_about": "Site-specific settings for the search audit (dashboard, weekly routine, digest). Everything clinic-specific lives here so the audit can be pointed at another site by editing this file. See docs/audit-routine.md.",
+  "_about": "Site-specific settings for the audit tools (search audit dashboard, weekly routine, digest, practitioner reviews). Everything clinic-specific lives here so the tools can be pointed at another site by editing this file. See docs/audit-routine.md and docs/practitioner-reviews.md.",
   "site": {
     "name": "Meridian Osteopathy",
     "domain": "meridianosteopathy.co.nz",
     "url": "https://meridianosteopathy.co.nz",
     "dashboardUrl": "https://audit.meridianosteopathy.co.nz/",
-    "repo": "meridianosteopathy/meridian-osteopathy-website"
+    "repo": "meridianosteopathy/meridian-osteopathy-website",
+    "netlifySiteName": "meridian-osteopathy"
   },
   "local": {
     "city": "Christchurch",
@@ -63,5 +64,11 @@
   "digest": {
     "to": "nina@meridianosteopathy.co.nz",
     "staleAfterDays": 7
+  },
+  "reviews": {
+    "admins": [
+      "nina@meridianosteopathy.co.nz"
+    ],
+    "adminName": "Nina"
   }
 }

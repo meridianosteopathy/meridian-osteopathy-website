@@ -68,6 +68,13 @@
   status = 200
   force = true
 
+# Short address for the practitioner reviews page.
+[[redirects]]
+  from = "https://audit.meridianosteopathy.co.nz/reviews"
+  to = "/admin/reviews/"
+  status = 200
+  force = true
+
 # Send any traffic hitting the raw Netlify subdomain to the canonical
 # domain so Google de-indexes the *.netlify.app URLs. Deploy previews live
 # on deploy-preview-N--meridian-osteopathy.netlify.app, so they're not

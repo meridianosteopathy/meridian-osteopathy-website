@@ -133,6 +133,7 @@ eleventyExcludeFromCollections: true
   .item[data-shipit="shipping"] .btn-shipit { background: var(--neutral) !important; border-color: var(--neutral) !important; }
   .item[data-shipit="shipped"] .btn-shipit { background: var(--status-approve) !important; border-color: var(--status-approve) !important; }
   .shipit-link { font-size: 0.78rem; color: var(--text-light); margin-left: 8px; }
+  .review-link { font-size: 0.85rem; color: var(--primary); text-decoration: underline; }
   .shipit-link a { color: var(--primary); text-decoration: underline; }
   .note-field { width: 100%; margin-top: 10px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; font: inherit; font-size: 0.9rem; color: var(--text-body); resize: vertical; min-height: 36px; font-family: inherit; display: none; }
   .item[data-has-status="true"] .note-field { display: block; }
@@ -181,7 +182,8 @@ eleventyExcludeFromCollections: true
     <div class="meta">
       Weekly report: <strong>{{ audit.meta.reportDate }}</strong> ·
       Google data: <strong>{% if gsc.connected %}{{ gsc.window.start }} → {{ gsc.window.end }}{% else %}not connected{% endif %}</strong> ·
-      <a href="https://github.com/{{ auditConfig.site.repo }}/tree/main/reports">Past reports</a>
+      <a href="https://github.com/{{ auditConfig.site.repo }}/tree/main/reports">Past reports</a> ·
+      <a href="/admin/reviews/">Practitioner reviews</a>
     </div>
     <div class="sync" id="sync-status">Loading decisions…</div>
     <div class="banner" id="stale-banner" hidden></div>
@@ -645,6 +647,10 @@ function render() {
     if (shipit && shipit.status) el.dataset.shipit = shipit.status;
     // "Needs you" items are done outside the website, so there's nothing to ship.
     const shipitButton = s === "approve" && item.owner !== "you" ? buildShipitButton(item.n, shipit) : "";
+    // Practitioner items: once Claude's draft is up, ask the reviewer to check it.
+    const reviewLink = item.owner === "practitioner"
+      ? `<a class="review-link" href="/admin/reviews/?${new URLSearchParams({ new: "1", n: String(item.n), title: item.title, reviewer: /^the /i.test(item.reviewer || "") ? "" : (item.reviewer || "") })}">Request practitioner review</a>`
+      : "";
 
     el.innerHTML = `
       <div class="item-head">
@@ -667,6 +673,7 @@ function render() {
         <button class="btn-approve" data-n="${item.n}" data-status="approve">✓ Approve</button>
         <button class="btn-park"    data-n="${item.n}" data-status="park">⏸ Park</button>
         <button class="btn-dismiss" data-n="${item.n}" data-status="dismiss">✕ Dismiss</button>
+        ${reviewLink}
         ${shipitButton}
       </div>
       <textarea class="note-field" data-n="${item.n}" placeholder="Notes (why, when, who owns it…)">${escapeHtml((decisions[item.n] && decisions[item.n].note) || "")}</textarea>

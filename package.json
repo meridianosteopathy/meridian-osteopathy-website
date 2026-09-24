@@ -6,7 +6,7 @@
     "build": "npx @11ty/eleventy",
     "serve": "npx @11ty/eleventy --serve",
     "start": "npx @11ty/eleventy --serve",
-    "test": "node scripts/test-submit-referral.js && node scripts/audit/test-search-console.js && node scripts/audit/check-audit-data.js"
+    "test": "node scripts/test-submit-referral.js && node scripts/test-reviews.js && node scripts/audit/test-search-console.js && node scripts/audit/check-audit-data.js"
   },
   "dependencies": {
     "@netlify/blobs": "^8.2.0",
