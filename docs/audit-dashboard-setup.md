@@ -9,7 +9,10 @@ One-time setup for the weekly audit dashboard at `audit.meridianosteopathy.co.nz
 | Dashboard UI | `/admin/audit/` (rewritten to `audit.meridianosteopathy.co.nz/`) |
 | Decisions storage | Netlify Blobs — automatic, no setup |
 | Weekly report generation | Claude routine at [claude.ai/code/routines](https://claude.ai/code/routines) |
-| Saturday email digest | `netlify/functions/audit-send-digest.js` — runs on a Netlify schedule (Sat 22:00 UTC) |
+| Saturday email digest | `netlify/functions/audit-send-digest.js` — runs on a Netlify schedule (Sat 22:00 UTC); warns if the routine didn't run |
+| Real Google numbers | Google Search Console, fetched at build time — one-time setup in [gsc-setup.md](gsc-setup.md) |
+| Routine instructions | [audit-routine.md](audit-routine.md) (weekly) and [audit-shipit-routine.md](audit-shipit-routine.md) (Ship it) |
+| Settings | `src/_data/auditConfig.json` — domain, brand terms, thresholds, digest recipient |
 
 ## 1. Check / add Netlify environment variables
 
@@ -52,117 +55,25 @@ Go to [claude.ai/code/routines](https://claude.ai/code/routines) and sign in wit
     - Add these environment variables under the routine's environment settings (these give the routine the secret it needs to hit the digest endpoint):
       - `AUDIT_DIGEST_TOKEN` = *same value you set in step 1*
 5. **Trigger**: Schedule → **Weekly** → Saturday → 09:00 (your local zone, NZ time)
-6. **Prompt**: paste the block below verbatim.
+6. **Prompt**: paste the short block below verbatim.
 
 ```
-You are the weekly AI-search-audit producer for Meridian Osteopathy
-(https://meridianosteopathy.co.nz). The previous audit data lives in
-src/_data/audit.json; the live-search query pool lives in
-src/_data/auditQueries.json; the dashboard at
-audit.meridianosteopathy.co.nz reads both.
-
-Do this in order:
-
-1. Read src/_data/audit.json AND src/_data/auditQueries.json for
-   current state.
-
-2. Research the last 7 days of community + industry signals on AEO / GEO
-   for local healthcare businesses. Look at Reddit (r/SEO, r/juststart,
-   r/AskMarketing, healthcare threads), HackerNews, Search Engine Land,
-   Ahrefs blog, Search Engine Journal, SEMrush blog, and any
-   schema.org / llms.txt / AI-crawler development announcements. Focus
-   on signals relevant to an osteopathy / multi-disciplinary allied-health
-   clinic in New Zealand.
-
-3. SEARCH VISIBILITY — for every query in auditQueries.pool (process the
-   top 30 by priority if the pool is larger):
-   a. Web-search the query.
-   b. From the results, record into that query object as a `lastResult`
-      with fields {date, meridianRank, topDomains, notes}:
-      - date: today, ISO-8601.
-      - meridianRank: 1-based position of meridianosteopathy.co.nz in
-        the results. Use 0 if not present in the visible results.
-      - topDomains: up to 5 unique non-aggregator ranking domains in
-        order. Strip subdomains to root (e.g. `m.example.com` →
-        `example.com`).
-      - notes: one short sentence if there's a standout observation
-        (AI Overview mentioned Meridian, a new competitor appeared,
-        position shifted ≥ 5 spots since last run, etc.). Skip if
-        nothing notable.
-   c. Also fetch Google autocomplete for each query:
-        GET https://suggestqueries.google.com/complete/search?client=firefox&q=<query>
-      Take up to 2 suggestions that aren't in the pool and aren't near-
-      duplicates of existing entries. If accepted, add each with:
-      {q, source: "autocomplete", priority: 50, addedAt: today}.
-   d. Update priority per query:
-      - If Meridian rank ≤ 3: priority = min(100, priority + 5)
-      - If Meridian rank 4–10: keep priority
-      - If Meridian not in top 10: priority = max(0, priority - 10)
-   e. Demote & prune:
-      - Any query with priority < 20 for the past 3 runs → remove.
-      - Cap the pool at auditQueries.meta.maxPool (default 50).
-        Drop lowest-priority first.
-   f. Respect auditQueries.meta.maxNewPerRun (default 5) — do not add
-      more than that many new queries in a single run.
-
-4. IF the pool has fewer than 20 entries, regenerate seeds from content:
-   - Read src/_data/services.json `specialties[].title`, `services.*.intro`.
-   - Read src/_data/team.json `*.specialInterests` — extract condition
-     phrases.
-   - Cross-product with suburbs: Christchurch, Halswell, Addington,
-     Sydenham, Wigram, Hillmorton.
-   - Add 10–15 of the most natural-sounding queries.
-
-5. Audit the current repo against industry findings from step 2. Check
-   for new gaps, confirm existing gaps still apply, and look for items
-   that may now be implemented (see git log for items shipped since
-   last run).
-
-6. Update src/_data/audit.json:
-   - Increment meta.reportDate to today.
-   - Add any new punch-list items at the end, with a firstSeen = today.
-   - Remove items that have been implemented (check git diff / grep the
-     relevant source files to confirm — do not remove based on guesswork).
-   - For each query with meridianRank > 10 OR absent AND priority ≥ 60,
-     if no existing punch-list item addresses it, add one:
-       - title: "Not ranking for '<query>' — [top competitor] owns it"
-       - body: describe the gap + recommend the smallest content fix
-       - tier: 2 (unless the content effort is clearly small, then 1)
-       - impact: H if priority ≥ 80, M otherwise
-       - effort: S if a page exists to tweak, L if a new page is needed
-       - addresses: ["G16"] (the search-visibility gap) + any topical gap
-   - Update tldr and gaps sections if the search-visibility data reveals
-     something material.
-   - Keep existing item numbers stable so decisions in Netlify Blobs
-     stay aligned.
-
-7. Update src/_data/auditQueries.json:
-   - Write the updated pool (with lastResult entries, priority changes,
-     new autocomplete entries).
-   - Update meta.lastRun to today and meta.poolSize.
-
-8. Save a markdown snapshot to reports/ai-search-audit-YYYY-MM-DD.md so
-   there is a human-readable historical archive. Include a "Search
-   visibility" section summarising wins/losses vs last run.
-
-9. Commit all three files to main with a message like:
-   "Weekly audit — N new items, M shipped, K queries checked (YYYY-MM-DD)"
-
-The Saturday digest email is sent automatically by a Netlify scheduled
-function (configured in netlify.toml — runs Saturday 22:00 UTC / Sunday
-morning NZ). The routine does NOT need to call out to send it. The
-manual POST endpoint with AUDIT_DIGEST_TOKEN remains available for
-testing or as a fallback if the schedule is paused.
-
-Be rigorous about step 6 — wrong item numbers break stored decisions.
-When in doubt, add new items rather than renumbering.
+You are the weekly search-audit routine for this repository.
+Read docs/audit-routine.md on the main branch and follow it
+exactly, from step 1 through the final push. That file is the
+source of truth for how the audit works; if anything in this
+prompt conflicts with it, the file wins.
 ```
+
+All the audit logic (what to check, how to write recommendations, the
+plain-English rules) lives in [`docs/audit-routine.md`](audit-routine.md),
+so improving the audit is a normal reviewed PR, with nothing to re-paste here.
 
 7. Click **Create**. Optionally click **Run now** to test-fire it immediately.
 
 ## 4. Verify
 
-- Open `https://audit.meridianosteopathy.co.nz/` — you should see the dashboard with 16 items.
+- Open `https://audit.meridianosteopathy.co.nz/` — you should see the dashboard with the current recommendations.
 - Click Approve on any item. Reload. The decision should persist (it's in Netlify Blobs, shared across devices).
 - Manually trigger the routine via **Run now**. It should:
   - Push an updated `audit.json` to `main`
@@ -184,29 +95,15 @@ Go to [claude.ai/code/routines](https://claude.ai/code/routines) → **New routi
 - **Prompt**: paste verbatim —
 
 ```
-You implement a single AI-search-audit punch-list item on behalf of
-Meridian Osteopathy.
-
-The incoming `text` payload is JSON describing one item, e.g.:
-{"item":{"n":5,"title":"Fix homepage H1","body":"...","files":[...],"tier":1,"impact":"H","effort":"S","addresses":["G9"]},"note":"","requestedAt":"..."}
-
-Parse it (the item may be nested as in the example; treat malformed
-payloads by logging and exiting). Then:
-
-1. Check out a fresh branch named claude/ship-<item.n>-<kebab-slug-of-title>.
-2. Implement ONLY that single item, touching only the files it names.
-   Match the codebase style; reuse infra per CLAUDE.md; keep diffs minimal.
-3. Run `npm run build` to confirm Eleventy still builds cleanly.
-4. Commit with a message like:
-   "Ship audit #<n> — <title>"
-5. Push the branch and open a DRAFT pull request titled:
-   "Audit #<n>: <title>"
-   Body should include: the item description, the files touched, a short
-   test plan, and a link back to audit.meridianosteopathy.co.nz.
-
-Do not merge. Do not touch items other than the one requested. Stop after
-opening the draft PR.
+You implement one search-audit recommendation. The incoming text
+is a JSON payload describing the item. Read
+docs/audit-shipit-routine.md on the main branch and follow it
+exactly. That file is the source of truth; if anything in this
+prompt conflicts with it, the file wins.
 ```
+
+The steps (including the practitioner-review section in the PR) live in
+[`docs/audit-shipit-routine.md`](audit-shipit-routine.md).
 
 ### b) Copy the trigger URL and token
 

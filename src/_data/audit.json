@@ -1,10 +1,32 @@
 {
   "meta": {
     "reportDate": "2026-09-18",
-    "schemaVersion": 1,
+    "schemaVersion": 2,
     "lastUpdated": "2026-09-18",
     "generatedBy": "weekly-routine"
   },
+  "summary": [
+    "Good news: your pregnancy back pain page is now estimated to be the top result for “pregnancy back pain christchurch”. That's the best position any Meridian page has reached so far.",
+    "Watch out: Better Health has launched an ACC page and is now second for “osteopath acc christchurch”, so the ACC page (#25) is the most urgent gap.",
+    "Nothing from this list has been published since June. The three new-page ideas (ACC, concussion, postpartum) each need a Claude draft and then a practitioner's check."
+  ],
+  "topActions": [
+    {
+      "text": "Connect Google Search Console so this page shows your real Google numbers instead of estimates. The 15-minute guide is linked under “Your Google results”.",
+      "owner": "you",
+      "n": null
+    },
+    {
+      "text": "Approve the ACC page and click Ship it. Claude drafts it, then Nina checks the ACC wording before it goes live.",
+      "owner": "practitioner",
+      "n": 25
+    },
+    {
+      "text": "Approve the postpartum page and click Ship it. Kaylee reviews the draft (postpartum care is one of her special interests).",
+      "owner": "practitioner",
+      "n": 36
+    }
+  ],
   "tldr": [
     "No backlog items shipped in this window (2026-09-05 → 2026-09-18, a two-week gap since the last audit on 2026-09-04 — routine skipped 2026-09-11 run). Zero content commits between audits — the previous audit's PR #123 is the only merged change on main. Backlog after this run: 9 items pending (#12, #13, #14, #15, #16, #25, #32, #35, #36). Item bodies updated this run: #12 (no change on speakable schema evidence), #14 (MAJOR — pregnancy-back-pain reached #1, strongest-ever proof-of-concept for URL-per-condition thesis), #16 (AI Mode leans on same GBP + review corpus Whitespark #1'd — compound value), #25 (URGENT — Better Health has just shipped a dedicated /acc/ page and now holds #2 on 'osteopath acc christchurch', closing the exact gap #25 targeted), #32 (Better Health new #2 on 'concussion osteopath christchurch' — Better Health expanding into concussion via Anastasia McPherson's associate page), #35 (Gen AI Performance Report reached full worldwide rollout 31 Aug — panel now globally live, promoted to Tier 1 top move — 'do this week'), #36 (postpartum thin-SERP confirmed for a THIRD consecutive week — item holds firm).",
     "Search visibility: 30 queries re-checked against live SERPs on 2026-09-18. **MERIDIAN'S FIRST-EVER #1 RANKING**: /conditions/pregnancy-back-pain/ jumped from #4 to #1 on 'pregnancy back pain christchurch' in a single week, displacing triskelionconcussioncare.co.nz. This is the first #1 SERP position Meridian has ever held on any tracked query. 17+ weeks after the page shipped, 12+ weeks after 40-60 word citation-ready intro (item #31) + structured list blocks (item #34) bundled onto it. **AND — sports-injury-recovery URL RETURNED at #4** on 'sports injury recovery christchurch' (was 0 last week, was #6 two weeks ago) — the URL's SERP position is genuinely whipsaw-volatile but demonstrably capable of top-5. **BUT — tennis elbow #9 rank LOST**: three-consecutive-week ranking broke; Better Health now holds 4 tennis-elbow URLs in top 5 (dominance intensified from 3). Rank-count trajectory: 0 (weeks 1–17) → 1 (2026-08-07) → 3 (2026-08-14) → 2 (2026-09-04) → 2 this run (URL identities shifted from tennis-elbow+pregnancy to pregnancy #1 + sports-injury-recovery #4). NEW COMPETITIVE MOVEMENT: betterhealthosteopathy.nz/acc/ NEW to #2 on 'osteopath acc christchurch' (Active Health still #1, chchosteopaths dropped) — **Better Health has just shipped exactly what item #25 proposes; the competitive window is closing rapidly**. betterhealthosteopathy.nz NEW to #2 on 'concussion osteopath christchurch' via /anastasia-mcpherson-osteopath-christchurch/ associate page — Better Health expanding into concussion where Triskelion previously dominated. betterhealthosteopathy.nz TOOK #1 on 'lower back pain christchurch' from headachetendon.nz — a 3+ week chiropractor dominance broken (first time an osteopath topped this query in the tracking window). Autocomplete fetch STILL blocked (6th consecutive run) — both new adds derived. Pruned 1 query: 'sports rehabilitation christchurch' (100% physio-owned SERP, no viable osteopath path); dropped 1 query: 'chiropractor vs osteopath christchurch' (comparison content, no signal in 4 checks). Added 2 derived queries: 'back pain during pregnancy christchurch' (tests whether pregnancy-back-pain URL's #1 rank generalises to a natural verbal variant) + 'osteopath for sports injury christchurch' (tests whether sports-injury-recovery URL's rank generalises to alternate phrasing). Pool at 50/50. THIN SERP RE-CONFIRMED THIRD WEEK: 'postpartum osteopath christchurch' still only ~5-6 results — item #36 opportunity holds firm.",
@@ -86,6 +108,10 @@
       "impact": "L",
       "effort": "S",
       "title": "Add speakable blocks on service intros",
+      "owner": "claude",
+      "confidence": "experimental",
+      "why": "Unlikely to move your rankings. Google has kept this feature in test mode for years, and a large 2026 study found that adding this kind of behind-the-scenes code gave no real lift. It's cheap, but a good one to dismiss.",
+      "matchTerms": [],
       "files": [
         "src/services/*.njk"
       ],
@@ -101,6 +127,10 @@
       "impact": "M",
       "effort": "M",
       "title": "Auto-fetch Google Business Profile reviews at build time",
+      "owner": "you",
+      "confidence": "experimental",
+      "why": "Up-to-date review numbers on your own site help visitors trust you, but they don't change your Google ranking by themselves. Getting new Google reviews (#16) is what moves rankings. It also needs a paid Google Places key set up first.",
+      "matchTerms": [],
       "files": [
         "package.json",
         "src/_data/reviews.js",
@@ -116,6 +146,11 @@
       "impact": "H",
       "effort": "L",
       "title": "Start a blog (2 posts/month)",
+      "owner": "practitioner",
+      "reviewer": "the practitioner who writes each post",
+      "confidence": "likely",
+      "why": "The Christchurch clinics that rank for specific conditions mostly do it with one helpful article per condition, and your own condition pages show the idea works here too. It's the biggest job on the list, and every post needs a practitioner to write or check it.",
+      "matchTerms": [],
       "files": [
         "src/blog/",
         "Decap CMS collection config",
@@ -133,6 +168,10 @@
       "impact": "M",
       "effort": "M",
       "title": "Seed Reddit / community brand mentions (Perplexity-oriented)",
+      "owner": "you",
+      "confidence": "experimental",
+      "why": "Reddit mentions mainly help with the Perplexity AI search tool, which few NZ patients use. Time-consuming and hard to measure, so low priority.",
+      "matchTerms": [],
       "files": [
         "(marketing — no repo changes)"
       ],
@@ -148,6 +187,10 @@
       "impact": "M",
       "effort": "M",
       "title": "Encourage monthly Google reviews nudge + personalised response SLA",
+      "owner": "you",
+      "confidence": "likely",
+      "why": "Regular new Google reviews, answered within a day or two, are one of the best-proven ways for a local clinic to rank higher in Google Maps results.",
+      "matchTerms": [],
       "files": [
         "netlify/functions/*"
       ],
@@ -161,6 +204,13 @@
       "impact": "M",
       "effort": "S",
       "title": "Build an /acc/ landing page — Active Health / osteo.co.nz own ACC queries",
+      "owner": "practitioner",
+      "reviewer": "Nina Hu",
+      "confidence": "likely",
+      "why": "People search for ACC osteopaths, and two nearby clinics now have dedicated ACC pages. Your condition pages have started ranking (estimated), so the same one-topic-per-page approach should work here. ACC wording is sensitive (see July's rewording), so Nina should check it.",
+      "matchTerms": [
+        "acc"
+      ],
       "files": [
         "src/acc.njk",
         "src/_includes/header.njk"
@@ -177,6 +227,13 @@
       "impact": "M",
       "effort": "S",
       "title": "Add /conditions/concussion/ page — Triskelion Concussion Care owns 'concussion osteopath christchurch'",
+      "owner": "practitioner",
+      "reviewer": "Nina Hu",
+      "confidence": "likely",
+      "why": "Check first: none of your practitioners lists concussion as a special interest. Only build this page if someone at Meridian treats concussion and is happy to be named on it. Otherwise, dismiss it.",
+      "matchTerms": [
+        "concussion"
+      ],
       "files": [
         "src/conditions/concussion.njk",
         "src/_data/conditions.json"
@@ -191,6 +248,10 @@
       "impact": "M",
       "effort": "S",
       "title": "Enable Google Search Console Generative AI performance report + capture baseline — DO THIS WEEK",
+      "owner": "you",
+      "confidence": "likely",
+      "why": "Free data straight from Google on how often your site appears in AI Overviews. Connecting Search Console to this dashboard (setup guide) gets you most of the way there.",
+      "matchTerms": [],
       "files": [
         "(GSC console — no repo changes)"
       ],
@@ -204,6 +265,14 @@
       "impact": "M",
       "effort": "S",
       "title": "Add a postpartum recovery section or dedicated /conditions/postpartum-recovery/ page — thin SERP opportunity",
+      "owner": "practitioner",
+      "reviewer": "Kaylee Frost",
+      "confidence": "likely",
+      "why": "Very few Christchurch sites cover postpartum care, so there's little competition. Kaylee lists pregnancy & postpartum as a special interest, and your pregnancy back pain page is the closest example of a page that ranks (estimated).",
+      "matchTerms": [
+        "postpartum",
+        "postnatal"
+      ],
       "files": [
         "src/conditions/pregnancy-back-pain.njk (extend) OR src/conditions/postpartum-recovery.njk (new)",
         "src/_data/conditions.json"
