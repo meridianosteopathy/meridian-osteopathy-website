@@ -84,7 +84,7 @@ Lead with the summary and top 3 actions. Then add Google data (if connected: hea
 
 ### 9. Check, then commit
 
-1. `npm test`. This also runs `scripts/audit/check-audit-data.js`, which validates the fields above, unique item numbers and core queries.
+1. `npm ci` (a fresh checkout has no `node_modules`), then `npm test`. The tests also run `scripts/audit/check-audit-data.js`, which validates the fields above, unique item numbers and core queries.
 2. `npm run build`. It must succeed.
 3. Commit the three files to `main` as `Weekly audit — N new items, M shipped, K searches checked (YYYY-MM-DD)` and push.
 

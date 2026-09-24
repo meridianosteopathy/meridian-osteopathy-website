@@ -294,7 +294,8 @@ const ITEMS = AUDIT.items || [];
 const QUERY_POOL = (AUDIT_QUERIES && AUDIT_QUERIES.pool) || [];
 const API_STATE = "/.netlify/functions/audit-state";
 const API_SHIPIT = "/.netlify/functions/audit-ship-it";
-const SETUP_GUIDE = `https://github.com/${CONFIG.site.repo}/blob/main/docs/gsc-setup.md`;
+const BUILD_BRANCH = {{ build.branch | jsonScript | safe }};
+const SETUP_GUIDE = `https://github.com/${CONFIG.site.repo}/blob/${BUILD_BRANCH}/docs/gsc-setup.md`;
 const DAY_MS = 24 * 60 * 60 * 1000;
 const SEVEN_DAYS_MS = 7 * DAY_MS;
 
