@@ -57,6 +57,16 @@ module.exports = function(eleventyConfig) {
       .trim();
   });
 
+  // JSON for inline <script> blocks. Escapes "<" (and the two JS line
+  // terminators) so data containing "</script>" — e.g. a Search Console
+  // query someone typed into Google — can't break out of the script tag.
+  eleventyConfig.addFilter("jsonScript", (value) => {
+    return JSON.stringify(value === undefined ? null : value)
+      .replace(/</g, "\\u003c")
+      .replace(/\u2028/g, "\\u2028")
+      .replace(/\u2029/g, "\\u2029");
+  });
+
   // Filter out items whose url starts with any of the given prefixes
   eleventyConfig.addFilter("excludePrefixes", (items, ...prefixes) => {
     return (items || []).filter((item) => {

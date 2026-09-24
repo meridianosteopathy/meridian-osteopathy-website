@@ -28,9 +28,12 @@
 # schema compilation and unpkg.com on connect-src for source maps.
 # Path-specific CSP overrides the global one for matching requests
 # only; public pages keep the strict policy above.
+# X-Robots-Tag keeps the whole admin area (including the audit's
+# /admin/audit/gsc.json, which can't carry a meta robots tag) out of search.
 [[headers]]
   for = "/admin/*"
   [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
     Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://challenges.cloudflare.com https://identity.netlify.com https://unpkg.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; frame-src https://challenges.cloudflare.com https://meridian-osteopathy.au2.cliniko.com https://app.netlify.com https://www.google.com; connect-src 'self' https://challenges.cloudflare.com https://identity.netlify.com https://api.netlify.com https://unpkg.com https://www.google-analytics.com https://*.analytics.google.com https://*.google-analytics.com; worker-src 'self' blob:; form-action 'self'; base-uri 'self'; object-src 'none'"
 
 # Cache static assets aggressively
@@ -62,6 +65,13 @@
 [[redirects]]
   from = "https://audit.meridianosteopathy.co.nz/"
   to = "/admin/audit/"
+  status = 200
+  force = true
+
+# Short address for the practitioner reviews page.
+[[redirects]]
+  from = "https://audit.meridianosteopathy.co.nz/reviews"
+  to = "/admin/reviews/"
   status = 200
   force = true
 

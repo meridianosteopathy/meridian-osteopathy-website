@@ -16,8 +16,13 @@
 // Required env vars (set in Netlify → Site configuration → Environment):
 //   AUDIT_DIGEST_TOKEN    shared secret for manual POST invocations
 //   RESEND_API_KEY        (already set for the forms)
-//   AUDIT_DIGEST_TO       (optional, defaults to nina@meridianosteopathy.co.nz)
+//   AUDIT_DIGEST_TO       (optional, defaults to auditConfig.digest.to)
 //   URL                   set by Netlify automatically (site base URL)
+//
+// Also warns when the weekly routine hasn't refreshed audit.json for longer
+// than auditConfig.digest.staleAfterDays, and adds the Google Search Console
+// headline from /admin/audit/gsc.json (baked in at build time by
+// src/_data/gsc.js) when Search Console is connected.
 
 const { getStore } = require("@netlify/blobs");
 const { sendNotification } = require("./_lib/email");
@@ -31,7 +36,10 @@ const audit = require("../../src/_data/audit.json");
 let auditQueries = { pool: [], meta: {} };
 try { auditQueries = require("../../src/_data/auditQueries.json"); } catch (e) { /* file missing is fine */ }
 
-const DIGEST_TO_DEFAULT = "nina@meridianosteopathy.co.nz";
+const config = require("../../src/_data/auditConfig.json");
+
+const DIGEST_TO_DEFAULT = config.digest.to;
+const DAY_MS = 24 * 60 * 60 * 1000;
 
 function json(statusCode, body) {
   return {
@@ -75,6 +83,47 @@ function escapeHtml(s) {
   return String(s || "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
 }
 
+// Days since the weekly routine last refreshed audit.json, or null if unknown.
+function reportAgeDays(now) {
+  const date = audit.meta && audit.meta.reportDate;
+  if (!date) return null;
+  return Math.floor((now - Date.parse(date + "T00:00:00Z")) / DAY_MS);
+}
+
+async function fetchGsc(siteUrl) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 8000);
+  try {
+    const res = await fetch(`${siteUrl}/admin/audit/gsc.json`, { signal: controller.signal });
+    if (!res.ok) return null;
+    return await res.json();
+  } catch (_) {
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+function pctChange(cur, prev) {
+  if (!prev) return cur ? "new" : "no change";
+  const pct = Math.round(((cur - prev) / prev) * 100);
+  return pct === 0 ? "no change" : `${pct > 0 ? "+" : "−"}${Math.abs(pct)}%`;
+}
+
+// One plain-English line about Google, or a nudge to connect it.
+function gscHeadline(gsc) {
+  if (!gsc) {
+    return "Couldn't load your Google numbers for this email. They're on the dashboard.";
+  }
+  if (!gsc.connected) {
+    return `Google Search Console isn't connected yet, so the rankings in this email are estimates. Setup guide (15 minutes): https://github.com/${config.site.repo}/blob/main/docs/gsc-setup.md`;
+  }
+  const t = gsc.totals, nb = gsc.nonBranded, p1 = gsc.page1;
+  return `Google, last ${gsc.window.days} days: ${t.current.clicks} clicks (${pctChange(t.current.clicks, t.previous.clicks)}), `
+    + `${nb.current.clicks} from people searching for a treatment (${pctChange(nb.current.clicks, nb.previous.clicks)}), `
+    + `on page 1 for ${p1.current} treatment searches (was ${p1.previous}).`;
+}
+
 function isScheduledInvocation(event) {
   // Netlify scheduled functions are invoked with body { "next_run": "<ISO>" }
   // and no Authorization header. Detect either signal — body shape is the
@@ -98,7 +147,17 @@ exports.handler = async (event) => {
     }
   }
 
-  const dashboardUrl = "https://audit.meridianosteopathy.co.nz/";
+  const dashboardUrl = config.site.dashboardUrl;
+  const now = Date.now();
+  const ageDays = reportAgeDays(now);
+  const stale = ageDays != null && ageDays > config.digest.staleAfterDays;
+  const staleLine = stale
+    ? `The weekly audit routine hasn't run since ${audit.meta.reportDate} (${ageDays} days ago), so this digest repeats old findings. Check the routine at https://claude.ai/code/routines.`
+    : "";
+  const gsc = await fetchGsc(process.env.URL || config.site.url);
+  const googleLine = gscHeadline(gsc);
+  const summary = Array.isArray(audit.summary) ? audit.summary : [];
+  const topActions = Array.isArray(audit.topActions) ? audit.topActions : [];
 
   // Pull decisions from Netlify Blobs.
   const store = getStore("audit");
@@ -130,14 +189,23 @@ exports.handler = async (event) => {
     .slice(0, 5);
   const svTopN = svChecked.filter(q => q.lastResult.meridianRank != null && q.lastResult.meridianRank > 0 && q.lastResult.meridianRank <= 10).length;
 
-  const subject = `Meridian weekly audit — ${newItems.length} new, ${approved.length} approved, ${pendingTier1.length} Tier 1 pending`;
+  const subject = `${stale ? "⚠️ Audit didn't run this week — " : ""}Meridian weekly audit — ${newItems.length} new, ${approved.length} approved, ${pendingTier1.length} Tier 1 pending`;
 
   const text = [
-    `Your weekly AI search audit is refreshed.`,
+    staleLine ? `WARNING: ${staleLine}\n` : ``,
+    `Your weekly search audit is refreshed.`,
     ``,
     `Dashboard: ${dashboardUrl}`,
     `Report date: ${audit.meta && audit.meta.reportDate}`,
     ``,
+    googleLine,
+    ``,
+    summary.length ? `THIS WEEK:` : ``,
+    ...summary.map(p => `  ${p}`),
+    summary.length ? `` : ``,
+    topActions.length ? `TOP ACTIONS:` : ``,
+    ...topActions.map((a, i) => `  ${i + 1}. ${a.text}${a.n ? ` (#${a.n})` : ""}`),
+    topActions.length ? `` : ``,
     `NEW this week (${newItems.length}):`,
     fmt(newItems),
     ``,
@@ -165,9 +233,20 @@ exports.handler = async (event) => {
 <!doctype html>
 <html>
 <body style="font-family: -apple-system, BlinkMacSystemFont, sans-serif; color: #120E0B; max-width: 620px; margin: 0 auto; padding: 24px;">
-  <h1 style="font-family: Baskervville, Georgia, serif; font-weight: 400; color: #345E85; border-bottom: 2px solid #345E85; padding-bottom: 8px;">Weekly AI search audit</h1>
+  <h1 style="font-family: Baskervville, Georgia, serif; font-weight: 400; color: #345E85; border-bottom: 2px solid #345E85; padding-bottom: 8px;">Weekly search audit</h1>
   <p style="color: #6a6a6a; font-size: 0.9rem; margin-top: 0;">Report date: ${escapeHtml((audit.meta && audit.meta.reportDate) || "")}</p>
+  ${staleLine ? `<p style="background: #f7e4ea; color: #9a3f58; padding: 12px 16px; border-radius: 6px;"><strong>Warning:</strong> ${escapeHtml(staleLine)}</p>` : ""}
+  <p style="background: #f4f4f5; padding: 12px 16px; border-radius: 6px;">${escapeHtml(googleLine)}</p>
   <p><a href="${dashboardUrl}" style="background: #345E85; color: #fff; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 500; display: inline-block;">Open the dashboard →</a></p>
+
+  ${summary.length ? `
+  <h2 style="font-family: Baskervville, Georgia, serif; font-weight: 400; color: #120E0B; margin-top: 32px;">This week</h2>
+  ${summary.map(p => `<p>${escapeHtml(p)}</p>`).join("")}
+  ` : ""}
+  ${topActions.length ? `
+  <h2 style="font-family: Baskervville, Georgia, serif; font-weight: 400; color: #120E0B; margin-top: 32px;">Top actions</h2>
+  <ol>${topActions.map(a => `<li>${escapeHtml(a.text)}${a.n ? ` <span style="color:#6a6a6a;">(#${Number(a.n)})</span>` : ""}</li>`).join("")}</ol>
+  ` : ""}
 
   <h2 style="font-family: Baskervville, Georgia, serif; font-weight: 400; color: #120E0B; margin-top: 32px;">New this week (${newItems.length})</h2>
   <ul>${fmtHtml(newItems)}</ul>
@@ -203,7 +282,7 @@ exports.handler = async (event) => {
     return json(500, { ok: false, error: "email-send-failed", detail: result.reason });
   }
 
-  return json(200, { ok: true, counts: {
+  return json(200, { ok: true, stale, gscConnected: !!(gsc && gsc.connected), counts: {
     new: newItems.length,
     quickWins: quickWins.length,
     pendingTier1: pendingTier1.length,

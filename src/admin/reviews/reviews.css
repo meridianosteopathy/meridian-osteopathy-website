@@ -1,0 +1,72 @@
+/* Shared by the practitioner review pages (/admin/reviews/ and
+   /admin/reviews/respond/). Builds on the brand tokens in /css/styles.css;
+   the darker "ink" colours pass WCAG AA on their tinted backgrounds. */
+:root {
+  --ink-green: #3d663b;
+  --tint-green: #eaf3e9;
+  --ink-gold: #8a6420;
+  --tint-gold: #faf1de;
+  --ink-pink: #9a3f58;
+  --tint-pink: #f7e4ea;
+  --tint-grey: #f4f4f5;
+}
+body { background: var(--lighter-bg); }
+.rv { max-width: 820px; margin: 0 auto; padding: 32px 16px 96px; color: var(--text-body); }
+.rv h1 { font-family: var(--font-secondary); font-weight: 400; font-size: 2rem; color: var(--text-dark); margin-bottom: 6px; }
+.rv h2 { font-family: var(--font-secondary); font-weight: 400; font-size: 1.4rem; color: var(--text-dark); margin: 32px 0 12px; }
+.rv h3 { font-size: 1.05rem; font-weight: 600; color: var(--text-dark); margin-bottom: 8px; }
+.rv a { color: var(--primary); }
+.rv .muted { color: var(--text-light); font-size: 0.9rem; }
+.rv .topline { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; color: var(--text-light); font-size: 0.9rem; padding-bottom: 16px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+.rv .topline .spacer { flex: 1; }
+.card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 14px; }
+.card.accent { border-left: 3px solid var(--primary); }
+.banner { padding: 12px 16px; border-radius: 8px; margin-bottom: 14px; font-size: 0.95rem; }
+.banner.info { background: var(--light-sky-blue); color: var(--primary); }
+.banner.warn { background: var(--tint-gold); color: var(--ink-gold); }
+.banner.error { background: var(--tint-pink); color: var(--ink-pink); }
+.banner.ok { background: var(--tint-green); color: var(--ink-green); }
+
+label { display: block; font-weight: 600; color: var(--text-dark); font-size: 0.92rem; margin: 14px 0 6px; }
+label .hint { font-weight: 400; color: var(--text-light); }
+input[type=text], input[type=url], input[type=email], textarea {
+  width: 100%; font: inherit; font-size: 0.95rem; padding: 9px 12px; border: 1px solid var(--border);
+  border-radius: 6px; background: var(--white); color: var(--text-dark);
+}
+textarea { min-height: 72px; resize: vertical; }
+input:focus, textarea:focus { outline: 2px solid var(--primary); outline-offset: 1px; }
+.rbtn { font: inherit; font-size: 0.92rem; font-weight: 500; padding: 9px 16px; border-radius: 6px; border: 1px solid var(--border); background: var(--white); color: var(--text-dark); cursor: pointer; text-decoration: none; display: inline-block; }
+.rbtn:hover { background: var(--tint-grey); }
+.rbtn.primary { background: var(--primary); border-color: var(--primary); color: var(--white); }
+.rbtn.primary:hover { background: var(--primary-dark); }
+.rbtn:disabled { opacity: 0.55; cursor: wait; }
+.btn-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 14px; }
+
+.pill { display: inline-block; font-size: 0.78rem; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: var(--tint-grey); color: var(--text-body); }
+.pill.feedback { background: var(--tint-gold); color: var(--ink-gold); }
+.pill.with-reviewer, .pill.revising { background: var(--light-sky-blue); color: var(--primary); }
+.pill.approved, .pill.approve { background: var(--tint-green); color: var(--ink-green); }
+.pill.approve-with-changes { background: var(--tint-gold); color: var(--ink-gold); }
+.pill.changes { background: var(--tint-pink); color: var(--ink-pink); }
+
+/* Reviewer form */
+.rsec { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; margin-bottom: 12px; }
+.rsec .sec-text { white-space: pre-line; font-size: 0.93rem; line-height: 1.6; background: var(--tint-grey); border-radius: 6px; padding: 12px 14px; max-height: 320px; overflow: auto; }
+.rsec .earlier { margin-top: 10px; font-size: 0.88rem; background: var(--light-sky-blue); color: var(--primary); border-radius: 6px; padding: 8px 12px; }
+.choices { display: grid; gap: 8px; margin-top: 8px; }
+.choice { display: flex; gap: 10px; align-items: flex-start; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; background: var(--white); cursor: pointer; font-weight: 500; color: var(--text-dark); margin: 0; }
+.choice input { margin-top: 4px; }
+.choice small { display: block; font-weight: 400; color: var(--text-light); }
+
+/* Owner's page */
+.req { scroll-margin-top: 16px; }
+.req-head { display: flex; gap: 10px; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; }
+.req-title { font-weight: 600; font-size: 1.05rem; color: var(--text-dark); flex: 1; min-width: 220px; }
+.req-meta { font-size: 0.86rem; color: var(--text-light); margin-top: 4px; }
+.fb { margin-top: 14px; border-top: 1px solid var(--border); padding-top: 12px; }
+.fb ul { list-style: none; display: block; margin-top: 8px; }
+.fb li { padding: 8px 12px; border-left: 3px solid var(--border); margin-bottom: 8px; background: var(--tint-grey); border-radius: 0 6px 6px 0; }
+.fb li strong { color: var(--text-dark); display: block; font-size: 0.88rem; }
+.expand { margin-top: 12px; padding: 12px 14px; background: var(--tint-grey); border-radius: 8px; }
+.expand[hidden] { display: none; }
+details.done > summary, details.rounds > summary { cursor: pointer; color: var(--primary); font-weight: 500; margin-top: 10px; }
