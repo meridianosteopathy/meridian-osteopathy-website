@@ -1,36 +1,36 @@
 {
   "meta": {
-    "reportDate": "2026-09-18",
+    "reportDate": "2026-09-25",
     "schemaVersion": 2,
-    "lastUpdated": "2026-09-18",
+    "lastUpdated": "2026-09-25",
     "generatedBy": "weekly-routine"
   },
   "summary": [
-    "Good news: your pregnancy back pain page is now estimated to be the top result for “pregnancy back pain christchurch”. That's the best position any Meridian page has reached so far.",
-    "Watch out: Better Health has launched an ACC page and is now second for “osteopath acc christchurch”, so the ACC page (#25) is the most urgent gap.",
-    "Nothing from this list has been published since June. The three new-page ideas (ACC, concussion, postpartum) each need a Claude draft and then a practitioner's check."
+    "Google's own numbers are in for the first time: clicks from people who didn't search for Meridian by name rose to 151 in the last 28 days, up from 131.",
+    "The quickest win is the sports injury page: Google showed it 223 times for “sports injury treatment” but nobody clicked. The sciatica page sits just off Google's first page.",
+    "Nothing from the list was published this week. The pregnancy back pain page is still estimated #1, but Google shows that search is small (16 appearances in 28 days)."
   ],
   "topActions": [
     {
-      "text": "Connect Google Search Console so this page shows your real Google numbers instead of estimates. The 15-minute guide is linked under “Your Google results”.",
-      "owner": "you",
-      "n": null
+      "text": "Approve #40 and click Ship it. Claude rewrites the sports injury page's Google title and description so people searching “sports injury treatment” click through.",
+      "owner": "claude",
+      "n": 40
     },
     {
-      "text": "Approve the ACC page and click Ship it. Claude drafts it, then Nina checks the ACC wording before it goes live.",
+      "text": "Approve #41 and click Ship it. Claude sharpens the sciatica page's title and headings and links to it from related pages, to reach Google's first page.",
+      "owner": "claude",
+      "n": 41
+    },
+    {
+      "text": "Approve the ACC page (#25) and click Ship it. Claude drafts it, then Nina checks the ACC wording before it goes live.",
       "owner": "practitioner",
       "n": 25
-    },
-    {
-      "text": "Approve the postpartum page and click Ship it. Kaylee reviews the draft (postpartum care is one of her special interests).",
-      "owner": "practitioner",
-      "n": 36
     }
   ],
   "tldr": [
-    "No backlog items shipped in this window (2026-09-05 → 2026-09-18, a two-week gap since the last audit on 2026-09-04 — routine skipped 2026-09-11 run). Zero content commits between audits — the previous audit's PR #123 is the only merged change on main. Backlog after this run: 9 items pending (#12, #13, #14, #15, #16, #25, #32, #35, #36). Item bodies updated this run: #12 (no change on speakable schema evidence), #14 (MAJOR — pregnancy-back-pain reached #1, strongest-ever proof-of-concept for URL-per-condition thesis), #16 (AI Mode leans on same GBP + review corpus Whitespark #1'd — compound value), #25 (URGENT — Better Health has just shipped a dedicated /acc/ page and now holds #2 on 'osteopath acc christchurch', closing the exact gap #25 targeted), #32 (Better Health new #2 on 'concussion osteopath christchurch' — Better Health expanding into concussion via Anastasia McPherson's associate page), #35 (Gen AI Performance Report reached full worldwide rollout 31 Aug — panel now globally live, promoted to Tier 1 top move — 'do this week'), #36 (postpartum thin-SERP confirmed for a THIRD consecutive week — item holds firm).",
-    "Search visibility: 30 queries re-checked against live SERPs on 2026-09-18. **MERIDIAN'S FIRST-EVER #1 RANKING**: /conditions/pregnancy-back-pain/ jumped from #4 to #1 on 'pregnancy back pain christchurch' in a single week, displacing triskelionconcussioncare.co.nz. This is the first #1 SERP position Meridian has ever held on any tracked query. 17+ weeks after the page shipped, 12+ weeks after 40-60 word citation-ready intro (item #31) + structured list blocks (item #34) bundled onto it. **AND — sports-injury-recovery URL RETURNED at #4** on 'sports injury recovery christchurch' (was 0 last week, was #6 two weeks ago) — the URL's SERP position is genuinely whipsaw-volatile but demonstrably capable of top-5. **BUT — tennis elbow #9 rank LOST**: three-consecutive-week ranking broke; Better Health now holds 4 tennis-elbow URLs in top 5 (dominance intensified from 3). Rank-count trajectory: 0 (weeks 1–17) → 1 (2026-08-07) → 3 (2026-08-14) → 2 (2026-09-04) → 2 this run (URL identities shifted from tennis-elbow+pregnancy to pregnancy #1 + sports-injury-recovery #4). NEW COMPETITIVE MOVEMENT: betterhealthosteopathy.nz/acc/ NEW to #2 on 'osteopath acc christchurch' (Active Health still #1, chchosteopaths dropped) — **Better Health has just shipped exactly what item #25 proposes; the competitive window is closing rapidly**. betterhealthosteopathy.nz NEW to #2 on 'concussion osteopath christchurch' via /anastasia-mcpherson-osteopath-christchurch/ associate page — Better Health expanding into concussion where Triskelion previously dominated. betterhealthosteopathy.nz TOOK #1 on 'lower back pain christchurch' from headachetendon.nz — a 3+ week chiropractor dominance broken (first time an osteopath topped this query in the tracking window). Autocomplete fetch STILL blocked (6th consecutive run) — both new adds derived. Pruned 1 query: 'sports rehabilitation christchurch' (100% physio-owned SERP, no viable osteopath path); dropped 1 query: 'chiropractor vs osteopath christchurch' (comparison content, no signal in 4 checks). Added 2 derived queries: 'back pain during pregnancy christchurch' (tests whether pregnancy-back-pain URL's #1 rank generalises to a natural verbal variant) + 'osteopath for sports injury christchurch' (tests whether sports-injury-recovery URL's rank generalises to alternate phrasing). Pool at 50/50. THIN SERP RE-CONFIRMED THIRD WEEK: 'postpartum osteopath christchurch' still only ~5-6 results — item #36 opportunity holds firm.",
-    "Industry signals (2026-09-05 → 2026-09-18): (1) **Google Search Console Generative AI Performance Report reached full worldwide rollout on 31 Aug 2026.** All sites can now see impressions inside AI Overviews, AI Mode, and Discover AI features by URL / country / device — still impressions-only (no CTR, no prompt data). Item #35 unblocked: the panel is globally live and 2–3 weeks is minimum viable sample. **Promoted to top-of-list — 'do this week' — as the highest-leverage cheap first move.** (2) **Cloudflare's mixed-use AI-crawler default went live 15 Sep 2026.** New Cloudflare-served sites now default-block Training and Agent-class crawlers on ad-monetised pages; multi-purpose crawlers (Googlebot, Applebot, Bingbot carrying a Training label) inherit the strictest rule. Meridian is on Netlify with no ads so no direct effect, but as ad-supported health publishers shut AI training crawlers out, models will lean harder on primary-source clinic sites + GBP for local health answers — a small tailwind for owned canonical pages. Feeds #14 (blog) leverage upward. (3) **August 2026 Google Core Update finished rolling out on 21 Sep 2026** — 26-day rollout stretched through most of this window, layered on the 18–21 Aug spam update already tracked. Health/YMYL has remained steadier than commercial verticals but per-query volatility was reported through mid-Sep. Interpretive note for next run: hold off strong reads on condition-page GSC data until ~22 Sep+ baseline settles. (4) **AI Mode 'developing-topic' link carousels** announced 25 Aug and expanded through Sep — targets trending/news topics, not evergreen clinic pages. Low relevance for Meridian unless we ever ship rapid-response content (e.g. ACC scheme change). (5) **Reddit-Perplexity litigation / licensing**: no material movement since 31 Jul motion-to-dismiss rejection — item #15 posture unchanged (Perplexity-only, not ChatGPT). (6) **Schema.org**: no new release (v30.0 from March 2026 still current); speakable still limited beta, no lift evidence — item #12 unchanged. **Refreshed leverage table**: Tier 1 → #35 (unblocked, top move), #14 (Cloudflare publisher-squeeze + AI Mode query fan-out + pregnancy-back-pain #1 proof triple-reinforce the blog leverage), #25 (competitive urgency — Better Health just shipped what this item proposes). Tier 2 → #13, #16 (compound value with AI Mode's GBP dependence), #32 (Better Health expansion into concussion), #36. Tier 3 → #15 (Perplexity-scoped), #12 (unchanged low)."
+    "Google data (Search Console, last 28 days to 21 Sep vs the 28 days before): 267 clicks (269 before) from 4,155 appearances in Google (4,148). Clicks from people not searching for Meridian by name rose from 131 to 151, while name searches fell (“meridian osteopathy” 71 clicks, down from 115), so the total stayed flat. 32 searches now show Meridian on Google's first page, up from 27. “Osteopath christchurch” improved from an average position of 9.9 to 6.2 (166 appearances, 6 clicks). The fertility acupuncture page is the clearest success: position 2.8 for “fertility acupuncture christchurch” with 8 clicks, up from 5.6 and 3 clicks. The core update that finished on 21 Sep may still be moving numbers, so read small changes cautiously.",
+    "Estimated ranks (a US-based web search, not what someone in Christchurch sees): 30 searches checked. The pregnancy back pain page held #1 and is also #1 for “back pain during pregnancy christchurch”. The sports injury page dropped out of the estimated top 10 again (was #4). Better Health now has a dedicated postnatal page ranking #1 for “postnatal osteopath christchurch”, so the postpartum idea (#36) faces more competition than before. Estimated ranks and Google's figures disagree for “acupuncture christchurch” (estimated absent, Google says 8.7), which is a reminder to trust Search Console first.",
+    "Pool changes: added “sports injury treatment” and “sciatica treatment christchurch” from Search Console, and “is acupuncture covered by acc” and “osteopath christchurch price” from Google's autocomplete, which worked again after six blocked runs. Dropped four low-signal searches. New items #40–#42 all come straight from Search Console: searches where Meridian already appears but gets few or no clicks. Nothing from the list shipped since 18 Sep; the only site change was switching off the June practitioner spotlight."
   ],
   "alreadyShipped": [
     "llms.txt and llms-full.txt auto-generated from site data",
@@ -104,7 +104,7 @@
   "items": [
     {
       "n": 12,
-      "tier": 2,
+      "tier": 3,
       "impact": "L",
       "effort": "S",
       "title": "Add speakable blocks on service intros",
@@ -115,7 +115,7 @@
       "files": [
         "src/services/*.njk"
       ],
-      "body": "Add schema.org speakable specification on service intro paragraphs for voice assistants / Gemini Live. With the citation-ready 40–60 word answers now in place (item #31 shipped 2026-05-17), wrapping them in a speakable block is the natural follow-up — gives voice assistants a single span to read aloud rather than guessing. DOWNWEIGHTED 2026-08-07: Ahrefs schema-impact study (+2.4% AI Mode / +2.2% ChatGPT / –4.6% AIO across 1,885 pages) held up in late-July commentary; consensus is schema is a context signal, not a lever. Speakable specifically has been in beta 7 years without leaving beta. REINFORCED 2026-09-04: Ahrefs' 1,885-page schema study was finalised — pages that added JSON-LD schema between Aug 2025 and Mar 2026 vs 4,000 controls showed NO MAJOR UPLIFT in AI citations across Google AI Overviews / AI Mode / ChatGPT. The Feb 2026 Fischman study (730 AI citations, 75 commercial queries, health included) found the dominant predictor of AI citation is Google organic rank position: position-1 pages cited in 43% of queries. **UNCHANGED 2026-09-18**: no new schema.org release (v30.0 from March 2026 still current); no lift evidence emerged this window. Keep on the list because it's still cheap, but do NOT invest engineering time in schema-type expansion over body-copy / condition-page work.",
+      "body": "Wrap the short answer at the top of each service page in “speakable” code, which marks the text a voice assistant should read aloud. Google has kept speakable in test mode for years, and a 2026 study of 1,885 pages found that adding this kind of behind-the-scenes code made no clear difference to AI or search visibility. The best predictor of being quoted by AI is ranking well in normal Google results. Cheap to do, but low value; a reasonable one to dismiss.",
       "addresses": [
         "G7"
       ],
@@ -136,7 +136,7 @@
         "src/_data/reviews.js",
         "a build-time fetch script"
       ],
-      "body": "So reviewCount / ratingValue stay current without manual edits. Build script hits Places API with a 24h cache. REINFORCED 2026-08-07: Whitespark's 2026 Local Search Ranking Factors report now names review recency as the #1 individual local ranking factor (reviews <30 days carry full algorithmic weight; 30–180 days decays to 10–20%; 73% of consumers only trust reviews from the last month per Epicware July 2026). Gemini and AI Overviews now use review sentiment + keywords to pick which local businesses to recommend, so review freshness feeds both the Local Pack AND the AI-citation layer. Combined with #16, this closes the GBP review-recency loop end to end — bump up in effective priority even though tier stays 2. RE-CONFIRMED 2026-09-04: no new counter-signal; the AI-Mode local pack now often shows just 1-2 businesses instead of 3 (Sterling Sky tracking cited across SEL coverage through this window), which increases the relative importance of any recency-tied slot. UNCHANGED 2026-09-18: no material Sterling Sky / Whitespark / BrightLocal update this window.",
+      "body": "Pull the Google review count and star rating into the site at build time, so the numbers on the site stay current without manual edits. Needs a Google Places API key (a paid Google Cloud account) set up by the clinic first. Fresh reviews matter a lot for Google Maps rankings, but showing the count on the website doesn't change rankings by itself; getting new reviews (#16) does. Pairs well with #16 once reviews are flowing.",
       "addresses": [],
       "firstSeen": "2026-04-22"
     },
@@ -149,14 +149,14 @@
       "owner": "practitioner",
       "reviewer": "the practitioner who writes each post",
       "confidence": "likely",
-      "why": "The Christchurch clinics that rank for specific conditions mostly do it with one helpful article per condition, and your own condition pages show the idea works here too. It's the biggest job on the list, and every post needs a practitioner to write or check it.",
+      "why": "Nearby clinics that rank for specific conditions mostly do it with one helpful article per condition. Your own pages back this up: the fertility acupuncture page now sits at position 2.8 in Google with 8 clicks a month. It's the biggest job on the list, and every post needs a practitioner.",
       "matchTerms": [],
       "files": [
         "src/blog/",
         "Decap CMS collection config",
         "PR #108 Practitioner Spotlight infra can be extended rather than a from-scratch build"
       ],
-      "body": "Short evidence-based articles per condition. Each post: author byline with Physician schema, datePublished, dateModified, 3–5 FAQs. Ahrefs analysis of 17M AI citations (April 2026) found AI-cited content is 25.7% fresher than traditional Google organic results — 76.4% of ChatGPT's top-cited pages were updated within the last 30 days. Freshness compounds. Confirmed 2026-08-07: 70% of AI Overview cited pages churn within 2–3 months (Search Engine Journal July 2026 AI-Mode-after-one-year study); pages updated within the past two months earn 28% more AI citations than older material. osteopath-christchurch.com still owns headaches/cranial/baby/teeth-grinding/stress/arthritis queries on the strength of one short blog post per condition; MK Osteopathy still owns TMJ the same way. **DEFINITIVE EVIDENCE 2026-09-18 — LEVERAGE FURTHER ELEVATED**: Meridian's /conditions/pregnancy-back-pain/ reached **#1** on 'pregnancy back pain christchurch' this run — the FIRST TIME any Meridian URL has ever held #1 on a tracked query, displacing triskelionconcussioncare.co.nz from #1. Combined with the sports-injury-recovery URL's return to #4 the same week, the URL-per-condition thesis is validated across two pages and multiple SERP positions (#1, #4, #5, #6, #9). This is the strongest-possible proof-of-concept: condition-URL-per-post can hit #1 in this market, not just top-10. STARTING POINT: PR #108's Practitioner Spotlight infrastructure — the Decap collection config, JSON-LD, homepage surface and image handling can be adapted rather than built from scratch. **ADDITIONAL TAILWIND 2026-09-18**: Cloudflare's AI-crawler default went live 15 Sep — as ad-supported health publishers shut AI training crawlers out, models will lean harder on primary-source clinic sites + GBP for local health answers. AI Overviews respond to 68% of local searches (Semrush) and position-1 organic CTR fell from 1.41% to 0.64% on pages where an AIO appears (Ahrefs, -54% effective drop) — traditional-organic-only strategy is losing yield, so the AI-citation angle matters even more. Consensus in Aug-Sep commentary: depth > velocity — 2 posts/month is fine if each is genuinely useful.",
+      "body": "Short, practical articles, one per condition or question, each with the practitioner's name, publish and update dates, and 3–5 common questions. Competitors like osteopath-christchurch.com and Better Health rank on many condition searches this way. Meridian's evidence: the fertility page (position 2.8, 8 clicks in 28 days, up from 3) and the pregnancy back pain page (estimated #1, though only 16 Google appearances a month) show dedicated pages work here. Start with topics people already search for, using Search Console's query list, rather than guessing. The practitioner spotlight setup can be reused for the page layout and CMS. Two posts a month is enough if each is genuinely useful.",
       "addresses": [
         "G8"
       ],
@@ -167,7 +167,7 @@
       "tier": 3,
       "impact": "M",
       "effort": "M",
-      "title": "Seed Reddit / community brand mentions (Perplexity-oriented)",
+      "title": "Answer local Reddit questions to show up in Perplexity AI search",
       "owner": "you",
       "confidence": "experimental",
       "why": "Reddit mentions mainly help with the Perplexity AI search tool, which few NZ patients use. Time-consuming and hard to measure, so low priority.",
@@ -175,7 +175,7 @@
       "files": [
         "(marketing — no repo changes)"
       ],
-      "body": "Genuine, non-spammy answers on r/newzealand / r/chch / r/AskNZ threads about osteopathy, ACC claims, back pain. POSTURE REBALANCED 2026-09-04: Between Jul 1 and Aug 19, 2026, Perplexity supplied 71% of tracked Reddit citations while ChatGPT supplied 23%; ChatGPT Search citations linking to Reddit fell from ~250/day in early Aug to 16/day the week after Aug 14 — a -94% decline in six days. Reddit's Perplexity share is now ~24%, Gemini 0.1%. This rebalances the pitch: (a) target Perplexity-visibility as the primary win — Perplexity's citation pool is smaller and more curated, so a single well-structured Reddit answer can surface in Perplexity answer cards if it directly answers the query; (b) treat ChatGPT-visibility as a bonus, not a target, given the current decline (though it's recovered from similar drops earlier this year — may return); (c) ClaudeBot overtook GPTBot at 16.28% vs 9.74% (Cloudflare July 2026), and Claude's Reddit-indexing path is a separate open question. UNCHANGED 2026-09-18: no material movement in Reddit-Perplexity litigation or licensing this window (motion-to-dismiss rejection 31 Jul still stands). If Reddit tightens access to Perplexity too, this lever narrows further. Recommend acting in the next 60 days. 90/10 rule: 90% non-promotional, 2–4 weeks of karma-building before any mention of Meridian.",
+      "body": "Genuine, helpful answers in NZ Reddit threads (r/chch, r/newzealand) about osteopathy, ACC and back pain, with very occasional mentions of Meridian after weeks of ordinary participation. This mainly helps with Perplexity, an AI search tool few NZ patients use; ChatGPT cites Reddit much less since August. Time-consuming and hard to measure, so low priority.",
       "addresses": [
         "G15"
       ],
@@ -186,7 +186,7 @@
       "tier": 3,
       "impact": "M",
       "effort": "M",
-      "title": "Encourage monthly Google reviews nudge + personalised response SLA",
+      "title": "Ask happy patients for Google reviews and reply to every review within 48 hours",
       "owner": "you",
       "confidence": "likely",
       "why": "Regular new Google reviews, answered within a day or two, are one of the best-proven ways for a local clinic to rank higher in Google Maps results.",
@@ -194,7 +194,7 @@
       "files": [
         "netlify/functions/*"
       ],
-      "body": "Post-consultation email nudge via Resend (already wired). AI engines prefer reviews under 12 months old. REINFORCED 2026-08-07: Whitespark's 2026 Local Search Ranking Factors report names review recency as the #1 individual local ranking factor. Reviews <30 days carry full algorithmic weight; 30–180 days decays to 10–20%; 73% of consumers only trust reviews from the last month (Epicware / DigitalApplied July 2026). Gemini and AI Overviews now use review sentiment + keywords to pick which local businesses to recommend — freshness now compounds across Local Pack AND AI citation. Healthcare best-practice = at least 1 new review/week. Combined with #13 (auto-fetch reviews at build time), this closes the GBP review-recency loop end to end. UPDATED 2026-09-04 — response-cadence discipline added: Whitespark 2026 now tracks owner response within 48 hours as a separate behavioral signal (89% of consumers expect businesses to respond to reviews; 81% expect a reply within a week; next-day expectations climbed to 32% from 18% a year ago). BrightLocal 2026 consumer survey: 50% of consumers are actively put off by generic or templated review responses. Recommendation refined: (a) same-week response as a hard floor, (b) 24-48hr target for freshness weight, (c) response text must be PERSONALISED (name the specific practitioner or treatment the reviewer mentioned; avoid template language). **REINFORCED 2026-09-18**: AI Mode leans on the same GBP + review corpus that Whitespark ranked #1, so this item now has compound value — every review nudged and every personalised response text feeds both the Local Pack signal AND the AI Mode / AI Overview citation layer. Effective leverage stays high even without a fresh study this window.",
+      "body": "Send a short email after each appointment asking happy patients for a Google review, using the email system the site already has. Reply to every review within a day or two, naming the practitioner or treatment the reviewer mentioned rather than using a template. Recent reviews carry the most weight in Google Maps rankings (Whitespark's 2026 study rates review recency as the top individual local factor), and Google's AI answers also draw on review text. Aim for about one new review a week.",
       "addresses": [],
       "firstSeen": "2026-04-22"
     },
@@ -203,11 +203,11 @@
       "tier": 2,
       "impact": "M",
       "effort": "S",
-      "title": "Build an /acc/ landing page — Active Health / osteo.co.nz own ACC queries",
+      "title": "Build an ACC page: Active Health and Better Health already have one",
       "owner": "practitioner",
       "reviewer": "Nina Hu",
       "confidence": "likely",
-      "why": "People search for ACC osteopaths, and two nearby clinics now have dedicated ACC pages. Your condition pages have started ranking (estimated), so the same one-topic-per-page approach should work here. ACC wording is sensitive (see July's rewording), so Nina should check it.",
+      "why": "People search for ACC osteopaths, and Better Health and The House of Acupuncture both have dedicated ACC pages. Meridian doesn't appear for these searches at all yet. ACC wording is sensitive (see July's rewording), so Nina should check it.",
       "matchTerms": [
         "acc"
       ],
@@ -215,7 +215,7 @@
         "src/acc.njk",
         "src/_includes/header.njk"
       ],
-      "body": "**URGENT 2026-09-18 — COMPETITIVE WINDOW CLOSING**: betterhealthosteopathy.nz/acc/ NEW to #2 on 'osteopath acc christchurch' this run — Better Health has just shipped a dedicated /acc/ landing page, which is exactly what this item proposes. Active Health still holds #1 with /christchurch/osteopathy/. This means the competitive window for #25 is closing: shipping now slots Meridian behind two entrenched competitors; delayed further, we face a third. The 'acupuncture acc christchurch' side of this query saw major SERP churn last run with burwoodacupuncture.co.nz taking #1 and koruhealing.co.nz new to top 5. We have ACC pricing scattered across the site but no single indexable /acc/ URL. PR #113 rewrote all site-wide ACC copy from 'we lodge claims for you' to 'ACC-registered provider' framing after Google Ads disapproved the clinic under the 'Government documents and official services' policy — the /acc/ page must follow the same discipline. Describe (a) that Meridian is an ACC-registered treatment provider (osteopathy — Nina Hu; acupuncture — Min Jin); (b) the current ACC subsidy amount and what a patient pays out-of-pocket; (c) that no referral is required to book; (d) an explicit non-affiliation line with a link to acc.co.nz (matches PR #113's disclaimer for the manual Ads-review reviewer). Do NOT describe the mechanics of claim filing on the patient's behalf. Passage-level extraction still matters (88% of health queries trigger AI Overview, 83% zero-click per July 2026 SEJ healthcare-AI data) — a tight 40–60 word intro block per item #31's pattern should lead the page. Effort remains S.",
+      "body": "A single page at /acc/ explaining ACC for patients. Estimated ranks for “osteopath acc christchurch” are unchanged: Active Health #1 and Better Health's ACC page #2. For acupuncture, The House of Acupuncture has a dedicated ACC page, and Google's autocomplete suggests “is acupuncture covered by acc”. The page should say that Meridian is an ACC-registered provider (osteopathy with Nina Hu, acupuncture with Min Jin), what a patient pays, that no referral is needed, and that Meridian isn't part of ACC, with a link to acc.co.nz. Don't describe filing claims on the patient's behalf (see the July Google Ads rewording). Lead with a short 40–60 word answer, as on the condition pages.",
       "addresses": [
         "G7"
       ],
@@ -226,7 +226,7 @@
       "tier": 2,
       "impact": "M",
       "effort": "S",
-      "title": "Add /conditions/concussion/ page — Triskelion Concussion Care owns 'concussion osteopath christchurch'",
+      "title": "Add a concussion page (only if someone at Meridian treats concussion)",
       "owner": "practitioner",
       "reviewer": "Nina Hu",
       "confidence": "likely",
@@ -238,24 +238,24 @@
         "src/conditions/concussion.njk",
         "src/_data/conditions.json"
       ],
-      "body": "First check 2026-05-22 of 'concussion osteopath christchurch' showed triskelionconcussioncare.co.nz at #1, osteo.co.nz/concussion/ at #2, triskelionosteopathy.co.nz/concussion/ at #3. RE-CHECKED 2026-09-18: SERP has consolidated further — osteo.co.nz still #1, **betterhealthosteopathy.nz new to #2** via /anastasia-mcpherson-osteopath-christchurch/ (associate osteopath marketed on concussion), triskelionconcussioncare.co.nz dropped to #3. Better Health has now expanded into concussion territory — the same cross-body-region expansion pattern Triskelion previously ran. Concussion is high-value, ACC-adjacent injury content (post-concussion symptoms — headaches, dizziness, fatigue, brain fog — overlap directly with headache/migraine and neck pain conditions we already treat). The smallest fix is a /conditions/concussion/ page mirroring the existing pattern (sciatica, neck-pain, back-pain, headaches-migraines, pregnancy-back-pain, sports-injury-recovery): MedicalCondition + FAQPage schema, 40–60 word citation-ready intro (per #31's pattern), structured 5–7 item list blocks (per #34's pattern), acute-vs-chronic / when-to-seek-urgent-care / ACC eligibility (matching PR #113's provider-status framing, not claim-filing mechanics) / how osteopathy fits / book-now sections. Add corresponding entry to conditions.json (including the `lists` array structure introduced in #34) and a tile in the homepage 'Common conditions we treat' grid. Page pattern exists to copy; effort S. **The pregnancy-back-pain #1 ranking this run is definitive precedent** — condition-page URLs with the full pattern can hit #1 in this market.",
+      "body": "A /conditions/concussion/ page built like the existing condition pages. Estimated ranks for “concussion osteopath christchurch”: osteo.co.nz #1, Better Health #2 (through an associate osteopath's profile) and Triskelion Concussion Care #3. Meridian isn't visible, and Search Console shows no concussion searches reaching the site. Post-concussion symptoms (headaches, dizziness, neck pain) overlap with conditions Meridian already treats, but no practitioner lists concussion as a special interest. Confirm someone treats it and is happy to be named before building.",
       "addresses": [],
       "firstSeen": "2026-05-22"
     },
     {
       "n": 35,
-      "tier": 1,
+      "tier": 2,
       "impact": "M",
       "effort": "S",
-      "title": "Enable Google Search Console Generative AI performance report + capture baseline — DO THIS WEEK",
+      "title": "Check Google's AI Overviews report in Search Console and save a baseline",
       "owner": "you",
       "confidence": "likely",
-      "why": "Free data straight from Google on how often your site appears in AI Overviews. Connecting Search Console to this dashboard (setup guide) gets you most of the way there.",
+      "why": "Search Console is now connected to this dashboard. The remaining step is a 5-minute look at Google's AI report, so you can later tell whether new pages show up in AI answers.",
       "matchTerms": [],
       "files": [
         "(GSC console — no repo changes)"
       ],
-      "body": "**PROMOTED TO TOP MOVE 2026-09-18 — 'DO THIS WEEK'**: The Gen AI Performance Report reached full worldwide rollout on 31 Aug 2026. All sites can now see impressions inside AI Overviews, AI Mode, and Discover AI features by URL / country / device — still impressions-only (no CTR, no prompt data), but the panel is globally live and 2–3 weeks is minimum viable sample. This is now the highest-leverage cheap first move on the backlog. Google launched a dedicated Generative AI performance report in Search Console on 2026-06-03 that tracks impressions for AI Overviews and AI Mode. UPDATED 2026-08-14 — the report is impressions-only — no CTR, no clicks, no query data (per Aug 2026 write-ups from Pragma-Code, Weblumino, TJ Robertson, SmartTeam); the July 'CTR added' note was either premature or rolled back. The report is still worth enabling (AI-surface impressions remain the only first-party AI-visibility signal we can get), but the end-to-end 'AI-surface → click → booking' attribution story pairs with the STANDARD Performance report's existing CTR column, not the Gen AI panel. **UNBLOCKED 2026-09-18**: previously the panel was opt-in default with a 17 Jun opt-out toggle, and we couldn't be sure the panel had rolled to this property; now the 31 Aug full-worldwide rollout is confirmed. Action items: (1) verify meridianosteopathy.co.nz is a verified property in the clinic's GSC account, (2) confirm the AI Overviews / AI Mode toggle is still ON, (3) screenshot the report's default 3-month window as a 'pre-blog' baseline (~3 weeks of clean data now available) before item #14 ships, (4) build the AI-surface-attribution story on standard Performance-report CTR paired with the GA4 booking_completed event added in PR #116, using the Gen AI impression trend for the same URL set as diagnostic overlay. Use the SEJ CTR-loss diagnostic framing ('stable rankings + stable impressions + falling CTR = AI Overview click loss'). **INTERPRETIVE NOTE**: the August 2026 Google Core Update finished rolling out 21 Sep 2026 (26-day rollout); wait until ~22 Sep+ before drawing strong conclusions from rank changes in the standard Performance report. No code changes needed.",
+      "body": "Search Console is connected and feeding this dashboard. Its separate AI report (appearances in AI Overviews and AI Mode) isn't pulled in automatically. In Search Console, open Performance, pick the AI features view, set the date range to the last 3 months, and save a screenshot as the “before” picture ahead of any new pages. The report shows appearances only, not clicks. Google's core update finished on 21 Sep and a spam update started on 24 Sep, so give it until mid-October before reading much into changes. No website changes needed.",
       "addresses": [],
       "firstSeen": "2026-06-05"
     },
@@ -264,11 +264,11 @@
       "tier": 2,
       "impact": "M",
       "effort": "S",
-      "title": "Add a postpartum recovery section or dedicated /conditions/postpartum-recovery/ page — thin SERP opportunity",
+      "title": "Add a postpartum recovery page (Kaylee)",
       "owner": "practitioner",
       "reviewer": "Kaylee Frost",
-      "confidence": "likely",
-      "why": "Very few Christchurch sites cover postpartum care, so there's little competition. Kaylee lists pregnancy & postpartum as a special interest, and your pregnancy back pain page is the closest example of a page that ranks (estimated).",
+      "confidence": "experimental",
+      "why": "Kaylee lists pregnancy and postpartum care as a special interest, but Better Health now has a dedicated postnatal page ranking #1 (estimated), so this is no longer the easy gap it looked like. Search Console shows no postpartum searches reaching the site yet.",
       "matchTerms": [
         "postpartum",
         "postnatal"
@@ -277,9 +277,74 @@
         "src/conditions/pregnancy-back-pain.njk (extend) OR src/conditions/postpartum-recovery.njk (new)",
         "src/_data/conditions.json"
       ],
-      "body": "First-run check 2026-08-14 of 'postpartum osteopath christchurch' (US-variant of postnatal) returned only 6 total Google results — betterhealthosteopathy.nz, osteo.co.nz, osteopath-christchurch.com and 3 aggregators. Second check 2026-09-04 confirmed the thin-SERP pattern held: still ~5-6 results with bambinoosteo.co.nz (Auckland) + porthillsosteo.co.nz new to visible results. **THIRD CHECK 2026-09-18 CONFIRMS**: still ~5-6 total results with Better Health, osteo.co.nz, osteopath-christchurch.com, porthillsosteo.co.nz — bambinoosteo.co.nz dropped from visible results this run. Three-consecutive-week thin-SERP confirmation is now robust — this is a durable opportunity, not a one-run anomaly. **STRONGER ARGUMENT 2026-09-18**: the pregnancy-back-pain #1 ranking this run is direct precedent that the condition-page pattern can reach the very top on pregnancy / postnatal intent. A /conditions/postpartum-recovery/ page shares the same audience and would benefit from adjacent-page internal-link authority. Two implementation options: (a) EXTEND — add a 'Postpartum recovery' H2 section to the existing /conditions/pregnancy-back-pain/ page with US-spelling variants in body copy (postpartum, postnatal, post-birth) and appropriate MedicalCondition JSON-LD updates, keeping single-page authority (**RISK**: the pregnancy-back-pain page just hit #1 — do not dilute its focus); or (b) NEW PAGE — /conditions/postpartum-recovery/ following the standard condition-page pattern (MedicalCondition + FAQPage schema, 40–60 word citation-ready intro per #31, structured list blocks per #34), separate URL to catch the exact-slug search intent. **Option (b) is now STRONGLY indicated given the pregnancy-back-pain #1 win — do not risk that URL's focus, ship a fresh URL instead.** Add a tile to the homepage 'Common conditions we treat' grid. Effort S.",
+      "body": "A separate /conditions/postpartum-recovery/ page, built like the existing condition pages, so the pregnancy back pain page (estimated #1) keeps its focus. For the last three weeks “postpartum osteopath christchurch” returned very few results. This week Better Health's new /care/postnatal/ page is #1 for “postnatal osteopath christchurch”, and Triskelion and Active Health also appear. Still worth doing if Kaylee wants to lead it, since the pregnancy page shows this pattern can rank, but expect a harder climb. Add it to the homepage conditions grid.",
       "addresses": [],
       "firstSeen": "2026-08-14"
+    },
+    {
+      "n": 40,
+      "tier": 1,
+      "impact": "M",
+      "effort": "S",
+      "title": "Get clicks for “sports injury treatment”: shown 223 times, no clicks",
+      "owner": "claude",
+      "confidence": "likely",
+      "why": "Google already shows your sports injury page for “sports injury treatment” (223 times in 28 days, average position 8.7) but nobody clicked. A clearer Google title and description is the cheapest way to turn those appearances into visits.",
+      "matchTerms": [
+        "sports injury",
+        "sports recovery"
+      ],
+      "files": [
+        "src/conditions/sports-injury-recovery.njk",
+        "src/_data/conditions.json"
+      ],
+      "body": "The page's Google title is currently “Sports Injury Recovery | Meridian Osteopathy”, which doesn't match what people type. Change it to lead with “Sports Injury Treatment in Christchurch”, and rewrite the description to say who it's for and what happens at a first visit, in plain words, keeping “no referral needed” and ACC-registered status. Match the main heading to the new title. Related Search Console searches: “sports injury treatments” (11.4), “sports recovery” (11.3), “sport injuries rehabilitation” (13.8). No clinical claims change, so no practitioner review is needed.",
+      "addresses": [],
+      "firstSeen": "2026-09-25"
+    },
+    {
+      "n": 41,
+      "tier": 1,
+      "impact": "M",
+      "effort": "S",
+      "title": "Move the sciatica page onto Google's first page for “sciatica treatment”",
+      "owner": "claude",
+      "confidence": "likely",
+      "why": "The sciatica page is Meridian's most-shown condition page (272 appearances in 28 days) but sits at position 16.5 for “sciatica treatment”, just off the first page. It's already position 5 for “sciatica treatment christchurch”.",
+      "matchTerms": [
+        "sciatica"
+      ],
+      "files": [
+        "src/conditions/sciatica.njk",
+        "src/_data/conditions.json",
+        "src/conditions/back-pain.njk",
+        "src/index.njk"
+      ],
+      "body": "Appearances grew from 187 to 272 but clicks are only 2. Change the Google title to “Sciatica Treatment in Christchurch | Meridian Osteopathy” and make the main heading say “Sciatica treatment”. Add clear links to the sciatica page from the back pain page and the homepage conditions section using the words “sciatica treatment”. Search Console also shows “osteopath for sciatica” (8.8), “can osteopath help with sciatica” (9) and “sciatica specialist” (11.2). Wording and links only; if new clinical content is added, ask a practitioner to check it.",
+      "addresses": [],
+      "firstSeen": "2026-09-25"
+    },
+    {
+      "n": 42,
+      "tier": 2,
+      "impact": "M",
+      "effort": "S",
+      "title": "Make the acupuncture page, not the homepage, the one Google shows for acupuncture",
+      "owner": "claude",
+      "confidence": "experimental",
+      "why": "“Acupuncture christchurch” is your biggest non-name search (291 appearances), but Google shows the homepage at position 8.7 and clicks fell from 9 to 4. The acupuncture page itself sits at position 4.3 for the searches it does get.",
+      "matchTerms": [
+        "acupuncture",
+        "dry needling"
+      ],
+      "files": [
+        "src/services/medical-acupuncture.njk",
+        "src/_data/services.json",
+        "src/index.njk"
+      ],
+      "body": "When Google picks the homepage for a service search, the result is less specific and tends to get fewer clicks. Lead the acupuncture page's Google title with “Acupuncture & Dry Needling in Christchurch”, shorten its description (currently long and cut off), and link to it from the homepage with the words “acupuncture in Christchurch”. The same applies to “dry needling christchurch” (62 appearances, position 10.4, homepage shown). Experimental because Google may keep preferring the homepage; check Search Console four weeks after shipping.",
+      "addresses": [],
+      "firstSeen": "2026-09-25"
     }
   ]
 }
