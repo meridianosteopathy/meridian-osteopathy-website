@@ -58,7 +58,7 @@
 /* Links inside the spotlight card: the global reset strips link colour and
    underline, so restore both — --primary on the white card passes AA, and
    the underline keeps the inline blurb link perceivable without colour. */
-.spotlight-blurb a{color:var(--primary);text-decoration:underline}
+.spotlight-blurb a{color:var(--primary);text-decoration:underline}.subtitle a{color:var(--primary);text-decoration:underline}
 .spotlight-blurb a:hover{color:var(--primary-dark)}
 .spotlight-actions>a:not(.btn){color:var(--primary);font-weight:500}
 .spotlight-actions>a:not(.btn):hover{text-decoration:underline}
