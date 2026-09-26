@@ -347,3 +347,65 @@ collections:
                   - { label: "Part-time", value: "Part-time" }
                   - { label: "Contractor", value: "Contractor" }
               - { label: "Requirements / Qualifications", name: "requirements", widget: "text", hint: "Briefly describe experience level, qualifications, or registration requirements." }
+
+  # ============================================
+  # BLOG POSTS
+  # ============================================
+  - name: "blog"
+    label: "Blog"
+    label_singular: "Blog Post"
+    folder: "src/blog/posts"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "yaml-frontmatter"
+    summary: "{{ title }} — {{ publishedDate | date('D MMM YYYY') }}"
+    sortable_fields: ["publishedDate", "title"]
+    editor:
+      preview: false
+    fields:
+      - { label: "Title", name: "title", widget: "string", hint: "Headline shown on the post and in the blog listing." }
+      - { label: "Meta description", name: "description", widget: "string", hint: "Shown in search results and social cards. Keep under ~155 characters." }
+      - { label: "Excerpt", name: "excerpt", widget: "text", hint: "One or two sentences shown under the title on the post and on the blog listing card." }
+      - { label: "Published date", name: "publishedDate", widget: "date", format: "YYYY-MM-DD" }
+      - { label: "Updated date", name: "updated", widget: "date", format: "YYYY-MM-DD", required: false, hint: "Only set when you meaningfully update the post — freshness is a real AI-search ranking signal." }
+      - label: "Author"
+        name: "authorKey"
+        widget: "select"
+        required: false
+        options:
+          - { label: "Na (Nina) Hu", value: "nina" }
+          - { label: "Jonathan Grice", value: "jonathan" }
+          - { label: "Maddison Moffat", value: "maddison" }
+          - { label: "Kaylee Frost", value: "kaylee" }
+          - { label: "Min Jin", value: "min" }
+        hint: "Named practitioner-author is shown as the byline; if left blank, Meridian Osteopathy is credited as author instead."
+      - { label: "Category", name: "category", widget: "string", required: false, hint: "Optional. Shown above the title (e.g. \"Pregnancy & baby\")." }
+      - { label: "Cover image", name: "coverImage", widget: "image", required: false, hint: "Optional. Full-width banner at the top of the post and thumbnail on the listing card." }
+      - { label: "Cover image alt text", name: "coverAlt", widget: "string", required: false, hint: "Describes the cover image for screen readers and search engines." }
+      - { label: "Body", name: "body", widget: "markdown", hint: "The article. Use H2 for section headings, H3 for sub-sections." }
+      - label: "Related service"
+        name: "relatedService"
+        widget: "object"
+        required: false
+        hint: "Optional. Shown as a call-to-action after the article body."
+        fields:
+          - { label: "Service title", name: "title", widget: "string" }
+          - { label: "Service URL", name: "url", widget: "string" }
+          - { label: "Blurb", name: "blurb", widget: "text", required: false, hint: "Optional paragraph explaining the link." }
+          - label: "Also consider (second link)"
+            name: "alsoConsider"
+            widget: "object"
+            required: false
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+      - label: "FAQs"
+        name: "faq"
+        widget: "list"
+        required: false
+        summary: "{{ fields.question }}"
+        hint: "Three to five short Q&As. These appear at the bottom of the post and become FAQ structured data for AI search."
+        fields:
+          - { label: "Question", name: "question", widget: "string" }
+          - { label: "Answer", name: "answer", widget: "text" }
