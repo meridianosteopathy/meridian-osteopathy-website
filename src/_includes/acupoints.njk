@@ -1,0 +1,11 @@
+{#- Acupuncture point cards, driven by a post's `points` front matter
+    (code, name, location, use). Kept free of blank lines on purpose:
+    when included from a Markdown body, a blank line would end the HTML
+    block and the rest would be parsed as Markdown. -#}
+{%- if points and points.length -%}
+<div class="acupoint-cards">
+{%- for pt in points %}
+<div class="acupoint-card"><h3><span class="acupoint-code">{{ pt.code }}</span> {{ pt.name }}</h3><p><strong>Where:</strong> {{ pt.location }}</p><p><strong>Traditionally used for:</strong> {{ pt.use }}</p></div>
+{%- endfor %}
+</div>
+{%- endif -%}
