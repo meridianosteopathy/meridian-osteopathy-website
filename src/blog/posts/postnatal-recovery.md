@@ -29,9 +29,9 @@ faq:
 
 ## The part of postnatal care that quietly gets skipped
 
-Antenatal care is thorough. The birth itself is well-supported. The baby is closely watched by your midwife and then Plunket. What tends to get less airtime is *you* — specifically, your body — three months, six months, a year in, when the pregnancy and birth have long ago become "history" but your lower back still isn't quite right, your neck aches from feeding, your abdominal wall doesn't feel connected, and you can't remember what a full night's sleep did to your recovery capacity.
+During pregnancy and birth you're well looked after, and your midwife and then Plunket keep a close eye on your baby. What often gets missed is *your* body. Months later, your lower back may still not feel right, your neck may ache from feeding, your core may feel weak, and broken sleep can slow your recovery.
 
-Postnatal osteopathy is gentle, hands-on care that helps your body recover from pregnancy and birth, so you can feel like yourself again. It doesn't undo the birth or promise anything dramatic. It gives your musculoskeletal system some hands-on help catching up with a body that spent nine months adapting to a growing baby, plus a birth of some kind, plus months of feeding, carrying and settling in postures nobody would design.
+Postnatal osteopathy is gentle, hands-on care that helps your body recover from pregnancy and birth, so you can feel like yourself again. It won't undo the birth or work miracles, but it can ease the strain of nine months of pregnancy, the birth itself, and months of feeding, carrying and settling your baby.
 
 ## Who this is for
 
