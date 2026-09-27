@@ -34,7 +34,7 @@ points:
   - code: "BL67"
     name: "Zhiyin"
     location: "Outer side of the little toe, about 2 mm from the outer corner at the base of the toenail."
-    use: "Preparing for birth in the final weeks. It's also used, often with moxibustion (gentle warmth from a herb stick), when a baby is breech. If your baby is breech, talk to your midwife first."
+    use: "Preparing for birth in the final weeks, and when a baby is breech. If your baby is breech, talk to your midwife first."
 faq:
   - question: "Does it bring on labour?"
     answer: "No. It isn't induction and won't force labour to start. It aims to help your body get ready, so you feel more prepared when labour starts on its own. If you go past your due date and your maternity team is talking about induction, ask us about induction-support acupuncture."
