@@ -384,6 +384,17 @@ collections:
       - { label: "Cover image", name: "coverImage", widget: "image", required: false, hint: "Optional. Full-width banner at the top of the post and thumbnail on the listing card." }
       - { label: "Cover image alt text", name: "coverAlt", widget: "string", required: false, hint: "Describes the cover image for screen readers and search engines." }
       - { label: "Body", name: "body", widget: "markdown", hint: "The article. Use H2 for section headings, H3 for sub-sections." }
+      - label: "Acupuncture points"
+        name: "points"
+        widget: "list"
+        required: false
+        summary: "{{ fields.code }} {{ fields.name }}"
+        hint: "Optional. Shown as cards. To place them inside the article, put {% include \"acupoints.njk\" %} on its own line in the Body; otherwise they appear after the article."
+        fields:
+          - { label: "Code", name: "code", widget: "string", hint: "e.g. SP6" }
+          - { label: "Name", name: "name", widget: "string", hint: "e.g. Sanyinjiao" }
+          - { label: "Where it is", name: "location", widget: "text", hint: "Plain-English location a patient can picture." }
+          - { label: "Traditionally used for", name: "use", widget: "text", hint: "Keep to traditional use; avoid promising results." }
       - label: "Related service"
         name: "relatedService"
         widget: "object"

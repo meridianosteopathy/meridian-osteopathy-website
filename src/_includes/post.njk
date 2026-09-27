@@ -42,6 +42,15 @@ layout: base.njk
       {{ content | safe }}
     </div>
 
+    {#- Point cards normally sit where the body includes acupoints.njk;
+        if a post lists points but doesn't place them, show them here. #}
+    {% if points and points.length and ('class="acupoint-cards"' not in content) %}
+    <section class="post-points legal-content">
+      <h2>Acupuncture points we commonly use</h2>
+      {% include "acupoints.njk" %}
+    </section>
+    {% endif %}
+
     {% if faq %}
     <section class="post-faq">
       <h2>Common questions</h2>

@@ -130,6 +130,13 @@
 .post-faq .faq-list{max-width:none}
 .post-callout{margin-top:40px;padding:22px 24px;background:var(--lighter-bg);border:1px solid var(--border);border-radius:12px}
 .post-callout p{margin:0 0 14px;line-height:1.6;color:var(--text-body)}
+.post-points{margin-top:8px}
+.acupoint-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:8px 0 28px}
+.acupoint-card{padding:18px 20px;background:var(--lighter-bg);border:1px solid var(--border);border-radius:12px}
+.legal-content .acupoint-card .acupoint-code{margin:0 0 4px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--primary)}
+.legal-content .acupoint-card h3{margin:0 0 10px;font-size:1.05rem}
+.legal-content .acupoint-card p{margin:0 0 8px;line-height:1.55;font-size:.95rem;color:var(--text-body)}
+.legal-content .acupoint-card p:last-child{margin-bottom:0}
 .post-callout p:last-child{margin-bottom:0}
 .post-callout-links{display:flex;flex-wrap:wrap;gap:10px}
 .post-callout-links .btn{font-size:.9rem;padding:9px 18px}
