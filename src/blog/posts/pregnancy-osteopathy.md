@@ -48,7 +48,7 @@ You don't need to be in pain to come in — many patients book a check-in each t
 
 ## What treatment actually looks like
 
-Your first visit takes 45–60 minutes. We take a full history — how the pregnancy is going, what your midwife or usual doctor has said, any prior back or pelvic issues, how you're sleeping — and then do a gentle assessment of your posture, spine, pelvis and hips. Based on what we find, treatment might include:
+Your first visit takes 40 minutes. We take a full history — how the pregnancy is going, what your midwife or usual doctor has said, any prior back or pelvic issues, how you're sleeping — and then do a gentle assessment of your posture, spine, pelvis and hips. Based on what we find, treatment might include:
 
 - **Soft-tissue release** across the lower back, glutes, hip flexors and diaphragm
 - **Gentle joint mobilisation** of the pelvis, lumbar spine, ribs and mid-back

@@ -49,7 +49,7 @@ If your midwife or usual doctor is happy for you to have acupuncture, we're happ
 
 ## What a session looks like
 
-Your first visit takes about 60 minutes. We talk through your history — how you're feeling, how the pregnancy is going, any medications you're taking, previous experience with acupuncture — and then you'll settle onto the treatment table in whatever position is comfortable. From about 20 weeks that's usually side-lying with pillow support.
+Your first visit takes 40 minutes. We talk through your history — how you're feeling, how the pregnancy is going, any medications you're taking, previous experience with acupuncture — and then you'll settle onto the treatment table in whatever position is comfortable. From about 20 weeks that's usually side-lying with pillow support.
 
 Point selection depends on what we're treating: nausea and morning sickness draw on a well-established set of upper-limb and wrist points; sleep and anxiety add points on the head, ears and forearms; general fatigue often benefits from points on the hands and lower legs. Once the needles are in, you rest quietly for 20–30 minutes while they do their work. Many people fall asleep — that's fine.
 
