@@ -17,7 +17,7 @@ relatedService:
 points:
   - code: "SP6"
     name: "Sanyinjiao"
-    location: "Inside of the lower leg, about four finger-widths above the inner ankle bone, just behind the shin bone."
+    location: "Inside of the lower leg, four of your own finger-widths above the most prominent point of the inner ankle bone, just behind the inner edge of the shin bone."
     use: "Helping the cervix and pelvis get ready for birth. One of the main labour preparation points."
   - code: "LI4"
     name: "Hegu"
