@@ -10,7 +10,7 @@ coverAlt: "Close-up of gentle acupuncture needles being placed for a pregnancy w
 relatedService:
   title: "Acupuncture & Dry Needling"
   url: /services/acupuncture/
-  blurb: "Our acupuncturists use points and dosages specifically adapted for pregnancy. Sessions are quiet, warm and restful — most people leave feeling noticeably calmer than they arrived."
+  blurb: "Our practitioners use points and dosages specifically adapted for pregnancy. Sessions are quiet, warm and restful — most people leave feeling noticeably calmer than they arrived."
   alsoConsider:
     title: "Osteopathy through pregnancy"
     url: /blog/pregnancy-osteopathy/
