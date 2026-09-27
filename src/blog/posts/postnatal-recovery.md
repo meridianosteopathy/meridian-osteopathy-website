@@ -1,7 +1,7 @@
 ---
 title: "Postnatal Recovery: Care for Your Body After Birth"
 description: "Postnatal osteopathy in Christchurch — pelvic and back recovery, feeding posture, and the physical demands of newborn life. Gentle care whether you birthed vaginally or by caesarean."
-excerpt: "The first year after birth asks a lot of your body — pelvic and back recovery, feeding posture, broken sleep, and lifting a growing baby. Postnatal osteopathy is the boring, practical part of feeling like yourself again."
+excerpt: "The first year after birth asks a lot of your body — pelvic and back recovery, feeding posture, broken sleep, and lifting a growing baby. Postnatal osteopathy is gentle, hands-on care that helps your body recover from pregnancy and birth, so you can feel like yourself again."
 publishedDate: 2026-07-15
 authorKey: nina
 category: "Pregnancy & baby"
@@ -31,7 +31,7 @@ faq:
 
 Antenatal care is thorough. The birth itself is well-supported. The baby is closely watched by your midwife and then Plunket. What tends to get less airtime is *you* — specifically, your body — three months, six months, a year in, when the pregnancy and birth have long ago become "history" but your lower back still isn't quite right, your neck aches from feeding, your abdominal wall doesn't feel connected, and you can't remember what a full night's sleep did to your recovery capacity.
 
-Postnatal osteopathy is the boring, practical part of feeling like yourself again. It doesn't undo the birth or promise anything dramatic. It gives your musculoskeletal system some hands-on help catching up with a body that spent nine months adapting to a growing baby, plus a birth of some kind, plus months of feeding, carrying and settling in postures nobody would design.
+Postnatal osteopathy is gentle, hands-on care that helps your body recover from pregnancy and birth, so you can feel like yourself again. It doesn't undo the birth or promise anything dramatic. It gives your musculoskeletal system some hands-on help catching up with a body that spent nine months adapting to a growing baby, plus a birth of some kind, plus months of feeding, carrying and settling in postures nobody would design.
 
 ## Who this is for
 
