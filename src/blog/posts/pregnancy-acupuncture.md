@@ -5,8 +5,8 @@ excerpt: "A calm, needle-based option that many people reach for during pregnanc
 publishedDate: 2026-08-26
 authorKey: nina
 category: "Pregnancy & baby"
-coverImage: /images/specialty-acu-womens.jpg
-coverAlt: "Close-up of gentle acupuncture needles being placed for a pregnancy wellbeing treatment"
+coverImage: /images/hero-pregnancy-acupuncture.jpg
+coverAlt: "Practitioner gently placing an acupuncture needle in the inner wrist of a relaxed pregnant woman resting on pillows"
 relatedService:
   title: "Acupuncture & Dry Needling"
   url: /services/acupuncture/
