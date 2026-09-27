@@ -16,7 +16,7 @@ relatedService:
     url: /blog/pregnancy-osteopathy/
 faq:
   - question: "Is acupuncture safe during pregnancy?"
-    answer: "Yes, when it's delivered by a practitioner trained in pregnancy acupuncture. There is a well-established set of points that are avoided during pregnancy (particularly points on the lower abdomen, sacrum and certain lower-limb points) until you're at term. Your acupuncturist will select from the many points that are safe and appropriate for your stage — nausea, sleep and general wellbeing points are the mainstay of first- and second-trimester treatment."
+    answer: "Yes, when it's delivered by a practitioner trained in pregnancy acupuncture. There is a well-established set of points that are avoided during pregnancy (particularly points on the lower abdomen, sacrum and certain lower-limb points) until you're at term. Your practitioner will select from the many points that are safe and appropriate for your stage — nausea, sleep and general wellbeing points are the mainstay of first- and second-trimester treatment."
   - question: "What can it help with?"
     answer: "The most common reasons people come for pregnancy acupuncture are nausea and morning sickness, disturbed sleep, anxiety and tension, headaches and migraines, fatigue, and general wellbeing. It can also help with reflux, constipation, carpal-tunnel symptoms in later pregnancy, and pelvic-girdle discomfort. From around 36 weeks, a specific labour-preparation protocol is often added — see our separate post on that."
   - question: "Does it hurt?"
