@@ -8,7 +8,7 @@ updated: 2026-09-11
 {% set c = conditions["postpartum-recovery"] %}
 
 <!-- Hero -->
-<section class="hero" style="background-image: url('{{ c.heroImage }}');">
+<section class="hero" style="background-image: url('{{ c.heroImage }}');{% if c.heroPosition %} background-position: {{ c.heroPosition }};{% endif %}">
 </section>
 
 {% include "breadcrumbs.njk" %}
