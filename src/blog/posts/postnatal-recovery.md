@@ -16,9 +16,9 @@ relatedService:
     url: /conditions/postpartum-recovery/
 faq:
   - question: "When can I start postnatal treatment?"
-    answer: "Whenever you feel ready. Many people start around 6 weeks after the birth, often after their midwife's final check, but there's no minimum wait. Gentle treatment is safe from the first week or two if something is bothering you. We can work around a caesarean scar, breastfeeding, or a young baby who comes with you."
+    answer: "Whenever you feel ready. Many people start around 6 weeks after the birth, often after their midwife's final check, but there's no minimum wait. Gentle treatment is safe from the first week or two if something is bothering you. We can work around breastfeeding, or a young baby who comes with you."
   - question: "What can postnatal osteopathy help with?"
-    answer: "Common reasons people come in include: back or pelvic pain from pregnancy that hasn't settled, neck and upper-back tension from feeding, wrist and thumb pain from lifting your baby ('mother's thumb'), tight ribs or restricted breathing after pregnancy or a caesarean, and a general sense that your body doesn't feel like your own yet. We can also work on caesarean scars once they've healed."
+    answer: "Common reasons people come in include: back or pelvic pain from pregnancy that hasn't settled, neck and upper-back tension from feeding, wrist and thumb pain from lifting your baby ('mother's thumb'), tight ribs or restricted breathing after pregnancy or a caesarean, and a general sense that your body doesn't feel like your own yet."
   - question: "Is it safe if I'm breastfeeding?"
     answer: "Yes. Osteopathic treatment doesn't affect milk supply or feeding. You're welcome to feed your baby during the appointment. We can treat you lying flat, on your side or propped up, whichever is most comfortable."
   - question: "Can I bring my baby with me?"
@@ -40,7 +40,6 @@ Postnatal osteopathy may help if you:
 - Still have lower-back or pelvic pain from pregnancy that hasn't settled by 6–12 weeks
 - Get neck, shoulder or upper-back tension from feeding, settling or bending over the cot
 - Have wrist, thumb or forearm pain from lifting your baby many times a day ("mother's thumb", also called De Quervain's)
-- Are recovering from a caesarean and want hands-on care around the scar and tummy once it's healed
 - Feel your ribs or breathing haven't gone back to normal since the pregnancy
 - Have headaches that started or got worse after the birth
 - Want a check-up before getting back into running or exercise
@@ -56,7 +55,6 @@ Treatment might include:
 - **Gentle joint mobilisation** for your lower back, pelvis, mid-back and neck
 - **Soft-tissue release** for tight glutes, hips, shoulders and diaphragm
 - **Rib and diaphragm work** to help your breathing settle back to normal
-- **Gentle scar work** for caesarean or perineal scars once they've fully healed
 - **Practical advice** on feeding positions, carrying, sleep set-up and getting back to exercise
 
 You can bring your baby or come alone. Most people come every two weeks for a few sessions, then less often as things settle. There's no fixed programme.
