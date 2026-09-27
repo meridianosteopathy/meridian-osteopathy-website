@@ -1,0 +1,194 @@
+---
+permalink: /admin/reviews/respond/
+eleventyExcludeFromCollections: true
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Page review — {{ auditConfig.site.name }}</title>
+<link rel="icon" href="/images/logomark-dark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/admin/reviews/reviews.css">
+</head>
+<body>
+<main class="rv">
+  <div class="topline"><span>{{ auditConfig.site.name }} · page review</span></div>
+  <div id="status"><p class="muted">Loading your review…</p></div>
+
+  <form id="form" hidden novalidate>
+    <div class="card accent" id="intro"></div>
+    <div id="round-banner"></div>
+    <div id="sections"></div>
+
+    <div class="rsec">
+      <h3>Anything else?</h3>
+      <label for="general">Overall comments <span class="hint">(optional)</span></label>
+      <textarea id="general" maxlength="8000"></textarea>
+    </div>
+
+    <div class="rsec">
+      <h3>Your decision</h3>
+      <div class="choices" role="radiogroup" aria-label="Your decision">
+        <label class="choice"><input type="radio" name="decision" value="approve"><span>Looks good<small>Happy for it to go live as it is.</small></span></label>
+        <label class="choice"><input type="radio" name="decision" value="approve-with-changes"><span>Approve with small changes<small>Fine to go live once my comments are fixed.</small></span></label>
+        <label class="choice"><input type="radio" name="decision" value="changes"><span>Needs changes<small>I'd like to see it again after my comments are fixed.</small></span></label>
+      </div>
+      <div id="form-error"></div>
+      <div class="btn-row"><button type="submit" class="rbtn primary" id="submit">Send my review</button></div>
+    </div>
+  </form>
+</main>
+
+<script>
+const API = "/.netlify/functions/review-public";
+const params = new URLSearchParams(location.search);
+const ID = params.get("id") || "";
+const TOKEN = params.get("t") || "";
+let review = null;
+
+const $ = (id) => document.getElementById(id);
+function escapeHtml(s) {
+  return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+}
+const firstName = (name) => String(name || "").trim().split(/\s+/)[0] || "";
+const draftKey = () => `review-draft:${ID}:${review.round}`;
+
+function showStatus(kind, html) {
+  $("status").innerHTML = `<div class="banner ${kind}">${html}</div>`;
+}
+
+// Unsent answers are kept in this browser so a closed tab doesn't lose them.
+function saveDraft() {
+  try { localStorage.setItem(draftKey(), JSON.stringify(collect())); } catch (_) { /* storage unavailable */ }
+}
+function loadDraft() {
+  try { return JSON.parse(localStorage.getItem(draftKey()) || "null"); } catch (_) { return null; }
+}
+function clearDraft() {
+  try { localStorage.removeItem(draftKey()); } catch (_) { /* storage unavailable */ }
+}
+
+function collect() {
+  const decision = (document.querySelector("input[name=decision]:checked") || {}).value || "";
+  const comments = [...document.querySelectorAll("textarea[data-index]")]
+    .map(ta => ({ index: Number(ta.dataset.index), comment: ta.value }))
+    .filter(c => c.comment.trim());
+  return { decision, general: $("general").value, comments };
+}
+
+function fill(answers) {
+  if (!answers) return;
+  for (const c of answers.comments || []) {
+    const ta = document.querySelector(`textarea[data-index="${Number(c.index)}"]`);
+    if (ta) ta.value = c.comment;
+  }
+  $("general").value = answers.general || "";
+  const radio = document.querySelector(`input[name=decision][value="${answers.decision}"]`);
+  if (radio) radio.checked = true;
+}
+
+function render() {
+  const r = review;
+  $("intro").innerHTML = `
+    <h1>Hi ${escapeHtml(firstName(r.reviewerName))},</h1>
+    <p>${escapeHtml(r.requestedBy)} has asked you to review <strong>${escapeHtml(r.title)}</strong>.</p>
+    ${r.message ? `<p class="banner info" style="margin-top:12px;"><strong>Message from ${escapeHtml(r.requestedBy)}:</strong> ${escapeHtml(r.message)}</p>` : ""}
+    <p style="margin-top:12px;">Read each section below and leave a comment wherever you'd change something. Leave the rest blank. Then choose your decision at the bottom.</p>
+    <div class="btn-row"><a class="rbtn" href="${escapeHtml(r.pageUrl)}" target="_blank" rel="noopener noreferrer">Open the page in a new tab ↗</a></div>`;
+
+  $("round-banner").innerHTML = r.round > 1
+    ? `<div class="banner info">This is the updated version (round ${r.round}). Your earlier comments are shown under each section so you can check they've been handled.</div>`
+    : "";
+
+  const earlier = new Map((r.previousComments || []).map(c => [c.heading, c.comment]));
+  $("sections").innerHTML = r.sections.map((s, i) => `
+    <section class="rsec">
+      <h3>${escapeHtml(s.heading)}</h3>
+      ${s.text ? `<div class="sec-text">${escapeHtml(s.text)}</div>` : `<p class="muted">Open the page (button above) to read it.</p>`}
+      ${earlier.has(s.heading) ? `<div class="earlier"><strong>Your earlier comment:</strong> ${escapeHtml(earlier.get(s.heading))}</div>` : ""}
+      <label for="c${i}">What would you change here? <span class="hint">(leave blank if it's fine)</span></label>
+      <textarea id="c${i}" data-index="${i}" maxlength="4000"></textarea>
+    </section>`).join("");
+
+  fill(loadDraft() || r.response);
+  $("status").innerHTML = r.response
+    ? `<div class="banner ok">You sent your review on ${new Date(r.response.submittedAt).toLocaleDateString("en-NZ", { day: "numeric", month: "long" })}. You can change it and send it again until ${escapeHtml(r.requestedBy)} acts on it.</div>`
+    : "";
+  $("form").hidden = false;
+}
+
+async function load() {
+  if (!ID || !TOKEN) {
+    showStatus("error", "This review link is incomplete. Please use the full link from your email.");
+    return;
+  }
+  let res, body;
+  try {
+    res = await fetch(`${API}?id=${encodeURIComponent(ID)}&t=${encodeURIComponent(TOKEN)}`);
+    body = await res.json();
+  } catch (e) {
+    showStatus("error", "Couldn't load the review. Check your internet connection and refresh the page.");
+    return;
+  }
+  if (!res.ok || !body.ok) {
+    showStatus("error", "This review link isn't valid any more. Please check you used the full link from the most recent email.");
+    return;
+  }
+  review = body.review;
+  if (review.status === "approved" || review.status === "cancelled") {
+    showStatus("ok", `This review of <strong>${escapeHtml(review.title)}</strong> is closed. Thank you!`);
+    return;
+  }
+  if (review.status === "revising") {
+    showStatus("info", `Thanks for your comments on <strong>${escapeHtml(review.title)}</strong>. ${escapeHtml(review.requestedBy)} is working on them, and you'll get an email when there's an updated version to check.`);
+    return;
+  }
+  render();
+}
+
+$("form").addEventListener("input", () => { if (review) saveDraft(); });
+$("form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const answers = collect();
+  if (!answers.decision) {
+    $("form-error").innerHTML = `<div class="banner error" style="margin-top:12px;">Please choose a decision before sending.</div>`;
+    return;
+  }
+  $("form-error").innerHTML = "";
+  const btn = $("submit");
+  btn.disabled = true;
+  btn.textContent = "Sending…";
+  try {
+    const res = await fetch(API, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ id: ID, t: TOKEN, ...answers }),
+    });
+    const body = await res.json().catch(() => ({}));
+    if (!res.ok || !body.ok) {
+      const why = body.error === "being-revised" ? `${review.requestedBy} is already working on your earlier comments.`
+        : body.error === "closed" ? "This review has been closed."
+        : "Something went wrong. Please try again in a minute.";
+      $("form-error").innerHTML = `<div class="banner error" style="margin-top:12px;">${escapeHtml(why)}</div>`;
+      return;
+    }
+    clearDraft();
+    $("form").hidden = true;
+    showStatus("ok", `<strong>Thank you!</strong> Your review has been sent to ${escapeHtml(review.requestedBy)}. You can come back to this link to change it until they act on it.`);
+    window.scrollTo(0, 0);
+  } catch (err) {
+    $("form-error").innerHTML = `<div class="banner error" style="margin-top:12px;">Couldn't send. Check your internet connection and try again. Your answers are kept on this device.</div>`;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "Send my review";
+  }
+});
+
+load();
+</script>
+</body>
+</html>

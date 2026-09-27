@@ -1,8 +1,9 @@
 ---
 layout: base.njk
 title: Sports Injury Recovery
-description: "Sports injury treatment in Christchurch at Meridian Osteopathy. ACC-registered osteopaths for sprains, strains, overuse injuries, and return-to-sport planning."
-updated: 2026-04-24
+titleOverride: "Sports Injury Treatment in Christchurch | Meridian Osteopathy"
+description: "Sports injury treatment in Christchurch for runners, gym-goers and team players. First visit: assessment, hands-on care, rehab plan. No referral needed. ACC-registered."
+updated: 2026-09-25
 ---
 
 {% set c = conditions["sports-injury-recovery"] %}
@@ -17,7 +18,7 @@ updated: 2026-04-24
 <section class="section text-center">
   <div class="container">
     <div class="service-intro">
-      <h1>{{ c.title }}</h1>
+      <h1>{{ c.heading or c.title }}</h1>
       <p class="subtitle">{{ c.tagline }}</p>
     </div>
   </div>

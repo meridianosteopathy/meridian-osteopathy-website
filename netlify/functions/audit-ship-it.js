@@ -28,7 +28,7 @@ const ALLOWED_ORIGINS = [
 const ALLOWED_ORIGIN_PATTERNS = [
   /^https:\/\/deploy-preview-\d+--meridian-osteopathy\.netlify\.app$/,
 ];
-const ROUTINE_BETA_HEADER = "experimental-cc-routine-2026-04-01";
+const { fireShipItRoutine } = require("./_lib/routine");
 
 function json(statusCode, body, extraHeaders = {}) {
   return {
@@ -70,12 +70,6 @@ exports.handler = async (event) => {
     return json(403, { ok: false, error: "origin-not-allowed" });
   }
 
-  const routineUrl = process.env.AUDIT_SHIPIT_ROUTINE_URL;
-  const routineToken = process.env.AUDIT_SHIPIT_ROUTINE_TOKEN;
-  if (!routineUrl || !routineToken) {
-    return json(500, { ok: false, error: "ship-it-routine-not-configured" });
-  }
-
   let payload;
   try { payload = JSON.parse(event.body || "{}"); }
   catch { return json(400, { ok: false, error: "invalid-json" }); }
@@ -98,42 +92,37 @@ exports.handler = async (event) => {
       impact: item.impact,
       effort: item.effort,
       addresses: item.addresses || [],
+      // Who acts / reviews — the routine skips "you" items and adds a
+      // practitioner-review section to the PR for "practitioner" items.
+      owner: item.owner || null,
+      reviewer: item.reviewer || null,
+      why: item.why || "",
+      matchTerms: item.matchTerms || [],
     },
     note: payload.note || "",
     requestedAt: new Date().toISOString(),
   });
 
-  let res;
-  try {
-    res = await fetch(routineUrl, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        "authorization": `Bearer ${routineToken}`,
-        "anthropic-beta": ROUTINE_BETA_HEADER,
-        "anthropic-version": "2023-06-01",
-      },
-      body: JSON.stringify({ text }),
-    });
-  } catch (e) {
-    return json(502, { ok: false, error: "routine-fetch-failed", detail: String(e) }, {
-      "access-control-allow-origin": origin,
-    });
+  const fired = await fireShipItRoutine(text);
+  const cors = { "access-control-allow-origin": origin };
+  if (fired.error === "ship-it-routine-not-configured") {
+    return json(500, { ok: false, error: fired.error });
   }
-
-  const routineBody = await res.json().catch(() => ({}));
-  if (!res.ok) {
-    return json(res.status, {
+  if (fired.error === "routine-fetch-failed") {
+    return json(502, { ok: false, error: fired.error, detail: fired.detail }, cors);
+  }
+  if (!fired.ok) {
+    return json(fired.status, {
       ok: false,
-      error: "routine-rejected",
-      routineStatus: res.status,
-      routineBody,
-    }, { "access-control-allow-origin": origin });
+      error: fired.error,
+      routineStatus: fired.status,
+      routineBody: fired.routineBody,
+    }, cors);
   }
 
   return json(200, {
     ok: true,
-    sessionId: routineBody.claude_code_session_id || null,
-    sessionUrl: routineBody.claude_code_session_url || null,
-  }, { "access-control-allow-origin": origin });
+    sessionId: fired.sessionId,
+    sessionUrl: fired.sessionUrl,
+  }, cors);
 };

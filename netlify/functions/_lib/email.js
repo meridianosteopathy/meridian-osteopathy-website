@@ -3,7 +3,9 @@
 
 const RESEND_URL = "https://api.resend.com/emails";
 
-async function sendNotification({ subject, text, html, to: toOverride }) {
+// replyTo (optional) sets Resend's reply_to, so a recipient's reply reaches a
+// person instead of the no-reply sender.
+async function sendNotification({ subject, text, html, to: toOverride, replyTo }) {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.NOTIFY_FROM || "Meridian Website <no-reply@meridianosteopathy.co.nz>";
   const to = toOverride || process.env.NOTIFY_TO || "info@meridianosteopathy.co.nz";
@@ -26,6 +28,7 @@ async function sendNotification({ subject, text, html, to: toOverride }) {
       subject,
       text,
       ...(html ? { html } : {}),
+      ...(replyTo ? { reply_to: replyTo } : {}),
     }),
   });
 

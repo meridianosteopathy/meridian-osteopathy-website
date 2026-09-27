@@ -8,65 +8,118 @@ eleventyExcludeFromCollections: true
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>AI Search Audit — Meridian Osteopathy</title>
+<title>Search Audit — {{ auditConfig.site.name }}</title>
 <link rel="icon" href="/images/logomark-dark.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/css/styles.css">
 <style>
+  /* Ink colours are the brand hues darkened until they pass WCAG AA (4.5:1)
+     on their tinted backgrounds — the raw brand greens/golds don't. */
   :root {
-    --status-approve: #5E855C;
+    --status-approve: #3d663b;
     --status-approve-bg: #eaf3e9;
-    --status-park: #c9963b;
+    --status-park: #8a6420;
     --status-park-bg: #faf1de;
-    --status-dismiss: #B1536D;
+    --status-dismiss: #9a3f58;
     --status-dismiss-bg: #f7e4ea;
     --neutral: #6a6a6a;
     --neutral-bg: #f4f4f5;
   }
   body { background: var(--lighter-bg); }
-  .audit { max-width: 960px; margin: 0 auto; padding: 40px 24px 120px; }
-  .audit-header { margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+  .audit { max-width: 960px; margin: 0 auto; padding: 40px 16px 120px; }
+  .audit-header { margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
   .audit-header h1 { font-family: var(--font-secondary); font-size: 2rem; color: var(--text-dark); margin-bottom: 8px; font-weight: 400; }
   .audit-header .meta { color: var(--text-light); font-size: 0.9rem; }
-  .audit-header .meta a { color: var(--primary); text-decoration: underline; }
+  .audit-header .meta a, .muted a { color: var(--primary); text-decoration: underline; }
   .audit-header .sync { margin-top: 8px; font-size: 0.82rem; color: var(--text-light); }
   .audit-header .sync.error { color: var(--status-dismiss); }
+  .banner { margin-top: 16px; padding: 12px 16px; border-radius: 8px; background: var(--status-dismiss-bg); color: var(--status-dismiss); font-size: 0.92rem; }
+  .banner a { color: var(--status-dismiss); text-decoration: underline; }
+  .muted { color: var(--text-light); font-size: 0.9rem; }
 
-  .toolbar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 24px 0 32px; padding: 16px; background: var(--white); border: 1px solid var(--border); border-radius: 8px; }
+  .section-block { margin-bottom: 44px; }
+  .section-block h2 { font-family: var(--font-secondary); font-weight: 400; font-size: 1.5rem; color: var(--text-dark); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary); display: inline-block; }
+  .section-block h3 { font-size: 1.05rem; font-weight: 600; color: var(--text-dark); margin: 28px 0 6px; }
+  .section-block > p, .section-block > ul { color: var(--text-body); margin-bottom: 12px; }
+  .section-block ul.bullets { list-style: disc; padding-left: 24px; }
+  .card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 20px; }
+
+  /* This week */
+  .summary { border-left: 3px solid var(--primary); }
+  .summary p { margin-bottom: 8px; color: var(--text-body); }
+  .summary p:last-child { margin-bottom: 0; }
+  .actions-list { list-style: decimal; padding-left: 22px; margin-top: 16px; display: block; }
+  .actions-list li { margin-bottom: 10px; color: var(--text-body); }
+  .actions-list a { color: var(--primary); text-decoration: underline; }
+
+  /* Google results */
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin: 12px 0 8px; }
+  .tile { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+  .tile .label { font-size: 0.85rem; color: var(--text-light); line-height: 1.35; min-height: 2.4em; }
+  .tile .value { font-size: 1.9rem; font-weight: 600; color: var(--text-dark); line-height: 1.2; margin-top: 4px; }
+  .tile .delta { font-size: 0.82rem; margin-top: 2px; color: var(--text-light); }
+  .delta.up { color: var(--status-approve); }
+  .delta.down { color: var(--status-dismiss); }
+  .charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-top: 12px; }
+  .chart { position: relative; }
+  .chart h4 { font-size: 0.92rem; font-weight: 600; color: var(--text-dark); margin-bottom: 8px; }
+  .chart svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .chart .axis { font-size: 10px; fill: var(--text-light); font-family: var(--font-primary); }
+  .chart .grid { stroke: #e6e9ed; stroke-width: 1; }
+  .chart .bar { fill: var(--primary); }
+  .chart .bar.dim { opacity: 0.35; }
+  .chart .end-label { font-size: 11px; font-weight: 600; fill: var(--text-dark); font-family: var(--font-primary); }
+  .chart-tip { position: absolute; pointer-events: none; background: var(--text-dark); color: var(--white); font-size: 0.8rem; padding: 6px 10px; border-radius: 6px; white-space: nowrap; opacity: 0; transition: opacity .1s; transform: translate(-50%, -100%); z-index: 5; }
+  .chart-tip.show { opacity: 1; }
+  details.more { margin-top: 12px; }
+  details.more > summary { cursor: pointer; color: var(--primary); font-size: 0.9rem; font-weight: 500; }
+  .table-wrap { overflow-x: auto; margin-top: 8px; background: var(--white); border: 1px solid var(--border); border-radius: 8px; }
+  table.data { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 0.88rem; }
+  table.data th, table.data td { padding: 8px 12px; text-align: left; border-bottom: 1px solid #eef1f4; vertical-align: top; }
+  table.data th { font-weight: 600; color: var(--text-dark); background: var(--neutral-bg); white-space: nowrap; }
+  table.data td.num, table.data th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  table.data tr:last-child td { border-bottom: 0; }
+  table.data code { font-size: 0.8rem; color: var(--text-light); overflow-wrap: anywhere; }
+  .setup { border-left: 3px solid var(--status-park); }
+  .setup .status { font-weight: 600; color: var(--text-dark); margin-bottom: 6px; }
+  .setup a.button { display: inline-block; margin-top: 12px; background: var(--primary); color: var(--white); padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 500; }
+
+  /* Recommendations */
+  .toolbar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 16px 0 24px; padding: 16px; background: var(--white); border: 1px solid var(--border); border-radius: 8px; }
   .toolbar .counts { display: flex; gap: 16px; flex: 1; min-width: 240px; flex-wrap: wrap; }
   .toolbar select, .toolbar button { font: inherit; font-size: 0.9rem; padding: 8px 14px; border: 1px solid var(--border); border-radius: 6px; background: var(--white); color: var(--text-dark); cursor: pointer; }
   .toolbar button:hover { background: var(--neutral-bg); }
   .toolbar .export-btn { background: var(--primary); color: var(--white); border-color: var(--primary); font-weight: 500; }
   .toolbar .export-btn:hover { background: var(--primary-dark); }
-
-  .section-block { margin-bottom: 40px; }
-  .section-block h2 { font-family: var(--font-secondary); font-weight: 400; font-size: 1.5rem; color: var(--text-dark); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--primary); display: inline-block; }
-  .section-block > p, .section-block > ul { color: var(--text-body); margin-bottom: 12px; }
-  .section-block ul { list-style: disc; padding-left: 24px; }
-
-  .tldr { background: var(--white); padding: 24px; border-radius: 8px; border-left: 3px solid var(--primary); }
-  .tldr p { margin-bottom: 12px; }
-  .tldr p:last-child { margin-bottom: 0; }
-
-  .item { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 12px; transition: border-color .15s; position: relative; }
+  .item { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 12px; transition: border-color .15s; position: relative; scroll-margin-top: 16px; }
   .item.status-approve { border-left: 4px solid var(--status-approve); }
   .item.status-park    { border-left: 4px solid var(--status-park); }
   .item.status-dismiss { border-left: 4px solid var(--status-dismiss); opacity: 0.72; }
   .item.is-new::before { content: "New"; position: absolute; top: -8px; right: 16px; background: var(--primary); color: var(--white); font-size: 0.7rem; font-weight: 600; padding: 3px 10px; border-radius: 999px; letter-spacing: 0.05em; }
   .item-head { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
-  .item-title { font-weight: 600; font-size: 1.05rem; color: var(--text-dark); flex: 1; min-width: 260px; }
+  .item-title { font-weight: 600; font-size: 1.05rem; color: var(--text-dark); flex: 1; min-width: 240px; }
   .item-title .num { color: var(--text-light); margin-right: 8px; font-weight: 400; }
   .item-badges { display: flex; gap: 6px; flex-wrap: wrap; }
-  .badge { font-size: 0.72rem; padding: 3px 8px; border-radius: 999px; font-weight: 500; letter-spacing: 0.02em; text-transform: uppercase; }
+  .badge { font-size: 0.72rem; padding: 3px 8px; border-radius: 999px; font-weight: 500; letter-spacing: 0.02em; text-transform: uppercase; white-space: nowrap; }
   .badge.tier-1 { background: var(--status-approve-bg); color: var(--status-approve); }
   .badge.tier-2 { background: var(--status-park-bg); color: var(--status-park); }
-  .badge.tier-3 { background: var(--neutral-bg); color: var(--neutral); }
+  .badge.tier-3 { background: var(--neutral-bg); color: var(--text-body); }
   .badge.impact-H { background: var(--primary); color: var(--white); }
   .badge.impact-M { background: var(--light-sky-blue); color: var(--primary); }
-  .badge.impact-L { background: var(--neutral-bg); color: var(--neutral); }
+  .badge.impact-L { background: var(--neutral-bg); color: var(--text-body); }
   .badge.effort { background: var(--neutral-bg); color: var(--text-body); }
-  .item-body { margin-top: 10px; color: var(--text-body); font-size: 0.95rem; }
+  .trust { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+  .pill { font-size: 0.8rem; padding: 3px 10px; border-radius: 999px; font-weight: 500; display: inline-block; max-width: 100%; }
+  .pill.owner-claude { background: var(--status-approve-bg); color: var(--status-approve); }
+  .pill.owner-practitioner { background: var(--status-dismiss-bg); color: var(--status-dismiss); }
+  .pill.owner-you { background: var(--light-sky-blue); color: var(--primary); }
+  .pill.confidence { background: var(--neutral-bg); color: var(--text-body); }
+  .item-why, .item-evidence { margin-top: 10px; font-size: 0.9rem; color: var(--text-body); }
+  .item-why strong, .item-evidence strong { color: var(--text-dark); }
+  .item-evidence { background: var(--neutral-bg); border-radius: 6px; padding: 8px 12px; }
+  .item-body { margin-top: 10px; color: var(--text-body); font-size: 0.92rem; }
   .item-files { margin-top: 10px; font-size: 0.82rem; color: var(--text-light); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
   .item-files code { background: var(--neutral-bg); padding: 2px 6px; border-radius: 4px; margin-right: 4px; display: inline-block; margin-bottom: 2px; }
+  .item details.more > summary { font-size: 0.85rem; }
   .actions { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; align-items: center; }
   .actions button { font: inherit; font-size: 0.85rem; padding: 6px 14px; border: 1px solid var(--border); border-radius: 6px; background: var(--white); color: var(--text-dark); cursor: pointer; font-weight: 500; }
   .actions button:hover { background: var(--neutral-bg); }
@@ -80,113 +133,101 @@ eleventyExcludeFromCollections: true
   .item[data-shipit="shipping"] .btn-shipit { background: var(--neutral) !important; border-color: var(--neutral) !important; }
   .item[data-shipit="shipped"] .btn-shipit { background: var(--status-approve) !important; border-color: var(--status-approve) !important; }
   .shipit-link { font-size: 0.78rem; color: var(--text-light); margin-left: 8px; }
+  .review-link { font-size: 0.85rem; color: var(--primary); text-decoration: underline; }
   .shipit-link a { color: var(--primary); text-decoration: underline; }
   .note-field { width: 100%; margin-top: 10px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; font: inherit; font-size: 0.9rem; color: var(--text-body); resize: vertical; min-height: 36px; font-family: inherit; display: none; }
   .item[data-has-status="true"] .note-field { display: block; }
-
-  .sticky-footer { position: fixed; bottom: 0; left: 0; right: 0; background: var(--white); border-top: 1px solid var(--border); padding: 12px 24px; display: flex; gap: 12px; align-items: center; justify-content: center; flex-wrap: wrap; box-shadow: 0 -2px 8px rgba(0,0,0,.04); z-index: 10; }
-  .sticky-footer .counts { display: flex; gap: 14px; font-size: 0.88rem; color: var(--text-body); flex-wrap: wrap; justify-content: center; }
-  .sticky-footer .counts span { white-space: nowrap; }
-  .sticky-footer .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
+  .sticky-footer { position: fixed; bottom: 0; left: 0; right: 0; background: var(--white); border-top: 1px solid var(--border); padding: 12px 16px; display: flex; gap: 12px; align-items: center; justify-content: center; flex-wrap: wrap; box-shadow: 0 -2px 8px rgba(0,0,0,.04); z-index: 10; }
+  .counts { font-size: 0.88rem; color: var(--text-body); }
+  .sticky-footer .counts { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+  .counts span { white-space: nowrap; }
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
   .dot.approve { background: var(--status-approve); }
   .dot.park { background: var(--status-park); }
   .dot.dismiss { background: var(--status-dismiss); }
   .dot.pending { background: var(--neutral); }
-
   .toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: var(--text-dark); color: var(--white); padding: 10px 18px; border-radius: 6px; font-size: 0.88rem; opacity: 0; transition: opacity .2s; pointer-events: none; z-index: 20; }
   .toast.show { opacity: 1; }
 
-  .gap-item { padding: 12px 16px; border-left: 2px solid var(--border); margin-bottom: 10px; background: var(--white); border-radius: 0 4px 4px 0; }
+  /* Background + estimated rankings */
+  details.fold { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 14px 18px; margin-bottom: 10px; }
+  details.fold > summary { cursor: pointer; font-weight: 600; color: var(--text-dark); }
+  details.fold[open] > summary { margin-bottom: 12px; }
+  .tldr p { margin-bottom: 12px; font-size: 0.92rem; }
+  .gap-item { padding: 10px 14px; border-left: 2px solid var(--border); margin-bottom: 10px; }
   .gap-item h4 { font-size: 0.95rem; color: var(--text-dark); margin-bottom: 4px; }
-  .gap-item p { font-size: 0.88rem; color: var(--text-body); margin: 0; }
-  .gap-item .why { color: var(--text-light); font-size: 0.82rem; margin-top: 6px; font-style: italic; }
-
-  .loading { text-align: center; color: var(--text-light); padding: 40px 0; font-size: 0.9rem; }
-
-  .sv-summary { margin: 12px 0 16px; }
-  .sv-stats { display: flex; gap: 20px; flex-wrap: wrap; padding: 12px 16px; background: var(--white); border: 1px solid var(--border); border-radius: 6px; font-size: 0.92rem; }
+  .gap-item .why { color: var(--text-light); font-size: 0.85rem; }
+  .sv-stats { display: flex; gap: 20px; flex-wrap: wrap; padding: 12px 16px; background: var(--neutral-bg); border-radius: 6px; font-size: 0.92rem; margin-bottom: 12px; }
   .sv-stats span strong { color: var(--primary); }
   .sv-empty { color: var(--text-light); font-style: italic; padding: 12px 0; }
-  .sv-item { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; margin-bottom: 6px; }
+  .sv-item { border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; margin-bottom: 6px; }
   .sv-q { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-  .sv-query { font-family: ui-monospace, Menlo, monospace; font-size: 0.9rem; color: var(--text-dark); flex: 1; min-width: 200px; }
+  .sv-query { font-size: 0.92rem; color: var(--text-dark); flex: 1; min-width: 180px; }
   .sv-rank { font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 600; letter-spacing: 0.02em; min-width: 72px; text-align: center; display: inline-block; }
   .sv-rank-top     { background: var(--status-approve); color: var(--white); }
   .sv-rank-mid     { background: var(--status-park);    color: var(--white); }
   .sv-rank-miss    { background: var(--status-dismiss); color: var(--white); }
-  .sv-rank-unknown { background: var(--neutral-bg);     color: var(--neutral); }
-  .sv-priority { font-size: 0.75rem; color: var(--text-light); }
-  .sv-source { font-size: 0.72rem; color: var(--text-light); font-style: italic; }
+  .sv-rank-unknown { background: var(--neutral-bg);     color: var(--text-body); }
+  .sv-core { font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; background: var(--light-sky-blue); color: var(--primary); font-weight: 600; }
   .sv-detail { margin-top: 6px; font-size: 0.82rem; color: var(--text-light); display: flex; gap: 12px; flex-wrap: wrap; }
   .sv-detail code { background: var(--neutral-bg); padding: 1px 6px; border-radius: 3px; }
   .sv-notes { font-style: italic; }
+  .loading { text-align: center; color: var(--text-light); padding: 40px 0; font-size: 0.9rem; }
 </style>
 </head>
 <body>
 <main class="audit">
-
   <header class="audit-header">
-    <h1>AI Search Audit</h1>
+    <h1>Search audit</h1>
     <div class="meta">
-      Latest report: <strong id="report-date">{{ audit.meta.reportDate }}</strong> ·
-      <a href="https://github.com/meridianosteopathy/meridian-osteopathy-website/tree/main/reports">Markdown archive</a>
+      Weekly report: <strong>{{ audit.meta.reportDate }}</strong> ·
+      Google data: <strong>{% if gsc.connected %}{{ gsc.window.start }} → {{ gsc.window.end }}{% else %}not connected{% endif %}</strong> ·
+      <a href="https://github.com/{{ auditConfig.site.repo }}/tree/main/reports">Past reports</a> ·
+      <a href="/admin/reviews/">Practitioner reviews</a>
     </div>
     <div class="sync" id="sync-status">Loading decisions…</div>
+    <div class="banner" id="stale-banner" hidden></div>
   </header>
 
-  <section class="section-block">
-    <h2>TL;DR</h2>
-    <div class="tldr">
-      {%- for p in audit.tldr %}
-      <p>{{ p | safe }}</p>
+  <section class="section-block" id="this-week">
+    <h2>This week</h2>
+    {%- if audit.summary and audit.summary.length %}
+    <div class="card summary">
+      {%- for p in audit.summary %}
+      <p>{{ p }}</p>
       {%- endfor %}
+      {%- if audit.topActions and audit.topActions.length %}
+      <ol class="actions-list" id="top-actions"></ol>
+      {%- endif %}
     </div>
+    {%- else %}
+    <p class="muted">No plain-English summary in this week's report yet. The detailed notes are under <a href="#background">Background &amp; history</a>.</p>
+    {%- endif %}
   </section>
 
-  <section class="section-block">
-    <h2>Already implemented</h2>
-    <ul>
-      {%- for s in audit.alreadyShipped %}
-      <li>{{ s | safe }}</li>
-      {%- endfor %}
-    </ul>
+  <section class="section-block" id="google">
+    <h2>Your Google results</h2>
+    <div id="gsc-root"></div>
   </section>
 
-  <section class="section-block">
-    <h2>Gaps (reference)</h2>
-    <p style="color:var(--text-light);font-size:0.9rem;">Background context. The action buttons live on the Punch-list below — each punch-list item addresses one or more of these gaps.</p>
-    <div id="gaps">
-      {%- for g in audit.gaps %}
-      <div class="gap-item">
-        <h4>{{ g.id }}. {{ g.title }}</h4>
-        <p class="why">{{ g.why }}</p>
-      </div>
-      {%- endfor %}
-    </div>
-  </section>
-
-  <section class="section-block">
-    <h2>Search visibility</h2>
-    <p style="color:var(--text-light);font-size:0.9rem;">
-      What real users type into Google and ChatGPT — and where Meridian ranks for each.
-      Pool self-expands via Google autocomplete on Saturdays.
-      {% if auditQueries.meta.lastRun %}Last checked <strong>{{ auditQueries.meta.lastRun }}</strong>.{% else %}<em>Not yet checked — will populate after the next Saturday routine run.</em>{% endif %}
-    </p>
-    <div id="sv-summary" class="sv-summary"></div>
-    <div id="sv-list"></div>
-  </section>
-
-  <section class="section-block">
-    <h2>Punch-list</h2>
+  <section class="section-block" id="recommendations">
+    <h2>Recommendations</h2>
+    <p class="muted">Each one says who needs to act, how sure we are it will help, and — once Google is connected — what your own search data shows.</p>
     <div class="toolbar">
       <div class="counts" id="toolbar-counts"></div>
-      <select id="filter-tier">
+      <select id="filter-owner" aria-label="Filter by who acts">
+        <option value="all">Everyone</option>
+        <option value="claude">Claude can do this</option>
+        <option value="practitioner">Needs practitioner review</option>
+        <option value="you">Needs you</option>
+      </select>
+      <select id="filter-tier" aria-label="Filter by tier">
         <option value="all">All tiers</option>
         <option value="1">Tier 1 only</option>
         <option value="2">Tier 2 only</option>
         <option value="3">Tier 3 only</option>
       </select>
-      <select id="filter-status">
+      <select id="filter-status" aria-label="Filter by status">
         <option value="all">All statuses</option>
         <option value="pending">Pending only</option>
         <option value="approve">Approved</option>
@@ -197,28 +238,322 @@ eleventyExcludeFromCollections: true
       <button id="reset">Reset all</button>
       <button class="export-btn" id="export">Export decisions</button>
     </div>
-    <div id="items"><div class="loading">Loading punch-list…</div></div>
+    <div id="items"><div class="loading">Loading recommendations…</div></div>
+  </section>
+
+  <section class="section-block" id="rankings">
+    <h2>Estimated rankings</h2>
+    <p class="muted">A weekly spot-check of important searches using Claude's web search. These are <strong>estimates</strong>: they aren't what someone in Christchurch sees on Google, and they don't include the Google Maps listings. When Google is connected, trust <a href="#google">Your Google results</a> first. Searches marked “Always checked” are never dropped from the list.
+      {% if auditQueries.meta.lastRun %}Last checked <strong>{{ auditQueries.meta.lastRun }}</strong>.{% endif %}</p>
+    <details class="fold">
+      <summary id="sv-summary-line">Show the spot-check</summary>
+      <div id="sv-summary"></div>
+      <div id="sv-list"></div>
+    </details>
+  </section>
+
+  <section class="section-block" id="background">
+    <h2>Background &amp; history</h2>
+    <details class="fold">
+      <summary>Detailed notes from the latest weekly report</summary>
+      <div class="tldr">
+        {%- for p in audit.tldr %}
+        <p>{{ p | safe }}</p>
+        {%- endfor %}
+      </div>
+    </details>
+    <details class="fold">
+      <summary>Already done ({{ audit.alreadyShipped.length }})</summary>
+      <ul class="bullets">
+        {%- for s in audit.alreadyShipped %}
+        <li>{{ s | safe }}</li>
+        {%- endfor %}
+      </ul>
+    </details>
+    <details class="fold">
+      <summary>Known gaps ({{ audit.gaps.length }})</summary>
+      {%- for g in audit.gaps %}
+      <div class="gap-item">
+        <h4>{{ g.id }}. {{ g.title }}</h4>
+        <p class="why">{{ g.why }}</p>
+      </div>
+      {%- endfor %}
+    </details>
   </section>
 
   <footer class="sticky-footer">
     <div class="counts" id="footer-counts"></div>
   </footer>
-
   <div id="toast" class="toast"></div>
 </main>
 
 <script>
-const AUDIT = {{ audit | dump | safe }};
-const AUDIT_QUERIES = {{ auditQueries | dump | safe }};
+const AUDIT = {{ audit | jsonScript | safe }};
+const AUDIT_QUERIES = {{ auditQueries | jsonScript | safe }};
+const GSC = {{ gsc | jsonScript | safe }};
+const CONFIG = {{ auditConfig | jsonScript | safe }};
 const ITEMS = AUDIT.items || [];
-const GAPS = AUDIT.gaps || [];
 const QUERY_POOL = (AUDIT_QUERIES && AUDIT_QUERIES.pool) || [];
 const API_STATE = "/.netlify/functions/audit-state";
 const API_SHIPIT = "/.netlify/functions/audit-ship-it";
-const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
+const BUILD_BRANCH = {{ build.branch | jsonScript | safe }};
+const SETUP_GUIDE = `https://github.com/${CONFIG.site.repo}/blob/${BUILD_BRANCH}/docs/gsc-setup.md`;
+const DAY_MS = 24 * 60 * 60 * 1000;
+const SEVEN_DAYS_MS = 7 * DAY_MS;
+
+const OWNERS = {
+  claude: "Claude can do this",
+  practitioner: "Needs practitioner review",
+  you: "Needs you",
+};
+const CONFIDENCE = {
+  proven: "Worked on your site before",
+  likely: "Good evidence elsewhere",
+  experimental: "Experiment: weak evidence",
+};
 
 let decisions = {};
 let dirty = new Set();
+
+// ---------- helpers ----------
+
+function escapeHtml(s) {
+  return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+}
+const fmtNum = n => Number(n || 0).toLocaleString("en-NZ");
+function fmtDate(iso) {
+  return new Date(iso + "T00:00:00Z").toLocaleDateString("en-NZ", { day: "numeric", month: "short", timeZone: "UTC" });
+}
+function placeText(pos) {
+  if (pos == null) return "—";
+  const p = Math.max(1, Math.round(pos));
+  const page = p <= 10 ? "page 1" : p <= 20 ? "page 2" : "page 3+";
+  return `#${p} <span class="muted">(${page})</span>`;
+}
+// Change vs the previous period, coloured by whether the move is good.
+function deltaHtml(cur, prev, { lowerIsBetter = false, unit = "" } = {}) {
+  if (prev == null) return `<span class="delta">new this period</span>`;
+  const diff = cur - prev;
+  if (diff === 0) return `<span class="delta">no change</span>`;
+  const good = lowerIsBetter ? diff < 0 : diff > 0;
+  const arrow = diff > 0 ? "▲" : "▼";
+  let text;
+  if (unit === "places") {
+    text = `${good ? "up" : "down"} ${Math.abs(diff).toFixed(1)} places`;
+  } else if (prev > 0) {
+    text = `${diff > 0 ? "+" : "−"}${Math.abs(Math.round((diff / prev) * 100))}%`;
+  } else {
+    text = `${diff > 0 ? "+" : "−"}${fmtNum(Math.abs(diff))}`;
+  }
+  return `<span class="delta ${good ? "up" : "down"}">${arrow} ${text}</span>`;
+}
+
+// ---------- header ----------
+
+function renderStaleBanner() {
+  const report = AUDIT.meta && AUDIT.meta.reportDate;
+  if (!report) return;
+  const ageDays = Math.floor((Date.now() - Date.parse(report + "T00:00:00Z")) / DAY_MS);
+  const limit = (CONFIG.digest && CONFIG.digest.staleAfterDays) || 8;
+  if (ageDays <= limit) return;
+  const el = document.getElementById("stale-banner");
+  el.innerHTML = `The weekly audit last ran on <strong>${escapeHtml(report)}</strong> (${ageDays} days ago), so this page may be out of date. Check the routine at <a href="https://claude.ai/code/routines" target="_blank" rel="noopener">claude.ai/code/routines</a>.`;
+  el.hidden = false;
+}
+
+function renderTopActions() {
+  const list = document.getElementById("top-actions");
+  if (!list) return;
+  list.innerHTML = (AUDIT.topActions || []).map(a => {
+    const who = a.owner && OWNERS[a.owner] ? ` <span class="pill owner-${a.owner}">${OWNERS[a.owner]}</span>` : "";
+    const link = a.n ? ` <a href="#item-${Number(a.n)}">See #${Number(a.n)}</a>` : "";
+    return `<li>${escapeHtml(a.text)}${who}${link}</li>`;
+  }).join("");
+}
+
+// ---------- Google results ----------
+
+function niceMax(v) {
+  if (v <= 0) return 1;
+  const mag = Math.pow(10, Math.floor(Math.log10(v)));
+  for (const m of [1, 2, 5, 10]) if (m * mag >= v) return m * mag;
+  return 10 * mag;
+}
+
+// Single-series column chart: ≤24px columns, 4px rounded tops, 2px gaps,
+// hairline grid, the latest week labelled, hover tooltip per column
+// (wireChartTooltips). The weekly table under the charts is the text view.
+function barChart(id, title, weeks, key) {
+  const W = 480, H = 170, L = 40, R = 8, T = 18, B = 24;
+  const values = weeks.map(w => w[key]);
+  const max = niceMax(Math.max(...values));
+  const slot = (W - L - R) / weeks.length;
+  const bw = Math.min(24, slot - 2);
+  const y = v => T + (H - T - B) * (1 - v / max);
+  const ticks = [0, max / 2, max];
+  let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${escapeHtml(title)}">`;
+  for (const t of ticks) {
+    svg += `<line class="grid" x1="${L}" x2="${W - R}" y1="${y(t)}" y2="${y(t)}"/>`;
+    svg += `<text class="axis" x="${L - 6}" y="${y(t) + 3}" text-anchor="end">${fmtNum(t)}</text>`;
+  }
+  weeks.forEach((w, i) => {
+    const v = w[key];
+    const x = L + i * slot + (slot - bw) / 2;
+    const top = y(v), h = H - B - top;
+    if (h > 0) {
+      const r = Math.min(4, h, bw / 2);
+      svg += `<path class="bar" d="M${x},${H - B} L${x},${top + r} Q${x},${top} ${x + r},${top} L${x + bw - r},${top} Q${x + bw},${top} ${x + bw},${top + r} L${x + bw},${H - B} Z"/>`;
+    }
+    svg += `<rect class="hit" x="${L + i * slot}" y="${T}" width="${slot}" height="${H - T - B}" fill="transparent" data-i="${i}"/>`;
+  });
+  const last = weeks.length - 1;
+  svg += `<text class="end-label" x="${L + last * slot + slot / 2}" y="${y(values[last]) - 5}" text-anchor="middle">${fmtNum(values[last])}</text>`;
+  for (const i of [0, Math.floor(last / 2), last]) {
+    svg += `<text class="axis" x="${L + i * slot + slot / 2}" y="${H - 6}" text-anchor="middle">${fmtDate(weeks[i].start)}</text>`;
+  }
+  svg += `</svg>`;
+  return `<div class="card chart" id="${id}"><h4>${escapeHtml(title)}</h4>${svg}<div class="chart-tip"></div></div>`;
+}
+
+function wireChartTooltips(weeks) {
+  document.querySelectorAll("#gsc-root .chart").forEach(chart => {
+    const tip = chart.querySelector(".chart-tip");
+    const key = chart.id === "chart-clicks" ? "clicks" : "impressions";
+    const unit = key === "clicks" ? "clicks" : "times shown";
+    chart.querySelectorAll("rect.hit").forEach(rect => {
+      rect.addEventListener("mousemove", e => {
+        const w = weeks[Number(rect.dataset.i)];
+        const box = chart.getBoundingClientRect();
+        tip.textContent = `Week of ${fmtDate(w.start)}: ${fmtNum(w[key])} ${unit}`;
+        tip.style.left = `${e.clientX - box.left}px`;
+        tip.style.top = `${e.clientY - box.top - 8}px`;
+        tip.classList.add("show");
+        chart.querySelectorAll(".bar").forEach((b, j) => b.classList.toggle("dim", j !== Number(rect.dataset.i)));
+      });
+      rect.addEventListener("mouseleave", () => {
+        tip.classList.remove("show");
+        chart.querySelectorAll(".bar").forEach(b => b.classList.remove("dim"));
+      });
+    });
+  });
+}
+
+function renderGoogle() {
+  const root = document.getElementById("gsc-root");
+  if (!GSC || !GSC.connected) {
+    const status = GSC && GSC.status === "not-configured" ? "Not connected yet" : "Connection problem";
+    root.innerHTML = `
+      <div class="card setup">
+        <div class="status">${status}</div>
+        <p>${escapeHtml((GSC && GSC.message) || "Google Search Console isn't connected yet.")}</p>
+        <p class="muted" style="margin-top:8px;">Once connected, this section shows how many people found you on Google, which searches you're close to winning, and how each page is doing. The numbers come straight from Google, not estimates.</p>
+        <a class="button" href="${SETUP_GUIDE}" target="_blank" rel="noopener">Open the 15-minute setup guide</a>
+      </div>`;
+    return;
+  }
+
+  const t = GSC.totals, nb = GSC.nonBranded, p1 = GSC.page1, w = GSC.window;
+  const tiles = [
+    { label: "People who clicked through to your site from Google", cur: t.current.clicks, prev: t.previous.clicks },
+    { label: "…of those, people searching for a treatment (not your name)", cur: nb.current.clicks, prev: nb.previous.clicks },
+    { label: "Times your site appeared in Google results", cur: t.current.impressions, prev: t.previous.impressions },
+    { label: "Treatment searches where you're on page 1", cur: p1.current, prev: p1.previous },
+  ];
+
+  const wins = GSC.closestWins || [];
+  const winsRows = wins.map(q => `
+    <tr>
+      <td>${escapeHtml(q.query)}</td>
+      <td class="num">${placeText(q.position)}</td>
+      <td class="num">${fmtNum(q.impressions)}</td>
+      <td class="num">${fmtNum(q.clicks)}</td>
+      <td>${q.page ? `<code>${escapeHtml(q.page)}</code>` : "—"}</td>
+    </tr>`).join("");
+
+  const pages = (GSC.pages || []).slice(0, 15);
+  const pageRows = pages.map(pg => `
+    <tr>
+      <td><code>${escapeHtml(pg.path)}</code><br><span class="muted">${escapeHtml(pg.group)}</span></td>
+      <td class="num">${fmtNum(pg.clicks)}<br>${deltaHtml(pg.clicks, pg.prev && pg.prev.clicks)}</td>
+      <td class="num">${fmtNum(pg.impressions)}<br>${deltaHtml(pg.impressions, pg.prev && pg.prev.impressions)}</td>
+      <td class="num">${placeText(pg.position)}<br>${pg.prev ? deltaHtml(pg.position, pg.prev.position, { lowerIsBetter: true, unit: "places" }) : ""}</td>
+    </tr>`).join("");
+
+  const searches = (GSC.queries || []).filter(q => !q.branded).slice(0, 60);
+  const searchRows = searches.map(q => `
+    <tr>
+      <td>${escapeHtml(q.query)}</td>
+      <td class="num">${placeText(q.position)}</td>
+      <td class="num">${fmtNum(q.impressions)}</td>
+      <td class="num">${fmtNum(q.clicks)}</td>
+    </tr>`).join("");
+
+  const weekRows = GSC.weekly.map(wk => `<tr><td>${fmtDate(wk.start)}</td><td class="num">${fmtNum(wk.clicks)}</td><td class="num">${fmtNum(wk.impressions)}</td></tr>`).join("");
+
+  root.innerHTML = `
+    <p class="muted">Straight from Google Search Console: the last ${w.days} days (${fmtDate(w.start)} – ${fmtDate(w.end)}) compared with the ${w.days} days before, for searches made in New Zealand.</p>
+    <div class="tiles">
+      ${tiles.map(tile => `
+        <div class="tile">
+          <div class="label">${tile.label}</div>
+          <div class="value">${fmtNum(tile.cur)}</div>
+          ${deltaHtml(tile.cur, tile.prev)}
+        </div>`).join("")}
+    </div>
+    <div class="charts">
+      ${barChart("chart-clicks", "Clicks from Google, per week", GSC.weekly, "clicks")}
+      ${barChart("chart-impressions", "Times shown in Google, per week", GSC.weekly, "impressions")}
+    </div>
+    <details class="more"><summary>Show the weekly numbers</summary>
+      <div class="table-wrap"><table class="data"><thead><tr><th>Week of</th><th class="num">Clicks</th><th class="num">Times shown</th></tr></thead><tbody>${weekRows}</tbody></table></div>
+    </details>
+
+    <h3>Almost there</h3>
+    <p class="muted">Treatment searches where you're close to the top (positions ${CONFIG.searchConsole.closestWins.minPosition}–${CONFIG.searchConsole.closestWins.maxPosition}) and people are already seeing you. Improving the page that ranks is usually the quickest way to move up and get more bookings.</p>
+    ${wins.length ? `<div class="table-wrap"><table class="data">
+      <thead><tr><th>Search</th><th class="num">Your position</th><th class="num">Times shown</th><th class="num">Clicks</th><th>Page that ranks</th></tr></thead>
+      <tbody>${winsRows}</tbody></table></div>` : `<p class="sv-empty">No searches in that range with enough views yet.</p>`}
+
+    <h3>How your pages are doing</h3>
+    <p class="muted">Includes the condition pages built from earlier recommendations, so you can see whether they paid off.</p>
+    <div class="table-wrap"><table class="data">
+      <thead><tr><th>Page</th><th class="num">Clicks</th><th class="num">Times shown</th><th class="num">Average position</th></tr></thead>
+      <tbody>${pageRows || `<tr><td colspan="4" class="muted">No page data yet.</td></tr>`}</tbody></table></div>
+
+    <details class="more"><summary>All treatment searches you appeared for (${searches.length})</summary>
+      <div class="table-wrap"><table class="data">
+        <thead><tr><th>Search</th><th class="num">Your position</th><th class="num">Times shown</th><th class="num">Clicks</th></tr></thead>
+        <tbody>${searchRows}</tbody></table></div>
+    </details>`;
+  wireChartTooltips(GSC.weekly);
+}
+
+// Evidence for a recommendation: every search containing one of its
+// matchTerms (all words of the term, as whole words).
+function evidenceFor(item) {
+  const terms = (item.matchTerms || []).filter(Boolean);
+  if (!terms.length) return "";
+  const quoted = terms.map(t => `“${escapeHtml(t)}”`).join(" or ");
+  if (!GSC || !GSC.connected) {
+    return `<div class="item-evidence"><strong>Your Google data:</strong> connect Search Console to see how often people search for ${quoted} and where you appear.</div>`;
+  }
+  const words = terms.map(t => t.toLowerCase().split(/\s+/).filter(Boolean));
+  const matches = (GSC.queries || []).filter(q => {
+    const qWords = new Set(q.query.toLowerCase().split(/[^a-z0-9]+/));
+    return words.some(ws => ws.every(wd => qWords.has(wd)));
+  });
+  if (!matches.length) {
+    return `<div class="item-evidence"><strong>Your Google data (last ${GSC.window.days} days):</strong> your site didn't appear for any search mentioning ${quoted}. You aren't visible for this topic yet.</div>`;
+  }
+  const impressions = matches.reduce((s, q) => s + q.impressions, 0);
+  const clicks = matches.reduce((s, q) => s + q.clicks, 0);
+  const best = Math.min(...matches.map(q => q.position));
+  const top = matches.slice().sort((a, b) => b.impressions - a.impressions).slice(0, 3)
+    .map(q => `“${escapeHtml(q.query)}” (#${Math.round(q.position)}, shown ${fmtNum(q.impressions)}×)`).join("; ");
+  return `<div class="item-evidence"><strong>Your Google data (last ${GSC.window.days} days):</strong> searches mentioning ${quoted} showed your site ${fmtNum(impressions)} times, with ${fmtNum(clicks)} clicks. Best position #${Math.round(best)}. Top searches: ${top}.</div>`;
+}
+
+// ---------- recommendations ----------
 
 async function loadDecisions() {
   try {
@@ -229,15 +564,17 @@ async function loadDecisions() {
     setSync("Synced", false);
   } catch (e) {
     setSync("Offline — changes kept locally", true);
-    const cached = localStorage.getItem("audit.decisions.cache");
-    if (cached) decisions = JSON.parse(cached);
+    try {
+      const cached = localStorage.getItem("audit.decisions.cache");
+      if (cached) decisions = JSON.parse(cached);
+    } catch (_) { /* storage unavailable */ }
   }
   render();
 }
 
 async function saveDecision(n) {
   dirty.add(n);
-  localStorage.setItem("audit.decisions.cache", JSON.stringify(decisions));
+  try { localStorage.setItem("audit.decisions.cache", JSON.stringify(decisions)); } catch (_) { /* storage unavailable */ }
   try {
     const res = await fetch(API_STATE, {
       method: "POST",
@@ -278,27 +615,43 @@ function setSync(msg, isError) {
 
 function isNew(item) {
   if (!item.firstSeen) return false;
-  const seen = new Date(item.firstSeen).getTime();
-  return Date.now() - seen < SEVEN_DAYS_MS;
+  return Date.now() - new Date(item.firstSeen).getTime() < SEVEN_DAYS_MS;
+}
+
+function trustHtml(item) {
+  const pills = [];
+  if (item.owner && OWNERS[item.owner]) pills.push(`<span class="pill owner-${item.owner}">${OWNERS[item.owner]}${item.reviewer ? `: ${escapeHtml(item.reviewer)}` : ""}</span>`);
+  if (item.confidence && CONFIDENCE[item.confidence]) pills.push(`<span class="pill confidence">${CONFIDENCE[item.confidence]}</span>`);
+  return pills.length ? `<div class="trust">${pills.join("")}</div>` : "";
 }
 
 function render() {
+  const ownerFilter = document.getElementById("filter-owner").value;
   const tierFilter = document.getElementById("filter-tier").value;
   const statusFilter = document.getElementById("filter-status").value;
   const list = document.getElementById("items");
   list.innerHTML = "";
+
   for (const item of ITEMS) {
+    if (ownerFilter !== "all" && item.owner !== ownerFilter) continue;
     if (tierFilter !== "all" && String(item.tier) !== tierFilter) continue;
     const s = decisions[item.n] && decisions[item.n].status;
     if (statusFilter === "pending" && s) continue;
     if (statusFilter !== "all" && statusFilter !== "pending" && s !== statusFilter) continue;
 
     const el = document.createElement("article");
+    el.id = `item-${item.n}`;
     el.className = "item" + (s ? " status-" + s : "") + (isNew(item) ? " is-new" : "");
     el.dataset.hasStatus = s ? "true" : "false";
     const shipit = (decisions[item.n] && decisions[item.n].shipit) || null;
     if (shipit && shipit.status) el.dataset.shipit = shipit.status;
-    const shipitButton = s === "approve" ? buildShipitButton(item.n, shipit) : "";
+    // "Needs you" items are done outside the website, so there's nothing to ship.
+    const shipitButton = s === "approve" && item.owner !== "you" ? buildShipitButton(item.n, shipit) : "";
+    // Practitioner items: once Claude's draft is up, ask the reviewer to check it.
+    const reviewLink = item.owner === "practitioner"
+      ? `<a class="review-link" href="/admin/reviews/?${new URLSearchParams({ new: "1", n: String(item.n), title: item.title, reviewer: /^the /i.test(item.reviewer || "") ? "" : (item.reviewer || "") })}">Request practitioner review</a>`
+      : "";
+
     el.innerHTML = `
       <div class="item-head">
         <div class="item-title"><span class="num">#${item.n}</span>${escapeHtml(item.title)}</div>
@@ -308,19 +661,27 @@ function render() {
           <span class="badge effort">Effort ${item.effort}</span>
         </div>
       </div>
-      <p class="item-body">${escapeHtml(item.body)}</p>
-      <div class="item-files">Files: ${(item.files || []).map(f => `<code>${escapeHtml(f)}</code>`).join("")}</div>
+      ${trustHtml(item)}
+      ${item.why ? `<p class="item-why"><strong>Why we think this works:</strong> ${escapeHtml(item.why)}</p>` : ""}
+      ${evidenceFor(item)}
+      <details class="more"><summary>Full details</summary>
+        <p class="item-body">${escapeHtml(item.body)}</p>
+        <div class="item-files">Files: ${(item.files || []).map(f => `<code>${escapeHtml(f)}</code>`).join("")}</div>
+        ${(item.addresses || []).length ? `<div class="item-files">Addresses gaps: ${item.addresses.map(escapeHtml).join(", ")}</div>` : ""}
+      </details>
       <div class="actions">
         <button class="btn-approve" data-n="${item.n}" data-status="approve">✓ Approve</button>
         <button class="btn-park"    data-n="${item.n}" data-status="park">⏸ Park</button>
         <button class="btn-dismiss" data-n="${item.n}" data-status="dismiss">✕ Dismiss</button>
-        <span style="font-size:0.8rem;color:var(--text-light);">Addresses ${(item.addresses || []).join(", ")}</span>
+        ${reviewLink}
         ${shipitButton}
       </div>
       <textarea class="note-field" data-n="${item.n}" placeholder="Notes (why, when, who owns it…)">${escapeHtml((decisions[item.n] && decisions[item.n].note) || "")}</textarea>
     `;
     list.appendChild(el);
   }
+  if (!list.children.length) list.innerHTML = `<p class="sv-empty">Nothing matches these filters.</p>`;
+
   list.querySelectorAll(".actions button:not(.btn-shipit)").forEach(btn => {
     btn.addEventListener("click", () => setStatus(Number(btn.dataset.n), btn.dataset.status));
   });
@@ -349,9 +710,7 @@ function updateCounts() {
   document.getElementById("footer-counts").innerHTML = html;
 }
 
-function escapeHtml(s) {
-  return String(s || "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
-}
+// ---------- estimated rankings ----------
 
 function svRankBadge(rank) {
   if (rank == null) return `<span class="sv-rank sv-rank-unknown">—</span>`;
@@ -363,64 +722,59 @@ function svRankBadge(rank) {
 function renderSearchVisibility() {
   const summary = document.getElementById("sv-summary");
   const list = document.getElementById("sv-list");
-  if (!summary || !list) return;
   if (!QUERY_POOL.length) {
-    summary.innerHTML = "";
-    list.innerHTML = `<p class="sv-empty">No queries in pool yet.</p>`;
+    list.innerHTML = `<p class="sv-empty">No searches in the spot-check yet.</p>`;
     return;
   }
-
   const checked = QUERY_POOL.filter(q => q.lastResult);
-  const top3 = checked.filter(q => q.lastResult.meridianRank != null && q.lastResult.meridianRank > 0 && q.lastResult.meridianRank <= 3).length;
-  const top10 = checked.filter(q => q.lastResult.meridianRank != null && q.lastResult.meridianRank > 0 && q.lastResult.meridianRank <= 10).length;
-  const missed = checked.filter(q => q.lastResult.meridianRank == null || q.lastResult.meridianRank === 0 || q.lastResult.meridianRank > 10).length;
-
-  summary.innerHTML = checked.length === 0
-    ? `<p class="sv-empty">Pool has ${QUERY_POOL.length} queries. None checked yet — the next Saturday routine run will populate rankings.</p>`
-    : `
-      <div class="sv-stats">
-        <span><strong>${top3}</strong> in top 3</span>
-        <span><strong>${top10}</strong> in top 10</span>
-        <span><strong>${missed}</strong> missed</span>
-        <span style="color:var(--text-light);">of ${checked.length} checked (pool size ${QUERY_POOL.length})</span>
-      </div>`;
+  const inTop = max => checked.filter(q => q.lastResult.meridianRank > 0 && q.lastResult.meridianRank <= max).length;
+  const top3 = inTop(3), top10 = inTop(10);
+  document.getElementById("sv-summary-line").textContent =
+    `Show the spot-check: ${top10} of ${checked.length} searches in the top 10 (estimate)`;
+  summary.innerHTML = `
+    <div class="sv-stats">
+      <span><strong>${top3}</strong> in top 3</span>
+      <span><strong>${top10}</strong> in top 10</span>
+      <span><strong>${checked.length - top10}</strong> not in top 10</span>
+      <span class="muted">${QUERY_POOL.filter(q => q.core).length} always checked · ${QUERY_POOL.length} tracked</span>
+    </div>`;
 
   const sorted = [...QUERY_POOL].sort((a, b) => {
+    if (!!b.core !== !!a.core) return b.core ? 1 : -1;
     const aRank = (a.lastResult && a.lastResult.meridianRank) || 999;
     const bRank = (b.lastResult && b.lastResult.meridianRank) || 999;
     if (aRank !== bRank) return aRank - bRank;
     return (b.priority || 0) - (a.priority || 0);
   });
-
   list.innerHTML = sorted.map(q => {
     const r = q.lastResult || {};
     const topDomain = (r.topDomains && r.topDomains[0]) || "";
-    const notes = r.notes || "";
-    const sourceTag = q.source && q.source !== "seed" ? `<span class="sv-source">via ${escapeHtml(q.source)}</span>` : "";
+    const checkedOn = r.date ? `checked ${escapeHtml(r.date)}` : "not checked yet";
     return `
       <div class="sv-item">
         <div class="sv-q">
           ${svRankBadge(r.meridianRank)}
           <span class="sv-query">${escapeHtml(q.q)}</span>
-          ${sourceTag}
-          <span class="sv-priority" title="Priority score">p${q.priority || 0}</span>
+          ${q.core ? `<span class="sv-core">Always checked</span>` : ""}
+          <span class="muted" style="font-size:0.78rem;">${checkedOn}</span>
         </div>
-        ${topDomain || notes ? `<div class="sv-detail">${topDomain ? `Top: <code>${escapeHtml(topDomain)}</code>` : ""} ${notes ? `<span class="sv-notes">${escapeHtml(notes)}</span>` : ""}</div>` : ""}
+        ${topDomain || r.notes ? `<div class="sv-detail">${topDomain ? `Top: <code>${escapeHtml(topDomain)}</code>` : ""} ${r.notes ? `<span class="sv-notes">${escapeHtml(r.notes)}</span>` : ""}</div>` : ""}
       </div>`;
   }).join("");
 }
+
+// ---------- ship it ----------
 
 function buildShipitButton(n, shipit) {
   if (!shipit || !shipit.status) {
     return `<button class="btn-shipit" data-n="${n}">🚀 Ship it</button>`;
   }
+  const link = shipit.sessionUrl ? ` <span class="shipit-link"><a href="${escapeHtml(shipit.sessionUrl)}" target="_blank" rel="noopener">session</a></span>` : "";
   if (shipit.status === "shipping") {
-    const url = shipit.sessionUrl ? ` <span class="shipit-link"><a href="${shipit.sessionUrl}" target="_blank" rel="noopener">session</a></span>` : "";
-    return `<button class="btn-shipit" data-n="${n}" disabled>Shipping…</button>${url}`;
+    return `<button class="btn-shipit" data-n="${n}" disabled>Shipping…</button>${link}`;
   }
   if (shipit.status === "shipped") {
-    const url = shipit.sessionUrl ? ` <span class="shipit-link"><a href="${shipit.sessionUrl}" target="_blank" rel="noopener">session</a></span>` : "";
-    return `<button class="btn-shipit" data-n="${n}">Ship again</button><span class="shipit-link">Shipped ✓</span>${url}`;
+    return `<button class="btn-shipit" data-n="${n}">Ship again</button><span class="shipit-link">Draft PR requested ✓</span>${link}`;
   }
   if (shipit.status === "error") {
     return `<button class="btn-shipit" data-n="${n}">Retry ship</button><span class="shipit-link" style="color:var(--status-dismiss);">Error: ${escapeHtml(shipit.error || "unknown")}</span>`;
@@ -431,7 +785,10 @@ function buildShipitButton(n, shipit) {
 async function shipIt(n) {
   const item = ITEMS.find(i => i.n === n);
   if (!item) return;
-  if (!confirm(`Ship #${n} "${item.title}"?\n\nThis triggers a Claude routine that will implement this item and open a draft PR.`)) return;
+  const review = item.owner === "practitioner"
+    ? `\n\nThe draft will need review by ${item.reviewer || "a practitioner"} before it goes live.`
+    : "";
+  if (!confirm(`Ship #${n} "${item.title}"?\n\nThis triggers a Claude routine that will implement this item and open a draft PR.${review}`)) return;
 
   decisions[n] = decisions[n] || {};
   decisions[n].shipit = { status: "shipping", startedAt: new Date().toISOString() };
@@ -482,13 +839,14 @@ function exportMarkdown() {
     lines.push(`## ${label} (${byStatus[status].length})`, "");
     for (const item of byStatus[status]) {
       const note = decisions[item.n] && decisions[item.n].note;
-      lines.push(`- **#${item.n} — ${item.title}** (Tier ${item.tier}, Impact ${item.impact}, Effort ${item.effort})`);
+      const who = item.owner && OWNERS[item.owner] ? `, ${OWNERS[item.owner]}${item.reviewer ? `: ${item.reviewer}` : ""}` : "";
+      lines.push(`- **#${item.n} — ${item.title}** (Tier ${item.tier}, Impact ${item.impact}, Effort ${item.effort}${who})`);
       if (note) lines.push(`  - Note: ${note}`);
     }
     lines.push("");
   }
   const md = lines.join("\n");
-  navigator.clipboard.writeText(md).then(() => showToast("Decisions copied to clipboard as markdown"));
+  if (navigator.clipboard) navigator.clipboard.writeText(md).then(() => showToast("Decisions copied to clipboard as markdown")).catch(() => {});
   const blob = new Blob([md], { type: "text/markdown" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
@@ -503,6 +861,7 @@ function showToast(msg) {
   setTimeout(() => t.classList.remove("show"), 2200);
 }
 
+document.getElementById("filter-owner").addEventListener("change", render);
 document.getElementById("filter-tier").addEventListener("change", render);
 document.getElementById("filter-status").addEventListener("change", render);
 document.getElementById("export").addEventListener("click", exportMarkdown);
@@ -522,7 +881,7 @@ document.getElementById("reset").addEventListener("click", async () => {
     const res = await fetch(API_STATE, { method: "DELETE" });
     if (!res.ok) throw new Error("HTTP " + res.status);
     decisions = {};
-    localStorage.removeItem("audit.decisions.cache");
+    try { localStorage.removeItem("audit.decisions.cache"); } catch (_) { /* storage unavailable */ }
     render();
     showToast("Reset");
   } catch (e) {
@@ -530,6 +889,9 @@ document.getElementById("reset").addEventListener("click", async () => {
   }
 });
 
+renderStaleBanner();
+renderTopActions();
+renderGoogle();
 renderSearchVisibility();
 loadDecisions();
 </script>

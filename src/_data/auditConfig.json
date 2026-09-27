@@ -1,0 +1,74 @@
+{
+  "_about": "Site-specific settings for the audit tools (search audit dashboard, weekly routine, digest, practitioner reviews). Everything clinic-specific lives here so the tools can be pointed at another site by editing this file. See docs/audit-routine.md and docs/practitioner-reviews.md.",
+  "site": {
+    "name": "Meridian Osteopathy",
+    "domain": "meridianosteopathy.co.nz",
+    "url": "https://meridianosteopathy.co.nz",
+    "dashboardUrl": "https://audit.meridianosteopathy.co.nz/",
+    "repo": "meridianosteopathy/meridian-osteopathy-website",
+    "netlifySiteName": "meridian-osteopathy"
+  },
+  "local": {
+    "city": "Christchurch",
+    "suburbs": [
+      "Hillmorton",
+      "Halswell",
+      "Addington",
+      "Sydenham",
+      "Wigram"
+    ]
+  },
+  "searchConsole": {
+    "country": "nzl",
+    "windowDays": 28,
+    "dataDelayDays": 3,
+    "trendWeeks": 16,
+    "maxQueries": 500,
+    "brandTerms": [
+      "meridian",
+      "nina hu",
+      "jonathan grice",
+      "maddison moffat",
+      "min jin",
+      "kaylee frost"
+    ],
+    "minImpressions": 5,
+    "closestWins": {
+      "minPosition": 4,
+      "maxPosition": 20,
+      "limit": 12
+    },
+    "pageGroups": [
+      {
+        "label": "Condition page",
+        "prefix": "/conditions/"
+      },
+      {
+        "label": "Service page",
+        "prefix": "/services/"
+      },
+      {
+        "label": "Team page",
+        "prefix": "/team/"
+      },
+      {
+        "label": "Booking page",
+        "prefix": "/book/"
+      },
+      {
+        "label": "Home page",
+        "exact": "/"
+      }
+    ]
+  },
+  "digest": {
+    "to": "nina@meridianosteopathy.co.nz",
+    "staleAfterDays": 7
+  },
+  "reviews": {
+    "admins": [
+      "nina@meridianosteopathy.co.nz"
+    ],
+    "adminName": "Nina"
+  }
+}

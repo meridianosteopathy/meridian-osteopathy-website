@@ -1,0 +1,365 @@
+---
+permalink: /admin/reviews/
+eleventyExcludeFromCollections: true
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Practitioner reviews — {{ auditConfig.site.name }}</title>
+<link rel="icon" href="/images/logomark-dark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/admin/reviews/reviews.css">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+<main class="rv">
+  <h1>Practitioner reviews</h1>
+  <div class="topline">
+    <a href="/admin/audit/">← Search audit</a>
+    <span class="spacer"></span>
+    <span id="who"></span>
+    <button class="rbtn" id="logout" hidden>Log out</button>
+  </div>
+
+  <div id="signin" hidden>
+    <div class="card accent">
+      <p>Sign in with your website admin login (the same one you use for the content editor). Only you can send review requests and read the feedback.</p>
+      <div class="btn-row"><button class="rbtn primary" id="login">Log in</button></div>
+    </div>
+  </div>
+
+  <div id="app" hidden>
+    <div id="notice"></div>
+
+    <details class="card" id="new-card">
+      <summary style="cursor:pointer;font-weight:600;color:var(--text-dark);">＋ New review request</summary>
+      <form id="new-form" novalidate>
+        <label for="f-page">Link to the page to review</label>
+        <input type="url" id="f-page" placeholder="https://deploy-preview-131--{{ auditConfig.site.netlifySiteName }}.netlify.app/conditions/…" required>
+        <p class="muted" style="margin-top:4px;">Any link works. Pages on this website, including draft previews, are split into sections with a comment box each. Other links, like a Google Doc, get one comment box.</p>
+
+        <label for="f-title">Title <span class="hint">(optional, the page's own title is used if blank)</span></label>
+        <input type="text" id="f-title" maxlength="200">
+
+        <label for="f-name">Reviewer</label>
+        <input type="text" id="f-name" list="team-names" maxlength="100" placeholder="Start typing a name" autocomplete="off">
+        <datalist id="team-names">
+          {%- for key, person in team %}{% if person.name %}
+          <option value="{{ person.name | plain | replace(r/^(\S+) \(([^)]+)\) /, '$2 ') }}"></option>
+          {%- endif %}{% endfor %}
+        </datalist>
+
+        <label for="f-email">Reviewer's email</label>
+        <input type="email" id="f-email" maxlength="200" placeholder="name@{{ auditConfig.site.domain }}">
+        <p class="muted" style="margin-top:4px;">Remembered after the first time.</p>
+
+        <label for="f-message">Message to the reviewer <span class="hint">(optional)</span></label>
+        <textarea id="f-message" maxlength="2000" placeholder="For example: mainly check the treatment section"></textarea>
+
+        <input type="hidden" id="f-n">
+        <div id="new-error"></div>
+        <div class="btn-row"><button type="submit" class="rbtn primary" id="new-submit">Send review request</button></div>
+      </form>
+    </details>
+
+    <h2 id="h-waiting">Waiting on you</h2>
+    <div id="list-waiting"></div>
+    <h2 id="h-out">With reviewers</h2>
+    <div id="list-out"></div>
+    <details class="done" id="done-wrap"><summary id="h-done">Finished</summary><div id="list-done" style="margin-top:12px;"></div></details>
+  </div>
+</main>
+
+<script>
+const API = "/.netlify/functions/review-admin";
+const DECISIONS = { approve: "Looks good", "approve-with-changes": "Approve with small changes", changes: "Needs changes" };
+const STATUS = { "with-reviewer": "With reviewer", feedback: "Feedback received", revising: "Claude is revising", approved: "Approved", cancelled: "Cancelled" };
+let user = null;
+let requests = [];
+let reviewers = [];
+
+const $ = (id) => document.getElementById(id);
+function escapeHtml(s) {
+  return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+}
+const fmtDate = (iso) => iso ? new Date(iso).toLocaleDateString("en-NZ", { day: "numeric", month: "short" }) : "";
+const firstName = (name) => String(name || "").trim().split(/\s+/)[0] || "the reviewer";
+const ERRORS = {
+  "login-required": "Your login has expired or isn't an admin login. Log out and in again.",
+  "page-link-must-start-with-https": "The page link must be a full address starting with https://",
+  "missing-reviewer-name": "Add the reviewer's name.",
+  "invalid-reviewer-email": "That email address doesn't look right.",
+  "ship-it-routine-not-configured": "The Claude routine isn't connected yet (see docs/audit-dashboard-setup.md §5).",
+  "no-feedback-to-apply": "There's no new feedback to apply.",
+  "closed": "This request is closed.",
+};
+const errorText = (code) => ERRORS[code] || `Something went wrong (${code || "unknown error"}). Please try again.`;
+
+function notice(kind, html) {
+  $("notice").innerHTML = html ? `<div class="banner ${kind}">${html}</div>` : "";
+  if (html) window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+async function api(method, body) {
+  const token = await user.jwt();
+  const res = await fetch(API, {
+    method,
+    headers: { "content-type": "application/json", authorization: `Bearer ${token}` },
+    body: body ? JSON.stringify(body) : undefined,
+  });
+  const data = await res.json().catch(() => ({ ok: false, error: `http-${res.status}` }));
+  if (!res.ok || !data.ok) throw new Error(data.error || `http-${res.status}`);
+  return data;
+}
+
+// ---------- rendering ----------
+
+function feedbackHtml(round, sectionCount) {
+  const r = round.response;
+  if (!r) return "";
+  const others = sectionCount - r.comments.length;
+  return `
+    <div class="fb">
+      <div><span class="pill ${escapeHtml(r.decision)}">${escapeHtml(DECISIONS[r.decision] || r.decision)}</span> <span class="muted">sent ${fmtDate(r.submittedAt)}</span></div>
+      ${r.general ? `<p style="margin-top:10px;"><strong>Overall:</strong> ${escapeHtml(r.general)}</p>` : ""}
+      ${r.comments.length ? `<ul>${r.comments.map(c => `<li><strong>${escapeHtml(c.heading)}</strong>${escapeHtml(c.comment)}</li>`).join("")}</ul>` : ""}
+      ${others > 0 ? `<p class="muted">No comments on ${others} other section${others === 1 ? "" : "s"}.</p>` : ""}
+    </div>`;
+}
+
+function sendForm(r, label) {
+  const round = r.rounds[r.rounds.length - 1];
+  return `
+    <div class="expand" data-panel="send" hidden>
+      <label for="send-page-${r.id}">Page link</label>
+      <input type="url" id="send-page-${r.id}" value="${escapeHtml(round.pageUrl)}">
+      <p class="muted" style="margin-top:4px;">If Claude opened a new draft, paste its preview link here.</p>
+      <label for="send-msg-${r.id}">Message <span class="hint">(optional)</span></label>
+      <textarea id="send-msg-${r.id}" maxlength="2000"></textarea>
+      <div class="btn-row"><button class="rbtn primary" data-act="resend" data-id="${r.id}">${escapeHtml(label)}</button></div>
+    </div>`;
+}
+
+function card(r) {
+  const round = r.rounds[r.rounds.length - 1];
+  const name = firstName(r.reviewer.name);
+  const source = r.source && r.source.type === "audit" ? `From audit #${Number(r.source.n)}` : "Your own request";
+  const pr = r.prNumber ? ` · Draft PR #${Number(r.prNumber)}` : "";
+  const actions = [];
+  const panels = [];
+
+  if (r.status === "feedback") {
+    actions.push(`<button class="rbtn primary" data-toggle="apply">Ask Claude to apply these changes</button>`);
+    actions.push(`<button class="rbtn" data-toggle="send">Send back to ${escapeHtml(name)}</button>`);
+    actions.push(`<button class="rbtn" data-act="close" data-outcome="approved" data-id="${r.id}">Approve &amp; close</button>`);
+    panels.push(`
+      <div class="expand" data-panel="apply" hidden>
+        <label for="note-${r.id}">Anything to add for Claude? <span class="hint">(optional)</span></label>
+        <textarea id="note-${r.id}" maxlength="2000" placeholder="For example: ignore the comment about the intro, I'll handle it"></textarea>
+        <p class="muted" style="margin-top:4px;">Claude updates the draft (or opens a new one for a live page). When it's done, check the preview and send it back to ${escapeHtml(name)}.</p>
+        <div class="btn-row"><button class="rbtn primary" data-act="apply" data-id="${r.id}">Start</button></div>
+      </div>`);
+    panels.push(sendForm(r, `Send to ${name}`));
+  } else if (r.status === "revising") {
+    actions.push(`<button class="rbtn primary" data-toggle="send">Send updated version to ${escapeHtml(name)}</button>`);
+    actions.push(`<button class="rbtn" data-act="close" data-outcome="approved" data-id="${r.id}">Approve &amp; close</button>`);
+    panels.push(sendForm(r, `Send to ${name}`));
+  } else if (r.status === "with-reviewer") {
+    actions.push(`<button class="rbtn" data-toggle="send">Send a reminder</button>`);
+    actions.push(`<button class="rbtn" data-act="copy" data-link="${escapeHtml(r.reviewerLink)}">Copy review link</button>`);
+    actions.push(`<button class="rbtn" data-act="close" data-outcome="cancelled" data-id="${r.id}">Cancel request</button>`);
+    panels.push(sendForm(r, "Send reminder"));
+  } else {
+    actions.push(`<button class="rbtn" data-act="delete" data-id="${r.id}">Delete</button>`);
+  }
+
+  const revising = r.status === "revising" && round.revision
+    ? `<div class="banner info" style="margin-top:12px;">Claude is applying ${escapeHtml(name)}'s feedback${round.revision.sessionUrl ? ` (<a href="${escapeHtml(round.revision.sessionUrl)}" target="_blank" rel="noopener">watch progress</a>)` : ""}. When the draft preview has updated, send it back to ${escapeHtml(name)}.</div>`
+    : "";
+  const waiting = r.status === "with-reviewer"
+    ? `<p class="muted" style="margin-top:10px;">Sent to ${escapeHtml(r.reviewer.name)} on ${fmtDate(round.sentAt)}. Waiting for their review.</p>`
+    : "";
+  const older = r.rounds.slice(0, -1).filter(x => x.response);
+  const history = older.length
+    ? `<details class="rounds"><summary>Earlier rounds (${older.length})</summary>${older.map(x => `<p class="muted" style="margin-top:10px;">Round ${x.n}</p>${feedbackHtml(x, x.sections.length)}`).join("")}</details>`
+    : "";
+
+  return `
+    <article class="card req" id="${r.id}">
+      <div class="req-head">
+        <div class="req-title"><a href="${escapeHtml(round.pageUrl)}" target="_blank" rel="noopener">${escapeHtml(r.title)}</a></div>
+        <span class="pill ${r.status}">${STATUS[r.status] || r.status}</span>
+      </div>
+      <div class="req-meta">Reviewer: ${escapeHtml(r.reviewer.name)} · Round ${round.n} · ${source}${pr}</div>
+      ${waiting}
+      ${feedbackHtml(round, round.sections.length)}
+      ${revising}
+      ${history}
+      <div class="btn-row">${actions.join("")}</div>
+      ${panels.join("")}
+    </article>`;
+}
+
+function render() {
+  const waiting = requests.filter(r => r.status === "feedback");
+  const out = requests.filter(r => r.status === "with-reviewer" || r.status === "revising");
+  const done = requests.filter(r => r.status === "approved" || r.status === "cancelled");
+  $("h-waiting").textContent = `Waiting on you (${waiting.length})`;
+  $("h-out").textContent = `With reviewers (${out.length})`;
+  $("h-done").textContent = `Finished (${done.length})`;
+  $("list-waiting").innerHTML = waiting.map(card).join("") || `<p class="muted">Nothing waiting on you.</p>`;
+  $("list-out").innerHTML = out.map(card).join("") || `<p class="muted">No reviews out at the moment.</p>`;
+  $("list-done").innerHTML = done.map(card).join("") || `<p class="muted">None yet.</p>`;
+  $("done-wrap").hidden = !done.length;
+  if (!requests.length) $("new-card").open = true;
+  if (location.hash) {
+    const el = document.getElementById(location.hash.slice(1));
+    if (el) el.scrollIntoView();
+  }
+}
+
+async function refresh() {
+  try {
+    const data = await api("GET");
+    requests = data.requests;
+    reviewers = data.reviewers;
+    render();
+  } catch (e) {
+    notice("error", escapeHtml(errorText(e.message)));
+  }
+}
+
+// ---------- actions ----------
+
+document.addEventListener("click", async (e) => {
+  const toggle = e.target.closest("[data-toggle]");
+  if (toggle) {
+    const panel = toggle.closest(".req").querySelector(`[data-panel="${toggle.dataset.toggle}"]`);
+    toggle.closest(".req").querySelectorAll("[data-panel]").forEach(p => { if (p !== panel) p.hidden = true; });
+    panel.hidden = !panel.hidden;
+    return;
+  }
+  const btn = e.target.closest("[data-act]");
+  if (!btn) return;
+  const { act, id } = btn.dataset;
+
+  if (act === "copy") {
+    try { await navigator.clipboard.writeText(btn.dataset.link); btn.textContent = "Copied ✓"; }
+    catch (_) { prompt("Copy this link:", btn.dataset.link); }
+    return;
+  }
+  if (act === "delete" && !confirm("Delete this review request and its feedback?")) return;
+  if (act === "close" && btn.dataset.outcome === "cancelled" && !confirm("Cancel this review request? The reviewer's link will stop taking answers.")) return;
+
+  const body = { action: act, id };
+  if (act === "close") body.outcome = btn.dataset.outcome;
+  if (act === "apply") body.note = $(`note-${id}`).value;
+  if (act === "resend") {
+    body.pageUrl = $(`send-page-${id}`).value;
+    body.message = $(`send-msg-${id}`).value;
+  }
+
+  btn.disabled = true;
+  try {
+    const data = await api("POST", body);
+    const r = data.request;
+    if (act === "apply") notice("ok", `Claude has started applying the feedback${data.sessionUrl ? ` (<a href="${escapeHtml(data.sessionUrl)}" target="_blank" rel="noopener">watch progress</a>)` : ""}. When the preview has updated, send it back to the reviewer.`);
+    else if (act === "resend") notice(data.emailSent ? "ok" : "warn", data.emailSent
+      ? `Sent to ${escapeHtml(r.reviewer.name)}.`
+      : `Saved, but the email couldn't be sent (${escapeHtml(data.emailError || "unknown")}). Use “Copy review link” to send it yourself.`);
+    else if (act === "close") notice("ok", body.outcome === "approved" ? "Approved and closed. Publishing is still your call: merge the draft PR when you're ready." : "Request cancelled.");
+    else notice("", "");
+    await refresh();
+  } catch (err) {
+    notice("error", escapeHtml(errorText(err.message)));
+    btn.disabled = false;
+  }
+});
+
+$("f-name").addEventListener("input", () => {
+  const match = reviewers.find(r => r.name.toLowerCase() === $("f-name").value.trim().toLowerCase());
+  if (match && !$("f-email").value) $("f-email").value = match.email;
+});
+
+$("new-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const btn = $("new-submit");
+  btn.disabled = true;
+  btn.textContent = "Sending…";
+  $("new-error").innerHTML = "";
+  try {
+    const data = await api("POST", {
+      action: "create",
+      pageUrl: $("f-page").value,
+      title: $("f-title").value,
+      reviewer: { name: $("f-name").value, email: $("f-email").value },
+      message: $("f-message").value,
+      source: $("f-n").value ? { type: "audit", n: Number($("f-n").value) } : null,
+    });
+    $("new-form").reset();
+    $("new-card").open = false;
+    const r = data.request;
+    const split = data.splitIntoSections ? `The page was split into ${r.rounds[0].sections.length} sections.` : "This link isn't on the website, so the reviewer gets one comment box.";
+    notice(data.emailSent ? "ok" : "warn", data.emailSent
+      ? `Review request sent to ${escapeHtml(r.reviewer.name)}. ${split}`
+      : `Saved, but the email couldn't be sent (${escapeHtml(data.emailError || "unknown")}). Use “Copy review link” to send it yourself. ${split}`);
+    await refresh();
+  } catch (err) {
+    $("new-error").innerHTML = `<div class="banner error" style="margin-top:12px;">${escapeHtml(errorText(err.message))}</div>`;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "Send review request";
+  }
+});
+
+// Prefill from a link such as the audit dashboard's "Request review" button:
+// /admin/reviews/?new=1&title=…&reviewer=…&n=36&page=…
+function prefill() {
+  const q = new URLSearchParams(location.search);
+  if (!q.has("new")) return;
+  $("new-card").open = true;
+  if (q.get("page")) $("f-page").value = q.get("page");
+  if (q.get("title")) $("f-title").value = q.get("title");
+  if (q.get("reviewer")) $("f-name").value = q.get("reviewer");
+  if (q.get("n")) $("f-n").value = q.get("n");
+}
+
+// ---------- login (Netlify Identity, same as the content editor) ----------
+
+function show(signedIn) {
+  $("signin").hidden = signedIn;
+  $("app").hidden = !signedIn;
+  $("logout").hidden = !signedIn;
+  $("who").textContent = signedIn ? `Signed in as ${user.email}` : "";
+}
+
+let loadedFor = null;
+function onUser(u) {
+  user = u;
+  show(!!u);
+  // "init" and an early currentUser() check can both report the same login.
+  if (u && loadedFor !== u.email) {
+    loadedFor = u.email;
+    prefill();
+    refresh().then(() => $("f-name").dispatchEvent(new Event("input")));
+  }
+  if (!u) loadedFor = null;
+}
+
+if (window.netlifyIdentity) {
+  onUser(netlifyIdentity.currentUser());
+  netlifyIdentity.on("init", onUser);
+  netlifyIdentity.on("login", (u) => { netlifyIdentity.close(); onUser(u); });
+  netlifyIdentity.on("logout", () => onUser(null));
+  $("login").addEventListener("click", () => netlifyIdentity.open("login"));
+  $("logout").addEventListener("click", () => netlifyIdentity.logout());
+} else {
+  $("signin").hidden = false;
+  $("signin").innerHTML = `<div class="banner error">The login service didn't load. Check your connection and refresh the page.</div>`;
+}
+</script>
+</body>
+</html>
