@@ -1,33 +1,33 @@
 ---
 title: "Postnatal Recovery: Care for Your Body After Birth"
 description: "Postnatal osteopathy in Christchurch — pelvic and back recovery, feeding posture, and the physical demands of newborn life. Gentle care whether you birthed vaginally or by caesarean."
-excerpt: "The first year after birth asks a lot of your body — pelvic and back recovery, feeding posture, broken sleep, and lifting a growing baby. Postnatal osteopathy is gentle, hands-on care that helps your body recover from pregnancy and birth, so you can feel like yourself again."
+excerpt: "The first year after birth asks a lot of your body, from feeding posture and broken sleep to lifting a growing baby. Postnatal osteopathy is gentle, hands-on care that helps your body recover from pregnancy and birth, so you can feel like yourself again."
 publishedDate: 2026-07-15
 authorKey: nina
 category: "Pregnancy & baby"
 coverImage: /images/hero-pregnancy-back-pain.jpg
-coverAlt: "New parent with baby, illustrating the physical demands of the postnatal period"
+coverAlt: "Pregnant woman holding her lower back, a strain that can carry on after the birth"
 relatedService:
   title: "Osteopathy"
   url: /services/osteopathy/
-  blurb: "Postnatal osteopathy is the same hands-on care as our general osteopathy — with extra attention to the pelvis, abdominal wall, ribs and neck, and to the everyday postures of feeding, settling and carrying."
+  blurb: "Postnatal osteopathy is our usual hands-on osteopathy, with extra focus on your pelvis, tummy muscles, ribs and neck, and on how you feed, settle and carry your baby."
   alsoConsider:
-    title: "Postnatal recovery (condition page)"
+    title: "Postnatal recovery treatment"
     url: /conditions/postpartum-recovery/
 faq:
   - question: "When can I start postnatal treatment?"
-    answer: "Whenever you feel ready to leave the house for an hour. Many people come in from around 6 weeks postpartum — often after their midwife discharge check — but there's no minimum wait. Gentle treatment is safe from as early as the first week or two if something specific is bothering you, and can be adapted around a caesarean scar, breastfeeding, or a very young baby who needs to come with you."
+    answer: "Whenever you feel ready. Many people start around 6 weeks after the birth, often after their midwife's final check, but there's no minimum wait. Gentle treatment is safe from the first week or two if something is bothering you. We can work around a caesarean scar, breastfeeding, or a young baby who comes with you."
   - question: "What can postnatal osteopathy help with?"
-    answer: "The most common reasons people come are: lower-back and pelvic pain that started or worsened in pregnancy and hasn't fully settled, neck and upper-back tension from feeding posture, wrist and thumb pain from lifting baby ('mother's thumb'), rib and diaphragm tension after a long pregnancy or a caesarean, and general 'my body feels different' feelings that haven't found a name yet. We also work with people around C-section scars once they're healed."
+    answer: "Common reasons people come in include: back or pelvic pain from pregnancy that hasn't settled, neck and upper-back tension from feeding, wrist and thumb pain from lifting your baby ('mother's thumb'), tight ribs or restricted breathing after pregnancy or a caesarean, and a general sense that your body doesn't feel like your own yet. We can also work on caesarean scars once they've healed."
   - question: "Is it safe if I'm breastfeeding?"
-    answer: "Yes — there's nothing in osteopathic treatment that affects milk supply or feeding. You can bring your baby to appointments and feed on the table if that's what works, or come alone if someone can hold the baby. We adjust the positions we work in to suit whether you're comfortable lying flat or need to be side-lying or semi-reclined."
+    answer: "Yes. Osteopathic treatment doesn't affect milk supply or feeding. You're welcome to feed your baby during the appointment. We can treat you lying flat, on your side or propped up, whichever is most comfortable."
   - question: "Can I bring my baby with me?"
-    answer: "Absolutely — most people do in the first few months. There's space beside the treatment table for a car seat or pram, and you're welcome to pause the session to feed, settle or change baby whenever you need. If you'd rather come alone, evening and Saturday slots may be easier to arrange around another adult."
+    answer: "Yes, most people do in the first few months. There's room beside the treatment table for a car seat or pram, and you can pause to feed, settle or change your baby at any time. If you'd rather come alone, our evening and Saturday appointments can make childcare easier to arrange."
   - question: "How does this fit with my midwife, Plunket and usual doctor?"
-    answer: "It sits alongside them. Your midwife covers the first six weeks; Plunket picks up the well-baby side; your usual doctor is there for anything medical. Postnatal osteopathy fills a very specific gap they don't cover: hands-on care for your musculoskeletal recovery. If we spot anything outside that scope — persistent bleeding, mood concerns, a pelvic-floor picture that needs a women's-health physio — we'll say so and encourage you to raise it with them."
+    answer: "It works alongside them. Your midwife looks after the first six weeks, Plunket supports your baby's health, and your usual doctor handles anything medical. Postnatal osteopathy adds hands-on care for your muscles and joints. If we notice anything outside our scope, such as ongoing bleeding, low mood, or pelvic-floor problems that need a women's-health physio, we'll tell you and suggest who to see."
 ---
 
-## The part of postnatal care that quietly gets skipped
+## The part of postnatal care that often gets missed
 
 During pregnancy and birth you're well looked after, and your midwife and then Plunket keep a close eye on your baby. What often gets missed is *your* body. Months later, your lower back may still not feel right, your neck may ache from feeding, your core may feel weak, and broken sleep can slow your recovery.
 
@@ -35,34 +35,34 @@ Postnatal osteopathy is gentle, hands-on care that helps your body recover from 
 
 ## Who this is for
 
-Postnatal osteopathy is worth considering if you're:
+Postnatal osteopathy may help if you:
 
-- Still carrying lower-back or pelvic pain that started in pregnancy and hasn't fully settled by 6–12 weeks
-- Getting neck, shoulder or upper-back tension from feeding, settling or bending over the cot
-- Noticing wrist, thumb or forearm pain (De Quervain's / "mother's thumb") from lifting baby dozens of times a day
-- Recovering from a caesarean and wanting hands-on work around the scar and abdominal wall once it's healed
-- Feeling that your rib cage, diaphragm or breathing "hasn't come back down" since the pregnancy
-- Getting recurring headaches that started or worsened in the postnatal period
-- Preparing to return to running or exercise and want a body check before you load up
+- Still have lower-back or pelvic pain from pregnancy that hasn't settled by 6–12 weeks
+- Get neck, shoulder or upper-back tension from feeding, settling or bending over the cot
+- Have wrist, thumb or forearm pain from lifting your baby many times a day ("mother's thumb", also called De Quervain's)
+- Are recovering from a caesarean and want hands-on care around the scar and tummy once it's healed
+- Feel your ribs or breathing haven't gone back to normal since the pregnancy
+- Have headaches that started or got worse after the birth
+- Want a check-up before getting back into running or exercise
 
-If you're not sure whether osteopathy is the right first step — for example if you have pelvic-floor symptoms, prolapse concerns, or specific abdominal separation you'd like assessed — a women's-health physiotherapist may be a better starting point, and we're happy to say so.
+If your main concern is pelvic-floor symptoms, prolapse or separated tummy muscles, a women's-health physiotherapist may be a better place to start. We're happy to point you in the right direction.
 
 ## What treatment looks like
 
-A first postnatal appointment takes 40–60 minutes. We take a full history covering the pregnancy, the birth, any interventions, how feeding is going, sleep, and what's changed since. Then a physical assessment of your posture, spine, pelvis, rib cage, abdominal wall and any specific areas of concern.
+A first postnatal appointment takes 40–60 minutes. We'll ask about your pregnancy, the birth, how feeding and sleep are going, and what's changed since. Then we'll check your posture, spine, pelvis, ribs, tummy muscles and any areas that are bothering you.
 
 Treatment might include:
 
-- **Gentle joint mobilisation** through the lower back, pelvis, mid-back and neck
-- **Soft-tissue release** across the glutes, hip flexors, upper trapezius and diaphragm
-- **Rib and diaphragm work** — often the missing piece for postnatal breathing patterns
-- **Careful scar mobilisation** for caesarean or perineal scars once fully healed
-- **Practical advice** on feeding positions, carrying, sleep set-up and returning to exercise
+- **Gentle joint mobilisation** for your lower back, pelvis, mid-back and neck
+- **Soft-tissue release** for tight glutes, hips, shoulders and diaphragm
+- **Rib and diaphragm work** to help your breathing settle back to normal
+- **Gentle scar work** for caesarean or perineal scars once they've fully healed
+- **Practical advice** on feeding positions, carrying, sleep set-up and getting back to exercise
 
-You can bring your baby along or come alone. Most people find fortnightly sessions for a short block, then space out as things settle. There's no fixed programme.
+You can bring your baby or come alone. Most people come every two weeks for a few sessions, then less often as things settle. There's no fixed programme.
 
 ## Working with the rest of your postnatal team
 
-Osteopathy is one piece of postnatal care, not all of it. If there's anything in your recovery that would be better addressed by your usual doctor, a women's-health physio, a lactation consultant or a mental-health professional, we'll say so — sometimes at the first visit, sometimes as things become clearer. Getting the right combination of care makes the whole picture easier.
+Osteopathy is one part of postnatal care, not all of it. If something would be better handled by your usual doctor, a women's-health physio, a lactation consultant or a mental-health professional, we'll tell you, whether that's at the first visit or later on. The right mix of care makes recovery easier.
 
 Ready to book? You can book directly online — no referral needed.
