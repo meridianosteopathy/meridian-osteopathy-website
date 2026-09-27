@@ -5,8 +5,8 @@ excerpt: "The first year after birth asks a lot of your body, from feeding postu
 publishedDate: 2026-07-15
 authorKey: nina
 category: "Pregnancy & baby"
-coverImage: /images/hero-pregnancy-back-pain.jpg
-coverAlt: "Pregnant woman holding her lower back, a strain that can carry on after the birth"
+coverImage: /images/hero-postnatal-recovery.jpg
+coverAlt: "New mum sitting on a treatment table while an osteopath gently treats her shoulders, with her baby asleep in a car seat beside her"
 relatedService:
   title: "Osteopathy"
   url: /services/osteopathy/
