@@ -24,7 +24,7 @@ faq:
   - question: "Can I bring my baby with me?"
     answer: "Yes, most people do in the first few months. There's room beside the treatment table for a car seat or pram, and you can pause to feed, settle or change your baby at any time. If you'd rather come alone, our evening and Saturday appointments can make childcare easier to arrange."
   - question: "How does this fit with my midwife, Plunket and usual doctor?"
-    answer: "It works alongside them. Your midwife looks after the first six weeks, Plunket supports your baby's health, and your usual doctor handles anything medical. Postnatal osteopathy adds hands-on care for your muscles and joints. If we notice anything outside our scope, such as ongoing bleeding, low mood, or pelvic-floor problems that need a women's-health physio, we'll tell you and suggest who to see."
+    answer: "It works alongside them. Your midwife looks after the first six weeks, Plunket supports your baby's health, and your usual doctor handles anything medical. Postnatal osteopathy adds hands-on care for your muscles and joints, and we're happy to work alongside your women's-health physio too. If we notice anything outside our scope, such as ongoing bleeding or low mood, we'll tell you and suggest who to see."
 ---
 
 ## The part of postnatal care that often gets missed
@@ -45,7 +45,7 @@ Postnatal osteopathy may help if you:
 - Have headaches that started or got worse after the birth
 - Want a check-up before getting back into running or exercise
 
-If your main concern is pelvic-floor symptoms, prolapse or separated tummy muscles, a women's-health physiotherapist may be a better place to start. We're happy to point you in the right direction.
+If you have pelvic-floor symptoms, prolapse or separated tummy muscles, we can work alongside your women's-health physiotherapist. They focus on your pelvic floor and core, while we look after your back, pelvis, ribs and posture, so the two treatments support each other.
 
 ## What treatment looks like
 
@@ -63,6 +63,6 @@ You can bring your baby or come alone. Most people come every two weeks for a fe
 
 ## Working with the rest of your postnatal team
 
-Osteopathy is one part of postnatal care, not all of it. If something would be better handled by your usual doctor, a women's-health physio, a lactation consultant or a mental-health professional, we'll tell you, whether that's at the first visit or later on. The right mix of care makes recovery easier.
+Osteopathy is one part of postnatal care, not all of it. We're happy to work alongside your women's-health physio. If something would be better handled by your usual doctor, a lactation consultant or a mental-health professional, we'll tell you, whether that's at the first visit or later on. The right mix of care makes recovery easier.
 
 Ready to book? You can book directly online — no referral needed.
