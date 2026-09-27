@@ -5,8 +5,8 @@ excerpt: "From around 36 weeks, weekly acupuncture sessions that many people cho
 publishedDate: 2026-08-12
 authorKey: nina
 category: "Pregnancy & baby"
-coverImage: /images/specialty-fertility-mechanism.jpg
-coverAlt: "Close-up of fine acupuncture needles in the back of a relaxed hand"
+coverImage: /images/hero-labour-preparation.jpg
+coverAlt: "Heavily pregnant woman reclining on pillows with her hands on her bump while a practitioner places fine acupuncture needles in her lower leg"
 relatedService:
   title: "Acupuncture & Dry Needling"
   url: /services/acupuncture/
