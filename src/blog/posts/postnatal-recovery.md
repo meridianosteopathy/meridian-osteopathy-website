@@ -49,7 +49,7 @@ If you're not sure whether osteopathy is the right first step — for example if
 
 ## What treatment looks like
 
-A first postnatal appointment takes 40 minutes. We take a full history covering the pregnancy, the birth, any interventions, how feeding is going, sleep, and what's changed since. Then a physical assessment of your posture, spine, pelvis, rib cage, abdominal wall and any specific areas of concern.
+A first postnatal appointment takes 40–60 minutes. We take a full history covering the pregnancy, the birth, any interventions, how feeding is going, sleep, and what's changed since. Then a physical assessment of your posture, spine, pelvis, rib cage, abdominal wall and any specific areas of concern.
 
 Treatment might include:
 
