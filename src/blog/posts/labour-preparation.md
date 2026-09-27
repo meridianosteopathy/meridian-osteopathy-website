@@ -21,7 +21,7 @@ points:
     use: "Helping the cervix and pelvis get ready for birth. One of the main labour preparation points."
   - code: "LI4"
     name: "Hegu"
-    location: "Back of the hand, between the thumb and index finger, beside the middle of the index finger's long hand bone (on the thumb side)."
+    location: "Back of the hand, between the thumb and index finger."
     use: "Often paired with SP6 Sanyinjiao to support the body's readiness for labour, and to ease tension and pain."
   - code: "GB21"
     name: "Jianjing"
