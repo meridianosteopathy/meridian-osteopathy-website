@@ -1,0 +1,207 @@
+{# Practitioner-led focus page.
+
+   Renders a sub-service landing page (e.g. /services/osteopathy/paediatric/)
+   from a data object `s` plus the practitioner who leads that work. The
+   page files under src/services/<service>/ only set `s` and include this.
+
+   Expects `s` (a services.<service>.<focus> object) with:
+     title, url, heroImage, intro
+     lead            team.json key of the lead practitioner (photo, name,
+                     role, credentials and booking link come from there)
+     leadHeading     heading for the practitioner block
+     leadBlurb       paragraph for the practitioner block
+     pricing         { time, note } — private-rate card plus a note
+     sections[]      { title, description, image, alt, learnMore{text,url} }
+     faq[]           { question, answer }
+     related[]       { title, url } cards at the foot of the page
+     parentUrl       URL of the parent service, for the schema isPartOf
+
+   Adding a new focus page for another practitioner is a new data block in
+   services.json plus a three-line .njk file — no template changes. #}
+{% set lead = team[s.lead] %}
+
+<!-- Hero -->
+<section class="hero" style="background-image: url('{{ s.heroImage }}');">
+</section>
+
+{% include "breadcrumbs.njk" %}
+
+<!-- Introduction -->
+<section class="section text-center">
+  <div class="container">
+    <div class="service-intro">
+      <h1>{{ s.title }}</h1>
+      <p>{{ s.intro }}</p>
+      {% if lead %}
+      <p style="margin-top:20px;">
+        <a href="/book/{{ lead.firstName | lower }}/" class="btn btn-primary">Book {{ lead.firstName }}</a>
+      </p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+{% if s.pricing %}
+<section class="section section-light text-center">
+  <div class="container">
+    <h2>Pricing</h2>
+    <div class="pricing-cards pricing-cards--single">
+      <div class="pricing-card">
+        <div class="pricing-card-label">Non-ACC Patient</div>
+        <div class="pricing-card-rate">{{ site.pricing.private.rate }}</div>
+        <div class="pricing-card-time">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          {{ s.pricing.time }}
+        </div>
+      </div>
+    </div>
+    {% if s.pricing.note %}
+    <div class="pricing-note-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" style="flex-shrink:0;margin-top:2px;"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      <p>{{ s.pricing.note }}</p>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+
+<!-- Topic blocks -->
+{% for spec in s.sections %}
+<section class="section {% if loop.index is even %}section-light{% endif %} specialty-section">
+  <div class="container">
+    <div class="specialty-block {% if loop.index is even %}specialty-block--reverse{% endif %}">
+      <div class="specialty-image">
+        {% if spec.image %}
+        <img src="{{ spec.image }}" alt="{{ spec.alt or spec.title }}" loading="lazy">
+        {% else %}
+        <div class="specialty-image-placeholder">
+          <span>Image coming soon</span>
+        </div>
+        {% endif %}
+      </div>
+      <div class="specialty-content">
+        <h2>{{ spec.title }}</h2>
+        <p>{{ spec.description }}</p>
+        {% if spec.learnMore %}
+        <a href="{{ spec.learnMore.url }}" class="btn btn-outline">{{ spec.learnMore.text }} &rarr;</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endfor %}
+
+<!-- Lead practitioner -->
+{% set leadEven = lead and ((s.sections | length) is odd) %}
+{% if lead %}
+<section class="section {% if leadEven %}section-light{% endif %} specialty-section">
+  <div class="container">
+    <div class="specialty-block {% if leadEven %}specialty-block--reverse{% endif %}">
+      <div class="specialty-image">
+        <img src="{{ lead.photo }}" alt="{{ lead.photoAlt or lead.name }}" loading="lazy" style="object-position:center top;">
+      </div>
+      <div class="specialty-content">
+        <h2>{{ s.leadHeading or ("Meet " + lead.firstName) }}</h2>
+        <p>{{ s.leadBlurb }}</p>
+        <p style="font-size:.95rem;opacity:.85;">{{ lead.name }}, {{ lead.role | safe }}{% if lead.registration %} &middot; Registered with the {{ lead.registration.name }}{% endif %}</p>
+        <p style="display:flex;flex-wrap:wrap;gap:10px;justify-content:inherit;">
+          <a href="/book/{{ lead.firstName | lower }}/" class="btn btn-primary">Book {{ lead.firstName }}</a>
+          <a href="{{ lead.profileUrl }}" class="btn btn-outline">Meet {{ lead.firstName }} &rarr;</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- FAQ -->
+{% if s.faq %}
+<section class="section {% if not leadEven %}section-light{% endif %}">
+  <div class="container">
+    <h2 class="text-center">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      {% for f in s.faq %}
+      <div class="faq-item">
+        <button class="faq-question">{{ f.question }}</button>
+        <div class="faq-answer"><p>{{ f.answer }}</p></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- Related pages -->
+{% if s.related %}
+<section class="section {% if leadEven %}section-light{% endif %} text-center">
+  <div class="container">
+    <h2>You might also be looking for</h2>
+    <div class="other-services">
+      {% for r in s.related %}
+      <a href="{{ r.url }}" class="other-service-card">
+        <div>
+          <h3>{{ r.title }}</h3>
+          <span class="btn btn-outline" style="font-size:0.85rem; padding:6px 16px;">Learn more &rarr;</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- CTA -->
+{% if lead %}
+<section class="cta-banner">
+  <h2>Ready to book?</h2>
+  <a href="/book/{{ lead.firstName | lower }}/" class="btn btn-gold">Book {{ lead.firstName }}</a>
+</section>
+{% endif %}
+
+{# Inline schema rather than service-schema.njk: this MedicalTherapy is a
+   sub-service of its parent and references that entity's @id, which the
+   shared include doesn't model. #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalTherapy",
+  "@id": "{{ site.url }}{{ s.url }}#service",
+  "name": {{ s.title | dump | safe }},
+  "url": "{{ site.url }}{{ s.url }}",
+  "description": {{ s.intro | dump | safe }},
+  "mainEntityOfPage": { "@id": "{{ site.url }}{{ s.url }}#webpage" },
+  {%- if s.parentUrl %}
+  "isPartOf": { "@id": "{{ site.url }}{{ s.parentUrl }}#service" },
+  {%- endif %}
+  "provider": { "@id": "{{ site.url }}/#clinic" },
+  "areaServed": {
+    "@type": "City",
+    "name": {{ site.areaServed | dump | safe }},
+    "containedInPlace": { "@type": "Country", "name": {{ site.addressParts.country | dump | safe }} }
+  }
+}
+</script>
+{%- if s.faq %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "{{ site.url }}{{ s.url }}#faq",
+  "mainEntity": [
+    {%- for f in s.faq %}
+    {
+      "@type": "Question",
+      "name": {{ f.question | dump | safe }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ f.answer | dump | safe }}
+      }
+    }{% if not loop.last %},{% endif %}
+    {%- endfor %}
+  ]
+}
+</script>
+{%- endif %}
+
+{% include "back-to-top.njk" %}

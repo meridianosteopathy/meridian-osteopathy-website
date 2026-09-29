@@ -19,12 +19,16 @@ eleventyExcludeFromCollections: true
 
 {% for key, s in services -%}
 - [{{ s.title | plain | safe }}]({{ site.url }}{{ s.url }}): {{ s.intro | plain | safe }}
+{%- for subkey, sub in s %}{% if sub.url and sub.intro %}
+  - [{{ sub.title | plain | safe }}]({{ site.url }}{{ sub.url }}): {{ sub.intro | plain | safe }}
+{%- endif %}{% endfor %}
 {% endfor %}
 
 ## Conditions we treat
 
 - Musculoskeletal (osteopathy): back and neck pain, headaches and migraines, joint pain and arthritis, posture imbalances, muscle tightness, sports injuries, sciatica, rib and pelvic pain.
-- Pregnancy and paediatric (osteopathy): pregnancy-related lower back and pelvic pain, safe across all trimesters; infants and children for colic, feeding and sleep issues, growing pains, postural development.
+- Pregnancy and postnatal (osteopathy, led by Kaylee Frost): pregnancy-related lower back and pelvic pain, safe across all trimesters; postnatal recovery for the back, pelvis, ribs, wrists and feeding posture.
+- Babies and children (osteopathy, led by Maddison Moffat): unsettled babies, feeding comfort, head-turning preferences and flat spots; posture, growing pains and everyday strains in older children.
 - Pain and recovery (acupuncture): acute and chronic pain, tension headaches, migraines, post-injury recovery.
 - Stress, sleep and mental wellbeing (acupuncture, herbal medicine): anxiety, insomnia, burnout, low mood, fatigue.
 - Women's health (acupuncture, herbal medicine): menstrual irregularity, period pain, fertility support including IVF, perimenopause and menopause symptoms.
@@ -51,8 +55,8 @@ eleventyExcludeFromCollections: true
 
 - Do I need a referral? No — you can book directly, including for ACC claims.
 - Is it covered by ACC? Yes, when treatment is for an accident-related injury (osteopathy and acupuncture). Our practitioners are ACC-registered providers, so those visits are subsidised.
-- Is osteopathy safe during pregnancy? Yes — gentle techniques are used and are safe across all trimesters.
-- Can osteopaths treat babies and children? Yes, using gentle non-invasive techniques adapted for younger patients.
+- Is osteopathy safe during pregnancy? Yes — gentle techniques are used and are safe across all trimesters. Kaylee Frost leads our pregnancy and postnatal osteopathy.
+- Can osteopaths treat babies and children? Yes, using gentle non-invasive techniques adapted for younger patients. Maddison Moffat leads our baby and children's osteopathy.
 - Is acupuncture painful? The needles are finer than a hair; most patients feel deeply relaxed during treatment.
 - Can acupuncture help with fertility or IVF? Yes — it can complement both natural conception and assisted reproductive treatments.
 - Are Chinese herbs safe with other medications? Usually yes, but tell your practitioner about every medication and supplement so they can prescribe safely.

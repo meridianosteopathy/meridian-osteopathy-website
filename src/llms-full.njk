@@ -28,7 +28,13 @@ Specialties:
 {% for sp in s.specialties %}
 - **{{ sp.title | plain | safe }}** — {{ sp.description | plain | safe }}
 {%- endfor %}
-{% endif %}
+{% endif %}{% for subkey, sub in s %}{% if sub.url and sub.intro %}
+#### {{ sub.title | plain | safe }}
+
+{{ site.url }}{{ sub.url }}
+
+{{ sub.intro | plain | safe }}
+{% endif %}{% endfor %}
 {% endfor %}
 ## Practitioners
 {% for key, p in team %}{% if p.name %}
