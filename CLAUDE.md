@@ -21,6 +21,7 @@ Skip optimisation only if the user explicitly says "don't compress" or "keep ori
 - Develop on the designated feature branch (never push to `main`).
 - Commit messages: short imperative subject, body explains *why*. Match existing style in `git log`.
 - Open PRs as **draft** after first push; mark ready only when the user confirms the preview looks good.
+- **No hourly PR check-ins.** Reviews on this repo take days, and the only CI is Netlify's preview build. After opening a PR, subscribe to its events (comments, build failures, merge conflicts) and stop there. Do not schedule recurring self check-ins or post "no change" status messages; wait to be woken by an event or by the user.
 
 ## CSP notes
 
