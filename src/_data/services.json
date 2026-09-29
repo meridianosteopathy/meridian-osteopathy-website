@@ -9,13 +9,21 @@
         "title": "Paediatric Osteopathy",
         "description": "Osteopathy is safe and effective for babies, toddlers, and children of all ages. Using gentle, non-invasive techniques, we can help with birth-related discomforts, colic, feeding difficulties, sleep disturbances, growing pains, and postural development. Early treatment supports healthy growth and addresses issues before they become chronic.",
         "image": "/images/specialty-ost-paediatric.jpg",
-        "alt": "Osteopath performing a gentle paediatric assessment on a baby resting on a treatment table in a bright clinic room"
+        "alt": "Osteopath performing a gentle paediatric assessment on a baby resting on a treatment table in a bright clinic room",
+        "learnMore": {
+          "text": "Baby & children's osteopathy with Maddison",
+          "url": "/services/osteopathy/paediatric/"
+        }
       },
       {
         "title": "Pregnancy Related Pain",
         "description": "Pregnancy places significant demands on the body as it adapts to support new life. Osteopathic treatment can relieve lower back and pelvic pain, sciatica, rib discomfort, and postural strain — with a gentle approach that is safe throughout all trimesters and supports both mother and baby's wellbeing.",
         "image": "/images/specialty-ost-pregnancy.jpg",
-        "alt": "Pregnant patient seated on a sofa during a consultation with a clinician taking notes on a clipboard"
+        "alt": "Pregnant patient seated on a sofa during a consultation with a clinician taking notes on a clipboard",
+        "learnMore": {
+          "text": "Pregnancy & postnatal osteopathy with Kaylee",
+          "url": "/services/osteopathy/pregnancy/"
+        }
       },
       {
         "title": "Elderly Patients",
@@ -47,7 +55,165 @@
         "question": "Can osteopaths treat babies and children?",
         "answer": "Yes — osteopathy is safe and effective for babies, toddlers, and children of all ages. We use gentle, non-invasive techniques adapted for younger patients to help with birth-related discomforts, colic, feeding difficulties, sleep disturbances, growing pains, and postural development."
       }
-    ]
+    ],
+    "paediatric": {
+      "title": "Baby & Children's Osteopathy",
+      "url": "/services/osteopathy/paediatric/",
+      "parentUrl": "/services/osteopathy/",
+      "heroImage": "/images/specialty-ost-paediatric.jpg",
+      "lead": "maddison",
+      "intro": "Baby and children's osteopathy at Meridian Osteopathy in Christchurch is very gentle, light-touch care for infants, toddlers and school-age children. Maddison Moffat leads our paediatric appointments — seeing babies for unsettledness, feeding comfort, head-turning preferences and flat spots, and older children for posture, growing pains and everyday knocks and strains. Appointments are unhurried and guided by how your child is on the day. No referral needed; you can book directly.",
+      "pricing": {
+        "time": "30 – 45 minutes",
+        "note": "Baby and children's osteopathy is usually not accident-related, so it sits outside ACC cover and is charged at our private rate. If your child has had a fall or a sports injury, mention it when you book and we'll check whether ACC applies."
+      },
+      "sections": [
+        {
+          "title": "Why babies sometimes benefit",
+          "description": "A baby's body goes through a lot in a short time. Their position late in pregnancy, the birth itself, and long stretches in one position — feeding on one side, sleeping with the head turned the same way, being carried on one hip — can all leave small patterns of tension. Often these settle as your baby grows and moves more. Sometimes they show up as a preference: always feeding on one side, always looking one way, or a small flat spot on the back of the head. Baby osteopathy isn't about correcting anything dramatic. It gently nudges these patterns in the right direction while your baby's skull, spine and tissues are still very adaptable.",
+          "image": "/images/hero-postpartum-recovery.jpg",
+          "alt": "Newborn baby asleep on a parent's chest, held gently in both arms on a sofa"
+        },
+        {
+          "title": "What a first visit looks like",
+          "description": "We start by asking about the pregnancy, birth, feeding, sleep and milestones, and anything your midwife or Plunket nurse has mentioned. Then Maddison does a careful head-to-toe check, with your baby in your arms or on the table beside you. For a young baby, treatment is mostly a gentle hold — one hand cradling the head while the other rests on the base of the spine or ribs. There's no cracking, no fast movement and no discomfort. Many babies feed, fall asleep or fill a nappy during the appointment, and that's completely fine. If your baby is having an unsettled day, we work around it.",
+          "image": "/images/hero-postnatal-recovery.jpg",
+          "alt": "Young baby asleep in a car seat beside a treatment table while a parent is treated",
+          "learnMore": {
+            "text": "Read more: baby osteopathy in the first year",
+            "url": "/blog/baby-osteopathy/"
+          }
+        }
+      ],
+      "leadHeading": "Maddison's approach with babies and children",
+      "leadBlurb": "Maddison is a Christchurch-born osteopath who brings genuine enthusiasm, care and patience to working with younger patients. With babies, she works slowly and quietly, keeping your baby in your arms or where you can see them the whole time. With toddlers and older children she adapts her pace and explanations to the child in front of her, and keeps parents involved at every step. Osteopathy works alongside your midwife, Plunket nurse and usual doctor, not instead of them — if Maddison notices anything outside osteopathy's scope, such as a possible tongue-tie, reflux or a weight-gain concern, she'll say so and point you to the right person.",
+      "faq": [
+        {
+          "question": "What does baby osteopathy actually involve?",
+          "answer": "It's very light-touch. With a young baby, most of the treatment feels like a gentle hold, often with one hand cradling the head and the other on the pelvis or spine, while we feel for areas of tension or uneven movement. There's no cracking and no forceful movement. Your baby stays in your arms, or on the treatment table where you can see them, the whole time."
+        },
+        {
+          "question": "When can I bring my baby in?",
+          "answer": "Any time from a few days old, once you're home and feeding is settled enough to come out for an hour. Many families come in the first six weeks. Some wait until three or four months if they notice a flat spot or a head-turning preference. There's no wrong time in the first year."
+        },
+        {
+          "question": "What sort of things can it help with?",
+          "answer": "Families most often come for unsettled babies and short sleeps, feeding and latching comfort, a preference for one side, flat spots on the head, and general fussiness without a clear cause. Osteopathy doesn't treat medical conditions like reflux, tongue-tie, allergies or infections — those need your doctor, a paediatrician or a lactation consultant. But it can help with the muscle and joint tension that sometimes plays a part."
+        },
+        {
+          "question": "Do you see toddlers and older children too?",
+          "answer": "Yes. Maddison sees children of all ages — for posture, growing pains, sports knocks and strains, and the aches that come with growth spurts, heavy school bags and lots of screen time. Treatment is adapted to the child's age: gentle, explained in plain words, and never rushed. Sports and playground injuries may be covered by ACC; just mention the injury when you book."
+        },
+        {
+          "question": "Is it safe? Are there risks?",
+          "answer": "Baby osteopathy from a registered osteopath is gentle and considered safe. There are no forceful techniques. The main risk is missing a medical problem that needs a doctor, so at the first visit we always do a whole-body check and refer you on if anything doesn't look right."
+        },
+        {
+          "question": "How many sessions will my baby need?",
+          "answer": "Most babies improve within one to three sessions. If there's a clear pattern, like a strong head-turning preference or a flat spot, we may see you weekly for a few sessions, then less often. If nothing is changing after two or three visits, we'll tell you and suggest a different approach or a referral, rather than keep booking you in."
+        },
+        {
+          "question": "Is baby osteopathy covered by ACC?",
+          "answer": "Usually not, because it isn't accident-related, so our private rate applies. If your child has had a fall or a sports injury, mention it when you book and we'll check whether ACC applies. No referral is needed either way."
+        }
+      ],
+      "related": [
+        {
+          "title": "Pregnancy & Postnatal Osteopathy",
+          "url": "/services/osteopathy/pregnancy/"
+        },
+        {
+          "title": "Postnatal recovery for you",
+          "url": "/blog/postnatal-recovery/"
+        }
+      ]
+    },
+    "pregnancy": {
+      "title": "Pregnancy & Postnatal Osteopathy",
+      "url": "/services/osteopathy/pregnancy/",
+      "parentUrl": "/services/osteopathy/",
+      "heroImage": "/images/hero-pregnancy-back-pain.jpg",
+      "lead": "kaylee",
+      "intro": "Pregnancy and postnatal osteopathy at Meridian Osteopathy in Christchurch is gentle, hands-on care for your body before and after birth. Kaylee Frost leads our pregnancy and postnatal appointments — from early-pregnancy tension and second-trimester back and pelvic pain, through the final weeks, to recovery in the first year after your baby arrives. Treatment is adapted to your stage, with side-lying and pillow-supported positions from around 20 weeks, and works alongside your midwife or lead maternity carer. No referral needed; you can book directly.",
+      "pricing": {
+        "time": "40 – 60 minutes",
+        "note": "Pregnancy and postnatal aches usually build up gradually rather than coming from an accident, so most visits are charged at our private rate. If your pain started after a fall, lift or twist, mention it when you book and we'll check whether ACC applies."
+      },
+      "sections": [
+        {
+          "title": "Through pregnancy",
+          "description": "As your baby grows, your centre of gravity moves forward, the curve in your lower back deepens, and the hormone relaxin softens the ligaments around your pelvis. Lower-back pain, pelvic girdle pain, hip and sciatica-like pain, rib discomfort and neck tension are all common. Gentle osteopathy helps the muscles and joints around your spine, pelvis and ribs share the load more evenly, so you can sleep, walk and get on with your day with less pain. You don't need to be in pain to come in — many patients book a check-up each trimester to stay on top of things.",
+          "image": "/images/specialty-ost-pregnancy.jpg",
+          "alt": "Pregnant woman talking through her history with a practitioner at her first appointment",
+          "learnMore": {
+            "text": "Pregnancy back and pelvic pain",
+            "url": "/conditions/pregnancy-back-pain/"
+          }
+        },
+        {
+          "title": "The last weeks and getting ready for birth",
+          "description": "In the final month, pelvic pressure, hip pain and disturbed sleep are the most common reasons people come in, and some choose weekly sessions until the birth. Treatment focuses on easing tension through the pelvis, lower back and hips so you're as comfortable as possible going into labour. If you'd also like labour preparation acupuncture from 36 weeks, Nina offers weekly sessions that fit alongside your osteopathy, and we're happy to coordinate the two.",
+          "image": "/images/hero-labour-preparation.jpg",
+          "alt": "Heavily pregnant woman reclining on pillows with her hands on her bump during a treatment session",
+          "learnMore": {
+            "text": "Labour preparation acupuncture",
+            "url": "/blog/labour-preparation/"
+          }
+        },
+        {
+          "title": "Recovery after birth",
+          "description": "During pregnancy and birth you're well looked after, and afterwards the focus shifts to your baby. What often gets missed is your body. Lower-back and pelvic pain that hasn't settled, neck and shoulder tension from feeding, wrist and thumb pain from lifting, and ribs or breathing that don't feel back to normal are all things we see every week. Postnatal osteopathy is gentle, hands-on care that helps your body recover from pregnancy and birth. You can start whenever you feel ready, bring your baby along, and pause at any time to feed or settle them.",
+          "image": "/images/hero-postnatal-recovery.jpg",
+          "alt": "New mum sitting on a treatment table while an osteopath gently treats her shoulders, with her baby asleep in a car seat beside her",
+          "learnMore": {
+            "text": "Postpartum recovery treatment",
+            "url": "/conditions/postpartum-recovery/"
+          }
+        }
+      ],
+      "leadHeading": "Kaylee's approach through pregnancy and beyond",
+      "leadBlurb": "Kaylee enjoys working with pregnant and post-partum mums, and brings a gentle, supportive approach to every stage. She looks beyond the sore spot to how your posture, pelvis and breathing are coping with the changes pregnancy brings, and adapts positioning so you're comfortable whatever your stage. After birth, she works around feeding, a young baby who comes along, and the realities of broken sleep — and she's happy to work alongside your women's-health physiotherapist if you have pelvic-floor or abdominal concerns. Osteopathy works alongside your midwife or lead maternity carer, not instead of them, and Kaylee will tell you if anything needs their attention.",
+      "faq": [
+        {
+          "question": "Is osteopathy safe during pregnancy?",
+          "answer": "Yes. We use gentle techniques and positions that are safe in every trimester, avoid forceful 'cracking' of the lower back, and adapt treatment around your bump, your blood pressure and how you feel on the day. If anything needs to be coordinated with your midwife or obstetrician, we're happy to do that."
+        },
+        {
+          "question": "When should I start treatment?",
+          "answer": "Any time. Many people start in the second trimester, when the bump changes their posture and back or pelvic pain first appears. Others come earlier for tension linked to nausea, or later for pelvic pressure and hip pain. It's usually better to come sooner than to wait until the pain has settled in."
+        },
+        {
+          "question": "How is treatment adapted as I get bigger?",
+          "answer": "In the first trimester, most positions still feel comfortable. From around 16–20 weeks, we switch to lying on your side with pillows, or propped up on wedges. We use gentle joint mobilisation, soft-tissue release, and breathing and pelvic-floor work. Nothing is forceful, and you won't need to lie flat on your back for long."
+        },
+        {
+          "question": "When can I start postnatal treatment?",
+          "answer": "Whenever you feel ready. Many people start around six weeks after the birth, often after their midwife's final check, but there's no minimum wait. Gentle treatment is safe from the first week or two if something is bothering you, whether you birthed vaginally or by caesarean."
+        },
+        {
+          "question": "Can I bring my baby with me?",
+          "answer": "Yes — most people do in the first few months. There's room beside the treatment table for a car seat or pram, and you can pause to feed, settle or change your baby at any time. If you'd rather come alone, our evening and Saturday appointments can make childcare easier to arrange."
+        },
+        {
+          "question": "Is pregnancy or postnatal treatment covered by ACC?",
+          "answer": "Usually not, because this kind of pain builds up gradually rather than coming from an accident. If your pain started after a specific event, like a fall, lift or twist, mention it when you book and we'll check whether ACC applies. Otherwise our private rate applies. No referral is needed."
+        },
+        {
+          "question": "How often will I need to come?",
+          "answer": "Most people find a session every two weeks through the second and third trimesters keeps discomfort under control, with weekly sessions in the final month if pelvic or hip pain is affecting sleep. After birth, every two weeks for a few sessions is typical, then less often as things settle. We'll agree a realistic plan at your first visit rather than book you into a fixed course."
+        }
+      ],
+      "related": [
+        {
+          "title": "Baby & Children's Osteopathy",
+          "url": "/services/osteopathy/paediatric/"
+        },
+        {
+          "title": "Acupuncture in pregnancy",
+          "url": "/blog/pregnancy-acupuncture/"
+        }
+      ]
+    }
   },
   "acupuncture": {
     "title": "Acupuncture & Dry Needling",
