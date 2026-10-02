@@ -1,36 +1,36 @@
 {
   "meta": {
-    "reportDate": "2026-09-25",
+    "reportDate": "2026-10-02",
     "schemaVersion": 2,
-    "lastUpdated": "2026-09-25",
+    "lastUpdated": "2026-10-02",
     "generatedBy": "weekly-routine"
   },
   "summary": [
-    "Google's own numbers are in for the first time: clicks from people who didn't search for Meridian by name rose to 151 in the last 28 days, up from 131.",
-    "The quickest win is the sports injury page: Google showed it 223 times for “sports injury treatment” but nobody clicked. The sciatica page sits just off Google's first page.",
-    "Nothing from the list was published this week. The pregnancy back pain page is still estimated #1, but Google shows that search is small (16 appearances in 28 days)."
+    "Five items shipped this week: the blog with five pregnancy and baby posts, the postpartum recovery page, and new Google titles for the sports injury, sciatica and acupuncture pages.",
+    "Early signs are good: the sports injury page now shows up in the estimated results for three sports searches (#1, #3 and #4), and the sciatica page for “sciatica osteopath christchurch” (#5). Google's own numbers only run to 25 Sep, so they don't show these changes yet.",
+    "Clicks from people not searching for Meridian by name were 148 in the last 28 days, up from 140. The next gap is the back pain page, which Google shows at about position 28."
   ],
   "topActions": [
     {
-      "text": "Approve #40 and click Ship it. Claude rewrites the sports injury page's Google title and description so people searching “sports injury treatment” click through.",
+      "text": "Approve #43 and click Ship it. Claude adds “Christchurch” to the back pain, neck pain and headache pages' Google titles, as already done for sciatica.",
       "owner": "claude",
-      "n": 40
-    },
-    {
-      "text": "Approve #41 and click Ship it. Claude sharpens the sciatica page's title and headings and links to it from related pages, to reach Google's first page.",
-      "owner": "claude",
-      "n": 41
+      "n": 43
     },
     {
       "text": "Approve the ACC page (#25) and click Ship it. Claude drafts it, then Nina checks the ACC wording before it goes live.",
       "owner": "practitioner",
       "n": 25
+    },
+    {
+      "text": "Nina: in Search Console, ask Google to index the blog and the five posts and the postpartum page (#44). About 10 minutes.",
+      "owner": "you",
+      "n": 44
     }
   ],
   "tldr": [
-    "Google data (Search Console, last 28 days to 21 Sep vs the 28 days before): 267 clicks (269 before) from 4,155 appearances in Google (4,148). Clicks from people not searching for Meridian by name rose from 131 to 151, while name searches fell (“meridian osteopathy” 71 clicks, down from 115), so the total stayed flat. 32 searches now show Meridian on Google's first page, up from 27. “Osteopath christchurch” improved from an average position of 9.9 to 6.2 (166 appearances, 6 clicks). The fertility acupuncture page is the clearest success: position 2.8 for “fertility acupuncture christchurch” with 8 clicks, up from 5.6 and 3 clicks. The core update that finished on 21 Sep may still be moving numbers, so read small changes cautiously.",
-    "Estimated ranks (a US-based web search, not what someone in Christchurch sees): 30 searches checked. The pregnancy back pain page held #1 and is also #1 for “back pain during pregnancy christchurch”. The sports injury page dropped out of the estimated top 10 again (was #4). Better Health now has a dedicated postnatal page ranking #1 for “postnatal osteopath christchurch”, so the postpartum idea (#36) faces more competition than before. Estimated ranks and Google's figures disagree for “acupuncture christchurch” (estimated absent, Google says 8.7), which is a reminder to trust Search Console first.",
-    "Pool changes: added “sports injury treatment” and “sciatica treatment christchurch” from Search Console, and “is acupuncture covered by acc” and “osteopath christchurch price” from Google's autocomplete, which worked again after six blocked runs. Dropped four low-signal searches. New items #40–#42 all come straight from Search Console: searches where Meridian already appears but gets few or no clicks. Nothing from the list shipped since 18 Sep; the only site change was switching off the June practitioner spotlight."
+    "Google data (Search Console, last 28 days to 25 Sep vs the 28 days before): 254 clicks (279 before) from 4,196 appearances in Google (4,272). The fall is in name searches (“meridian osteopathy” 63 clicks, down from 114). Clicks from people not searching for Meridian by name rose from 140 to 148, and 32 searches show Meridian on Google's first page, up from 26. “Osteopath christchurch” improved from position 9.4 to 6.4 (174 appearances, 4 clicks). The homepage slipped from 6.5 to 9.4 on average. The sports injury page reached position 8 for “sports injury treatment” but still had no clicks; its new title only went live on 25–26 Sep, so next week's numbers are the real test.",
+    "Estimated ranks (a US-based web search, not what someone in Christchurch sees): 30 searches checked. New this week: the sports injury page is #1 for “sports injury recovery christchurch”, #3 for “sports injury osteopath christchurch” and #4 for “osteopath for sports injury christchurch” (all absent last week). The sciatica page appeared at #5 for “sciatica osteopath christchurch”, and the homepage at #4 for “paediatric osteopath christchurch”. The pregnancy back pain page held #1 on both wordings. The new postpartum page and blog posts don't appear yet for “postnatal” or “postpartum osteopath christchurch”. Better Health's ACC page has moved up to #1 for “osteopath acc christchurch”.",
+    "Pool changes: added “sciatica treatment” and “acupuncture riccarton” from Search Console, and “acupuncture christchurch price” and “treatment for sciatica nz” from Google's autocomplete. Dropped four low-signal searches. Google's spam update started on 24 Sep and can take two weeks, so small ranking moves until about 8 Oct may be noise. Shipped and removed from the list: #14 (blog), #36 (postpartum page), #40, #41 and #42 (Google titles for sports injury, sciatica and acupuncture)."
   ],
   "alreadyShipped": [
     "llms.txt and llms-full.txt auto-generated from site data",
@@ -82,18 +82,23 @@
     "ACC copy rewritten site-wide from 'we lodge claims for you' to 'ACC-registered provider' framing after Google Ads disapproved the clinic under the 'Government documents and official services' policy (ACC is a Crown entity; Google's classifier read facilitation language as paid-intermediary status). Explicit non-affiliation line + acc.co.nz link added on the two ads-target service pages and in the ACC FAQ / llms.txt. ACC-registered status, pricing labels, meta descriptions, footer badge and privacy.njk untouched (factual status claims and required disclosures respectively). Changes the angle item #25 (/acc/ landing page) needs to take — the page should describe provider status and patient benefit, not the mechanics of claim filing (PR #113, 2026-07-29)",
     "CLAUDE.md copy-rule violations swept out: 'at no extra charge' removed in three places (Nina's approach + two appointment-type descriptions), reworded to describe the session itself; five 'GP' → 'doctor' fixes in clinically legitimate contexts (red-flag escalation advice + coordinating with a patient's existing care) — 'doctor' carries the same clinical meaning without suggesting gated access (PR #114, 2026-07-29)",
     "Cliniko booking funnel tracked as GA4 conversions with real booking_completed events (not click proxies) — the widget's cross-origin iframe broadcasts step transitions (cliniko-bookings-page:schedule / :patient / :confirmed) which we now listen for; drop-off between steps is visible rather than inferred; duplicate inline handler across book.njk + book-practitioner.njk consolidated into src/js/cliniko-booking.js. Pairs with item #35 (GSC Gen AI report) for end-to-end AI-surface → booking attribution once GSC has data (PR #116, 2026-07-29)",
-    "Referral form now reports why a submission failed (per-field validation errors surface to the user rather than a generic 'submission failed' message) — reduces silent-drop-off from would-be referrers who type a phone number in an unexpected format or leave a required field blank (PR #121, 2026-08-19). Not a backlog item — a UX fix to existing form infrastructure."
+    "Referral form now reports why a submission failed (per-field validation errors surface to the user rather than a generic 'submission failed' message) — reduces silent-drop-off from would-be referrers who type a phone number in an unexpected format or leave a required field blank (PR #121, 2026-08-19). Not a backlog item — a UX fix to existing form infrastructure.",
+    "Blog launched at /blog/ with five pregnancy and baby posts (pregnancy osteopathy, pregnancy acupuncture, labour preparation acupuncture, postnatal recovery, baby osteopathy), a post layout with author and dates, and a Decap CMS collection (item #14, PR #124, 2026-09-28)",
+    "/conditions/postpartum-recovery/ condition page, linked from the pregnancy back pain page (item #36, PR #124, 2026-09-28)",
+    "Sports injury page Google title and description rewritten to lead with “Sports Injury Treatment in Christchurch” (item #40, PR #129, 2026-09-25)",
+    "Sciatica page Google title set to “Sciatica Treatment in Christchurch”, main heading “Sciatica treatment”, plus “sciatica treatment” links from the back pain page and homepage (item #41, PRs #130 and #133)",
+    "Acupuncture page Google title leads with “Acupuncture & Dry Needling in Christchurch”, shorter description, homepage links using “acupuncture in Christchurch” and “dry needling” (item #42, PR #131, 2026-09-26)"
   ],
   "gaps": [
     {
       "id": "G7",
       "title": "No ACC landing page",
-      "why": "Neck-pain and back-pain condition pages ship (items #22, #23 closed). The remaining piece of G7 is a single indexable /acc/ URL. **URGENT COMPETITIVE MOVEMENT 2026-09-18**: betterhealthosteopathy.nz/acc/ now holds #2 on 'osteopath acc christchurch' — Better Health has just shipped a dedicated ACC landing page, which is exactly what Meridian's item #25 proposes. Active Health still holds #1 on the query with their own /christchurch/osteopathy/ page's ACC-registered messaging. This means the competitive window for #25 is closing rapidly — a Meridian /acc/ URL shipped in the next 4-6 weeks slots in behind two entrenched competitors; delayed further, it faces a third. Item #25 covers, and the copy angle needs to match PR #113's site-wide reframing from 'we lodge claims for you' to 'ACC-registered provider' framing (Google Ads classifier reads the old wording as paid-intermediary facilitation)."
+      "why": "Meridian still has no /acc/ page. Better Health's ACC page has moved up to estimated #1 for “osteopath acc christchurch”, ahead of Active Health. Item #25 covers it, using the “ACC-registered provider” wording from July (PR #113)."
     },
     {
       "id": "G8",
-      "title": "No blog / editorial content",
-      "why": "Freshness cliff at ~3 months. Confirmed again 2026-09-18: content depth + freshness remain the dominant differentiator against blog-post-heavy competitors like osteopath-christchurch.com (headaches / migraine / cranial / baby / arthritis), MK Osteopathy (TMJ), headachetendon.nz (chiropractor, though its 3+ week #1 on 'lower back pain christchurch' was DISPLACED this run by Better Health), and triskelionconcussioncare.co.nz's cross-body-region expansion into arthritis / back-pain / neck-pain / concussion via dedicated landing URLs. Meridian's Practitioner Spotlight infrastructure (PR #108) is the closest thing we have to blog cadence — one entry per month, homepage-surface only, not a separate URL. Item #14 covers the full blog build. **STRONGEST-EVER EVIDENCE 2026-09-18**: Meridian's /conditions/pregnancy-back-pain/ reached **#1** on 'pregnancy back pain christchurch' this run — the FIRST TIME any Meridian URL has ever held #1 on a tracked query. This proves definitively that dedicated, indexable, schema-marked condition URLs with citation-ready intros (#31) and structured list blocks (#34) can reach the very top in this market, not just top-10. Combined with the sports-injury-recovery URL's return to #4 the same week, the URL-per-condition thesis is validated across two pages and multiple SERP positions (#1, #4, #5, #6, #9). Item #14 (blog collection built on the same infrastructure) is the highest-leverage path to more ranked URLs and remains **Tier 1**. Cloudflare's 15 Sep AI-crawler default further raises the leverage of owned Q&A content (ad-supported publishers being shut out of AI training crawlers means models will lean harder on primary-source clinic sites)."
+      "title": "Blog started; needs regular posts",
+      "why": "The blog launched on 28 Sep with five pregnancy and baby posts (item #14 shipped). They aren't visible in search yet. Competitors such as Better Health and osteopath-christchurch.com rank with one page per topic, so the gap is now keeping posts coming on topics people already search for. Item #45 suggests the next one."
     },
     {
       "id": "G15",
@@ -141,28 +146,6 @@
       "firstSeen": "2026-04-22"
     },
     {
-      "n": 14,
-      "tier": 3,
-      "impact": "H",
-      "effort": "L",
-      "title": "Start a blog (2 posts/month)",
-      "owner": "practitioner",
-      "reviewer": "the practitioner who writes each post",
-      "confidence": "likely",
-      "why": "Nearby clinics that rank for specific conditions mostly do it with one helpful article per condition. Your own pages back this up: the fertility acupuncture page now sits at position 2.8 in Google with 8 clicks a month. It's the biggest job on the list, and every post needs a practitioner.",
-      "matchTerms": [],
-      "files": [
-        "src/blog/",
-        "Decap CMS collection config",
-        "PR #108 Practitioner Spotlight infra can be extended rather than a from-scratch build"
-      ],
-      "body": "Short, practical articles, one per condition or question, each with the practitioner's name, publish and update dates, and 3–5 common questions. Competitors like osteopath-christchurch.com and Better Health rank on many condition searches this way. Meridian's evidence: the fertility page (position 2.8, 8 clicks in 28 days, up from 3) and the pregnancy back pain page (estimated #1, though only 16 Google appearances a month) show dedicated pages work here. Start with topics people already search for, using Search Console's query list, rather than guessing. The practitioner spotlight setup can be reused for the page layout and CMS. Two posts a month is enough if each is genuinely useful.",
-      "addresses": [
-        "G8"
-      ],
-      "firstSeen": "2026-04-22"
-    },
-    {
       "n": 15,
       "tier": 3,
       "impact": "M",
@@ -207,7 +190,7 @@
       "owner": "practitioner",
       "reviewer": "Nina Hu",
       "confidence": "likely",
-      "why": "People search for ACC osteopaths, and Better Health and The House of Acupuncture both have dedicated ACC pages. Meridian doesn't appear for these searches at all yet. ACC wording is sensitive (see July's rewording), so Nina should check it.",
+      "why": "People search for ACC osteopaths, and Better Health (now estimated #1) and The House of Acupuncture both have dedicated ACC pages. Meridian doesn't appear for these searches yet. ACC wording is sensitive (see July's rewording), so Nina should check it.",
       "matchTerms": [
         "acc"
       ],
@@ -215,7 +198,7 @@
         "src/acc.njk",
         "src/_includes/header.njk"
       ],
-      "body": "A single page at /acc/ explaining ACC for patients. Estimated ranks for “osteopath acc christchurch” are unchanged: Active Health #1 and Better Health's ACC page #2. For acupuncture, The House of Acupuncture has a dedicated ACC page, and Google's autocomplete suggests “is acupuncture covered by acc”. The page should say that Meridian is an ACC-registered provider (osteopathy with Nina Hu, acupuncture with Min Jin), what a patient pays, that no referral is needed, and that Meridian isn't part of ACC, with a link to acc.co.nz. Don't describe filing claims on the patient's behalf (see the July Google Ads rewording). Lead with a short 40–60 word answer, as on the condition pages.",
+      "body": "A single page at /acc/ explaining ACC for patients. Estimated ranks for “osteopath acc christchurch”: Better Health's ACC page #1, Active Health #2. For acupuncture, The House of Acupuncture has a dedicated ACC page, and Google's autocomplete suggests “is acupuncture covered by acc” and “osteopath christchurch acc”. The page should say that Meridian is an ACC-registered provider (osteopathy with Nina Hu, acupuncture with Min Jin), what a patient pays, that no referral is needed, and that Meridian isn't part of ACC, with a link to acc.co.nz. Don't describe filing claims on the patient's behalf (see the July Google Ads rewording). Lead with a short 40–60 word answer, as on the condition pages.",
       "addresses": [
         "G7"
       ],
@@ -255,96 +238,79 @@
       "files": [
         "(GSC console — no repo changes)"
       ],
-      "body": "Search Console is connected and feeding this dashboard. Its separate AI report (appearances in AI Overviews and AI Mode) isn't pulled in automatically. In Search Console, open Performance, pick the AI features view, set the date range to the last 3 months, and save a screenshot as the “before” picture ahead of any new pages. The report shows appearances only, not clicks. Google's core update finished on 21 Sep and a spam update started on 24 Sep, so give it until mid-October before reading much into changes. No website changes needed.",
+      "body": "Search Console is connected and feeding this dashboard. Its separate AI report (appearances in AI Overviews and AI Mode) isn't pulled in automatically. In Search Console, open Performance, pick the AI features view, set the date range to the last 3 months, and save a screenshot as the “before” picture ahead of any new pages. The report shows appearances only, not clicks. Google's spam update started on 24 Sep and can take two weeks, so give it until mid-October before reading much into changes. Taking the screenshot now also captures a “before” picture for the new blog posts. No website changes needed.",
       "addresses": [],
       "firstSeen": "2026-06-05"
     },
     {
-      "n": 36,
+      "n": 43,
+      "tier": 1,
+      "impact": "M",
+      "effort": "S",
+      "title": "Add “Christchurch” to the back pain, neck pain and headache page titles",
+      "owner": "claude",
+      "confidence": "likely",
+      "why": "Google shows the back pain page at about position 28 for “back pain christchurch” (51 appearances, no clicks). The same title change on the sciatica page was followed by an estimated #5 for “sciatica osteopath christchurch” within a week.",
+      "matchTerms": [
+        "back pain",
+        "neck pain",
+        "headache"
+      ],
+      "files": [
+        "src/conditions/back-pain.njk",
+        "src/conditions/neck-pain.njk",
+        "src/conditions/headaches-migraines.njk",
+        "src/_data/conditions.json"
+      ],
+      "body": "The three pages' Google titles are “Back Pain Treatment”, “Neck Pain Treatment” and “Headache & Migraine Treatment”, with no place name, and their main headings are just the condition name. Give each a title in the form “Back Pain Treatment in Christchurch | Meridian Osteopathy” (as the sciatica and sports injury pages now have) and make the main heading say “… treatment”. Search Console: back pain page position 27.9 (67 appearances), “osteopath for neck pain” 12.5, “headache clinic christchurch” 24.3, “osteopath for migraines” 27.1. Better Health ranks with titles like “Back Pain Treatment Christchurch”. Wording only, no clinical changes.",
+      "addresses": [],
+      "firstSeen": "2026-10-02"
+    },
+    {
+      "n": 44,
       "tier": 2,
       "impact": "M",
       "effort": "S",
-      "title": "Add a postpartum recovery page (Kaylee)",
-      "owner": "practitioner",
-      "reviewer": "Kaylee Frost",
-      "confidence": "experimental",
-      "why": "Kaylee lists pregnancy and postpartum care as a special interest, but Better Health now has a dedicated postnatal page ranking #1 (estimated), so this is no longer the easy gap it looked like. Search Console shows no postpartum searches reaching the site yet.",
+      "title": "Ask Google to index the new blog posts and postpartum page",
+      "owner": "you",
+      "confidence": "likely",
+      "why": "The blog and postpartum page went live on 28 Sep but don't show up yet for “postnatal” or “postpartum osteopath christchurch”. Asking Google to index them takes about 10 minutes and can speed up how soon they appear.",
       "matchTerms": [
+        "postnatal",
         "postpartum",
-        "postnatal"
+        "pregnancy",
+        "baby"
       ],
       "files": [
-        "src/conditions/pregnancy-back-pain.njk (extend) OR src/conditions/postpartum-recovery.njk (new)",
-        "src/_data/conditions.json"
+        "(Search Console — no repo changes)"
       ],
-      "body": "A separate /conditions/postpartum-recovery/ page, built like the existing condition pages, so the pregnancy back pain page (estimated #1) keeps its focus. For the last three weeks “postpartum osteopath christchurch” returned very few results. This week Better Health's new /care/postnatal/ page is #1 for “postnatal osteopath christchurch”, and Triskelion and Active Health also appear. Still worth doing if Kaylee wants to lead it, since the pregnancy page shows this pattern can rank, but expect a harder climb. Add it to the homepage conditions grid.",
-      "addresses": [],
-      "firstSeen": "2026-08-14"
+      "body": "In Search Console, paste each new address into the search bar at the top (URL inspection) and click “Request indexing”: /blog/, the five posts under /blog/ and /conditions/postpartum-recovery/. Then open Sitemaps and resubmit /sitemap.xml, which already lists them. Estimated ranks for “postnatal osteopath christchurch” and “postpartum osteopath christchurch” are led by Better Health, osteo.co.nz and osteopath-christchurch.com, and Meridian isn't visible yet. Check the Pages report in two weeks to confirm they're indexed.",
+      "addresses": [
+        "G8"
+      ],
+      "firstSeen": "2026-10-02"
     },
     {
-      "n": 40,
-      "tier": 1,
+      "n": 45,
+      "tier": 2,
       "impact": "M",
-      "effort": "S",
-      "title": "Get clicks for “sports injury treatment”: shown 223 times, no clicks",
-      "owner": "claude",
-      "confidence": "likely",
-      "why": "Google already shows your sports injury page for “sports injury treatment” (223 times in 28 days, average position 8.7) but nobody clicked. A clearer Google title and description is the cheapest way to turn those appearances into visits.",
-      "matchTerms": [
-        "sports injury",
-        "sports recovery"
-      ],
-      "files": [
-        "src/conditions/sports-injury-recovery.njk",
-        "src/_data/conditions.json"
-      ],
-      "body": "The page's Google title is currently “Sports Injury Recovery | Meridian Osteopathy”, which doesn't match what people type. Change it to lead with “Sports Injury Treatment in Christchurch”, and rewrite the description to say who it's for and what happens at a first visit, in plain words, keeping “no referral needed” and ACC-registered status. Match the main heading to the new title. Related Search Console searches: “sports injury treatments” (11.4), “sports recovery” (11.3), “sport injuries rehabilitation” (13.8). No clinical claims change, so no practitioner review is needed.",
-      "addresses": [],
-      "firstSeen": "2026-09-25"
-    },
-    {
-      "n": 41,
-      "tier": 1,
-      "impact": "M",
-      "effort": "S",
-      "title": "Move the sciatica page onto Google's first page for “sciatica treatment”",
-      "owner": "claude",
-      "confidence": "likely",
-      "why": "The sciatica page is Meridian's most-shown condition page (272 appearances in 28 days) but sits at position 16.5 for “sciatica treatment”, just off the first page. It's already position 5 for “sciatica treatment christchurch”.",
+      "effort": "M",
+      "title": "Next blog post: a plain guide to sciatica, checked by Jonathan",
+      "owner": "practitioner",
+      "reviewer": "Jonathan Grice",
+      "confidence": "experimental",
+      "why": "The sciatica page gets the most Google appearances of any condition page (242 in 28 days) but sits around position 29 overall. A practical article answering common sciatica questions gives Google a second, linked page on the topic.",
       "matchTerms": [
         "sciatica"
       ],
       "files": [
-        "src/conditions/sciatica.njk",
-        "src/_data/conditions.json",
-        "src/conditions/back-pain.njk",
-        "src/index.njk"
+        "src/blog/posts/sciatica-guide.md"
       ],
-      "body": "Appearances grew from 187 to 272 but clicks are only 2. Change the Google title to “Sciatica Treatment in Christchurch | Meridian Osteopathy” and make the main heading say “Sciatica treatment”. Add clear links to the sciatica page from the back pain page and the homepage conditions section using the words “sciatica treatment”. Search Console also shows “osteopath for sciatica” (8.8), “can osteopath help with sciatica” (9) and “sciatica specialist” (11.2). Wording and links only; if new clinical content is added, ask a practitioner to check it.",
-      "addresses": [],
-      "firstSeen": "2026-09-25"
-    },
-    {
-      "n": 42,
-      "tier": 2,
-      "impact": "M",
-      "effort": "S",
-      "title": "Make the acupuncture page, not the homepage, the one Google shows for acupuncture",
-      "owner": "claude",
-      "confidence": "experimental",
-      "why": "“Acupuncture christchurch” is your biggest non-name search (291 appearances), but Google shows the homepage at position 8.7 and clicks fell from 9 to 4. The acupuncture page itself sits at position 4.3 for the searches it does get.",
-      "matchTerms": [
-        "acupuncture",
-        "dry needling"
+      "body": "A short post answering what people search for: “treatment for sciatica nz”, “sciatica specialist” (Search Console position 11), “can an osteopath help with sciatica” and “exercises for sciatica nz” (Google autocomplete). Cover how long sciatica usually lasts, when to see someone urgently, and what a first visit looks like, then link to the sciatica page. Jonathan lists sciatica as a special interest, so he should check the clinical content. Experimental because the blog is brand new and no post has ranked yet; read the result in Search Console about six weeks after publishing.",
+      "addresses": [
+        "G8"
       ],
-      "files": [
-        "src/services/medical-acupuncture.njk",
-        "src/_data/services.json",
-        "src/index.njk"
-      ],
-      "body": "When Google picks the homepage for a service search, the result is less specific and tends to get fewer clicks. Lead the acupuncture page's Google title with “Acupuncture & Dry Needling in Christchurch”, shorten its description (currently long and cut off), and link to it from the homepage with the words “acupuncture in Christchurch”. The same applies to “dry needling christchurch” (62 appearances, position 10.4, homepage shown). Experimental because Google may keep preferring the homepage; check Search Console four weeks after shipping.",
-      "addresses": [],
-      "firstSeen": "2026-09-25"
+      "firstSeen": "2026-10-02"
     }
   ]
 }
