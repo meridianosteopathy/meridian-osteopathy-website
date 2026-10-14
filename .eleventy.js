@@ -1,4 +1,20 @@
+const fs = require("fs");
+const path = require("path");
+const careerRoles = require("./scripts/careers/roles");
+const { buildRolePdf } = require("./scripts/careers/pdf");
+
 module.exports = function(eleventyConfig) {
+  // Each open vacancy gets a downloadable PDF next to its role page, built
+  // from the same careers.json entry so the two never disagree.
+  eleventyConfig.addWatchTarget("./scripts/careers/");
+  eleventyConfig.on("eleventy.after", async ({ dir }) => {
+    for (const role of careerRoles.load()) {
+      const out = path.join(dir.output, role.pdfUrl);
+      fs.mkdirSync(path.dirname(out), { recursive: true });
+      fs.writeFileSync(out, await buildRolePdf(role));
+    }
+  });
+
   // Pass through static assets
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");

@@ -1,0 +1,61 @@
+---
+layout: base.njk
+pagination:
+  data: careerRoles
+  size: 1
+  alias: role
+  addAllPagesToCollections: true
+permalink: "{{ role.url }}"
+eleventyComputed:
+  title: "{{ role.title }} Job in Christchurch"
+  description: "{{ role.title }} ({{ role.type | lower }}) role at Meridian Osteopathy in Hillmorton, Christchurch. Read the full role description, download it as a PDF and apply online."
+---
+
+{#- One page per vacancy in careers.json, built from scripts/careers/roles.js.
+    The JobPosting markup below is what Google reads for its job search;
+    it only appears on these single-role pages, never on the /careers/
+    list, as Google requires. -#}
+
+<section class="hero" style="background-image: url('/images/hero-careers.jpg');">
+</section>
+
+{% include "breadcrumbs.njk" %}
+
+<section class="section">
+  <div class="container">
+    <div class="role-body">
+      <p class="role-back"><a href="/careers/">← All vacancies</a></p>
+      <h1>{{ role.title }}</h1>
+      <p class="role-meta">
+        {% if role.type %}<span class="vacancy-type vacancy-type--{{ role.type | lower | replace(' ', '-') }}">{{ role.type }}</span>{% endif %}
+        <span>{{ site.addressParts.locality }}, {{ site.addressParts.country }}</span>
+        {% if role.datePosted %}<span>Posted <time datetime="{{ role.datePosted }}">{{ role.datePosted | dateFriendly }}</time></span>{% endif %}
+      </p>
+
+      <div class="role-actions">
+        <a href="#apply" class="btn btn-primary">Apply now</a>
+        <a href="{{ role.pdfUrl }}" class="btn btn-outline" download="{{ role.pdfFileName }}">Download role description (PDF)</a>
+      </div>
+
+      {% for s in role.sections %}
+      <h2>{{ s.heading }}</h2>
+      {% if s.items %}
+      <ul>
+        {% for item in s.items %}<li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+      {% else %}
+        {% for p in s.paragraphs %}<p>{{ p }}</p>
+        {% endfor %}
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% set presetPosition = role.title %}
+{% include "career-form.njk" %}
+
+{% if role.jobPosting %}
+<script type="application/ld+json">{{ role.jobPosting | jsonScript | safe }}</script>
+{% endif %}
