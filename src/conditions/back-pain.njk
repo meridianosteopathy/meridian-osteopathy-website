@@ -1,6 +1,7 @@
 ---
 layout: base.njk
 title: Back Pain Treatment
+titleOverride: "Back Pain Treatment in Christchurch | Meridian Osteopathy"
 description: "Back pain treatment in Christchurch at Meridian Osteopathy. ACC-registered, no referral needed. Acute, chronic, and recurring lower back pain — what causes it, how osteopathy helps, and when to seek urgent care."
 updated: 2026-05-10
 ---
@@ -17,7 +18,7 @@ updated: 2026-05-10
 <section class="section text-center">
   <div class="container">
     <div class="service-intro">
-      <h1>{{ c.title }}</h1>
+      <h1>{{ c.heading or c.title }}</h1>
       <p class="subtitle">{{ c.tagline }}</p>
     </div>
   </div>
