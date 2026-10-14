@@ -1,3 +1,19 @@
 {
-  "vacancies": []
+  "vacancies": [
+    {
+      "title": "Massage Therapist",
+      "type": "Contractor",
+      "requirements": "Diploma in Massage Therapy (NZQA Level 5 or above) or equivalent. Massage New Zealand membership preferred. Remedial or sports massage experience an advantage."
+    },
+    {
+      "title": "Acupuncturist",
+      "type": "Contractor",
+      "requirements": "Current registration with the Chinese Medicine Council of New Zealand (CMCNZ), or eligible to obtain it before starting. ACC provider registration an advantage."
+    },
+    {
+      "title": "Medical Herbalist",
+      "type": "Contractor",
+      "requirements": "Degree in Medical Herbalism or Naturopathy (e.g. BHSc / BNatMed) or equivalent. Membership of the NZ Association of Medical Herbalists (NZAMH), or eligibility, preferred."
+    }
+  ]
 }
