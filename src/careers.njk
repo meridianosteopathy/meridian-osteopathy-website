@@ -38,7 +38,7 @@ description: "Join our team at Meridian Osteopathy in Christchurch, New Zealand.
 
     {% if careerRoles.length > 0 %}
 
-      <p class="subtitle" style="margin-bottom: 32px;">We're hiring! See our open positions below and apply using the form further down the page.</p>
+      <p class="subtitle" style="margin-bottom: 32px;">We're hiring! Choose <strong>View role details</strong> to read the full description and download it as a PDF, or apply using the form further down the page.</p>
 
       <div class="vacancy-table">
         <div class="vacancy-table-header">
@@ -51,9 +51,11 @@ description: "Join our team at Meridian Osteopathy in Christchurch, New Zealand.
         <div class="vacancy-row">
           <span class="vacancy-title"><a href="{{ v.url }}">{{ v.title }}</a></span>
           <span class="vacancy-type vacancy-type--{{ v.type | lower | replace(' ', '-') }}">{{ v.type }}</span>
-          <span class="vacancy-requirements"><span class="vacancy-req-label">Requirements: </span>{{ v.summary }}
-            <a href="{{ v.url }}" class="vacancy-details-link">Full role description<span class="visually-hidden"> for {{ v.title }}</span> →</a></span>
-          <a href="#apply" class="btn btn-primary btn-careers vacancy-apply-btn" data-position="{{ v.title }}">Apply Now</a>
+          <span class="vacancy-requirements"><span class="vacancy-req-label">Requirements: </span>{{ v.summary }}</span>
+          <div class="vacancy-actions">
+            <a href="{{ v.url }}" class="btn btn-primary btn-careers">View role details<span class="visually-hidden"> for {{ v.title }}</span></a>
+            <a href="#apply" class="btn btn-outline btn-careers vacancy-apply-btn" data-position="{{ v.title }}">Apply now<span class="visually-hidden"> for {{ v.title }}</span></a>
+          </div>
         </div>
         {% endfor %}
       </div>

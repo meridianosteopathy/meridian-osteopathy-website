@@ -14,47 +14,147 @@ eleventyComputed:
 {#- One page per vacancy in careers.json, built from scripts/careers/roles.js.
     The JobPosting markup below is what Google reads for its job search;
     it only appears on these single-role pages, never on the /careers/
-    list, as Google requires. -#}
+    list, as Google requires.
 
-<section class="hero" style="background-image: url('/images/hero-careers.jpg');">
-</section>
+    Layout: slim navy title band → two columns (role content + a sticky
+    "Role at a glance" box with Apply / Download PDF) → shared "What we
+    offer" / "About" band → application form. On mobile the glance box
+    sits under the title and an Apply bar stays pinned to the bottom of
+    the screen until the form is reached. -#}
 
-{% include "breadcrumbs.njk" %}
+{%- macro sectionBody(s) -%}
+  {%- if s.items %}
+  <ul>
+    {%- for item in s.items %}
+    <li>{{ item }}</li>
+    {%- endfor %}
+  </ul>
+  {%- else %}
+    {%- for p in s.paragraphs %}
+  <p>{{ p }}</p>
+    {%- endfor %}
+  {%- endif %}
+{%- endmacro %}
 
-<section class="section">
+<section class="role-hero">
+  {% include "breadcrumbs.njk" %}
   <div class="container">
-    <div class="role-body">
-      <p class="role-back"><a href="/careers/">← All vacancies</a></p>
-      <h1>{{ role.title }}</h1>
-      <p class="role-meta">
-        {% if role.type %}<span class="vacancy-type vacancy-type--{{ role.type | lower | replace(' ', '-') }}">{{ role.type }}</span>{% endif %}
-        <span>{{ site.addressParts.locality }}, {{ site.addressParts.country }}</span>
-        {% if role.datePosted %}<span>Posted <time datetime="{{ role.datePosted }}">{{ role.datePosted | dateFriendly }}</time></span>{% endif %}
-      </p>
-
-      <div class="role-actions">
-        <a href="#apply" class="btn btn-primary">Apply now</a>
-        <a href="{{ role.pdfUrl }}" class="btn btn-outline" download="{{ role.pdfFileName }}">Download role description (PDF)</a>
-      </div>
-
-      {% for s in role.sections %}
-      <h2>{{ s.heading }}</h2>
-      {% if s.items %}
-      <ul>
-        {% for item in s.items %}<li>{{ item }}</li>
-        {% endfor %}
-      </ul>
-      {% else %}
-        {% for p in s.paragraphs %}<p>{{ p }}</p>
-        {% endfor %}
-      {% endif %}
-      {% endfor %}
-    </div>
+    <h1>{{ role.title }}</h1>
+    <p class="role-meta">
+      {% if role.type %}<span class="vacancy-type vacancy-type--{{ role.type | lower | replace(' ', '-') }}">{{ role.type }}</span>{% endif %}
+      <span>Hillmorton, {{ site.addressParts.locality }}</span>
+      {% if role.datePosted %}<span>Posted <time datetime="{{ role.datePosted }}">{{ role.datePosted | dateFriendly }}</time></span>{% endif %}
+    </p>
   </div>
 </section>
 
+<section class="section role-section">
+  <div class="container role-layout">
+
+    <aside class="role-aside" aria-labelledby="role-glance-title">
+      <div class="role-glance">
+        <div class="role-glance-actions">
+          <a href="#apply" class="btn btn-primary">Apply now</a>
+          <a href="{{ role.pdfUrl }}" class="btn btn-outline" download="{{ role.pdfFileName }}">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
+            Download PDF
+          </a>
+        </div>
+        <h2 id="role-glance-title">Role at a glance</h2>
+        <dl>
+          {%- if role.type %}
+          <div><dt>Type</dt><dd>{{ role.type }}</dd></div>
+          {%- endif %}
+          <div><dt>Location</dt><dd>Hillmorton, {{ site.addressParts.locality }}</dd></div>
+          {%- if role.section.hours %}
+          <div><dt>Hours</dt><dd>{{ role.section.hours.paragraphs | join(" ") }}</dd></div>
+          {%- endif %}
+          {%- if role.datePosted %}
+          <div><dt>Posted</dt><dd>{{ role.datePosted | dateFriendly }}</dd></div>
+          {%- endif %}
+        </dl>
+      </div>
+    </aside>
+
+    <div class="role-main">
+      {%- for key in ["about", "responsibilities"] %}
+      {%- set s = role.section[key] %}
+      {%- if s %}
+      <h2>{{ s.heading }}</h2>
+      {{ sectionBody(s) }}
+      {%- endif %}
+      {%- endfor %}
+
+      {%- if role.section.essential or role.section.desirable %}
+      <div class="role-req-grid">
+        {%- for key in ["essential", "desirable"] %}
+        {%- set s = role.section[key] %}
+        {%- if s %}
+        <div class="role-card role-card--{{ key }}">
+          <h2>{{ s.heading }}</h2>
+          {{ sectionBody(s) }}
+        </div>
+        {%- endif %}
+        {%- endfor %}
+      </div>
+      {%- endif %}
+
+      <p class="role-back"><a href="/careers/">← Back to all vacancies</a></p>
+    </div>
+
+  </div>
+</section>
+
+{%- if role.section.offer or role.section.company %}
+<section class="section section-light role-shared">
+  <div class="container role-shared-grid">
+    {%- if role.section.offer %}
+    <div>
+      <h2>{{ role.section.offer.heading }}</h2>
+      <ul class="role-offer">
+        {%- for item in role.section.offer.items %}
+        <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="m7.5 12.5 3 3 6-6.5"/></svg><span>{{ item }}</span></li>
+        {%- endfor %}
+      </ul>
+    </div>
+    {%- endif %}
+    {%- if role.section.company %}
+    <div class="role-company">
+      <h2>{{ role.section.company.heading }}</h2>
+      {{ sectionBody(role.section.company) }}
+    </div>
+    {%- endif %}
+  </div>
+</section>
+{%- endif %}
+
 {% set presetPosition = role.title %}
 {% include "career-form.njk" %}
+
+<div class="role-apply-bar" id="role-apply-bar">
+  <a href="#apply" class="btn btn-primary">Apply for this role</a>
+</div>
+<script>
+  // Mobile only (CSS hides the bar on wider screens): show the pinned Apply
+  // bar once the glance box's own Apply button has scrolled away, and hide
+  // it again when the form is on screen so it never covers the form.
+  (function () {
+    var bar = document.getElementById("role-apply-bar");
+    var glance = document.querySelector(".role-glance-actions");
+    var form = document.getElementById("apply");
+    if (!bar || !glance || !form || !("IntersectionObserver" in window)) return;
+    var glanceInView = true, formReached = false;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.target === glance) glanceInView = e.isIntersecting;
+        else formReached = e.isIntersecting || e.boundingClientRect.top < 0;
+      });
+      bar.classList.toggle("is-visible", !glanceInView && !formReached);
+    });
+    io.observe(glance);
+    io.observe(form);
+  })();
+</script>
 
 {% if role.jobPosting %}
 <script type="application/ld+json">{{ role.jobPosting | jsonScript | safe }}</script>

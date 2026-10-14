@@ -58,7 +58,9 @@ function escapeHtml(text) {
     .replace(/"/g, "&quot;");
 }
 
-// The ordered content blocks shown on the role page and in the PDF. Older
+// The ordered content blocks for the PDF and the JobPosting description.
+// Each has a key so the role page can lay them out individually (see
+// role.section in load()). Older
 // or minimal entries (title, type and short summary only) still produce a
 // usable page: the summary stands in for the requirements list.
 function buildSections(v, shared) {
@@ -66,15 +68,15 @@ function buildSections(v, shared) {
   const essential = cleanList(v.essential);
   const summary = String(v.requirements || "").trim();
   const sections = [
-    { heading: "About the role", paragraphs: overview },
-    { heading: "Key responsibilities", items: cleanList(v.responsibilities) },
+    { key: "about", heading: "About the role", paragraphs: overview },
+    { key: "responsibilities", heading: "Key responsibilities", items: cleanList(v.responsibilities) },
     essential.length
-      ? { heading: "What you'll need", items: essential }
-      : { heading: "What you'll need", paragraphs: summary ? [summary] : [] },
-    { heading: "Nice to have", items: cleanList(v.desirable) },
-    { heading: "Hours", paragraphs: paragraphs(v.hours) },
-    { heading: "What we offer", items: shared.offer },
-    { heading: "About " + site.name, paragraphs: shared.about },
+      ? { key: "essential", heading: "What you'll need", items: essential }
+      : { key: "essential", heading: "What you'll need", paragraphs: summary ? [summary] : [] },
+    { key: "desirable", heading: "Nice to have", items: cleanList(v.desirable) },
+    { key: "hours", heading: "Hours", paragraphs: paragraphs(v.hours) },
+    { key: "offer", heading: "What we offer", items: shared.offer },
+    { key: "company", heading: "About " + site.name, paragraphs: shared.about },
   ];
   return sections.filter(
     (s) => (s.items && s.items.length) || (s.paragraphs && s.paragraphs.length)
@@ -158,6 +160,7 @@ function load() {
         employmentType: EMPLOYMENT_TYPES[v.type] || null,
       };
       role.sections = buildSections(v, shared);
+      role.section = Object.fromEntries(role.sections.map((s) => [s.key, s]));
       role.jobPosting = buildJobPosting(role);
       return role;
     });
