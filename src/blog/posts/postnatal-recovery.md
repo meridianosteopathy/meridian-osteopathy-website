@@ -3,14 +3,15 @@ title: "Postnatal Recovery: Care for Your Body After Birth"
 description: "Postnatal osteopathy in Christchurch — pelvic and back recovery, feeding posture, and the physical demands of newborn life. Gentle care whether you birthed vaginally or by caesarean."
 excerpt: "The first year after birth asks a lot of your body, from feeding posture and broken sleep to lifting a growing baby. Postnatal osteopathy is gentle, hands-on care that helps your body recover from pregnancy and birth, so you can feel like yourself again."
 publishedDate: 2026-07-15
-authorKey: nina
+authorKey: kaylee
+updated: 2026-09-29
 category: "Pregnancy & baby"
 coverImage: /images/hero-postnatal-recovery.jpg
 coverAlt: "New mum sitting on a treatment table while an osteopath gently treats her shoulders, with her baby asleep in a car seat beside her"
 relatedService:
-  title: "Osteopathy"
-  url: /services/osteopathy/
-  blurb: "Postnatal osteopathy is our usual hands-on osteopathy, with extra focus on your pelvis, tummy muscles, ribs and neck, and on how you feed, settle and carry your baby."
+  title: "Pregnancy & Postnatal Osteopathy"
+  url: /services/osteopathy/pregnancy/
+  blurb: "Kaylee leads our pregnancy and postnatal osteopathy. Postnatal treatment is our usual hands-on osteopathy, with extra focus on your pelvis, tummy muscles, ribs and neck, and on how you feed, settle and carry your baby."
   alsoConsider:
     title: "Postnatal recovery treatment"
     url: /conditions/postpartum-recovery/
@@ -63,4 +64,4 @@ You can bring your baby or come alone. Most people come every two weeks for a fe
 
 Osteopathy is one part of postnatal care, not all of it. We're happy to work alongside your women's-health physio. If something would be better handled by your usual doctor, a lactation consultant or a mental-health professional, we'll tell you, whether that's at the first visit or later on. The right mix of care makes recovery easier.
 
-Ready to book? You can book directly online — no referral needed.
+Ready to book? You can [book directly with Kaylee](/book/kaylee/) — no referral needed.

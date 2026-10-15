@@ -3,20 +3,21 @@ title: "Osteopathy Through Pregnancy: Gentle, Trimester-Aware Care"
 description: "Gentle osteopathy in Christchurch for pregnancy-related back, pelvic and hip discomfort. Safe across all trimesters, tailored to your body as it changes."
 excerpt: "Gentle, hands-on osteopathy to keep you comfortable as your posture, ligaments and pelvis change through pregnancy. Safe in every trimester, and works alongside your midwife."
 publishedDate: 2026-09-09
-authorKey: nina
+authorKey: kaylee
+updated: 2026-09-29
 category: "Pregnancy & baby"
 coverImage: /images/specialty-ost-pregnancy.jpg
 coverAlt: "Pregnant woman talking through her history with a practitioner at her first appointment"
 relatedService:
-  title: "Osteopathy"
-  url: /services/osteopathy/
-  blurb: "Our pregnancy osteopathy uses side-lying positions, pillow support and gentle techniques, so it stays comfortable at every stage, right up until birth."
+  title: "Pregnancy & Postnatal Osteopathy"
+  url: /services/osteopathy/pregnancy/
+  blurb: "Kaylee leads our pregnancy and postnatal osteopathy. She uses side-lying positions, pillow support and gentle techniques, so it stays comfortable at every stage, right up until birth."
   alsoConsider:
     title: "Pregnancy back pain treatment"
     url: /conditions/pregnancy-back-pain/
 faq:
   - question: "Is osteopathy safe during pregnancy?"
-    answer: "Yes. Osteopaths trained in pregnancy care use gentle techniques and positions that are safe in every trimester. We avoid forceful 'cracking' of the lower back, and adapt treatment around your bump, your blood pressure and how you feel on the day. If anything needs to be coordinated with your midwife or obstetrician, we're happy to do that."
+    answer: "Yes. We use gentle techniques and positions that are safe in every trimester. We avoid forceful 'cracking' of the lower back, and adapt treatment around your bump, your blood pressure and how you feel on the day. If anything needs to be coordinated with your midwife or obstetrician, we're happy to do that."
   - question: "When should I start treatment?"
     answer: "Any time. Many people start in the second trimester, when the bump changes their posture and back or pelvic pain first appears. Others come earlier for tension linked to nausea, or later for pelvic pressure and hip pain. There's no ideal week, but it's usually better to come sooner than to wait until the pain has settled in."
   - question: "How is treatment adapted as I get bigger?"
@@ -62,4 +63,4 @@ From about 20 weeks, we treat you lying on your side or propped up with pillows 
 
 Osteopathy works alongside your usual maternity care, not instead of it. Your midwife or lead maternity carer (LMC) still leads your pregnancy and birth care. We focus on the aches, stiffness and posture changes that affect how well you sleep and get through the day. If we notice anything that needs their attention, such as ongoing one-sided pain, unusual swelling or blood-pressure concerns, we'll tell you and encourage you to raise it with them.
 
-Ready to book? You can book directly online — no referral needed.
+Ready to book? You can [book directly with Kaylee](/book/kaylee/) — no referral needed.

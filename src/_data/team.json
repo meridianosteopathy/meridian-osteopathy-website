@@ -115,7 +115,7 @@
     "firstName": "Kaylee",
     "bookingPractitionerId": "1947461745974975214",
     "role": "Osteopath",
-    "treats": ["Musculoskeletal injuries", "Pregnancy & postpartum", "Paediatric", "Headaches", "Jaw pain"],
+    "treats": [{"text": "Pregnancy & postnatal osteopathy", "url": "/services/osteopathy/pregnancy/"}, "Musculoskeletal injuries", "Paediatric", "Headaches", "Jaw pain"],
     "photo": "/images/team-kaylee.jpg",
     "photoAlt": "Osteopath Kaylee Frost of Meridian Osteopathy, smiling in branded teal clinical scrubs",
     "lifestyleImage": "",
@@ -132,7 +132,7 @@
     ],
     "qualifications": "<p>Kaylee gained a Bachelor of Musculoskeletal Health and a Postgraduate Diploma in Osteopathy at Ara Institute of Canterbury. She is registered with the Osteopathic Council of New Zealand and is an ACC-registered provider.</p>",
     "approach": "Kaylee provides individualised osteopathic care focused on helping people return to the activities they love. She works across a broad range of presentations — from acute musculoskeletal injuries to ongoing concerns such as headaches and jaw pain — and brings a gentle, supportive approach to pregnancy, post-partum recovery, and paediatric care. Her thorough treatment approach looks beyond the main symptoms to identify and address the underlying causes of pain and injury, supporting more complete recovery and helping to prevent re-injury. Each treatment plan combines osteopathic treatment with rehabilitation and movement advice tailored to your goals.",
-    "specialInterests": "Kaylee enjoys supporting people through injury recovery, as well as working with pregnant and post-partum mums and their babies. She also has a particular interest in jaw pain and headaches.",
+    "specialInterests": "Kaylee leads our pregnancy and postnatal osteopathy, supporting mums through every stage of pregnancy and recovery after birth, and enjoys working with their babies too. She also enjoys supporting people through injury recovery, and has a particular interest in jaw pain and headaches.",
     "aboutMe": "Kaylee was drawn to a variety of active pursuits from early on and she has always been fascinated by the way our bodies can move, heal, and adapt. This is what drives her passion for helping others recover stronger and sustain an active lifestyle. Outside the clinic, Kaylee enjoys being out in nature and getting around by bike.",
     "consultationSteps": [
       {
