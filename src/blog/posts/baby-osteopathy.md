@@ -1,16 +1,17 @@
 ---
 title: "Baby Osteopathy: Extremely Gentle, Light-Touch Care for the First Year"
 description: "Very gentle paediatric osteopathy in Christchurch for babies — settling, feeding comfort, flat spots, head-turning preferences, and a careful whole-body check."
-excerpt: "A gentle, unhurried appointment for your baby, covering settling, feeding comfort, flat spots and head-turning preferences, with a careful whole-body check by an osteopath trained in caring for babies."
+excerpt: "A gentle, unhurried appointment for your baby, covering settling, feeding comfort, flat spots and head-turning preferences, with a careful whole-body check from Maddison, who leads our baby and children's osteopathy."
 publishedDate: 2026-07-29
-authorKey: nina
+authorKey: maddison
+updated: 2026-09-29
 category: "Pregnancy & baby"
 coverImage: /images/specialty-ost-paediatric.jpg
 coverAlt: "Osteopath gently resting both hands on the tummy of a young baby lying on a treatment table"
 relatedService:
-  title: "Osteopathy"
-  url: /services/osteopathy/
-  blurb: "Baby osteopathy at Meridian uses very gentle, light-touch techniques designed for infants. Sessions are unhurried and guided by how your baby is on the day."
+  title: "Baby & Children's Osteopathy"
+  url: /services/osteopathy/paediatric/
+  blurb: "Maddison leads our baby and children's osteopathy, using very gentle, light-touch techniques designed for infants. Sessions are unhurried and guided by how your baby is on the day."
   alsoConsider:
     title: "Postnatal recovery for you"
     url: /blog/postnatal-recovery/
@@ -22,7 +23,7 @@ faq:
   - question: "What sort of things can it help with?"
     answer: "Families most often come for unsettled babies and short sleeps, feeding and latching comfort, a preference for one side (only feeding on one side, or always looking one way), flat spots on the head, and general fussiness without a clear cause. Osteopathy doesn't treat medical conditions like reflux, tongue-tie, allergies or infections, which need your doctor, a paediatrician or a lactation consultant. But it can help with muscle and joint tension that sometimes plays a part."
   - question: "Is it safe? Are there risks?"
-    answer: "Baby osteopathy from a trained practitioner is gentle and considered safe. There are no forceful techniques. The main risk is missing a medical problem that needs a doctor, so at the first visit we always do a whole-body check and refer you on if anything doesn't look right."
+    answer: "Baby osteopathy from a registered osteopath is gentle and considered safe. There are no forceful techniques. The main risk is missing a medical problem that needs a doctor, so at the first visit we always do a whole-body check and refer you on if anything doesn't look right."
   - question: "How many sessions will my baby need?"
     answer: "Most babies improve within one to three sessions. If there's a clear pattern, like a strong head-turning preference or a flat spot, we may see you weekly for a few sessions, then less often. If nothing is changing after two or three visits, we'll tell you and suggest a different approach or a referral, rather than keep booking you in."
 ---
@@ -35,7 +36,7 @@ Baby osteopathy isn't about "correcting" anything dramatic. It's about gently nu
 
 ## What we look for
 
-At your baby's first visit, we'll ask about the pregnancy, birth, feeding, sleep, weight gain, milestones, and anything your midwife or usual doctor has mentioned. Then we'll do a careful head-to-toe check, with your baby in your arms or on the table beside you. We look for:
+At your baby's first visit, we'll ask about the pregnancy, birth, feeding, sleep, weight gain, milestones, and anything your midwife or usual doctor has mentioned. Then Maddison will do a careful head-to-toe check, with your baby in your arms or on the table beside you. We look for:
 
 - **Unevenness** in how your baby holds their head, arms, legs or body
 - **Cranial tension** (tension patterns in the head) left by the birth, especially after long labours, ventouse or forceps, or very fast births
@@ -53,4 +54,4 @@ Sessions with young babies usually take 30–40 minutes and are never rushed. If
 
 Baby osteopathy works alongside your midwife (in the first six weeks), your Plunket nurse, your usual doctor and, where needed, a lactation consultant, paediatric physio or paediatrician. If we notice something outside our scope, such as a possible tongue-tie, reflux, a hip that a paediatric physio should check, or a weight-gain concern, we'll tell you and encourage you to raise it with the right person straight away.
 
-Ready to book your baby in? You can book directly online — no referral needed.
+Ready to book your baby in? You can [book directly with Maddison](/book/maddison/) — no referral needed.
