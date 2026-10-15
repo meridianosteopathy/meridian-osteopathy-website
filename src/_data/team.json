@@ -115,7 +115,7 @@
     "firstName": "Kaylee",
     "bookingPractitionerId": "1947461745974975214",
     "role": "Osteopath",
-    "treats": ["Musculoskeletal injuries", "Pregnancy & postpartum", "Paediatric", "Headaches", "Jaw pain"],
+    "treats": ["Musculoskeletal injuries", "Pregnancy & postpartum", "Paediatric", "Back pain", "Neck pain"],
     "photo": "/images/team-kaylee.jpg",
     "photoAlt": "Osteopath Kaylee Frost of Meridian Osteopathy, smiling in branded teal clinical scrubs",
     "lifestyleImage": "",
