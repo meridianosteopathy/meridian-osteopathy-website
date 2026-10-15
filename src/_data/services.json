@@ -9,7 +9,11 @@
         "title": "Paediatric Osteopathy",
         "description": "Osteopathy is safe and effective for babies, toddlers, and children of all ages. Using gentle, non-invasive techniques, we can help with birth-related discomforts, colic, feeding difficulties, sleep disturbances, growing pains, and postural development. Early treatment supports healthy growth and addresses issues before they become chronic.",
         "image": "/images/specialty-ost-paediatric.jpg",
-        "alt": "Osteopath performing a gentle paediatric assessment on a baby resting on a treatment table in a bright clinic room"
+        "alt": "Osteopath performing a gentle paediatric assessment on a baby resting on a treatment table in a bright clinic room",
+        "learnMore": {
+          "text": "Baby & children's osteopathy with Maddison",
+          "url": "/services/osteopathy/paediatric/"
+        }
       },
       {
         "title": "Pregnancy Related Pain",
@@ -52,6 +56,78 @@
         "answer": "Yes — osteopathy is safe and effective for babies, toddlers, and children of all ages. We use gentle, non-invasive techniques adapted for younger patients to help with birth-related discomforts, colic, feeding difficulties, sleep disturbances, growing pains, and postural development."
       }
     ],
+    "paediatric": {
+      "title": "Baby & Children's Osteopathy",
+      "url": "/services/osteopathy/paediatric/",
+      "parentUrl": "/services/osteopathy/",
+      "heroImage": "/images/specialty-ost-paediatric.jpg",
+      "lead": "maddison",
+      "intro": "Baby and children's osteopathy at Meridian Osteopathy in Christchurch is very gentle, light-touch care for infants, toddlers and school-age children. Maddison Moffat leads our paediatric appointments — seeing babies for unsettledness, feeding comfort, head-turning preferences and flat spots, and older children for posture, growing pains and everyday knocks and strains. Appointments are unhurried and guided by how your child is on the day. No referral needed; you can book directly.",
+      "pricing": {
+        "time": "30 – 45 minutes",
+        "note": "Baby and children's osteopathy is usually not accident-related, so it sits outside ACC cover and is charged at our private rate. If your child has had a fall or a sports injury, mention it when you book and we'll check whether ACC applies."
+      },
+      "sections": [
+        {
+          "title": "Why babies sometimes benefit",
+          "description": "A baby's body goes through a lot in a short time. Their position late in pregnancy, the birth itself, and long stretches in one position — feeding on one side, sleeping with the head turned the same way, being carried on one hip — can all leave small patterns of tension. Often these settle as your baby grows and moves more. Sometimes they show up as a preference: always feeding on one side, always looking one way, or a small flat spot on the back of the head. Baby osteopathy isn't about correcting anything dramatic. It gently nudges these patterns in the right direction while your baby's skull, spine and tissues are still very adaptable.",
+          "image": "/images/hero-postpartum-recovery.jpg",
+          "alt": "Newborn baby asleep on a parent's chest, held gently in both arms on a sofa"
+        },
+        {
+          "title": "What a first visit looks like",
+          "description": "We start by asking about the pregnancy, birth, feeding, sleep and milestones, and anything your midwife or Plunket nurse has mentioned. Then Maddison does a careful head-to-toe check, with your baby in your arms or on the table beside you. For a young baby, treatment is mostly a gentle hold — one hand cradling the head while the other rests on the base of the spine or ribs. There's no cracking, no fast movement and no discomfort. Many babies feed, fall asleep or fill a nappy during the appointment, and that's completely fine. If your baby is having an unsettled day, we work around it.",
+          "image": "/images/hero-postnatal-recovery.jpg",
+          "alt": "Young baby asleep in a car seat beside a treatment table while a parent is treated",
+          "learnMore": {
+            "text": "Read more: baby osteopathy in the first year",
+            "url": "/blog/baby-osteopathy/"
+          }
+        }
+      ],
+      "leadHeading": "Maddison's approach with babies and children",
+      "leadBlurb": "Maddison is a Christchurch-born osteopath who brings genuine enthusiasm, care and patience to working with younger patients. With babies, she works slowly and quietly, keeping your baby in your arms or where you can see them the whole time. With toddlers and older children she adapts her pace and explanations to the child in front of her, and keeps parents involved at every step. Osteopathy works alongside your midwife, Plunket nurse and usual doctor, not instead of them — if Maddison notices anything outside osteopathy's scope, such as a possible tongue-tie, reflux or a weight-gain concern, she'll say so and point you to the right person.",
+      "faq": [
+        {
+          "question": "What does baby osteopathy actually involve?",
+          "answer": "It's very light-touch. With a young baby, most of the treatment feels like a gentle hold, often with one hand cradling the head and the other on the pelvis or spine, while we feel for areas of tension or uneven movement. There's no cracking and no forceful movement. Your baby stays in your arms, or on the treatment table where you can see them, the whole time."
+        },
+        {
+          "question": "When can I bring my baby in?",
+          "answer": "Any time from a few days old, once you're home and feeding is settled enough to come out for an hour. Many families come in the first six weeks. Some wait until three or four months if they notice a flat spot or a head-turning preference. There's no wrong time in the first year."
+        },
+        {
+          "question": "What sort of things can it help with?",
+          "answer": "Families most often come for unsettled babies and short sleeps, feeding and latching comfort, a preference for one side, flat spots on the head, and general fussiness without a clear cause. Osteopathy doesn't treat medical conditions like reflux, tongue-tie, allergies or infections — those need your doctor, a paediatrician or a lactation consultant. But it can help with the muscle and joint tension that sometimes plays a part."
+        },
+        {
+          "question": "Do you see toddlers and older children too?",
+          "answer": "Yes. Maddison sees children of all ages — for posture, growing pains, sports knocks and strains, and the aches that come with growth spurts, heavy school bags and lots of screen time. Treatment is adapted to the child's age: gentle, explained in plain words, and never rushed. Sports and playground injuries may be covered by ACC; just mention the injury when you book."
+        },
+        {
+          "question": "Is it safe? Are there risks?",
+          "answer": "Baby osteopathy from a registered osteopath is gentle and considered safe. There are no forceful techniques. The main risk is missing a medical problem that needs a doctor, so at the first visit we always do a whole-body check and refer you on if anything doesn't look right."
+        },
+        {
+          "question": "How many sessions will my baby need?",
+          "answer": "Most babies improve within one to three sessions. If there's a clear pattern, like a strong head-turning preference or a flat spot, we may see you weekly for a few sessions, then less often. If nothing is changing after two or three visits, we'll tell you and suggest a different approach or a referral, rather than keep booking you in."
+        },
+        {
+          "question": "Is baby osteopathy covered by ACC?",
+          "answer": "Usually not, because it isn't accident-related, so our private rate applies. If your child has had a fall or a sports injury, mention it when you book and we'll check whether ACC applies. No referral is needed either way."
+        }
+      ],
+      "related": [
+        {
+          "title": "Pregnancy & Postnatal Osteopathy",
+          "url": "/services/osteopathy/pregnancy/"
+        },
+        {
+          "title": "Postnatal recovery for you",
+          "url": "/blog/postnatal-recovery/"
+        }
+      ]
+    },
     "pregnancy": {
       "title": "Pregnancy & Postnatal Osteopathy",
       "url": "/services/osteopathy/pregnancy/",
@@ -131,6 +207,10 @@
         {
           "title": "Osteopathy through pregnancy",
           "url": "/blog/pregnancy-osteopathy/"
+        },
+        {
+          "title": "Baby & Children's Osteopathy",
+          "url": "/services/osteopathy/paediatric/"
         },
         {
           "title": "Acupuncture in pregnancy",
