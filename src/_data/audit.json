@@ -1,18 +1,23 @@
 {
   "meta": {
-    "reportDate": "2026-10-16",
+    "reportDate": "2026-10-23",
     "schemaVersion": 2,
-    "lastUpdated": "2026-10-16",
+    "lastUpdated": "2026-10-23",
     "generatedBy": "weekly-routine"
   },
   "summary": [
-    "#43 shipped on 15 Oct: the back pain, neck pain and headache pages' Google titles now say “Christchurch”, but Google's latest numbers (to 12 Oct) don't include it yet.",
-    "Google's numbers are up: 284 clicks (275 before), and clicks from people not searching for Meridian by name rose from 147 to 170. But the homepage slipped for the two biggest searches: “osteopath christchurch” from 6.8 to 10.2 and “acupuncture christchurch” from 8.2 to 11, so it's now just off page 1 (#47).",
-    "The estimated ranks still aren't usable: for a second week the search tool returned directories and overseas sites, not clinic websites."
+    "The live website hasn't updated since 15 Oct. Last week's audit never went live, and Google's numbers on this dashboard are the same as last week's (to 12 Oct), so this week's numbers can't show whether the 15 Oct title changes worked (#48).",
+    "Nothing new shipped this week. The homepage title still has no “Christchurch”, while the homepage sits just off page 1 for “osteopath christchurch” (10.2) and “acupuncture christchurch” (11) (#47).",
+    "Estimated ranks still show only directories and overseas sites for a third week, so they can't be used to judge progress."
   ],
   "topActions": [
     {
-      "text": "Approve #47 and click Ship it. Claude adds “Christchurch” to the homepage's Google title, the page Google shows for “osteopath christchurch” and “acupuncture christchurch”.",
+      "text": "In Netlify, check why the 16 Oct update didn't go live, then click Trigger deploy. This also refreshes Google's numbers on this dashboard (#48, about 5 minutes).",
+      "owner": "you",
+      "n": 48
+    },
+    {
+      "text": "Approve #47 and click Ship it. Claude adds “Christchurch” to the homepage's Google title, the page Google shows for the clinic's two biggest searches.",
       "owner": "claude",
       "n": 47
     },
@@ -20,17 +25,12 @@
       "text": "In Search Console, request indexing for the new pregnancy page and the three retitled condition pages, then resubmit the sitemap (#44, about 5 minutes).",
       "owner": "you",
       "n": 44
-    },
-    {
-      "text": "Approve the ACC page (#25) and click Ship it. Claude drafts it, then Nina checks the ACC wording before it goes live.",
-      "owner": "practitioner",
-      "n": 25
     }
   ],
   "tldr": [
-    "Google data (Search Console, 28 days to 12 Oct vs the 28 days before): 284 clicks (275 before) from 4,904 appearances (4,194). Clicks from people not searching for Meridian by name: 170 (147). 31 searches show Meridian on Google's first page (30). The week of 6 Oct had 90 clicks, the best week in the last 16. The homepage's average position slipped from 7 to 13.8, partly from broad national searches, but also for “osteopath christchurch” (10.2, was 6.8) and “acupuncture christchurch” (11, was 8.2), where its title has no place name (#47). The sciatica page improved again, from 32.9 to 24.9 (186 appearances). The sports injury page is at 7.5 for “sports injury treatment” (156 appearances) but still has no clicks. The back pain, neck pain and headache title changes (#43) went live on 15 Oct, after this window, so they'll show in next week's numbers.",
-    "Blog and pregnancy pages: the pregnancy acupuncture post is at 7.6 (72 appearances), the postnatal recovery post at 10.3, the labour preparation post at 6.9, and the postpartum page has its first appearance. None has a click yet. Kaylee's new pregnancy & postnatal page went live on 15 Oct (#44 asks Google to index it). The fertility acupuncture page's average dropped to 59.5 because Google now also shows it for IVF cost searches; for “fertility acupuncture christchurch” it's still at 2.1 with 5 clicks.",
-    "Estimated ranks (a US-based web search, not what someone in Christchurch sees): 30 searches checked, including all 8 core ones. For the second week running, Meridian and most other clinic websites were absent, and results were directories (Healthpoint, Yellow, Gensolve, Fresha), Ara's teaching clinic and overseas pages. 29 searches that had scored under 20 for three runs were dropped from the list, as the rules require; “dry needling christchurch” was kept because Search Console has Meridian at 9.4 for it. Added “pregnancy acupuncture” from Search Console and two Google autocomplete suggestions."
+    "Google data: the dashboard's Search Console snapshot was taken on 15 Oct and covers 15 Sep–12 Oct, the same as last week: 284 clicks (275 before), 170 from people not searching for Meridian by name (147), 31 searches on page 1 (30). The snapshot is only refreshed when the site rebuilds, and the live site still shows the 9 Oct audit, so the 16 Oct update never went live. The code builds cleanly on a fresh copy, so the likely cause is on Netlify's side (#48). Until it's fixed, this dashboard can't show whether the back pain, neck pain and headache title changes (#43, live 15 Oct) or Kaylee's new pregnancy page are working. Those changes are live: the back pain page's title now reads “Back Pain Treatment in Christchurch”.",
+    "What's still open: the homepage title (#47) is the quickest change for the two biggest searches. The ACC page (#25, Nina checks the wording) and a fees page (#46) answer the ACC and price searches that Google's autocomplete keeps suggesting (“acupuncture christchurch acc” and “osteopath christchurch price” again this week). The search tool's price results were still Ara's teaching clinic ($50, or $25 with ACC), Body Well Me ($90) and Pro Acupuncture ($105–$110).",
+    "Estimated ranks (a US-based web search, not what someone in Christchurch sees): 28 searches checked, including all 8 core ones. For the third week, Meridian and most clinic websites were absent; results were directories (Healthpoint, Yellow, Fresha, Gensolve), Ara's teaching clinic and overseas pages. Dropped “osteopath for sports injury christchurch” after three low-scoring weeks. Added “dry needling” and “osteopath” from Search Console (Meridian's homepage is at 5.8 and 4.7), and two autocomplete suggestions: “acupuncture christchurch acc” and “dry needling cost”. Industry news: BrightLocal's 22 Oct survey found only about a third of small businesses keep their Google Business Profile active, so regular posts, photos and review replies (#16) still stand out."
   ],
   "alreadyShipped": [
     "llms.txt and llms-full.txt auto-generated from site data",
@@ -240,7 +240,7 @@
       "files": [
         "(GSC console — no repo changes)"
       ],
-      "body": "Search Console is connected and feeding this dashboard. Its separate AI report (appearances in AI Overviews and AI Mode) isn't pulled in automatically. In Search Console, open Performance, pick the AI features view, set the date range to the last 3 months, and save a screenshot as the “before” picture. The report shows appearances only, not clicks. Google's September spam update finished on 8 Oct, and Google is making source links in AI answers more prominent through October, so now is a good time to take it, before the 15 Oct title changes and the new pregnancy page have any effect. No website changes needed.",
+      "body": "Search Console is connected and feeding this dashboard. Its separate AI report (appearances in AI Overviews and AI Mode) isn't pulled in automatically. In Search Console, open Performance, pick the AI features view, set the date range to the last 3 months, and save a screenshot as the “before” picture. The report shows appearances only, not clicks. The 15 Oct title changes and the new pregnancy page are too recent to show there yet, so a screenshot taken now still works as a baseline. No website changes needed.",
       "addresses": [],
       "firstSeen": "2026-06-05"
     },
@@ -321,7 +321,7 @@
       "title": "Add “Christchurch” to the homepage's Google title",
       "owner": "claude",
       "confidence": "likely",
-      "why": "Google shows the homepage for the clinic's two biggest searches, but its title has no place name. Both slipped this month: “osteopath christchurch” from 6.8 to 10.2, “acupuncture christchurch” from 8.2 to 11.",
+      "why": "Google shows the homepage for the clinic's two biggest searches, but its title has no place name. Both slipped last month: “osteopath christchurch” from 6.8 to 10.2, “acupuncture christchurch” from 8.2 to 11.",
       "matchTerms": [
         "osteopath christchurch",
         "acupuncture christchurch"
@@ -332,6 +332,23 @@
       "body": "The homepage's Google title is “Osteopathy, Acupuncture, Dry Needling & Herbal Medicine — Meridian Osteopathy”, with no place name. It is the page Google shows for “acupuncture christchurch” (321 appearances, 3 clicks) and “osteopath christchurch” (169 appearances, 6 clicks), both now just off the first page. Change it to something like “Osteopath & Acupuncture in Christchurch | Meridian Osteopathy” (about 60 characters, so Google shows it in full), and start the description with “Christchurch osteopathy and acupuncture clinic”. The main heading already says Christchurch. The same kind of change on the sciatica page was followed by it moving from 33 to 25. Wording only, no clinical changes.",
       "addresses": [],
       "firstSeen": "2026-10-16"
+    },
+    {
+      "n": 48,
+      "tier": 1,
+      "impact": "M",
+      "effort": "S",
+      "title": "Find out why the website stopped updating after 15 Oct",
+      "owner": "you",
+      "confidence": "proven",
+      "why": "The live site still shows the 9 Oct audit and Google numbers fetched on 15 Oct, so the 16 Oct update never went live. Any change Claude ships stays invisible to Google until deploys work again.",
+      "matchTerms": [],
+      "files": [
+        "(Netlify — no repo changes)"
+      ],
+      "body": "In Netlify, open the site's Deploys list and find the 16 Oct commit “Weekly audit — 1 new items, 1 shipped, 30 searches checked (2026-10-16)”. If its deploy failed, the log says why; if there's no deploy at all, check that automatic builds from main are switched on. Then click Trigger deploy, which also refreshes the Google numbers on this dashboard because they're fetched during the build. The code builds without errors on a fresh copy, so the cause is most likely a Netlify setting or the Search Console step of the build. If this week's update (23 Oct) has gone live by the time you read this, dismiss the item.",
+      "addresses": [],
+      "firstSeen": "2026-10-23"
     }
   ]
 }
