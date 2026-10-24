@@ -1,3 +1,84 @@
 {
-  "vacancies": []
+  "about": "Meridian Osteopathy is a Christchurch clinic in Hillmorton offering osteopathy, acupuncture and herbal medicine. Our hands-on care blends Western osteopathy with traditional Chinese medicine, and our practitioners work closely together so patients get joined-up treatment under one roof.",
+  "offer": [
+    "A supportive, collaborative team of osteopaths, acupuncturists and allied practitioners",
+    "Competitive contractor terms, tailored to your experience and discussed at interview",
+    "Online patient booking through our Cliniko practice management system"
+  ],
+  "vacancies": [
+    {
+      "title": "Massage Therapist",
+      "type": "Contractor",
+      "datePosted": "2026-10-24",
+      "requirements": "Experience in remedial, sports and relaxation massage is preferred.",
+      "overview": "We're looking for a skilled massage therapist to join our multidisciplinary clinic in Hillmorton, Christchurch.\n\nYou'll work alongside our osteopaths and acupuncturists, providing remedial, sports and relaxation massage that complements each client's wider treatment plan.",
+      "responsibilities": [
+        "Assess clients and deliver remedial, sports and relaxation massage tailored to their needs",
+        "Work with our osteopaths and acupuncturists to support shared clients' treatment plans",
+        "Give practical aftercare advice, such as stretches and self-care between sessions",
+        "Keep clear, accurate clinical notes in Cliniko",
+        "Help create a friendly, professional experience for every client"
+      ],
+      "essential": [
+        "The right to work in New Zealand, or eligibility for a suitable visa",
+        "Excellent communication skills and a client-centred approach"
+      ],
+      "desirable": [
+        "Experience in remedial, sports and relaxation massage",
+        "Experience working in a multidisciplinary clinic"
+      ],
+      "hours": "Flexible days and hours, to be agreed. The clinic is open Monday to Friday 9am–7pm and Saturday 9am–5pm."
+    },
+    {
+      "title": "Acupuncturist",
+      "type": "Contractor",
+      "datePosted": "2026-10-24",
+      "requirements": "Current registration with the Chinese Medicine Council of New Zealand (CMCNZ), or eligible to obtain it before starting. ACC provider registration an advantage.",
+      "overview": "We're looking for an acupuncturist to join our team in Hillmorton, Christchurch.\n\nYou'll treat a wide range of patients, from pain and injury to stress, sleep, women's health and fertility support, alongside our osteopaths in a clinic that blends Western osteopathy with traditional Chinese medicine.\n\nAs a New Zealand Accredited Employer, we welcome applications from acupuncturists based overseas. We can support you through the visa process and help you settle into life in Christchurch.",
+      "responsibilities": [
+        "Assess patients and deliver safe, effective acupuncture treatment",
+        "Treat a broad caseload, including pain and injury, stress and sleep, digestive health, women's health and fertility support",
+        "Work alongside our osteopaths on shared patient care and cross-referrals",
+        "Complete ACC documentation for eligible injury patients, if you're an ACC provider",
+        "Keep accurate clinical records in Cliniko and meet CMCNZ professional standards"
+      ],
+      "essential": [
+        "Current registration with the Chinese Medicine Council of New Zealand (CMCNZ), or eligibility to obtain it before you start",
+        "A recognised qualification in acupuncture or Chinese medicine",
+        "The right to work in New Zealand, or eligibility for a suitable visa",
+        "Strong communication skills and a patient-centred approach"
+      ],
+      "desirable": [
+        "ACC provider registration",
+        "Experience in fertility, women's health or musculoskeletal acupuncture",
+        "Experience working in a multidisciplinary clinic"
+      ],
+      "hours": "Flexible days and hours, to be agreed. The clinic is open Monday to Friday 9am–7pm and Saturday 9am–5pm."
+    },
+    {
+      "title": "Medical Herbalist",
+      "type": "Contractor",
+      "datePosted": "2026-10-24",
+      "requirements": "A recognised qualification in herbal medicine, with sound knowledge of safe prescribing and herb–drug interactions.",
+      "overview": "We're looking for a medical herbalist to help grow our herbal medicine service in Hillmorton, Christchurch.\n\nYou'll prepare personalised herbal prescriptions for patients with pain and inflammation, stress and sleep concerns, digestive health and hormonal balance, working closely with our osteopaths and acupuncturists.",
+      "responsibilities": [
+        "Carry out thorough consultations and prepare individualised herbal prescriptions",
+        "Support patients with pain and inflammation, stress and sleep, digestive health and hormonal balance",
+        "Screen for herb–drug interactions and contraindications, and refer patients on when appropriate",
+        "Work alongside our osteopaths and acupuncturists on integrated treatment plans",
+        "Keep accurate clinical and dispensing records in Cliniko"
+      ],
+      "essential": [
+        "A recognised qualification in herbal medicine",
+        "Sound knowledge of herb–drug interactions and safe prescribing",
+        "The right to work in New Zealand, or eligibility for a suitable visa",
+        "Strong communication skills and a patient-centred approach"
+      ],
+      "desirable": [
+        "Clinical or dispensing experience",
+        "Experience working in a multidisciplinary clinic"
+      ],
+      "hours": "Flexible days and hours, to be agreed. The clinic is open Monday to Friday 9am–7pm and Saturday 9am–5pm."
+    }
+  ]
 }

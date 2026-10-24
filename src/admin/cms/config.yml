@@ -332,13 +332,21 @@ collections:
         file: "src/_data/careers.json"
         format: "json"
         fields:
+          # Shared by every role page and PDF (see scripts/careers/roles.js).
+          - { label: "About Meridian Osteopathy", name: "about", widget: "text", required: false, hint: "Shown at the end of every role page and PDF. Leave a blank line between paragraphs." }
+          - label: "What We Offer"
+            name: "offer"
+            widget: "list"
+            required: false
+            hint: "Shown on every role page and PDF. One point per item."
+            field: { label: "Point", name: "point", widget: "string" }
           - label: "Vacancies"
             name: "vacancies"
             widget: "list"
             summary: "{{ fields.title }} — {{ fields.type }}"
-            hint: "Leave this list empty to show the 'No open positions' message instead."
+            hint: "Each vacancy gets its own page (meridianosteopathy.co.nz/careers/job-title/), a downloadable PDF and a Google job listing. Delete a vacancy once it's filled — its page, PDF and listing are removed automatically. Leave this list empty to show the 'No open positions' message instead."
             fields:
-              - { label: "Job Title", name: "title", widget: "string" }
+              - { label: "Job Title", name: "title", widget: "string", hint: "Also sets the page address, so avoid changing it once the role is live." }
               - label: "Employment Type"
                 name: "type"
                 widget: "select"
@@ -346,7 +354,26 @@ collections:
                   - { label: "Full-time", value: "Full-time" }
                   - { label: "Part-time", value: "Part-time" }
                   - { label: "Contractor", value: "Contractor" }
-              - { label: "Requirements / Qualifications", name: "requirements", widget: "text", hint: "Briefly describe experience level, qualifications, or registration requirements." }
+              - { label: "Date Posted", name: "datePosted", widget: "datetime", format: "YYYY-MM-DD", date_format: "D MMMM YYYY", time_format: false, hint: "Tells Google when the job was advertised. Keep it unchanged when you edit the role; only update it if you re-advertise." }
+              - { label: "Short Summary", name: "requirements", widget: "text", hint: "One or two sentences shown in the vacancy table on the Careers page." }
+              - { label: "About the Role", name: "overview", widget: "text", required: false, hint: "Opening paragraphs on the role page and PDF. Leave a blank line between paragraphs." }
+              - label: "Key Responsibilities"
+                name: "responsibilities"
+                widget: "list"
+                required: false
+                field: { label: "Responsibility", name: "item", widget: "string" }
+              - label: "What You'll Need (essential)"
+                name: "essential"
+                widget: "list"
+                required: false
+                hint: "If left empty, the short summary is shown here instead."
+                field: { label: "Requirement", name: "item", widget: "string" }
+              - label: "Nice to Have"
+                name: "desirable"
+                widget: "list"
+                required: false
+                field: { label: "Item", name: "item", widget: "string" }
+              - { label: "Hours", name: "hours", widget: "text", required: false }
 
   # ============================================
   # BLOG POSTS
