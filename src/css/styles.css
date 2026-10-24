@@ -225,3 +225,6 @@
   .role-req-grid{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){.role-apply-bar{transition:none}}
+/* Inline highlight for a key phrase (e.g. "New Zealand Accredited Employer"
+   on /careers/). --primary on --light-sky-blue is ~5.2:1, passes AA. */
+.text-highlight{background:var(--light-sky-blue);color:var(--primary);padding:1px 6px;border-radius:4px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
