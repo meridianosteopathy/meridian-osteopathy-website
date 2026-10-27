@@ -94,18 +94,18 @@
   ],
   "practitioners": [
     {
-      "name": "Maddison Moffat",
-      "firstName": "Maddison",
-      "role": "Osteopath",
-      "photo": "/images/team-maddison.jpg",
-      "profileUrl": "/team/maddison-moffat/"
-    },
-    {
       "name": "Kaylee Frost",
       "firstName": "Kaylee",
       "role": "Osteopath",
       "photo": "/images/team-kaylee.jpg",
       "profileUrl": "/team/kaylee-frost/"
+    },
+    {
+      "name": "Maddison Moffat",
+      "firstName": "Maddison",
+      "role": "Osteopath",
+      "photo": "/images/team-maddison.jpg",
+      "profileUrl": "/team/maddison-moffat/"
     },
     {
       "name": "Jonathan Grice",
