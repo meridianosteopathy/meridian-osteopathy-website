@@ -1,36 +1,35 @@
 {
   "meta": {
-    "reportDate": "2026-10-23",
+    "reportDate": "2026-10-30",
     "schemaVersion": 2,
-    "lastUpdated": "2026-10-23",
+    "lastUpdated": "2026-10-30",
     "generatedBy": "weekly-routine"
   },
   "summary": [
-    "The live website hasn't updated since 15 Oct. Last week's audit never went live, and Google's numbers on this dashboard are the same as last week's (to 12 Oct), so this week's numbers can't show whether the 15 Oct title changes worked (#48).",
-    "Nothing new shipped this week. The homepage title still has no “Christchurch”, while the homepage sits just off page 1 for “osteopath christchurch” (10.2) and “acupuncture christchurch” (11) (#47).",
-    "Estimated ranks still show only directories and overseas sites for a third week, so they can't be used to judge progress."
+    "Deploys are working again: the site rebuilt on 27 Oct and this dashboard now has fresh Google numbers (to 24 Oct). Clicks are up slightly (287, from 255), but the homepage is slipping for the two biggest searches: “osteopath christchurch” fell from 6.2 to 12.1 (#47).",
+    "Kaylee's new pregnancy page still doesn't appear in Google's data two weeks after launch (#44). Nothing on the search list shipped this week; the only website changes were careers page updates and moving Kaylee to the top of the homepage practitioners."
   ],
   "topActions": [
     {
-      "text": "In Netlify, check why the 16 Oct update didn't go live, then click Trigger deploy. This also refreshes Google's numbers on this dashboard (#48, about 5 minutes).",
-      "owner": "you",
-      "n": 48
-    },
-    {
-      "text": "Approve #47 and click Ship it. Claude adds “Christchurch” to the homepage's Google title, the page Google shows for the clinic's two biggest searches.",
+      "text": "Approve #47 and click Ship it. Claude adds “Christchurch” to the homepage's Google title; the homepage fell from 6.2 to 12.1 for “osteopath christchurch”.",
       "owner": "claude",
       "n": 47
     },
     {
-      "text": "In Search Console, request indexing for the new pregnancy page and the three retitled condition pages, then resubmit the sitemap (#44, about 5 minutes).",
+      "text": "In Search Console, request indexing for Kaylee's new pregnancy page and the three retitled condition pages, then resubmit the sitemap (#44, about 5 minutes).",
       "owner": "you",
       "n": 44
+    },
+    {
+      "text": "Maddison checks a short plain-English opening for the sports injury page, which is at 6 on Google for “sports injury treatment” but has no clicks (#49).",
+      "owner": "practitioner",
+      "n": 49
     }
   ],
   "tldr": [
-    "Google data: the dashboard's Search Console snapshot was taken on 15 Oct and covers 15 Sep–12 Oct, the same as last week: 284 clicks (275 before), 170 from people not searching for Meridian by name (147), 31 searches on page 1 (30). The snapshot is only refreshed when the site rebuilds, and the live site still shows the 9 Oct audit, so the 16 Oct update never went live. The code builds cleanly on a fresh copy, so the likely cause is on Netlify's side (#48). Until it's fixed, this dashboard can't show whether the back pain, neck pain and headache title changes (#43, live 15 Oct) or Kaylee's new pregnancy page are working. Those changes are live: the back pain page's title now reads “Back Pain Treatment in Christchurch”.",
-    "What's still open: the homepage title (#47) is the quickest change for the two biggest searches. The ACC page (#25, Nina checks the wording) and a fees page (#46) answer the ACC and price searches that Google's autocomplete keeps suggesting (“acupuncture christchurch acc” and “osteopath christchurch price” again this week). The search tool's price results were still Ara's teaching clinic ($50, or $25 with ACC), Body Well Me ($90) and Pro Acupuncture ($105–$110).",
-    "Estimated ranks (a US-based web search, not what someone in Christchurch sees): 28 searches checked, including all 8 core ones. For the third week, Meridian and most clinic websites were absent; results were directories (Healthpoint, Yellow, Fresha, Gensolve), Ara's teaching clinic and overseas pages. Dropped “osteopath for sports injury christchurch” after three low-scoring weeks. Added “dry needling” and “osteopath” from Search Console (Meridian's homepage is at 5.8 and 4.7), and two autocomplete suggestions: “acupuncture christchurch acc” and “dry needling cost”. Industry news: BrightLocal's 22 Oct survey found only about a third of small businesses keep their Google Business Profile active, so regular posts, photos and review replies (#16) still stand out."
+    "Google data (27 Sep – 24 Oct, compared with the 28 days before): 287 clicks (255 before), 181 from people not searching for Meridian by name (150), 34 searches on page 1 (32), 5,240 appearances (4,224). The weekly clicks dipped to 59 in the week of 18 Oct after 84 and 78 the two weeks before. The homepage's average position fell from 9.6 to 15.1. For “osteopath christchurch” it's now 12.1 (6.2 before) and for “acupuncture christchurch” 11.3 (9), so the homepage title (#47) is still the most urgent fix. Good news: the sciatica page climbed again (27.6 → 20.4), headaches improved (22.6 → 15.2), and “fertility acupuncture christchurch” is at 1.8 with 4 clicks. The fertility page's overall average looks worse (62.8) only because it now also appears for unrelated overseas IVF searches.",
+    "Still open: Kaylee's pregnancy page (live 15 Oct) has no Google appearances yet (#44). The sports injury page sits at 6.2 for “sports injury treatment” (165 appearances) with no clicks in two months (#49, new). A new search, “maddison aitken nz”, showed Maddison's profile 71 times (#50, new: check whether it's a former name). The ACC page (#25) and fees page (#46) still answer searches that Google's autocomplete keeps suggesting, including the new “how much is acupuncture nz”. #48 is closed because deploys are working again.",
+    "Estimated ranks (a US-based web search, not what someone in Christchurch sees): 27 searches checked, including all 8 core ones. For the fourth week, Meridian's own site didn't appear; it showed up only inside directory listings. Added “restore post pregnancy body” and “acupuncture” from Search Console, and “how much is acupuncture nz” and “acupuncture christchurch riccarton” from autocomplete; nothing pruned. Industry news: Google announced no ranking update this week. On 26 Oct it added spam guidance about pages made for sharing, which doesn't affect this site."
   ],
   "alreadyShipped": [
     "llms.txt and llms-full.txt auto-generated from site data",
@@ -89,7 +88,8 @@
     "Sciatica page Google title set to “Sciatica Treatment in Christchurch”, main heading “Sciatica treatment”, plus “sciatica treatment” links from the back pain page and homepage (item #41, PRs #130 and #133)",
     "Acupuncture page Google title leads with “Acupuncture & Dry Needling in Christchurch”, shorter description, homepage links using “acupuncture in Christchurch” and “dry needling” (item #42, PR #131, 2026-09-26)",
     "Back pain, neck pain and headache pages' Google titles now read “… Treatment in Christchurch | Meridian Osteopathy”, with main headings “Back pain treatment”, “Neck pain treatment” and “Headache and migraine treatment” (item #43, PR #135, live 2026-10-15)",
-    "/services/osteopathy/pregnancy/ — practitioner-led pregnancy & postnatal osteopathy page with Kaylee Frost, linked from her profile, the osteopathy page, the pregnancy back pain and postpartum pages (PR #140, 2026-10-15). Not a backlog item."
+    "/services/osteopathy/pregnancy/ — practitioner-led pregnancy & postnatal osteopathy page with Kaylee Frost, linked from her profile, the osteopathy page, the pregnancy back pain and postpartum pages (PR #140, 2026-10-15). Not a backlog item.",
+    "Netlify deploys working again (item #48): the 23 Oct audit and the careers page updates went live, and the dashboard's Google numbers were refreshed on 27 Oct (2026-10-30)"
   ],
   "gaps": [
     {
@@ -200,7 +200,7 @@
         "src/acc.njk",
         "src/_includes/header.njk"
       ],
-      "body": "A single page at /acc/ explaining ACC for patients. Three weeks ago Better Health's ACC page was estimated #1 for “osteopath acc christchurch”, with Active Health #2; the last two weeks' estimates returned only directories and Ara's clinic (which advertises a $25 ACC fee), so they can't confirm that. Google's autocomplete suggests “is acupuncture covered by acc”, “osteopath christchurch acc” and “acupuncture christchurch acc”, and Search Console shows the sciatica page at 4 for “is sciatica covered by acc”. The page should say Meridian is an ACC-registered provider (osteopathy with Nina Hu, acupuncture with Min Jin), what a patient pays, that no referral is needed, and that Meridian isn't part of ACC, with a link to acc.co.nz. Don't describe filing claims on the patient's behalf. Lead with a 40–60 word answer.",
+      "body": "A single page at /acc/ explaining ACC for patients. Google's autocomplete suggests “is acupuncture covered by acc”, “osteopath christchurch acc” and “acupuncture christchurch acc”, and Search Console shows the sciatica page at 5.7 for “is sciatica covered by acc”. Estimated results for ACC searches show competitors' ACC fees ($18–$25 at three Christchurch acupuncture clinics, $25 at Ara's teaching clinic) but no clinic ACC page. The page should say Meridian is an ACC-registered provider (osteopathy with Nina Hu, acupuncture with Min Jin), what a patient pays, that no referral is needed, and that Meridian isn't part of ACC, with a link to acc.co.nz. Don't describe filing claims on the patient's behalf. Lead with a 40–60 word answer.",
       "addresses": [
         "G7"
       ],
@@ -252,7 +252,7 @@
       "title": "Ask Google to index the new pregnancy page and the three retitled condition pages",
       "owner": "you",
       "confidence": "likely",
-      "why": "Kaylee's pregnancy and postnatal page and the new back pain, neck pain and headache titles all went live on 15 Oct. Asking Google to look at them takes about 5 minutes and helps the changes show up sooner.",
+      "why": "Kaylee's pregnancy and postnatal page went live on 15 Oct but still doesn't appear anywhere in Google's data two weeks later. Asking Google to look at it takes about 5 minutes.",
       "matchTerms": [
         "postnatal",
         "postpartum",
@@ -262,7 +262,7 @@
       "files": [
         "(Search Console — no repo changes)"
       ],
-      "body": "Google found the postpartum page on its own (its first appearance is now in Search Console), so that part is done. Four pages changed on 15 Oct: the new /services/osteopathy/pregnancy/ page (PR #140) and the back pain, neck pain and headache pages, whose Google titles now include “Christchurch” (#43). In Search Console, paste each address into the search bar at the top (URL inspection) and click “Request indexing”, then open Sitemaps and resubmit /sitemap.xml. Check the Pages report in two weeks to confirm the new page is indexed. No website changes needed.",
+      "body": "Four pages changed on 15 Oct: the new /services/osteopathy/pregnancy/ page (PR #140) and the back pain, neck pain and headache pages, whose Google titles now include “Christchurch” (#43). The pregnancy page has no Search Console appearances yet. In Search Console, paste each address into the search bar at the top (URL inspection) and click “Request indexing”, then open Sitemaps and resubmit /sitemap.xml. Check the Pages report in two weeks to confirm the new page is indexed. No website changes needed.",
       "addresses": [
         "G8"
       ],
@@ -277,14 +277,14 @@
       "owner": "practitioner",
       "reviewer": "Jonathan Grice",
       "confidence": "experimental",
-      "why": "The sciatica page gets the most Google appearances of any condition page (186 in 28 days) and keeps climbing, from position 33 to 25. A practical article answering common sciatica questions gives Google a second, linked page on the topic.",
+      "why": "The sciatica page climbed again, from 27.6 to 20.4, and is at 4–6 for “sciatica treatment christchurch” and “is sciatica covered by acc”. A practical article gives Google a second, linked page on the topic.",
       "matchTerms": [
         "sciatica"
       ],
       "files": [
         "src/blog/posts/sciatica-guide.md"
       ],
-      "body": "A short post answering what people already search for: “sciatica treatment” (Search Console position 15, 48 appearances), “sciatica specialist” (13.7), “can an osteopath help with sciatica” (8.8), “is sciatica covered by acc” (4) and “sciatica treatment pregnancy” (Google autocomplete). Cover how long sciatica usually lasts, when to see someone urgently, and what a first visit looks like, then link to the sciatica page. Jonathan lists sciatica as a special interest, so he should check the clinical content. The pregnancy acupuncture post reached position 8 within two weeks but has no clicks yet, so this stays experimental.",
+      "body": "A short post answering what people already search for: “sciatica treatment” (Search Console 12.7), “sciatica specialist” (15.3), “can an osteopath help with sciatica” (8.2), “is sciatica covered by acc” (5.7) and “sciatica treatment pregnancy” (Google autocomplete). Cover how long sciatica usually lasts, when to see someone urgently, and what a first visit looks like, then link to the sciatica page. Jonathan lists sciatica as a special interest, so he should check the clinical content. The pregnancy acupuncture post sits at 8 with 132 appearances but no clicks yet, so this stays experimental.",
       "addresses": [
         "G8"
       ],
@@ -309,7 +309,7 @@
         "src/_data/site.js",
         "src/_includes/footer.njk"
       ],
-      "body": "A short /fees/ page listing the consultation fees already in site.js (ACC $80–$85, private $115–$120) and which services they cover, with a heading like “Osteopathy & acupuncture fees in Christchurch”. This week's estimated results for both price searches were directories and clinics quoting a price: Ara's teaching clinic ($50, or $25 with ACC), Body Well Me ($90 acupuncture first visit) and Pro Acupuncture ($105–$110). Add a one-line ACC note that links to the ACC page (#25) once it exists. Link it from the footer and the booking page. Nina should confirm the prices are current before it goes live. No clinical claims.",
+      "body": "A short /fees/ page listing the consultation fees already in site.js (ACC $80–$85, private $115–$120) and which services they cover, with a heading like “Osteopathy & acupuncture fees in Christchurch”. Estimated results for price searches show directories and pages quoting a price: Ara's teaching clinic ($50, or $25 with ACC) and a Fresha average of $60 for Christchurch acupuncture. Google's autocomplete now also suggests “how much is acupuncture nz”. Add a one-line ACC note that links to the ACC page (#25) once it exists. Link it from the footer and the booking page. Nina should confirm the prices are current before it goes live. No clinical claims.",
       "addresses": [],
       "firstSeen": "2026-10-09"
     },
@@ -321,7 +321,7 @@
       "title": "Add “Christchurch” to the homepage's Google title",
       "owner": "claude",
       "confidence": "likely",
-      "why": "Google shows the homepage for the clinic's two biggest searches, but its title has no place name. Both slipped last month: “osteopath christchurch” from 6.8 to 10.2, “acupuncture christchurch” from 8.2 to 11.",
+      "why": "Google shows the homepage for the clinic's two biggest searches, but its title has no place name. Both slipped again: “osteopath christchurch” from 6.2 to 12.1, “acupuncture christchurch” from 9 to 11.3.",
       "matchTerms": [
         "osteopath christchurch",
         "acupuncture christchurch"
@@ -329,26 +329,50 @@
       "files": [
         "src/index.njk"
       ],
-      "body": "The homepage's Google title is “Osteopathy, Acupuncture, Dry Needling & Herbal Medicine — Meridian Osteopathy”, with no place name. It is the page Google shows for “acupuncture christchurch” (321 appearances, 3 clicks) and “osteopath christchurch” (169 appearances, 6 clicks), both now just off the first page. Change it to something like “Osteopath & Acupuncture in Christchurch | Meridian Osteopathy” (about 60 characters, so Google shows it in full), and start the description with “Christchurch osteopathy and acupuncture clinic”. The main heading already says Christchurch. The same kind of change on the sciatica page was followed by it moving from 33 to 25. Wording only, no clinical changes.",
+      "body": "The homepage's Google title is “Osteopathy, Acupuncture, Dry Needling & Herbal Medicine — Meridian Osteopathy”, with no place name. It is the page Google shows for “acupuncture christchurch” (318 appearances, 2 clicks) and “osteopath christchurch” (130 appearances, 4 clicks), both now off the first page; the homepage's average position fell from 9.6 to 15.1. Change it to something like “Osteopath & Acupuncture in Christchurch | Meridian Osteopathy” (about 60 characters), and start the description with “Christchurch osteopathy and acupuncture clinic”. The main heading already says Christchurch. After the same change, the sciatica page moved from 27.6 to 20.4. Wording only, no clinical changes.",
       "addresses": [],
       "firstSeen": "2026-10-16"
     },
     {
-      "n": 48,
-      "tier": 1,
+      "n": 49,
+      "tier": 2,
       "impact": "M",
       "effort": "S",
-      "title": "Find out why the website stopped updating after 15 Oct",
-      "owner": "you",
-      "confidence": "proven",
-      "why": "The live site still shows the 9 Oct audit and Google numbers fetched on 15 Oct, so the 16 Oct update never went live. Any change Claude ships stays invisible to Google until deploys work again.",
-      "matchTerms": [],
-      "files": [
-        "(Netlify — no repo changes)"
+      "title": "Turn the sports injury page's page-1 spot into clicks (now #6, no clicks)",
+      "owner": "practitioner",
+      "reviewer": "Maddison Moffat",
+      "confidence": "experimental",
+      "why": "The sports injury page is at 6.2 for “sports injury treatment” (165 appearances) and 9.7 overall, but has had no clicks in two months. A clearer, more useful opening could earn clicks from a spot Google already gives it.",
+      "matchTerms": [
+        "sports injury"
       ],
-      "body": "In Netlify, open the site's Deploys list and find the 16 Oct commit “Weekly audit — 1 new items, 1 shipped, 30 searches checked (2026-10-16)”. If its deploy failed, the log says why; if there's no deploy at all, check that automatic builds from main are switched on. Then click Trigger deploy, which also refreshes the Google numbers on this dashboard because they're fetched during the build. The code builds without errors on a fresh copy, so the cause is most likely a Netlify setting or the Search Console step of the build. If this week's update (23 Oct) has gone live by the time you read this, dismiss the item.",
+      "files": [
+        "src/conditions/sports-injury-recovery.njk",
+        "src/_data/conditions.json"
+      ],
+      "body": "The page already has a Christchurch title (#40) and ranks on page 1 for “sports injury treatment” (6.2), “sports injury treatments” (7.6) and “running injury prevention christchurch” (13.1), with 239 appearances and 0 clicks. Many of these searchers want to know what to do right now. Open the page with a short plain answer: what to do in the first few days, when to get it looked at, and what a first visit includes; then reword the Google description to match. Maddison lists sport as a clinical interest, so she should check the advice. Experimental: Google's numbers show the ranking, not why people don't click.",
       "addresses": [],
-      "firstSeen": "2026-10-23"
+      "firstSeen": "2026-10-30"
+    },
+    {
+      "n": 50,
+      "tier": 3,
+      "impact": "L",
+      "effort": "S",
+      "title": "Check whether people searching “Maddison Aitken” are looking for Maddison",
+      "owner": "you",
+      "confidence": "experimental",
+      "why": "Google showed Maddison's profile 71 times for “maddison aitken nz” this month (position 5.3), with no clicks. If that's a former name, saying so on her profile would help people find her.",
+      "matchTerms": [
+        "aitken",
+        "moffat"
+      ],
+      "files": [
+        "src/_data/team.json"
+      ],
+      "body": "Search Console shows a new search, “maddison aitken nz”, leading to Maddison Moffat's profile 71 times in 28 days, at position 5.3 with no clicks. Ask Maddison whether she has practised or registered as Maddison Aitken. If she has and is happy for it to be shown, Claude can add “formerly Maddison Aitken” to her profile and add the name to the brand list in auditConfig. If it's someone else, dismiss this item.",
+      "addresses": [],
+      "firstSeen": "2026-10-30"
     }
   ]
 }
