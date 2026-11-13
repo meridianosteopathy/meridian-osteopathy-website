@@ -1,35 +1,35 @@
 {
   "meta": {
-    "reportDate": "2026-11-06",
+    "reportDate": "2026-11-13",
     "schemaVersion": 2,
-    "lastUpdated": "2026-11-06",
+    "lastUpdated": "2026-11-13",
     "generatedBy": "weekly-routine"
   },
   "summary": [
-    "Little changed this week: Google's numbers (to 27 Oct) show 283 clicks (261 before), but the homepage is still slipping for “osteopath christchurch” (7.1 → 13) and “acupuncture christchurch” (9.5 → 11.1). The homepage title fix (#47) is still the most urgent.",
-    "A directory listing (Fresha) still shows Meridian at an old Riccarton address under the old “Medical Acupuncture” name (#52, new). Nothing on the list shipped this week, and Kaylee's pregnancy page still isn't in Google's data (#44)."
+    "Google's numbers (14 Oct – 10 Nov) dipped: 253 clicks (286 the month before), 149 of them from people not searching Meridian by name (173). The homepage now appears far less for “osteopath christchurch” (65 times, down from 165), so the homepage title fix (#47) is still the most urgent.",
+    "Fresha's listing with Meridian's old Riccarton address now tops the estimated results for “acupuncture christchurch” (#52). Google started a core ranking update on 10 Nov that runs about two weeks, so expect some movement. Nothing on the list shipped this week."
   ],
   "topActions": [
     {
-      "text": "Approve #47 and click Ship it. Claude adds “Christchurch” to the homepage's Google title; the homepage is now at 13 for “osteopath christchurch”, down from 7.1.",
+      "text": "Approve #47 and click Ship it. Claude adds “Christchurch” to the homepage's Google title; the homepage is at 12 for “osteopath christchurch” and 10 for “acupuncture christchurch”.",
       "owner": "claude",
       "n": 47
     },
     {
-      "text": "In Search Console, request indexing for Kaylee's pregnancy page and the three retitled condition pages, then resubmit the sitemap (#44, about 5 minutes).",
+      "text": "Log in to Fresha and fix or close the listing that shows Meridian at 164 Clarence Street, Riccarton; it now appears in four of this week's searches (#52).",
       "owner": "you",
-      "n": 44
+      "n": 52
     },
     {
-      "text": "Approve #51 so Claude adds “Christchurch” and “Halswell” to the osteopathy page's Google title; it sits at 11 for “osteopath halswell” with no clicks.",
-      "owner": "claude",
-      "n": 51
+      "text": "In Search Console, request indexing for Kaylee's pregnancy page, four weeks live and still not in Google's data, then resubmit the sitemap (#44, about 5 minutes).",
+      "owner": "you",
+      "n": 44
     }
   ],
   "tldr": [
-    "Google data (30 Sep – 27 Oct, compared with the 28 days before): 283 clicks (261 before), 184 from people not searching for Meridian by name (149), 33 searches on page 1 (35), 5,197 appearances (4,246). These numbers only refresh when the site rebuilds, and the last build was 30 Oct, so they are just 3 days newer than last week's. The homepage's average position fell from 10.6 to 15: it's at 13 for “osteopath christchurch” (7.1 before) and 11.1 for “acupuncture christchurch” (9.5). The pages retitled on 15 Oct are all edging up: headaches 22.1 → 14, sciatica 24.5 → 21.5, neck pain 19.5 → 17.6, back pain 27.3 → 24.4. None has clicks yet.",
-    "Still open: Kaylee's pregnancy page has no Google appearances (#44). The sports injury page is at 6 for “sports injury treatment” (182 appearances, 0 clicks; #49). New: the osteopathy page is at about 11 for four Halswell searches (42 appearances, 0 clicks), and its Google title is just “Osteopathy | Meridian Osteopathy” (#51). The blog's pregnancy acupuncture post is at 8 with 148 appearances and no clicks, mostly for questions like “can you get acupuncture while pregnant”; worth a look once #49 shows whether a clearer opening earns clicks.",
-    "Estimated ranks (a US-based web search, not what someone in Christchurch sees): 30 searches checked, including all 8 core ones. For the fifth week, Meridian's own site didn't appear. For “acupuncture riccarton” searches, a Fresha listing shows “Meridian Osteopathy - Medical Acupuncture Clinic” at 164 Clarence Street, Riccarton, which doesn't match the address on the site (#52). Added “baby osteopath” from Search Console and three autocomplete searches; pruned three that had stayed low for three runs. Industry news: Google announced no ranking update this week."
+    "Google data (14 Oct – 10 Nov, compared with 16 Sep – 13 Oct): 253 clicks (286), 149 from people not searching for Meridian by name (173), 35 searches on page 1 (32), 5,089 appearances (4,981). Weekly clicks have been flat at 54–72 since mid-October. The homepage got 100 clicks (117): it's at 12.1 for “osteopath christchurch” but appears there much less (65 times, from 165), and at 10.4 for “acupuncture christchurch” (286 appearances, 2 clicks). The four condition pages retitled on 15 Oct are mixed: neck pain 18.5 → 8.4, back pain 24.9 → 24.1, headaches 15.7 → 20, sciatica 25.1 → 29.5. The sciatica page's slide is mostly “sciatica physio” (116 appearances at about 50), a search it isn't aimed at; it is at 3 for “sciatica treatment christchurch” and 2.2 for “osteopath for sciatica”.",
+    "Still open: Kaylee's pregnancy page still has no Google appearances (#44). The sports injury page is at 6.3 for “sports injury treatment” (135 appearances, 0 clicks; #49), though its overall average slipped from 9.4 to 14.4. New this week: the baby osteopathy blog post tripled its appearances (37 → 111) and sits at 11.7 for “baby osteopath”, just off page 1, with no clicks (#53). Google started its November core update on 10 Nov; it can take two weeks, so next week's numbers may move for reasons unrelated to the site. Judge changes after about 24 Nov.",
+    "Estimated ranks (a US-based web search, not what someone in Christchurch sees): 30 searches checked, including all 8 core ones. For the sixth week, Meridian's own site didn't appear. Fresha's listing with the old address showed up in four results, including first place for “acupuncture christchurch” and in a search summary that called the clinic “Meridian Osteopathy (Riccarton)” (#52). Added “osteopathy” from Search Console and four autocomplete searches; pruned four that had stayed low for three runs. Industry: besides the core update, Google expanded customer messaging to Google Maps on 6 Nov, and is reported to be testing booking links added to business profiles automatically, so check that the clinic's profile booking link points to /book/."
   ],
   "alreadyShipped": [
     "llms.txt and llms-full.txt auto-generated from site data",
@@ -252,7 +252,7 @@
       "title": "Ask Google to index the new pregnancy page and the three retitled condition pages",
       "owner": "you",
       "confidence": "likely",
-      "why": "Kaylee's pregnancy and postnatal page went live on 15 Oct but still doesn't appear anywhere in Google's data (to 27 Oct). Asking Google to look at it takes about 5 minutes.",
+      "why": "Kaylee's pregnancy and postnatal page went live on 15 Oct but still doesn't appear anywhere in Google's data (to 10 Nov). Asking Google to look at it takes about 5 minutes.",
       "matchTerms": [
         "postnatal",
         "postpartum",
@@ -262,7 +262,7 @@
       "files": [
         "(Search Console — no repo changes)"
       ],
-      "body": "Four pages changed on 15 Oct: the new /services/osteopathy/pregnancy/ page (PR #140) and the back pain, neck pain and headache pages, whose Google titles now include “Christchurch” (#43). The pregnancy page has no Search Console appearances yet, while the blog's pregnancy posts do. In Search Console, paste each address into the search bar at the top (URL inspection) and click “Request indexing”, then open Sitemaps and resubmit /sitemap.xml. Check the Pages report in two weeks to confirm the new page is indexed. No website changes needed.",
+      "body": "Four pages changed on 15 Oct: the new /services/osteopathy/pregnancy/ page (PR #140) and the back pain, neck pain and headache pages, whose Google titles now include “Christchurch” (#43). Four weeks on, the pregnancy page has no Search Console appearances, while all five pregnancy and baby blog posts do. In Search Console, paste each address into the search bar at the top (URL inspection) and click “Request indexing”, then open Sitemaps and resubmit /sitemap.xml. If URL inspection says the page isn't indexed, the reason it gives is worth sending to Claude. No website changes needed.",
       "addresses": [
         "G8"
       ],
@@ -277,14 +277,14 @@
       "owner": "practitioner",
       "reviewer": "Jonathan Grice",
       "confidence": "experimental",
-      "why": "The sciatica page keeps climbing (24.5 → 21.5) and is at 5.6 for “is sciatica covered by acc”. A practical article gives Google a second, linked page on the topic.",
+      "why": "The sciatica page is at 3 for “sciatica treatment christchurch”, 2.2 for “osteopath for sciatica” and 5.6 for “is sciatica covered by acc”. A practical article gives Google a second, linked page on the topic.",
       "matchTerms": [
         "sciatica"
       ],
       "files": [
         "src/blog/posts/sciatica-guide.md"
       ],
-      "body": "A short post answering what people already search for: “sciatica treatment” (Search Console 12.4), “sciatica specialist” (15.5), “is sciatica covered by acc” (5.6) and “sciatica treatment pregnancy” (Google autocomplete). Cover how long sciatica usually lasts, when to see someone urgently, and what a first visit looks like, then link to the sciatica page. Jonathan lists sciatica as a special interest, so he should check the clinical content. The blog's pregnancy acupuncture post sits at 8 with 148 appearances but no clicks yet, so this stays experimental.",
+      "body": "A short post answering what people already search for: “sciatica treatment” (Search Console 10.4), “sciatica specialist” (13.4), “is sciatica covered by acc” (5.6) and “sciatica treatment pregnancy” (Google autocomplete). Cover how long sciatica usually lasts, when to see someone urgently, and what a first visit looks like, then link to the sciatica page. The sciatica page's average fell to 29.5 mostly because of “sciatica physio” (116 appearances at about 50), which a physio clinic will always win; ignore that. Jonathan lists sciatica as a special interest, so he should check the clinical content. Experimental: the blog's posts appear in Google but have few clicks so far.",
       "addresses": [
         "G8"
       ],
@@ -321,7 +321,7 @@
       "title": "Add “Christchurch” to the homepage's Google title",
       "owner": "claude",
       "confidence": "likely",
-      "why": "Google shows the homepage for the clinic's two biggest searches, but its title has no place name. Both are off page 1: “osteopath christchurch” fell from 7.1 to 13, “acupuncture christchurch” from 9.5 to 11.1.",
+      "why": "Google shows the homepage for the clinic's two biggest searches, but its title has no place name. It sits at 12.1 for “osteopath christchurch”, where it now appears 65 times a month (165 before), and at 10.4 for “acupuncture christchurch”.",
       "matchTerms": [
         "osteopath christchurch",
         "acupuncture christchurch"
@@ -329,7 +329,7 @@
       "files": [
         "src/index.njk"
       ],
-      "body": "The homepage's Google title is “Osteopathy, Acupuncture, Dry Needling & Herbal Medicine — Meridian Osteopathy”, with no place name. It is the page Google shows for “acupuncture christchurch” (302 appearances, 3 clicks) and “osteopath christchurch” (103 appearances, 4 clicks); the homepage's average position fell from 10.6 to 15. Change it to something like “Osteopath & Acupuncture in Christchurch | Meridian Osteopathy” (about 60 characters), and start the description with “Christchurch osteopathy and acupuncture clinic”. The main heading already says Christchurch. The condition pages retitled the same way on 15 Oct have all moved up since (headaches 22.1 → 14). Wording only, no clinical changes.",
+      "body": "The homepage's Google title is “Osteopathy, Acupuncture, Dry Needling & Herbal Medicine — Meridian Osteopathy”, with no place name. It is the page Google shows for “acupuncture christchurch” (10.4, 286 appearances, 2 clicks) and “osteopath christchurch” (12.1, 65 appearances, 4 clicks). Change it to something like “Osteopath & Acupuncture in Christchurch | Meridian Osteopathy” (about 60 characters), and start the description with “Christchurch osteopathy and acupuncture clinic”. The main heading already says Christchurch. The condition pages retitled the same way on 15 Oct have had mixed results so far (neck pain 18.5 → 8.4, headaches 15.7 → 20), but a place name in the title is standard practice for local searches. Wording only, no clinical changes.",
       "addresses": [],
       "firstSeen": "2026-10-16"
     },
@@ -342,7 +342,7 @@
       "owner": "practitioner",
       "reviewer": "Maddison Moffat",
       "confidence": "experimental",
-      "why": "The sports injury page is at 6 for “sports injury treatment” (182 appearances) and 9.9 overall, but has had no clicks in two months. A clearer, more useful opening could earn clicks from a spot Google already gives it.",
+      "why": "The sports injury page is at 6.3 for “sports injury treatment” (135 appearances) but has had no clicks in over two months, and its overall average slipped from 9.4 to 14.4. A clearer, more useful opening could earn clicks from a spot Google already gives it.",
       "matchTerms": [
         "sports injury"
       ],
@@ -350,7 +350,7 @@
         "src/conditions/sports-injury-recovery.njk",
         "src/_data/conditions.json"
       ],
-      "body": "The page already has a Christchurch title (#40) and ranks on page 1 for “sports injury treatment” (6) and “sports injury treatments” (7.5), and at 13.1 for “running injury prevention christchurch”, with 266 appearances and 0 clicks. Many of these searchers want to know what to do right now. Open the page with a short plain answer: what to do in the first few days, when to get it looked at, and what a first visit includes; then reword the Google description to match. Maddison lists sport as a clinical interest, so she should check the advice. Experimental: Google's numbers show the ranking, not why people don't click.",
+      "body": "The page already has a Christchurch title (#40) and ranks on page 1 for “sports injury treatment” (6.3) and “sports injury treatments” (7.3), and at 10.8 for “running injury prevention christchurch”, with 267 appearances and 0 clicks in 28 days. Many of these searchers want to know what to do right now. Open the page with a short plain answer: what to do in the first few days, when to get it looked at, and what a first visit includes; then reword the Google description to match. Maddison lists sport as a clinical interest, so she should check the advice. Experimental: Google's numbers show the ranking, not why people don't click.",
       "addresses": [],
       "firstSeen": "2026-10-30"
     },
@@ -382,35 +382,59 @@
       "title": "Add “Christchurch” and “Halswell” to the osteopathy page's Google title",
       "owner": "claude",
       "confidence": "likely",
-      "why": "Google shows the osteopathy page at about 11 for four Halswell searches (42 appearances, no clicks), but its title is just “Osteopathy”. The condition pages given place-name titles on 15 Oct have all moved up since.",
+      "why": "Google shows the osteopathy page at 10–12 for four Halswell searches, with no clicks this month, but its title is just “Osteopathy”. “Osteopath halswell” is one of the clinic's core searches.",
       "matchTerms": [
         "halswell"
       ],
       "files": [
         "src/services/osteopathy.njk"
       ],
-      "body": "The osteopathy page's Google title is “Osteopathy | Meridian Osteopathy”. Google already shows it for “osteopath halswell” (10.9, 23 appearances), “halswell osteopathy” (11.5), “halswell osteopath” (10.8) and “halswell osteo” (11.6), all with no clicks; “osteopath halswell” is one of the core searches. Change the title to something like “Osteopathy in Christchurch, near Halswell | Meridian Osteopathy” and mention Hillmorton and Halswell early in the description. Some of these searchers may want Halswell Osteopathy, a different clinic, so don't imitate its name. Wording only, no clinical changes.",
+      "body": "The osteopathy page's Google title is “Osteopathy | Meridian Osteopathy”. Google shows it for “osteopath halswell” (11.6, 14 appearances), “halswell osteo” (12) and “halswell osteopath” (10), all with no clicks, while its overall average is a strong 4. Change the title to something like “Osteopathy in Christchurch, near Halswell | Meridian Osteopathy” and mention Hillmorton and Halswell early in the description. Some of these searchers may want Halswell Osteopathy, a different clinic, so don't imitate its name. Wording only, no clinical changes.",
       "addresses": [],
       "firstSeen": "2026-11-06"
     },
     {
       "n": 52,
-      "tier": 2,
+      "tier": 1,
       "impact": "M",
       "effort": "S",
       "title": "Fix Meridian's old Riccarton address on Fresha and other directories",
       "owner": "you",
       "confidence": "likely",
-      "why": "A Fresha listing shows “Meridian Osteopathy - Medical Acupuncture Clinic” at 164 Clarence Street, Riccarton, but the site says 21 Coppell Place, Hillmorton. Mismatched addresses confuse Google Maps about where the clinic is.",
+      "why": "A Fresha listing shows “Meridian Osteopathy - Medical Acupuncture Clinic” at 164 Clarence Street, Riccarton, but the site says 21 Coppell Place, Hillmorton. This week it appeared in four searches, including first place for “acupuncture christchurch”.",
       "matchTerms": [
         "riccarton"
       ],
       "files": [
         "(directory listings — no repo changes)"
       ],
-      "body": "In the web searches for “acupuncture riccarton” and “acupuncture christchurch riccarton”, a Fresha listing appears as “Meridian Osteopathy - Medical Acupuncture Clinic”, 164 Clarence Street, Riccarton, with the clinic's mobile number. The website uses 21 Coppell Place, Hillmorton, and the service was renamed “Acupuncture & Dry Needling” in PR #78. Log in to Fresha and update the name and address, or close the listing if it's no longer used. Then check that your Google Business Profile, Healthpoint, Yellow and Healthpages all show the same name, address and phone. Google uses this consistency when ranking local businesses on Maps.",
+      "body": "Fresha lists “Meridian Osteopathy - Medical Acupuncture Clinic” at 164 Clarence Street, Riccarton, with the clinic's mobile number. This week it appeared in the estimated results for “acupuncture christchurch” (Fresha's page ranked first), “acupuncture riccarton”, “acupuncture christchurch riccarton” and “dry needling christchurch”, and one search summary called the clinic “Meridian Osteopathy (Riccarton)”. The website uses 21 Coppell Place, Hillmorton, and the service was renamed “Acupuncture & Dry Needling” in PR #78. Log in to Fresha and update the name and address, or close the listing if it's no longer used. Then check that your Google Business Profile, Healthpoint, Yellow and Healthpages all show the same name, address and phone; Google uses this consistency when ranking local businesses on Maps.",
       "addresses": [],
       "firstSeen": "2026-11-06"
+    },
+    {
+      "n": 53,
+      "tier": 2,
+      "impact": "M",
+      "effort": "S",
+      "title": "Get the baby osteopathy post onto page 1 for “baby osteopath” (now 11.7)",
+      "owner": "claude",
+      "confidence": "experimental",
+      "why": "The baby osteopathy post is just off page 1 for “baby osteopath” (11.7) and related searches, and its appearances tripled this month (37 → 111), but it hasn't had a click yet.",
+      "matchTerms": [
+        "baby",
+        "babies"
+      ],
+      "files": [
+        "src/blog/posts/baby-osteopathy.md",
+        "src/services/osteopathy/pregnancy.njk",
+        "src/services/osteopathy.njk"
+      ],
+      "body": "Search Console shows the post at 11.7 for “baby osteopath” (28 appearances), 10.5 for “osteopath baby” and 10.7 for “osteopath for babies”, with 111 appearances in 28 days and no clicks. Its title, “Baby Osteopathy: Extremely Gentle, Light-Touch Care for the First Year”, has no place name. Shorten it to something like “Baby Osteopathy in Christchurch: Gentle Care for the First Year” and add “baby osteopathy” links to the post from the osteopathy page and Kaylee's pregnancy page, which don't link to it yet. Wording and links only, no new clinical claims. Experimental: the 15 Oct retitles have had mixed results so far.",
+      "addresses": [
+        "G8"
+      ],
+      "firstSeen": "2026-11-13"
     }
   ]
 }
