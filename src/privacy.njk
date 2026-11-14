@@ -8,7 +8,7 @@ description: "How Meridian Osteopathy collects, uses, shares, stores, and protec
 <section class="hero" style="min-height: 220px; background-color: var(--primary);">
   <div class="hero-content" style="padding: 40px 24px;">
     <h1 style="color: var(--white); margin-bottom: 8px;">Privacy Policy</h1>
-    <p style="color: var(--white); opacity: 0.85; margin: 0;">Effective date: 23 June 2026</p>
+    <p style="color: var(--white); opacity: 0.85; margin: 0;">Effective date: 14 November 2026</p>
   </div>
 </section>
 
@@ -31,8 +31,12 @@ description: "How Meridian Osteopathy collects, uses, shares, stores, and protec
     <h3>Through the careers form</h3>
     <p>When you apply for a role with us, we collect your name, contact details, CV, and cover letter (if provided).</p>
 
-    <h3>During your appointment</h3>
-    <p>As part of delivering clinical care, we collect health information including your medical history, presenting condition, examination findings, treatment records, and progress notes. This is governed by the Health Information Privacy Code 2020.</p>
+    <h3>Before and during your appointments</h3>
+    <p>Before your first visit we ask you to fill in our online consent and health form: your contact details, health history, and, where relevant, your ACC claim details. As part of delivering clinical care, we then collect health information including your presenting condition, examination findings, treatment records, and progress notes. This is governed by the Health Information Privacy Code 2020.</p>
+
+    <h3>Do you have to give us this information?</h3>
+    <p>Giving us your information is voluntary, but we need your contact details and relevant health history to treat you safely. If you choose not to share something, we may not be able to provide some treatments, and we will talk this through with you.</p>
+    <p>For ACC-funded treatment, the Accident Compensation Act 2001 requires certain details, such as your name, date of birth, contact details and how the injury happened, to lodge and manage your claim. Without them we cannot claim from ACC on your behalf, and your treatment would be charged privately.</p>
 
     <h3>Technical information</h3>
     <p>Our website host (Netlify) records basic request logs — IP address, user agent, and requested URL — for security, abuse prevention, and service reliability. We also use Google Analytics 4 to understand how visitors use the site; see section 11 below for detail and opt-out options.</p>
@@ -72,20 +76,25 @@ description: "How Meridian Osteopathy collects, uses, shares, stores, and protec
     <p>We do not sell or rent your personal information. Within Meridian Osteopathy, access to your information is restricted to the internal clinical team for the purposes described above.</p>
     <p>We use the following service providers ("processors") who may handle your information on our behalf, under contractual and technical safeguards:</p>
     <ul>
-      <li><strong>Supabase</strong> (Sydney, Australia) — stores referral submissions, career applications, and clinical records</li>
-      <li><strong>Netlify</strong> (United States) — website hosting, content delivery, and form function execution</li>
+      <li><strong>Supabase</strong> (Sydney, Australia) — stores clinical records, consent forms, referral submissions, and career applications</li>
+      <li><strong>Cliniko</strong> (Australia) — our practice management system: appointments, treatment notes, and invoices</li>
+      <li><strong>Amazon Web Services</strong> (Sydney, Australia) — stores encrypted backups of our records</li>
+      <li><strong>Netlify</strong> (United States) — hosting for this website and our clinic system, content delivery, and form function execution</li>
       <li><strong>Resend</strong> (United States) — sends email notifications when a form is submitted, including the notice we send you when you are referred to us</li>
       <li><strong>Cloudflare Turnstile</strong> — bot protection on our forms; does not store form content</li>
     </ul>
     <p>We may also share your health information with ACC where you have an active ACC claim with us, as part of managing that claim under the Accident Compensation Act 2001, and with other parties only where you have given consent or where the law permits or requires disclosure (for example, in response to a lawful request, or to protect someone's safety).</p>
 
     <h2>6. Cross-border data transfer</h2>
-    <p>Your health information is stored in Sydney, Australia (via our Supabase project). Australia has a comparable privacy framework to New Zealand under the Australian Privacy Act 1988, and Supabase is contractually bound to protect your information to standards consistent with the NZ Privacy Act 2020 and HIPC 2020. By submitting a referral, you acknowledge this transfer.</p>
+    <p>Your health information is stored in Australia: in Sydney with Supabase and, for our encrypted backups, Amazon Web Services, and in Cliniko's Australian data centre. Australia has a comparable privacy framework to New Zealand under the Australian Privacy Act 1988, and these providers are contractually bound to protect your information to standards consistent with the NZ Privacy Act 2020 and HIPC 2020.</p>
 
     <h2>7. How we protect your information</h2>
     <ul>
       <li>All connections to our website and forms use HTTPS/TLS encryption</li>
       <li>Your information is stored with access controls that restrict it to authorised staff and service accounts only</li>
+      <li>Each staff member signs in individually, and what they can see depends on their role: reception staff can see your appointments and contact details, but not your treatment notes</li>
+      <li>Every time someone opens a treatment note, it is recorded, so we can always show who has looked at your record</li>
+      <li>Our backups are encrypted</li>
       <li>Uploaded CVs and cover letters are kept in a private storage bucket; access requires short-lived signed URLs and is restricted to our internal team</li>
       <li>We apply reasonable technical and organisational measures to prevent unauthorised access, alteration, disclosure, or loss</li>
     </ul>
@@ -102,8 +111,8 @@ description: "How Meridian Osteopathy collects, uses, shares, stores, and protec
     <p>Under the Privacy Act 2020 and HIPC 2020, you have the right to:</p>
     <ul>
       <li>Ask what personal or health information we hold about you</li>
-      <li>Request a copy of that information</li>
-      <li>Ask us to correct information that is inaccurate, incomplete, or out of date</li>
+      <li>Request a copy of that information, including a full copy of your clinical record</li>
+      <li>Ask us to correct information that is inaccurate, incomplete, or out of date. If we do not agree to change it, you can ask us to attach a statement of the correction you asked for; we will keep it with that information and show it wherever the information is shown or shared</li>
       <li>Withdraw consent for future uses (this does not affect uses that have already occurred)</li>
     </ul>
     <p>To exercise any of these rights, contact our Privacy Officer using the details in section 13 below. We will respond within 20 working days, as required by law. There is no charge for most requests.</p>
@@ -120,9 +129,10 @@ description: "How Meridian Osteopathy collects, uses, shares, stores, and protec
     <h2>12. Changes to this policy</h2>
     <p>We may update this policy from time to time — for example, when we change service providers, add new technologies, or respond to changes in law. The effective date at the top of this page indicates when the most recent version took effect. Material changes will be flagged prominently on the site for a reasonable period.</p>
     <p>The June 2026 update added section 3, explaining the information we receive about you from third parties and how we let you know — reflecting the Information Privacy Principle 3A amendments to the Privacy Act 2020, which took effect on 1 May 2026.</p>
+    <p>The November 2026 update names our new Privacy Officer, explains whether you have to give us your information and what happens if you don't, adds Cliniko and our backup storage to the list of service providers, describes how access to your record is limited and recorded, and explains how to ask for a correction statement to be attached to your record.</p>
 
     <h2>13. Contact us</h2>
-    <p>Our Privacy Officer is <strong>Na (Nina) Hu</strong>. You can contact her for any privacy question, access request, correction request, or complaint:</p>
+    <p>Our Privacy Officer is <strong>Xin (Kim) Huang</strong>. You can contact him for any privacy question, access request, correction request, or complaint:</p>
     <ul>
       <li>Email: <a href="mailto:info@meridianosteopathy.co.nz">info@meridianosteopathy.co.nz</a></li>
       <li>Phone: <a href="tel:{{ site.phone }}">{{ site.phone }}</a></li>
