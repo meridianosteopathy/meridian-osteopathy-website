@@ -200,7 +200,25 @@ exports.handler = async (event) => {
     return json(500, { error: "storage-failed" }, origin);
   }
 
-  await sendNotification({
+  // Attach the uploaded files so the clinic doesn't have to log into Supabase.
+  // Storage paths stay in the body as the permanent record / fallback.
+  const attachments = [];
+  if (cvPath) {
+    attachments.push({
+      filename: `${folder}-CV-${safeFilename(files.cv.filename)}`,
+      content: files.cv.data,
+      contentType: files.cv.type || undefined,
+    });
+  }
+  if (coverPath) {
+    attachments.push({
+      filename: `${folder}-cover-letter-${safeFilename(files["cover-letter"].filename)}`,
+      content: files["cover-letter"].data,
+      contentType: files["cover-letter"].type || undefined,
+    });
+  }
+
+  const email = {
     subject: `New career application: ${row.name} — ${row.applying_position}`,
     text: [
       `A new career application has been submitted.`,
@@ -213,12 +231,27 @@ exports.handler = async (event) => {
       ``,
       row.message ? `Message:\n${row.message}` : `(no message)`,
       ``,
-      `CV: ${cvPath ? cvPath : "(none)"}`,
-      `Cover letter: ${coverPath ? coverPath : "(none)"}`,
+      `CV: ${cvPath ? `attached (stored at ${cvPath})` : "(none)"}`,
+      `Cover letter: ${coverPath ? `attached (stored at ${coverPath})` : "(none)"}`,
       ``,
       `Record ID: ${data.id}`,
     ].join("\n"),
-  }).catch((e) => console.error("email failed", e));
+  };
+
+  try {
+    const sent = await sendNotification({ ...email, attachments });
+    // If Resend rejects the attachments, still deliver the notification
+    // without them — the files remain safe in Supabase Storage.
+    if (!sent.ok && attachments.length) {
+      console.error("email with attachments failed; retrying without", sent.reason);
+      await sendNotification({
+        ...email,
+        text: email.text.replace(/attached \(stored at /g, "NOT attached (stored at "),
+      });
+    }
+  } catch (e) {
+    console.error("email failed", e);
+  }
 
   return json(200, { ok: true, id: data.id }, origin);
 };

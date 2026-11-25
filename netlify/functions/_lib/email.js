@@ -5,7 +5,9 @@ const RESEND_URL = "https://api.resend.com/emails";
 
 // replyTo (optional) sets Resend's reply_to, so a recipient's reply reaches a
 // person instead of the no-reply sender.
-async function sendNotification({ subject, text, html, to: toOverride, replyTo }) {
+// attachments (optional): [{ filename, content: Buffer, contentType? }].
+// Resend caps a whole email at 40 MB after base64 encoding.
+async function sendNotification({ subject, text, html, to: toOverride, replyTo, attachments }) {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.NOTIFY_FROM || "Meridian Website <no-reply@meridianosteopathy.co.nz>";
   const to = toOverride || process.env.NOTIFY_TO || "info@meridianosteopathy.co.nz";
@@ -29,6 +31,15 @@ async function sendNotification({ subject, text, html, to: toOverride, replyTo }
       text,
       ...(html ? { html } : {}),
       ...(replyTo ? { reply_to: replyTo } : {}),
+      ...(attachments && attachments.length
+        ? {
+            attachments: attachments.map((a) => ({
+              filename: a.filename,
+              content: Buffer.from(a.content).toString("base64"),
+              ...(a.contentType ? { content_type: a.contentType } : {}),
+            })),
+          }
+        : {}),
     }),
   });
 
